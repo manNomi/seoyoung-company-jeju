@@ -108,26 +108,29 @@ const recommendations = [
 
 const rainItinerary = {
   1: {
-    note: "도착하는 날 비오면 관광은 안할거야. 렌트카 받고 비 많이 안오면 빵만 포장하구 바로 삼달리 가자.",
+    note: "첫날 비오면 공항 근처 탑동부터 갈거야. Archive Store는 여행 기간에만 열리니까 여기 먼저 보고 빵은 대기 없을 때만 사자.",
     items: [
       { time: "15:15", name: "제주공항 도착", category: "도착", description: "수하물을 찾고 렌터카 셔틀 승차장으로 이동해요.", meta: ["우산 바로 꺼내기", "수하물 확인"], query: "제주국제공항" },
       { time: "15:40", name: "렌터카 인수", category: "고정 일정", description: "차 사진찍고 와이퍼랑 타이어도 한번 보자.", meta: ["인수 15:40부터", "빗길 운전 준비"], query: "제주공항 렌터카하우스" },
-      { time: "16:10", name: "아베베 베이커리 제주점", category: "선택 간식", description: "비와 교통이 심하지 않을 때만 포장해요. 대기가 길면 바로 숙소로 출발합니다.", meta: ["포장만", "16시 40분 출발 제한"], query: "아베베베이커리 제주" },
-      { time: "16:45", name: "삼달리로 이동", category: "빗길 이동", description: "침수 알림과 도로 통제를 확인하며 숙소로 이동해요.", meta: ["70분에서 90분", "중간 관광 없음"], query: lodging.query, map: false },
-      { time: "18:10", name: lodging.name, category: "체크인", description: "성산읍 삼달리 숙소에 체크인하고 젖은 옷과 신발을 말려요.", meta: ["2박 모두 같은 숙소", "삼달하동로32번길 2-1"], query: lodging.query },
-      { time: "18:50", name: "성산 저녁 식사", category: "저녁", description: "숙소와 가까운 곳에서 따뜻한 식사를 하고 바로 돌아와요.", meta: ["숙소 근처 우선", "침수 구간 우회"], query: "제주 삼달리 맛집", map: false }
+      { time: "16:15", name: "Jeju Archive Store", category: "기간 한정", description: "탑동의 실내 아카이브 스토어에서 제주 익스클루시브 빈티지랑 매일 바뀌는 라인업을 보자.", meta: ["8월 31일까지", "11:30부터 19:30", "탑동로2길 7"], query: "제주특별자치도 제주시 탑동로2길 7" },
+      { time: "17:15", name: "아베베 베이커리 제주점", category: "선택 간식", description: "대기가 짧을 때만 빵을 포장하자. 17시 40분이 되면 바로 숙소로 출발해야 돼.", meta: ["포장만", "대기 길면 패스"], query: "아베베베이커리 제주" },
+      { time: "17:40", name: "삼달리로 이동", category: "빗길 이동", description: "침수 알림과 도로 통제를 확인하면서 숙소로 가자. 중간 관광은 더 안할거야.", meta: ["70분에서 90분", "중간 관광 없음"], query: lodging.query, map: false },
+      { time: "19:10", name: lodging.name, category: "체크인", description: "성산읍 삼달리 숙소에 체크인하고 젖은 옷이랑 신발부터 말리자.", meta: ["2박 모두 같은 숙소", "삼달하동로32번길 2-1"], query: lodging.query },
+      { time: "19:40", name: "성산 저녁 식사", category: "저녁", description: "늦게까지 하는 숙소 근처 식당에서 따뜻한거 먹고 바로 돌아오자.", meta: ["영업시간 먼저 보기", "침수 구간 우회"], query: "제주 삼달리 늦게까지 맛집", map: false }
     ]
   },
   2: {
-    note: "숙소가 삼달리라 조천이랑 성산쪽만 돌거야. 천둥치거나 비 왕창오면 사려니숲길 빼고 빛의 벙커부터 가자.",
+    note: "전날 비오고 아침에 멈추면 제동목장 안개부터 보고 사려니숲길로 갈거야. 아직 비오거나 천둥치면 둘 다 빼고 아침 먹은 다음 야원이랑 빛의 벙커만 가자.",
     items: [
       { time: "05:40", name: "강수 레이더 확인", category: "필수 판단", description: "교래 지역에 비와 낙뢰가 없을 때만 새벽 야외 코스를 시작해요.", meta: ["일출 약 05:57", "비가 오면 실내에서 대기"], query: "제주 날씨", map: false },
-      { time: "06:20", name: "사려니숲길", category: "조건부 숲길", description: "비가 잦아들고 낙뢰와 강풍이 없을 때만 남조로 입구에서 40분 정도 짧게 걸어요.", meta: ["입장료 무료", "남조로 입구 검색", "호우 시 바로 취소"], query: "남조로 사려니숲길" },
-      { time: "08:00", name: "조천 아침 식사", category: "식사", description: "따뜻한 식사를 하며 젖은 옷을 정리하고 야원 운영 여부를 확인해요.", meta: ["주차 가능한 식당", "야원 11시 확인"], query: "제주 조천 아침 맛집", map: false },
-      { time: "10:30", name: "야원", category: "정원 카페", description: "초가와 옹기 정원이 있는 카페예요. 비가 강하면 실내 위주로 머물고 젖은 돌길을 조심해요.", meta: ["번영로 1218", "오픈 시간 확인", "호우 시 짧게"], query: "제주 카페 야원" },
-      { time: "12:20", name: "빛의 벙커", category: "실내 전시", description: "성산으로 내려가 비가 강한 오후를 실내 몰입형 전시에서 보내요.", meta: ["온라인 예매 권장", "전시와 휴관 당일 확인", "약 90분"], query: "빛의 벙커 제주" },
-      { time: "14:30", name: "서툰가족", category: "선택 코스", description: "저장해 둔 비 오는 날 장소입니다. 정확한 위치와 영업 여부가 확인되지 않아 성산권으로 확인될 때만 방문합니다.", meta: ["장소 확인 필요", "동선 밖이면 생략"], query: "서툰가족 제주", map: false, alert: true },
-      { time: "17:20", name: "성산 저녁 식사", category: "저녁", description: "숙소와 가까운 성산이나 표선에서 따뜻한 저녁을 먹어요.", meta: ["숙소 근처 우선", "침수 구간 우회"], query: "제주 삼달리 맛집", map: false },
+      { time: "06:20", name: "제동목장 입구", category: "비 온 다음날", description: "비가 완전히 멈췄을 때만 안개 낀 목장 입구를 짧게 보자. 목장 차량 길은 절대 막으면 안돼.", meta: ["교래7길 218", "20분만", "비와 낙뢰면 취소"], query: "제주시 조천읍 교래7길 218" },
+      { time: "07:00", name: "사려니숲길", category: "조건부 숲길", description: "비가 잦아들고 낙뢰랑 강풍이 없을 때만 남조로 입구에서 40분 정도 걷자.", meta: ["입장료 무료", "남조로 입구", "호우면 취소"], query: "남조로 사려니숲길" },
+      { time: "08:20", name: "조천 아침 식사", category: "식사", description: "따뜻한거 먹으면서 젖은 옷을 정리하고 야원 운영 여부를 보자.", meta: ["주차 가능한 식당", "야원 오픈 확인"], query: "제주 조천 아침 맛집", map: false },
+      { time: "11:00", name: "야원", category: "정원 카페", description: "초가와 옹기 정원이 있는 카페야. 비가 강하면 실내 창가에만 있고 젖은 돌길은 조심하자.", meta: ["11시 오픈 확인", "번영로 1218", "호우 시 짧게"], query: "제주 카페 야원" },
+      { time: "12:30", name: "조천이나 성산 점심", category: "식사", description: "빛의 벙커 가는 길에 주차 편한 곳에서 점심을 먹자.", meta: ["동선 안에서 고르기", "한 시간 안에"], query: "제주 조천 성산 점심 맛집", map: false },
+      { time: "14:00", name: "빛의 벙커", category: "실내 전시", description: "오후에 비가 다시 세져도 괜찮은 완전 실내 코스야. 사진도 찍고 천천히 보자.", meta: ["온라인 예매 권장", "전시와 휴관 확인", "약 90분"], query: "빛의 벙커 제주" },
+      { time: "16:00", name: "서툰가족", category: "확인되면 가기", description: "전에 저장해둔 비 오는 날 후보야. 정확한 위치랑 영업 여부가 지도에서 확인될 때만 들르자.", meta: ["확인 안되면 패스", "동선 밖이면 생략"], query: "서툰가족 제주", map: false, alert: true },
+      { time: "17:40", name: "성산 저녁 식사", category: "저녁", description: "숙소와 가까운 성산이나 표선에서 따뜻한 저녁을 먹자.", meta: ["숙소 근처 우선", "침수 구간 우회"], query: "제주 삼달리 맛집", map: false },
       { time: "19:00", name: lodging.name, category: "고정 숙소", description: "첫날과 같은 삼달리 숙소로 돌아와 젖은 짐을 정리해요.", meta: ["2박 모두 같은 숙소", "다음 날 체크아웃 준비"], query: lodging.query }
     ]
   },
@@ -144,6 +147,7 @@ const rainItinerary = {
 };
 
 const rainRecommendations = [
+  { region: "airport", name: "Jeju Archive Store", tags: ["8월 기간 한정", "완전 실내"], time: "50분", detour: "탑동로2길 7", description: "7월 31일부터 8월 31일까지 열리는 스투시 공식 아카이브 스토어예요. 제주 익스클루시브 빈티지와 매일 바뀌는 라인업을 볼 수 있고 운영시간은 11시 30분부터 19시 30분이에요.", query: "제주특별자치도 제주시 탑동로2길 7", source: "https://kr.stussy.com/blogs/news/jeju-archive-store" },
   { region: "east", name: "제동목장 입구", tags: ["비 온 다음날", "새벽"], time: "20분", detour: "입구 교래7길 218", description: "목장 소재지는 교래리 산16이지만 사진 지점은 입구 삼거리로 안내해요. GS25 교래퐁낭점 옆 공터나 삼다수 숲길 주차장을 이용하고 목장 차량의 통행을 막지 마세요.", query: "제주시 조천읍 교래7길 218", source: "https://www.visitjeju.or.kr/issue/news/weekly.htm?act=download&no=2&page=5&seq=56348" },
   { region: "east", name: "사려니숲길", tags: ["약한 비", "무료"], time: "60분", detour: "제동목장 근처", description: "공식 관광 영상에도 소개된 비 오는 제주 대표 숲길이에요. 남조로 입구로 가고 호우나 낙뢰가 있으면 취소하세요.", query: "남조로 사려니숲길", source: "https://www.youtube.com/watch?v=gux_pyEIcUY" },
   { region: "south", name: "물영아리오름 습지", tags: ["약한 비", "람사르 습지"], time: "90분", detour: "남원읍", description: "습할 때 숲과 습지의 분위기가 좋지만 정상 계단이 가파릅니다. 호우와 강풍 및 낙뢰 때는 일정에서 빼세요.", query: "물영아리오름 습지", source: "https://rsis.ramsar.org/ris/1648" },
@@ -164,11 +168,11 @@ const rainRecommendations = [
   { region: "east", name: "빛의벙커", tags: ["호우 대안", "실내 전시"], time: "90분", detour: "성산읍 고성리 2039-22", description: "성산 쪽에서 비를 피하며 몰입형 전시를 볼 수 있어요. 전시 회차와 마지막 입장을 확인하세요.", query: "빛의벙커 제주" },
   { region: "south", name: "베케", tags: ["카페", "정원"], time: "70분", detour: "신효동 1139-1", description: "정원 풍경이 좋은 카페예요. 비가 강할 때는 실내에서만 머물고 정원 관람 가능 여부를 확인하세요.", query: "베케 제주 신효동 1139-1" },
   { region: "airport", name: "미르담", tags: ["카페", "공항 근처"], time: "50분", detour: "용담이동 899-2", description: "공항 일정 전후에 넣기 좋은 카페예요. 제니스빌라 주차장을 지나 진입하는 안내를 참고하세요.", query: "미르담 제주 용담이동 899-2" },
-  { region: "west", name: "바이닐 제주", tags: ["코스 포함", "LP 카페"], time: "90분", detour: "한림읍 옹포리 643", description: "개별 턴테이블로 LP를 들을 수 있는 실내 카페예요. 유동룡미술관 다음 순서로 넣었어요.", query: "바이닐 제주", source: "https://www.visitjeju.net/kr/detail/view?contentsid=CNTS_300000000013141" },
+  { region: "west", name: "바이닐 제주", tags: ["서쪽 후보", "LP 카페"], time: "90분", detour: "한림읍 옹포리 643", description: "개별 턴테이블로 LP를 들을 수 있는 실내 카페야. 이번에는 11시 50분 렌터카 반납 때문에 일정에서 빼고 다음 제주 후보로 남겨뒀어.", query: "바이닐 제주", source: "https://www.visitjeju.net/kr/detail/view?contentsid=CNTS_300000000013141" },
   { region: "west", name: "리버브 제주", tags: ["카페", "한림"], time: "60분", detour: "귀덕리 3189 3층", description: "한림 해안에 있는 실내 카페입니다. 비바람이 강하면 바다 산책은 제외합니다.", query: "리버브 제주 귀덕리 3189" },
   { region: "west", name: "플레이사계시장", tags: ["시장", "사계리"], time: "60분", detour: "사계리 126-1", description: "돈사빠나 안덕 서쪽 일정에서 함께 볼 수 있습니다. 운영일을 먼저 확인하세요.", query: "플레이사계시장" },
   { region: "west", name: "포도뮤지엄", tags: ["호우 대안", "실내 전시"], time: "90분", detour: "안덕면 상천리 837", description: "안덕에서 강한 비를 피할 수 있는 미술관입니다. 사전 예약과 휴관일을 확인하세요.", query: "포도뮤지엄 제주" },
-  { region: "west", name: "유동룡미술관", tags: ["코스 포함", "실내 전시"], time: "80분", detour: "한림읍 월림리 115-161", description: "이타미 준의 건축과 철학을 공간으로 경험하는 미술관이에요. 대체공휴일 운영과 예약 방식을 확인하세요.", query: "유동룡미술관", source: "https://www.itamijunmuseum.com/" },
+  { region: "west", name: "유동룡미술관", tags: ["서쪽 후보", "실내 전시"], time: "80분", detour: "한림읍 월림리 115-161", description: "이타미 준의 건축과 철학을 공간으로 경험하는 미술관이야. 8월 17일은 월요일이고 마지막 날은 렌터카 반납이 빨라서 이번 핵심 일정에서는 뺐어.", query: "유동룡미술관", source: "https://www.itamijunmuseum.com/" },
   { region: "south", name: "쇠소깍 산물 관광농원", tags: ["체험", "약한 비"], time: "70분", detour: "남원읍 하례리 155-1", description: "농원 체험은 야외 비중이 있으므로 가벼운 비에만 선택해요. 호우에는 인근 실내 카페로 바꾸세요.", query: "쇠소깍 산물 관광농원" },
   { region: "west", name: "돌코리숲", tags: ["숲 체험", "호우 제외"], time: "80분", detour: "안덕면 서광리 725", description: "젖은 숲길은 미끄러울 수 있어 약한 비에만 방문해요. 현장 통제와 체험 운영 여부를 확인하세요.", query: "돌코리숲 제주" },
   { region: "west", name: "토토아뜰리에", tags: ["체험", "예약 확인"], time: "90분", detour: "애월읍 상귀리 152", description: "비 오는 날 이용할 수 있는 체험 공간입니다. 프로그램 시간과 예약 가능 여부를 먼저 확인하세요.", query: "토토아뜰리에 제주" },
@@ -183,8 +187,8 @@ const rainRecommendations = [
   { region: "airport", name: "마음에온", tags: ["카페", "제주시"], time: "50분", detour: "일도일동 1301-4", description: "제주시 원도심에 있어 공항 이동 전후에 들를 수 있습니다.", query: "마음에온 제주" },
   { region: "east", name: "야원", tags: ["코스 포함", "정원 카페"], time: "70분", detour: "대흘리 1197-56", description: "초가와 옹기 정원을 볼 수 있는 조천 카페예요. 비가 강하면 실내 위주로 이용하세요.", query: "제주 카페 야원", source: "https://www.visitjeju.net/kr/detail/view?contentsid=CNTS_200000000013907&menuId=DOM_000001719000000000" },
   { region: "south", name: "이승악오름", tags: ["비 그친 뒤", "호우 제외"], time: "90분", detour: "남원읍 신례리 산2-1", description: "숲길 분위기가 좋지만 젖은 길과 급경사를 고려해야 해요. 비가 내리는 중이거나 낙뢰 예보가 있으면 제외하세요.", query: "이승악오름 제주" },
-  { region: "east", name: "올데이모즈", tags: ["코스 포함", "운영 확인"], time: "60분", detour: "조천읍 대흘북길 26", description: "녹차밭 풍경을 보며 아침 시간을 보내기 좋은 카페예요. 월요일 통상 휴무라 8월 17일 특별 운영 여부를 확인해야 해요.", query: "올데이모즈 제주" },
-  { region: "west", name: "돈사빠", tags: ["코스 포함", "흑돼지"], time: "90분", detour: "대정읍 중산간서로 2405", description: "유동룡미술관과 바이닐 제주 다음에 이어지는 저녁 식사 장소예요. 영업시간과 휴무를 확인하세요.", query: "돈사빠 제주" },
+  { region: "east", name: "올데이모즈", tags: ["비오는 날 후보", "월요일 휴무"], time: "60분", detour: "조천읍 대흘북길 26", description: "녹차밭 풍경 보면서 아침 보내기 좋은 카페야. 둘째 날인 8월 17일이 월요일 정기휴무라 핵심 일정에서는 뺐고 특별 운영 공지가 있을 때만 바꾸자.", query: "올데이모즈 제주" },
+  { region: "west", name: "돈사빠", tags: ["서쪽 후보", "흑돼지"], time: "90분", detour: "대정읍 중산간서로 2405", description: "서쪽에서 먹기 좋은 흑돼지 후보야. 삼달리 숙소와 반대쪽이라 이번 일정에는 넣지 않고 다음 제주 후보로 남겨뒀어.", query: "돈사빠 제주" },
 ];
 
 const placeKindMeta = {
@@ -428,6 +432,7 @@ const exactPlaceCoordinates = {
   "렌터카 인수": [126.499, 33.503],
   "렌터카 주유": [126.501, 33.498],
   "렌터카 반납": [126.499, 33.503],
+  "Jeju Archive Store": [126.523, 33.518],
   "아베베 베이커리 제주점": [126.527, 33.514],
   "우동 카덴": [126.666, 33.435],
   "제동목장 입구": [126.692, 33.429],
