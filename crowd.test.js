@@ -1,6 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { normalizeCrowdResult, mapWithConcurrency, formatCrowdTime } = require("./crowd.js");
+const { normalizeCrowdResult, normalizePlaceName, matchSupportedPlaces, mapWithConcurrency, formatCrowdTime } = require("./crowd.js");
 
 const place = { id: "fixture", name: "테스트 장소", region: "east", lat: 33.4, lng: 126.8 };
 
@@ -57,4 +57,18 @@ test("동시 조회 결과는 입력 순서를 유지하고 개별 실패를 격
 test("TMAP 시각 문자열을 여행 중 읽기 쉬운 형식으로 바꾼다", () => {
   assert.equal(formatCrowdTime("20260811152730"), "15:27 기준");
   assert.equal(formatCrowdTime(""), "조회 시각 없음");
+});
+
+test("장소 이름의 제주 표기와 공백을 제거해 비교한다", () => {
+  assert.equal(normalizePlaceName("아쿠아플라넷 제주"), "아쿠아플라넷");
+  assert.equal(normalizePlaceName("제주 아쿠아 플라넷"), "아쿠아플라넷");
+});
+
+test("혼잡도 제공 장소 목록의 POI ID를 여행 장소에 연결한다", () => {
+  const places = [{ id: "aqua", name: "아쿠아플라넷 제주", keyword: "아쿠아플라넷 제주" }, { id: "forest", name: "사려니숲길" }];
+  const matched = matchSupportedPlaces(places, [{ poiId: 1234567, poiName: "제주아쿠아플라넷" }]);
+
+  assert.equal(matched[0].poiId, "1234567");
+  assert.equal(matched[0].supported, true);
+  assert.equal(matched[1].supported, false);
 });
