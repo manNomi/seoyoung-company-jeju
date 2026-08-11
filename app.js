@@ -5,11 +5,11 @@ const lodging = {
 
 const planAItinerary = {
   1: {
-    note: "서영이가 처음 적어둔건 15시 15분 도착 기준이야. 실제로는 15시 50분 도착이구 시간 안 맞는건 노랗게 해놨어.",
+    note: "서영이가 처음 적어둔 15시 15분 도착이 맞아. 렌트카는 15시 40분부터 받고 뒤 일정은 대기시간 보면서 가자.",
     items: [
-      { time: "처음 15:15", name: "제주공항 도착", category: "서영픽", description: "처음에는 15시 15분 도착으로 잡았어. 실제로는 15시 50분 도착이구 렌트카 예약은 15시 40분부터야. 짐 찾고 받으면 16시 20분쯤 될듯!", meta: ["실제 도착 15:50", "렌터카 예약 15:40부터"], query: "제주국제공항", alert: true },
+      { time: "15:15", name: "제주공항 도착", category: "서영픽", description: "제주에는 15시 15분 도착이야. 짐 찾고 15시 40분부터 렌트카 받으면 돼!", meta: ["제주 도착 15:15", "렌터카 인수 15:40부터"], query: "제주국제공항" },
       { time: "+15분", name: "아베베 베이커리 제주점", category: "서영픽 간식", description: "동문시장 근처에서 빵 포장하는 첫 코스야.", meta: ["이동 15분", "주차랑 대기 생각하기"], query: "아베베베이커리 제주" },
-      { time: "+28분", name: "우동 카덴", category: "서영픽 식사", description: "17시가 마지막 주문이라 실제 도착 시간에는 못갈듯ㅜㅜ", meta: ["17시 마지막 주문", "우리끼리 픽에서는 뺐어"], query: "우동 카덴 제주", alert: true },
+      { time: "+28분", name: "우동 카덴", category: "서영픽 식사", description: "17시가 마지막 주문이라 차 받고 바로 가도 좀 빠듯할듯ㅜㅜ", meta: ["17시 마지막 주문", "대기 길면 바로 빼기"], query: "우동 카덴 제주", alert: true },
       { time: "+6분", name: "제동목장 입구", category: "서영픽 풍경", description: "목장 코스야. 목장차 지나가는 길은 막지 말고 짧게 보고 가자.", meta: ["이동 6분", "목장 안에는 들어가지 말기"], query: "제주시 조천읍 교래7길 218" },
       { time: "+21분", name: "안친오름", category: "서영픽 자연", description: "사유지 들어가도 되는지랑 일몰 시간은 한번 보고 가야할듯.", meta: ["입장료 1인 5,000원", "해 남았을 때만"], query: "안친오름 제주", alert: true },
       { time: "+20분", name: "픽업커피 행원점", category: "서영픽 카페", description: "18시까지라 실제 도착 시간에는 못갈것 같아.", meta: ["18시까지", "시간 안 맞음"], query: "픽업커피 행원점 제주", alert: true },
@@ -51,14 +51,14 @@ const planAItinerary = {
 
 const itinerary = {
   1: {
-    note: "첫날은 15시 50분 도착이구 렌트카 예약은 15시 40분부터야. 짐 찾고 받으면 16시 20분쯤 될듯! 우동 카덴이랑 목장은 시간 안 맞아서 빼고 일단 숙소랑 저녁부터 가자.",
+    note: "첫날은 15시 15분 도착이구 렌트카는 15시 40분부터야. 차 받고 16시쯤 출발할듯! 우동 카덴이랑 목장은 빠듯해서 빼고 일단 숙소랑 저녁부터 가자.",
     items: [
-      { time: "15:50", name: "제주공항 도착", category: "도착", description: "수하물을 찾고 예약한 렌터카 셔틀 승차장으로 이동해요.", meta: ["항공편 도착", "수하물 확인"], query: "제주국제공항" },
-      { time: "16:20", name: "렌터카 인수", category: "고정 일정", description: "예약은 15시 40분부터야. 공항 도착해서 짐 찾고 차 받으면 외관이랑 기름 얼마나 있는지 사진 찍자.", meta: ["예약 15:40부터", "출발 전 사진 찍기"], query: "제주공항 렌터카하우스" },
-      { time: "16:50", name: "아베베 베이커리 제주점", category: "선택 간식", description: "대기와 주차가 길지 않을 때만 빵을 포장해요. 17시 20분이 넘으면 바로 숙소 방향으로 출발해요.", meta: ["포장만", "30분 제한"], query: "아베베베이커리 제주" },
-      { time: "17:25", name: "삼달리로 이동", category: "이동", description: "해가 지기 전에 동쪽 숙소로 이동해요. 교통 상황에 따라 약 70분에서 90분을 잡아요.", meta: ["장거리 첫 운전", "중간 관광 없음"], query: lodging.query, map: false },
-      { time: "18:50", name: lodging.name, category: "체크인", description: "성산읍 삼달리 숙소에 체크인하고 짐을 내려요.", meta: ["2박 고정", "삼달하동로32번길 2-1"], query: lodging.query },
-      { time: "19:30", name: "성산 저녁 식사", category: "저녁", description: "숙소에서 멀리 가지 않고 성산이나 표선의 주차 가능한 식당을 선택해요.", meta: ["숙소 근처 우선", "첫날 무리 금지"], query: "제주 삼달리 맛집", map: false }
+      { time: "15:15", name: "제주공항 도착", category: "도착", description: "수하물을 찾고 예약한 렌터카 셔틀 승차장으로 이동해요.", meta: ["항공편 도착", "수하물 확인"], query: "제주국제공항" },
+      { time: "15:40", name: "렌터카 인수", category: "고정 일정", description: "예약 시간부터 차 받고 외관이랑 기름 얼마나 있는지 사진 찍자.", meta: ["인수 15:40부터", "출발 전 사진 찍기"], query: "제주공항 렌터카하우스" },
+      { time: "16:10", name: "아베베 베이커리 제주점", category: "선택 간식", description: "대기와 주차가 길지 않을 때만 빵을 포장해요. 16시 40분이 넘으면 바로 숙소 방향으로 출발해요.", meta: ["포장만", "30분 제한"], query: "아베베베이커리 제주" },
+      { time: "16:45", name: "삼달리로 이동", category: "이동", description: "해가 지기 전에 동쪽 숙소로 이동해요. 교통 상황에 따라 약 70분에서 90분을 잡아요.", meta: ["장거리 첫 운전", "중간 관광 없음"], query: lodging.query, map: false },
+      { time: "18:10", name: lodging.name, category: "체크인", description: "성산읍 삼달리 숙소에 체크인하고 짐을 내려요.", meta: ["2박 고정", "삼달하동로32번길 2-1"], query: lodging.query },
+      { time: "18:50", name: "성산 저녁 식사", category: "저녁", description: "숙소에서 멀리 가지 않고 성산이나 표선의 주차 가능한 식당을 선택해요.", meta: ["숙소 근처 우선", "첫날 무리 금지"], query: "제주 삼달리 맛집", map: false }
     ]
   },
   2: {
@@ -108,12 +108,12 @@ const rainItinerary = {
   1: {
     note: "도착하는 날 비오면 관광은 안할거야. 렌트카 받고 비 많이 안오면 빵만 포장하구 바로 삼달리 가자.",
     items: [
-      { time: "15:50", name: "제주공항 도착", category: "도착", description: "수하물을 찾고 렌터카 셔틀 승차장으로 이동해요.", meta: ["우산 바로 꺼내기", "수하물 확인"], query: "제주국제공항" },
-      { time: "16:20", name: "렌터카 인수", category: "고정 일정", description: "예약은 15시 40분부터야. 차 사진찍고 와이퍼랑 타이어도 한번 보자.", meta: ["예약 15:40부터", "빗길 운전 준비"], query: "제주공항 렌터카하우스" },
-      { time: "16:50", name: "아베베 베이커리 제주점", category: "선택 간식", description: "비와 교통이 심하지 않을 때만 포장해요. 대기가 길면 바로 숙소로 출발합니다.", meta: ["포장만", "17시 20분 출발 제한"], query: "아베베베이커리 제주" },
-      { time: "17:25", name: "삼달리로 이동", category: "빗길 이동", description: "침수 알림과 도로 통제를 확인하며 숙소로 이동해요.", meta: ["70분에서 90분", "중간 관광 없음"], query: lodging.query, map: false },
-      { time: "18:50", name: lodging.name, category: "체크인", description: "성산읍 삼달리 숙소에 체크인하고 젖은 옷과 신발을 말려요.", meta: ["2박 모두 같은 숙소", "삼달하동로32번길 2-1"], query: lodging.query },
-      { time: "19:30", name: "성산 저녁 식사", category: "저녁", description: "숙소와 가까운 곳에서 따뜻한 식사를 하고 바로 돌아와요.", meta: ["숙소 근처 우선", "침수 구간 우회"], query: "제주 삼달리 맛집", map: false }
+      { time: "15:15", name: "제주공항 도착", category: "도착", description: "수하물을 찾고 렌터카 셔틀 승차장으로 이동해요.", meta: ["우산 바로 꺼내기", "수하물 확인"], query: "제주국제공항" },
+      { time: "15:40", name: "렌터카 인수", category: "고정 일정", description: "차 사진찍고 와이퍼랑 타이어도 한번 보자.", meta: ["인수 15:40부터", "빗길 운전 준비"], query: "제주공항 렌터카하우스" },
+      { time: "16:10", name: "아베베 베이커리 제주점", category: "선택 간식", description: "비와 교통이 심하지 않을 때만 포장해요. 대기가 길면 바로 숙소로 출발합니다.", meta: ["포장만", "16시 40분 출발 제한"], query: "아베베베이커리 제주" },
+      { time: "16:45", name: "삼달리로 이동", category: "빗길 이동", description: "침수 알림과 도로 통제를 확인하며 숙소로 이동해요.", meta: ["70분에서 90분", "중간 관광 없음"], query: lodging.query, map: false },
+      { time: "18:10", name: lodging.name, category: "체크인", description: "성산읍 삼달리 숙소에 체크인하고 젖은 옷과 신발을 말려요.", meta: ["2박 모두 같은 숙소", "삼달하동로32번길 2-1"], query: lodging.query },
+      { time: "18:50", name: "성산 저녁 식사", category: "저녁", description: "숙소와 가까운 곳에서 따뜻한 식사를 하고 바로 돌아와요.", meta: ["숙소 근처 우선", "침수 구간 우회"], query: "제주 삼달리 맛집", map: false }
     ]
   },
   2: {
