@@ -342,7 +342,7 @@ function initializeCrowdControls() {
 }
 
 let crowdInitialized = false;
-window.showCrowdMap = function showCrowdMap() {
+function showCrowdMap() {
   if (!crowdInitialized) {
     crowdInitialized = true;
     initializeCrowdControls();
@@ -360,6 +360,12 @@ window.showCrowdMap = function showCrowdMap() {
     renderCrowdMap();
   }
   window.setTimeout(() => crowdMapInstance?.invalidateSize(), 50);
-};
+}
 
-if (!crowdDom('[data-tab-panel="crowd"]')?.hidden) window.showCrowdMap();
+if (typeof window !== "undefined") window.showCrowdMap = showCrowdMap;
+
+if (typeof module !== "undefined") {
+  module.exports = { crowdLevelMeta, normalizeCrowdResult, mapWithConcurrency, formatCrowdTime };
+}
+
+if (typeof document !== "undefined" && !crowdDom('[data-tab-panel="crowd"]')?.hidden) showCrowdMap();

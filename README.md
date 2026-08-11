@@ -24,6 +24,12 @@ PLAN A는 서영님이 만든 PDF 원안입니다. 현재 도착 시간과 영�
 
 TMAP AppKey는 [SK open API](https://openapi.sk.com/)에서 발급하고 앱에 TMAP API 및 PUZZLE 장소 혼잡도 상품을 연결해야 합니다. 공식 요청 및 응답 형식은 [TMAP 실시간 장소 혼잡도 문서](https://tmapapi.tmapmobility.com/main.html#puzzle/docs/puzzlePoi)에서 확인할 수 있습니다.
 
+혼잡도 응답 변환과 장소 및 주변 혼잡도 우선순위와 오류 격리는 다음 명령으로 검증합니다.
+
+```bash
+node --test crowd.test.js
+```
+
 비 오는 둘째 날 PLAN B는 사려니숲길과 야원을 거쳐 빛의 벙커로 이동합니다. 친봉산장은 비와 도로 상황이 괜찮을 때만 선택하고 저녁에는 삼달리 숙소로 돌아옵니다. 추천 장소 영역에는 전달받은 카페와 전시관 및 체험 장소를 지역별로 추가했습니다.
 
 ## 파일 구성
@@ -32,5 +38,6 @@ TMAP AppKey는 [SK open API](https://openapi.sk.com/)에서 발급하고 앱에 
 - `styles.css`: 반응형 화면 디자인
 - `app.js`: 일정 데이터와 체크 기능 및 필터와 지도 기능
 - `crowd.js`: TMAP 혼잡도 API 연결과 캐시 및 혼잡도 클러스터 지도
+- `crowd.test.js`: TMAP 응답 변환과 동시 조회 오류 처리 테스트
 
 상점의 영업시간과 휴무일은 바뀔 수 있으므로 방문 당일 지도에서 다시 확인해야 합니다.
