@@ -111,6 +111,12 @@ button { color: inherit; font: inherit; }
 .plan-version-button.active { color: var(--accent-text); background: var(--accent); border-color: var(--accent); box-shadow: var(--shadow-md); }
 .plan-version-button.active small { color: var(--accent); background: var(--accent-text); }
 .plan-version-button.active > span { color: color-mix(in srgb, var(--accent-text) 65%, transparent); }
+.trip-facts { display: grid; grid-template-columns: .85fr .85fr 1.3fr; gap: 1px; overflow: hidden; margin-bottom: 12px; background: var(--line); border: 1px solid var(--line); border-radius: 15px; box-shadow: var(--shadow-xs); }
+.trip-facts > * { display: flex; min-width: 0; flex-direction: column; padding: 13px 15px; background: var(--surface); }
+.trip-facts small { color: var(--ink-3); font-size: 8px; font-weight: 800; letter-spacing: .12em; }
+.trip-facts strong { margin-top: 3px; overflow: hidden; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.trip-facts span { margin-top: 2px; overflow: hidden; color: var(--ink-3); font-size: 8px; text-overflow: ellipsis; white-space: nowrap; }
+.trip-facts a:hover strong { text-decoration: underline; text-underline-offset: 3px; }
 .plan-mode-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 13px; padding: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: 15px; box-shadow: var(--shadow-xs); }
 .plan-mode-bar > p { margin: 0 10px 0 0; color: var(--ink-3); font-size: 9px; }
 .plan-mode-switch { display: flex; gap: 4px; }
@@ -1009,6 +1015,10 @@ footer { padding-right: max(48px, calc((100% - 1800px) / 2)); padding-left: max(
   .plan-version-button small { width: 40px; height: 40px; border-radius: 11px; font-size: 8px; }
   .plan-version-button strong { font-size: 11px; }
   .plan-version-button > span { font-size: 8px; }
+  .trip-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .trip-facts > * { padding: 11px 12px; }
+  .trip-facts > a { grid-column: 1 / -1; }
+  .trip-facts strong { font-size: 10px; }
   .plan-mode-bar { min-height: 0; }
   .map-context-controls { display: grid; grid-template-columns: auto 1fr; }
   .map-version-switch { align-self: stretch; }
