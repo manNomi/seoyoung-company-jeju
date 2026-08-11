@@ -57,14 +57,14 @@
               <div><strong>16 <span>AUG</span></strong><b>→</b><strong>18 <span>AUG</span></strong></div>
             </div>
             <div class="pass-cell">
-              <small>ROUTE</small>
-              <strong>Jeju island</strong>
-              <span class="pass-caption">Rain ready road trip</span>
+              <small>ARRIVAL</small>
+              <strong>15:50 · Rent car</strong>
+              <span class="pass-caption">Jeju airport</span>
             </div>
             <div class="pass-cell">
-              <small>PLACES</small>
-              <strong>42 destinations</strong>
-              <span class="pass-caption">Forest, art and coffee</span>
+              <small>STAY</small>
+              <strong>Samdal-ri</strong>
+              <span class="pass-caption">Same place for 2 nights</span>
             </div>
           </div>
           </section>
@@ -83,7 +83,16 @@
               </div>
             </div>
 
-            <div class="plan-mode-bar" aria-label="일정 종류 선택">
+            <div class="plan-version-switch" aria-label="계획안 선택">
+              <button class="plan-version-button" type="button" data-plan-version="a" aria-pressed="false">
+                <small>PLAN A</small><strong>서영 원안</strong><span>PDF 순서 그대로</span>
+              </button>
+              <button class="plan-version-button active" type="button" data-plan-version="b" aria-pressed="true">
+                <small>PLAN B</small><strong>실전 일정</strong><span>숙소와 날씨 반영</span>
+              </button>
+            </div>
+
+            <div class="plan-mode-bar" data-plan-b-control aria-label="일정 종류 선택">
               <div class="plan-mode-switch">
                 <button class="plan-mode-button active" type="button" data-plan-mode="sunny"><span>☀</span> 기본 일정</button>
                 <button class="plan-mode-button" type="button" data-plan-mode="rain"><span>☂</span> 비 오는 날</button>
@@ -91,7 +100,7 @@
               <p>날씨에 맞춰 같은 날짜의 동선을 바꿔 볼 수 있어요.</p>
             </div>
 
-            <section class="rain-rule-card" aria-label="비의 강도별 일정 선택 기준">
+            <section class="rain-rule-card" data-plan-b-control aria-label="비의 강도별 일정 선택 기준">
               <div><span class="rain-level mist">01</span><p><strong>비가 그친 새벽</strong><small>제동목장과 사려니숲길</small></p></div>
               <div><span class="rain-level drizzle">02</span><p><strong>약한 비</strong><small>물영아리와 엉또폭포</small></p></div>
               <div><span class="rain-level heavy">03</span><p><strong>호우 또는 강풍</strong><small>미술관과 실내 전시로 교체</small></p></div>
@@ -151,9 +160,15 @@
           </div>
 
           <div class="map-context-bar" aria-label="지도 일정 선택">
-            <div class="map-plan-switch" aria-label="날씨별 지도 선택">
-              <button class="map-plan-button active" type="button" data-plan-mode="sunny" aria-pressed="true"><span>☀</span> 기본</button>
-              <button class="map-plan-button" type="button" data-plan-mode="rain" aria-pressed="false"><span>☂</span> 비 오는 날</button>
+            <div class="map-context-controls">
+              <div class="map-version-switch" aria-label="지도 계획안 선택">
+                <button class="map-version-button" type="button" data-plan-version="a" aria-pressed="false">A</button>
+                <button class="map-version-button active" type="button" data-plan-version="b" aria-pressed="true">B</button>
+              </div>
+              <div class="map-plan-switch" data-plan-b-control aria-label="날씨별 지도 선택">
+                <button class="map-plan-button active" type="button" data-plan-mode="sunny" aria-pressed="true"><span>☀</span> 기본</button>
+                <button class="map-plan-button" type="button" data-plan-mode="rain" aria-pressed="false"><span>☂</span> 비 오는 날</button>
+              </div>
             </div>
             <div class="map-day-switch" role="tablist" aria-label="지도 날짜 선택">
               <button class="map-day-button active" type="button" role="tab" data-map-day="1" aria-selected="true"><small>DAY</small><strong>01</strong><span>8.16</span></button>

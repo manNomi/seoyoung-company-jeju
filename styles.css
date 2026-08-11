@@ -39,6 +39,7 @@ html { scroll-behavior: smooth; }
 body { margin: 0; color: var(--ink); background: var(--bg); font-family: Poppins, Pretendard, "Apple SD Gothic Neo", system-ui, sans-serif; line-height: 1.5; letter-spacing: -.01em; }
 a { color: inherit; text-decoration: none; }
 button { color: inherit; font: inherit; }
+[hidden] { display: none !important; }
 
 .topbar { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; min-height: 64px; padding: 0 24px; background: rgba(255,255,255,.92); border-bottom: 1px solid var(--line); backdrop-filter: blur(18px); }
 .back-link { display: inline-flex; align-items: center; gap: 8px; margin-right: 24px; color: var(--ink-2); font-size: 13px; font-weight: 600; }
@@ -102,6 +103,14 @@ button { color: inherit; font: inherit; }
 .progress-card strong { font-size: 11px; }
 .progress-track { height: 5px; overflow: hidden; background: #eeeae5; border-radius: 999px; }
 .progress-track i { display: block; width: 0; height: 100%; background: var(--accent); border-radius: inherit; transition: width .3s; }
+.plan-version-switch { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-bottom: 12px; }
+.plan-version-button { position: relative; display: grid; min-height: 76px; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 10px; align-items: center; padding: 14px 16px; color: var(--ink-2); background: var(--surface); border: 1px solid var(--line); border-radius: 16px; cursor: pointer; text-align: left; box-shadow: var(--shadow-xs); }
+.plan-version-button small { grid-row: 1 / 3; display: grid; width: 48px; height: 48px; place-items: center; color: var(--ink); background: var(--surface-2); border-radius: 13px; font-size: 9px; font-weight: 800; letter-spacing: .08em; }
+.plan-version-button strong { align-self: end; font-size: 13px; }
+.plan-version-button > span { align-self: start; color: var(--ink-3); font-size: 9px; }
+.plan-version-button.active { color: var(--accent-text); background: var(--accent); border-color: var(--accent); box-shadow: var(--shadow-md); }
+.plan-version-button.active small { color: var(--accent); background: var(--accent-text); }
+.plan-version-button.active > span { color: color-mix(in srgb, var(--accent-text) 65%, transparent); }
 .plan-mode-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 13px; padding: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: 15px; box-shadow: var(--shadow-xs); }
 .plan-mode-bar > p { margin: 0 10px 0 0; color: var(--ink-3); font-size: 9px; }
 .plan-mode-switch { display: flex; gap: 4px; }
@@ -137,6 +146,8 @@ button { color: inherit; font: inherit; }
 .place-card { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; min-width: 0; padding: 20px 18px 20px 28px; }
 .place-card.completed { opacity: .5; }
 .place-card.completed h3 { text-decoration: line-through; }
+.place-card.needs-attention { background: linear-gradient(90deg, rgba(214,155,54,.09), transparent 72%); box-shadow: inset 3px 0 #d69b36; }
+.place-card.needs-attention .category { color: #96640f; background: #fff3d8; }
 .place-topline { display: flex; align-items: center; gap: 8px; }
 .category { padding: 3px 7px; color: #3f7662; background: #e6f2ec; border-radius: 999px; font-size: 8px; font-weight: 800; }
 .place-card h3 { margin: 0; font-size: 15px; letter-spacing: -.02em; }
@@ -144,6 +155,7 @@ button { color: inherit; font: inherit; }
 .place-meta { display: flex; flex-wrap: wrap; gap: 5px 14px; margin-top: 8px; color: var(--ink-3); font-size: 9px; }
 .place-actions { display: flex; align-items: center; gap: 7px; }
 .map-link { padding: 8px 11px; color: var(--ink-2); background: var(--surface-2); border: 1px solid var(--line); border-radius: 9px; font-size: 9px; font-weight: 700; white-space: nowrap; }
+.map-link.disabled { color: var(--warning); cursor: default; }
 .check-button { display: grid; width: 30px; height: 30px; place-items: center; background: transparent; border: 1px solid var(--line-2); border-radius: 9px; cursor: pointer; font-size: 11px; }
 .completed .check-button { color: var(--accent-text); background: var(--accent); border-color: var(--accent); }
 .timeline-note { margin: 0; padding: 14px 18px 14px 28px; color: #775f2e; background: #f9f1dc; border-top: 1px solid #efe1be; font-size: 10px; }
@@ -518,6 +530,10 @@ footer { padding-right: max(48px, calc((100% - 1800px) / 2)); padding-left: max(
   box-shadow: 0 8px 28px -24px rgba(31,35,40,.32);
 }
 
+.map-context-controls { display: flex; align-items: center; gap: 8px; }
+.map-version-switch { display: flex; gap: 3px; padding: 3px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 12px; }
+.map-version-button { width: 38px; min-height: 34px; padding: 0; color: var(--ink-2); background: transparent; border: 0; border-radius: 9px; cursor: pointer; font-size: 10px; font-weight: 800; }
+.map-version-button.active { color: var(--accent-text); background: var(--accent); }
 .map-plan-switch { display: flex; gap: 4px; }
 .map-plan-button {
   min-height: 40px;
@@ -910,7 +926,15 @@ footer { padding-right: max(48px, calc((100% - 1800px) / 2)); padding-left: max(
   .trip-pass { position: static; margin-top: 10px; padding: 0; border-radius: 16px; }
   .content-grid { margin-top: 36px; }
   .section-heading h2 { font-size: 28px; }
+  .plan-version-switch { gap: 6px; }
+  .plan-version-button { min-height: 68px; grid-template-columns: auto 1fr; column-gap: 8px; padding: 10px; border-radius: 14px; }
+  .plan-version-button small { width: 40px; height: 40px; border-radius: 11px; font-size: 8px; }
+  .plan-version-button strong { font-size: 11px; }
+  .plan-version-button > span { font-size: 8px; }
   .plan-mode-bar { min-height: 0; }
+  .map-context-controls { display: grid; grid-template-columns: auto 1fr; }
+  .map-version-switch { align-self: stretch; }
+  .map-version-button { min-height: 42px; }
   .day-tabs { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; }
   .day-tab { display: flex; min-width: 0; align-items: center; flex-direction: column; gap: 6px; padding: 9px 4px; text-align: center; }
   .day-tab > span { width: 38px; height: 38px; font-size: 11px; }
