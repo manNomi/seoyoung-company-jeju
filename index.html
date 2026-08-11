@@ -26,6 +26,7 @@
       <nav class="trip-nav" aria-label="여행 메뉴" role="tablist">
         <a class="active" id="planTab" href="#plan" data-tab-target="plan" role="tab" aria-controls="planPanel" aria-selected="true"><span>▣</span><b>일정</b></a>
         <a id="mapTab" href="#route-map" data-tab-target="map" role="tab" aria-controls="route-map" aria-selected="false"><span>⌖</span><b>지도</b></a>
+        <a id="crowdTab" href="#crowd-map" data-tab-target="crowd" role="tab" aria-controls="crowd-map" aria-selected="false"><span>◉</span><b>혼잡도</b></a>
         <a id="placesTab" href="#nearby" data-tab-target="places" role="tab" aria-controls="nearby" aria-selected="false"><span>＋</span><b>장소</b></a>
       </nav>
 
@@ -191,6 +192,59 @@
           </div>
         </section>
 
+        <section class="crowd-section app-tab-panel" id="crowd-map" data-tab-panel="crowd" role="tabpanel" aria-labelledby="crowdTab" hidden>
+          <div class="section-heading crowd-heading">
+            <div>
+              <p class="kicker"><i></i> LIVE CROWD MAP</p>
+              <h2>지금 어디가 덜 붐빌까</h2>
+              <p>제주 주요 장소의 TMAP 실시간 장소 혼잡도를 한눈에 비교해요.</p>
+            </div>
+            <div class="crowd-live-status" id="crowdLiveStatus"><i></i><span>연결 전</span></div>
+          </div>
+
+          <div class="crowd-summary-grid" aria-live="polite">
+            <article><small>QUIETEST</small><strong id="crowdQuietest">데이터 연결 전</strong><span id="crowdQuietestDetail">여유로운 장소를 찾아드려요</span></article>
+            <article><small>BUSIEST</small><strong id="crowdBusiest">데이터 연결 전</strong><span id="crowdBusiestDetail">혼잡한 장소를 미리 피해요</span></article>
+            <article><small>COVERAGE</small><strong id="crowdCoverage">0 / 18</strong><span>실시간 조회된 장소</span></article>
+            <article><small>UPDATED</small><strong id="crowdUpdated">아직 없음</strong><span>새로고침 간격 5분</span></article>
+          </div>
+
+          <div class="crowd-toolbar">
+            <div class="crowd-region-filters" aria-label="혼잡도 지역 선택">
+              <button class="active" type="button" data-crowd-region="all">제주 전체</button>
+              <button type="button" data-crowd-region="east">동쪽</button>
+              <button type="button" data-crowd-region="south">서귀포</button>
+              <button type="button" data-crowd-region="west">서쪽</button>
+              <button type="button" data-crowd-region="jeju">제주시</button>
+            </div>
+            <button class="crowd-refresh-button" id="crowdRefreshButton" type="button"><span>↻</span> 지금 새로고침</button>
+          </div>
+
+          <div class="crowd-map-card">
+            <div class="crowd-map-wrap">
+              <div class="crowd-legend" aria-label="혼잡도 범례">
+                <span><i class="level-1"></i>여유</span><span><i class="level-2"></i>보통</span><span><i class="level-3"></i>혼잡</span><span><i class="level-4"></i>매우 혼잡</span>
+              </div>
+              <div class="crowd-map" id="crowdMap" role="application" aria-label="제주 실시간 혼잡도 지도"></div>
+              <section class="crowd-connect-panel" id="crowdConnectPanel" aria-labelledby="crowdConnectTitle">
+                <span class="crowd-connect-icon">◉</span>
+                <div><small>TMAP PUZZLE API</small><h3 id="crowdConnectTitle">실시간 데이터 연결</h3><p>발급받은 TMAP AppKey를 입력하면 이 기기에서만 저장되고 지도에 실시간 혼잡도가 표시돼요.</p></div>
+                <form id="crowdKeyForm">
+                  <label for="crowdKeyInput">TMAP AppKey</label>
+                  <div><input id="crowdKeyInput" type="password" autocomplete="off" placeholder="AppKey 입력" /><button type="submit">연결하기</button></div>
+                </form>
+                <a href="https://openapi.sk.com/" target="_blank" rel="noreferrer">TMAP API 키 발급받기 ↗</a>
+              </section>
+            </div>
+            <aside class="crowd-ranking-panel">
+              <div class="crowd-ranking-head"><div><small>LIVE RANKING</small><h3>지금 붐비는 순서</h3></div><button id="crowdKeySettings" type="button">API 설정</button></div>
+              <p class="crowd-ranking-caption" id="crowdRankingCaption">회색 마커는 조회 전 장소예요. API를 연결하면 실시간 순위로 바뀝니다.</p>
+              <ol class="crowd-ranking-list" id="crowdRankingList"></ol>
+              <div class="crowd-api-note"><i>i</i><p><strong>혼잡도는 참고용이에요</strong><span>통신 데이터 기반 추정치이며 실제 현장 상황과 차이가 날 수 있어요. 새로고침은 5분 뒤 다시 사용할 수 있습니다.</span><a href="https://tmapapi.tmapmobility.com/main.html#puzzle/docs/puzzlePoi" target="_blank" rel="noreferrer">TMAP 공식 문서 ↗</a></p></div>
+            </aside>
+          </div>
+        </section>
+
         <section class="recommendations app-tab-panel" id="nearby" data-tab-panel="places" role="tabpanel" aria-labelledby="placesTab" hidden>
           <div class="section-heading compact-heading">
             <div><p class="kicker"><i></i> NEARBY PLACES</p><h2 id="recommendationTitle">동선 근처 추천</h2><p id="recommendationDescription">일정을 크게 흔들지 않는 장소만 모았어요.</p></div>
@@ -216,5 +270,6 @@
     <script src="./vendor/leaflet/leaflet.js"></script>
     <script src="./vendor/leaflet-markercluster/leaflet.markercluster.js"></script>
     <script src="./app.js"></script>
+    <script src="./crowd.js"></script>
   </body>
 </html>

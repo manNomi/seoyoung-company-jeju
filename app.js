@@ -201,6 +201,7 @@ let activeAppTab = "plan";
 const appTabHashes = {
   plan: "#plan",
   map: "#route-map",
+  crowd: "#crowd-map",
   places: "#nearby"
 };
 
@@ -235,6 +236,9 @@ function setActiveAppTab(tabName, options = {}) {
       renderTripMap();
       trekMap?.invalidateSize();
     }, 30);
+  }
+  if (tabName === "crowd") {
+    window.setTimeout(() => window.showCrowdMap?.(), 30);
   }
 }
 
