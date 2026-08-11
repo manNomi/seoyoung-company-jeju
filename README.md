@@ -2,6 +2,8 @@
 
 별도 서버나 패키지 설치 없이 실행되는 정적 사이트입니다.
 
+배포 주소: https://mannomi.github.io/seoyoung-company-jeju/
+
 ## 실행 방법
 
 Finder에서 `index.html`을 더블 클릭하거나 터미널에서 다음 명령을 실행합니다.
