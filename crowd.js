@@ -271,9 +271,9 @@ function renderCrowdSummary(updatedAt = 0) {
   const quietest = [...available].sort((a, b) => a.congestion - b.congestion)[0];
   const busiest = [...available].sort((a, b) => b.congestion - a.congestion)[0];
   crowdDom("#crowdQuietest").textContent = quietest?.name || "아직 연결 전";
-  crowdDom("#crowdQuietestDetail").textContent = quietest ? `${crowdLevelMeta[quietest.level].label} · ${quietest.peoplePer100.toFixed(1)}명 / 100㎡` : "연결하면 알려줄게";
+  crowdDom("#crowdQuietestDetail").textContent = quietest ? `${crowdLevelMeta[quietest.level].label} · ${quietest.peoplePer100.toFixed(1)}명 / 100㎡` : "연결하면 나와";
   crowdDom("#crowdBusiest").textContent = busiest?.name || "아직 연결 전";
-  crowdDom("#crowdBusiestDetail").textContent = busiest ? `${crowdLevelMeta[busiest.level].label} · ${busiest.peoplePer100.toFixed(1)}명 / 100㎡` : "연결하면 알려줄게";
+  crowdDom("#crowdBusiestDetail").textContent = busiest ? `${crowdLevelMeta[busiest.level].label} · ${busiest.peoplePer100.toFixed(1)}명 / 100㎡` : "연결하면 나와";
   crowdDom("#crowdCoverage").textContent = `${available.length} / ${crowdPlaces.length}`;
   crowdDom("#crowdUpdated").textContent = updatedAt ? new Date(updatedAt).toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" }) : "아직 없음";
 }

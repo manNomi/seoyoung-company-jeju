@@ -5,45 +5,45 @@ const lodging = {
 
 const planAItinerary = {
   1: {
-    note: "PDF에는 제주공항 15시 15분 도착으로 적혀 있지만 실제 도착은 15시 50분이에요. 아래는 서영님이 적어 둔 순서를 그대로 보여주며 시간 충돌은 노란색으로 표시했어요.",
+    note: "서영이가 처음 적어둔건 15시 15분 도착 기준이야. 실제로는 15시 50분 도착이구 시간 안 맞는건 노랗게 해놨어.",
     items: [
-      { time: "PDF 15:15", name: "제주공항 도착", category: "원안", description: "PDF에 적힌 도착 시간이에요. 실제 항공편은 15시 50분 도착이며 렌터카 인수 뒤 약 16시 30분에 출발할 예정이에요.", meta: ["실제 도착 15:50", "약 35분 차이"], query: "제주국제공항", alert: true },
-      { time: "+15분", name: "아베베 베이커리 제주점", category: "원안 간식", description: "동문시장 근처에서 빵을 포장하는 서영 원안의 첫 코스예요.", meta: ["PDF 이동 15분", "주차와 대기 고려"], query: "아베베베이커리 제주" },
-      { time: "+28분", name: "우동 카덴", category: "원안 식사", description: "PDF에는 17시 마지막 주문으로 적혀 있어 실제 도착 시간에는 이용이 사실상 어려워요.", meta: ["17시 마지막 주문 표기", "Plan B에서 제외"], query: "우동 카덴 제주", alert: true },
-      { time: "+6분", name: "제동목장 입구", category: "원안 풍경", description: "PDF에 적힌 목장 코스예요. 목장 차량 통행을 막지 않는 지점에서 짧게 봐야 해요.", meta: ["PDF 이동 6분", "목장 내부 출입 금지"], query: "제주시 조천읍 교래7길 218" },
-      { time: "+21분", name: "안친오름", category: "원안 자연", description: "PDF의 오름 코스예요. 사유지 출입과 일몰 시간을 확인해야 해요.", meta: ["입장료 1인 5,000원 표기", "해가 남았을 때만"], query: "안친오름 제주", alert: true },
-      { time: "+20분", name: "픽업커피 행원점", category: "원안 카페", description: "PDF에서 18시까지로 적힌 행원 카페예요. 실제 도착 시간에는 이용하기 어려워요.", meta: ["18시까지 표기", "시간 충돌"], query: "픽업커피 행원점 제주", alert: true },
-      { time: "+39분", name: lodging.name, category: "원안 숙소", description: "PDF 중간에 적힌 숙소 이동이에요. 실제 숙소 주소를 연결했어요.", meta: ["2박 고정 숙소", "삼달하동로32번길 2-1"], query: lodging.query },
-      { time: "+10분", name: "고래휴게소 표선점", category: "원안 저녁", description: "PDF에 적힌 표선 쪽 저녁 장소.", meta: ["차량 이용 표기", "당일 영업 확인"], query: "고래휴게소 표선점" },
-      { time: "+10분", name: "책게일주", category: "원안 후보", description: "PDF의 손글씨 상호를 그대로 옮겼어요. 정확한 장소를 검색으로 확정하지 못했어요.", meta: ["덕산리 469 표기", "정확한 상호 확인 필요"], query: "책게일주 제주 덕산리 469", map: false, link: false, alert: true },
-      { time: "+12분", name: "사부작", category: "원안 예약", description: "PDF에 적힌 예약제 식당. 예약 시간과 영업일이 맞아야 방문할 수 있습니다.", meta: ["예약 가능 표기", "PDF 원안"], query: "사부작 제주 표선" },
-      { time: "+11분", name: lodging.name, category: "원안 종료", description: "삼달리의 같은 숙소에서 첫날을 마무리해요.", meta: ["2박 모두 같은 숙소", "늦은 체크인 연락"], query: lodging.query }
+      { time: "처음 15:15", name: "제주공항 도착", category: "서영픽", description: "처음에는 15시 15분 도착으로 잡았어. 실제로는 15시 50분 도착이구 렌트카 받고 16시 30분쯤 출발할듯!", meta: ["실제 도착 15:50", "약 35분 차이"], query: "제주국제공항", alert: true },
+      { time: "+15분", name: "아베베 베이커리 제주점", category: "서영픽 간식", description: "동문시장 근처에서 빵 포장하는 첫 코스야.", meta: ["이동 15분", "주차랑 대기 생각하기"], query: "아베베베이커리 제주" },
+      { time: "+28분", name: "우동 카덴", category: "서영픽 식사", description: "17시가 마지막 주문이라 실제 도착 시간에는 못갈듯ㅜㅜ", meta: ["17시 마지막 주문", "우리끼리 픽에서는 뺐어"], query: "우동 카덴 제주", alert: true },
+      { time: "+6분", name: "제동목장 입구", category: "서영픽 풍경", description: "목장 코스야. 목장차 지나가는 길은 막지 말고 짧게 보고 가자.", meta: ["이동 6분", "목장 안에는 들어가지 말기"], query: "제주시 조천읍 교래7길 218" },
+      { time: "+21분", name: "안친오름", category: "서영픽 자연", description: "사유지 들어가도 되는지랑 일몰 시간은 한번 보고 가야할듯.", meta: ["입장료 1인 5,000원", "해 남았을 때만"], query: "안친오름 제주", alert: true },
+      { time: "+20분", name: "픽업커피 행원점", category: "서영픽 카페", description: "18시까지라 실제 도착 시간에는 못갈것 같아.", meta: ["18시까지", "시간 안 맞음"], query: "픽업커피 행원점 제주", alert: true },
+      { time: "+39분", name: lodging.name, category: "서영픽 숙소", description: "중간에 숙소 들르는 일정이야. 우리가 묵는 주소로 연결해놨어.", meta: ["2박 같은 숙소", "삼달하동로32번길 2-1"], query: lodging.query },
+      { time: "+10분", name: "고래휴게소 표선점", category: "서영픽 저녁", description: "표선쪽에서 저녁 먹는 곳이야.", meta: ["차 타고 이동", "당일 영업 한번 보기"], query: "고래휴게소 표선점" },
+      { time: "+10분", name: "책게일주", category: "서영픽 후보", description: "서영이가 적어둔 이름 그대로 옮겼는데 정확한 장소는 못찾았어.", meta: ["덕산리 469", "상호 한번 더 보기"], query: "책게일주 제주 덕산리 469", map: false, link: false, alert: true },
+      { time: "+12분", name: "사부작", category: "서영픽 예약", description: "예약제 식당이야. 시간하고 영업일 맞으면 가자.", meta: ["예약 가능", "서영이 픽"], query: "사부작 제주 표선" },
+      { time: "+11분", name: lodging.name, category: "서영픽 끝", description: "삼달리 숙소에서 첫날 마무리하자.", meta: ["2박 모두 같은 숙소", "늦으면 체크인 연락하기"], query: lodging.query }
     ]
   },
   2: {
-    note: "서영님 원안은 동쪽과 중문 및 서귀포를 하루에 모두 잇는 긴 동선이에요. 전부 방문하면 숙소 도착이 매우 늦어지므로 김녕팜랜드 이후 코스와 중문 코스 중 하나를 고르는 것이 현실적입니다.",
+    note: "서영이가 처음 짠건 동쪽이랑 중문이랑 서귀포를 하루에 다 도는 일정이야. 전부 가면 숙소 엄청 늦게 들어갈듯ㅜㅜ 김녕팜랜드 뒤에 동쪽에 더 있을지 중문 갈지 하나만 고르자.",
     items: [
-      { time: "10:00", name: "국수마을", category: "아침", description: "서영 원안의 둘째 날 첫 식사예요.", meta: ["10시 오픈 표기", "주차 30분 무료 표기"], query: "국수마을 제주" },
+      { time: "10:00", name: "국수마을", category: "아침", description: "서영이가 골라둔 둘째날 첫 밥이야.", meta: ["10시 오픈", "주차 30분 무료"], query: "국수마을 제주" },
       { time: "11:00", name: "여름문구사", category: "소품", description: "세화의 작은 문구점에서 기념품을 구경해요.", meta: ["주차 공간 확인", "당일 영업 확인"], query: "여름문구사 제주" },
-      { time: "11:45", name: "픽업커피 행원점", category: "카페", description: "행원 해안에서 잠시 쉬는 일정.", meta: ["PDF 원안", "영업시간 확인"], query: "픽업커피 행원점 제주" },
+      { time: "11:45", name: "픽업커피 행원점", category: "카페", description: "행원 바다 보면서 잠깐 쉬자.", meta: ["서영이 픽", "영업시간 한번 보기"], query: "픽업커피 행원점 제주" },
       { time: "12:30", name: "코난해변", category: "바다", description: "바람이 강하지 않을 때 짧게 바다를 보고 이동해요.", meta: ["해안 산책 30분", "강풍 시 생략"], query: "코난해변 제주" },
       { time: "13:20", name: "카페 모알보알", category: "카페", description: "구좌 해안에서 쉬는 카페 코스예요.", meta: ["주차 가능 표기", "체류 50분 이내"], query: "카페 모알보알 제주" },
-      { time: "14:40", name: "김녕팜랜드", category: "체험", description: "동물 먹이 체험을 하는 원안 코스예요. 늦은 시간에는 체험이 제한될 수 있어요.", meta: ["1인 10,000원 표기", "체험 마감 확인"], query: "김녕팜랜드" },
-      { time: "16:15", name: "대현목장", category: "목장", description: "운영과 출입 가능 여부를 확인한 뒤 짧게 들러요.", meta: ["PDF 원안", "사유지 여부 확인"], query: "대현목장 제주" },
+      { time: "14:40", name: "김녕팜랜드", category: "체험", description: "동물 먹이주는 코스야. 늦으면 체험 못할 수도 있으니까 시간 한번 보자.", meta: ["1인 10,000원", "체험 마감 한번 보기"], query: "김녕팜랜드" },
+      { time: "16:15", name: "대현목장", category: "목장", description: "들어가도 되는지 보고 잠깐 들르자.", meta: ["서영이 픽", "사유지인지 한번 보기"], query: "대현목장 제주" },
       { time: "17:00", name: "봉주르마담", category: "베이커리", description: "인기 빵은 일찍 품절될 수 있어 남은 메뉴를 확인해요.", meta: ["품절 가능", "당일 영업 확인"], query: "봉주르마담 제주" },
       { time: "18:30", name: "갈치미향", category: "저녁", description: "중문에서 먹는 갈치 저녁.", meta: ["19시까지 표기", "마지막 주문 확인"], query: "갈치미향 제주" },
-      { time: "19:40", name: "풀베개", category: "카페", description: "비 오는 창밖을 보기 좋은 안덕 카페지만 PDF 표기 시간 이후 도착 가능성이 커요.", meta: ["19시까지 표기", "시간 충돌"], query: "풀베개 제주", alert: true },
+      { time: "19:40", name: "풀베개", category: "카페", description: "비오는 창밖 보기 좋은 카페인데 이 시간에는 늦을것 같아.", meta: ["19시까지", "시간 안 맞을듯"], query: "풀베개 제주", alert: true },
       { time: "20:30", name: "중문회어시장", category: "포장", description: "숙소에서 먹을 회를 포장합니다.", meta: ["포장 시간 확인", "숙소까지 장거리"], query: "중문회어시장" },
       { time: "21:20", name: "할머니떡집", category: "간식", description: "서귀포 올레시장 안에 있는 떡집.", meta: ["재고 확인", "시장 운영 확인"], query: "서귀포 올레시장 할머니떡집" },
       { time: "22:30", name: lodging.name, category: "고정 숙소", description: "성산읍 삼달리 숙소로 돌아와요.", meta: ["약 50분 이동 예상", "졸음운전 금지"], query: lodging.query }
     ]
   },
   3: {
-    note: "아침 식당은 둘 중 하나만 선택하세요. 귀가편 시간이 아직 없어 공항 도착 목표는 출발 2시간 전으로 잡았습니다.",
+    note: "아침은 둘 중에 땡기는거 하나만 가자. 돌아오는 비행기 시간은 아직 없어서 공항에는 출발 2시간 전까지 가는걸로 해놨어.",
     items: [
       { time: "출발 5시간 전", name: lodging.name, category: "체크아웃", description: "같은 숙소에서 짐을 싣고 항공편 시간을 기준으로 출발해요.", meta: ["주소 재확인", "분리수거와 짐 확인"], query: lodging.query },
-      { time: "선택 A", name: "우진해장국", category: "아침 후보", description: "오전 6시부터 이용하는 선택지로 PDF에 적혀 있어요.", meta: ["둘 중 한 곳만", "대기시간 고려"], query: "우진해장국", map: false },
-      { time: "선택 B", name: "올래국수", category: "아침 후보", description: "오전 8시부터 이용하는 선택지로 PDF에 적혀 있어요.", meta: ["둘 중 한 곳만", "영업시간 확인"], query: "올래국수", map: false },
+      { time: "선택 1", name: "우진해장국", category: "아침 후보", description: "오전 6시부터 먹을 수 있어. 둘 중에 땡기는거 가자.", meta: ["둘 중 한 곳만", "대기시간 생각하기"], query: "우진해장국", map: false },
+      { time: "선택 2", name: "올래국수", category: "아침 후보", description: "오전 8시부터 먹을 수 있어. 늦잠자면 여기 갈듯!", meta: ["둘 중 한 곳만", "영업시간 한번 보기"], query: "올래국수", map: false },
       { time: "출발 2시간 전", name: "제주공항", category: "귀가", description: "주유와 렌터카 반납 시간을 포함해 공항으로 이동합니다.", meta: ["렌터카 반납", "탑승 수속"], query: "제주국제공항" }
     ]
   }
@@ -51,10 +51,10 @@ const planAItinerary = {
 
 const itinerary = {
   1: {
-    note: "첫날은 15시 50분 도착과 렌터카 인수 시간을 기준으로 잡았어요. 우동 카덴과 목장 코스는 시간이 맞지 않아 빼고 숙소 체크인과 저녁을 우선합니다.",
+    note: "첫날은 15시 50분 도착이구 렌트카 받으면 16시 30분쯤 될듯! 우동 카덴이랑 목장은 시간 안 맞아서 빼고 일단 숙소랑 저녁부터 가자.",
     items: [
       { time: "15:50", name: "제주공항 도착", category: "도착", description: "수하물을 찾고 예약한 렌터카 셔틀 승차장으로 이동해요.", meta: ["항공편 도착", "수하물 확인"], query: "제주국제공항" },
-      { time: "16:20", name: "렌터카 인수", category: "고정 일정", description: "예약 시간에 맞춰 차량을 받고 외관과 연료 상태를 촬영해요.", meta: ["약 30분 예상", "출발 전 사진 촬영"], query: "제주공항 렌터카하우스" },
+      { time: "16:20", name: "렌터카 인수", category: "고정 일정", description: "예약 시간에 맞춰 차 받고 외관이랑 기름 얼마나 있는지 사진 찍자.", meta: ["약 30분 예상", "출발 전 사진 찍기"], query: "제주공항 렌터카하우스" },
       { time: "16:50", name: "아베베 베이커리 제주점", category: "선택 간식", description: "대기와 주차가 길지 않을 때만 빵을 포장해요. 17시 20분이 넘으면 바로 숙소 방향으로 출발해요.", meta: ["포장만", "30분 제한"], query: "아베베베이커리 제주" },
       { time: "17:25", name: "삼달리로 이동", category: "이동", description: "해가 지기 전에 동쪽 숙소로 이동해요. 교통 상황에 따라 약 70분에서 90분을 잡아요.", meta: ["장거리 첫 운전", "중간 관광 없음"], query: lodging.query, map: false },
       { time: "18:50", name: lodging.name, category: "체크인", description: "성산읍 삼달리 숙소에 체크인하고 짐을 내려요.", meta: ["2박 고정", "삼달하동로32번길 2-1"], query: lodging.query },
@@ -62,7 +62,7 @@ const itinerary = {
     ]
   },
   2: {
-    note: "숙소가 삼달리로 확정되어 동쪽 해안을 따라 움직이고 다시 숙소로 돌아오는 동선으로 바꿨어요. 친봉산장은 시간이 남을 때만 선택하세요.",
+    note: "숙소가 삼달리니까 동쪽 바다 따라서 돌고 다시 숙소 오는걸로 짰어. 친봉산장은 시간 남으면 갈듯!",
     items: [
       { time: "09:30", name: "여름문구사", category: "소품", description: "세화의 작은 문구점에서 제주다운 기념품을 구경해요.", meta: ["영업 여부 확인", "주차 공간 협소"], query: "여름문구사 제주" },
       { time: "10:30", name: "코난해변", category: "바다", description: "바람이 강하지 않을 때 구좌 해안에서 30분만 쉬어가요.", meta: ["해안 한 곳만 선택", "갓길 주차 주의"], query: "코난해변 제주" },
@@ -74,7 +74,7 @@ const itinerary = {
     ]
   },
   3: {
-    note: "귀가편 시간이 확인되지 않아 출발 시각을 기준으로 판단하도록 구성했어요. 오후 4시 이전 비행기라면 서쪽 코스를 전부 빼고 바로 공항으로 이동하세요.",
+    note: "돌아오는 비행기 시간은 아직 모르니까 그거 보고 정하면 돼. 오후 4시 전 비행기면 서쪽은 다 빼고 바로 공항가자.",
     items: [
       { time: "08:30", name: "체크아웃과 아침 식사", category: "준비", description: "삼달리 숙소에서 짐을 싣고 항공편 시간을 다시 확인해요.", meta: ["짐 먼저 싣기", "비행 5시간 전 판단"], query: lodging.query },
       { time: "10:00", name: "유동룡미술관", category: "실내 전시", description: "화요일 오전에 예약 가능한 경우에만 방문해요.", meta: ["10시 개관", "사전 예약 확인", "약 80분"], query: "유동룡미술관" },
@@ -90,7 +90,7 @@ const recommendations = [
   { region: "east", name: "세화해변", tags: ["2일차", "바다"], time: "20분", detour: "여름문구사 근처", description: "여름문구사에서 가까운 작은 해변입니다. 오래 머물기보다 짧게 걷거나 사진을 찍을 때 맞습니다.", query: "세화해변", source: "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500361&menuId=DOM_000001718002000000" },
   { region: "east", name: "별방진", tags: ["2일차", "짧은 산책"], time: "20분", detour: "세화에서 약 10분", description: "낮은 성곽 위에서 바다와 마을이 함께 보입니다. 동쪽 해안을 이동하다 20분 정도 들를 수 있습니다.", query: "별방진 제주", source: "https://www.visitjeju.net/kr/search?q=%EC%84%B1%EA%B3%BD&searchtype=2" },
   { region: "east", name: "월정리해변", tags: ["2일차", "카페와 바다"], time: "30분", detour: "코난해변 동선", description: "김녕과 세화 사이에서 카페에 들러 쉬기 편합니다. 코난해변과 가까우므로 둘 중 한 곳만 고릅니다.", query: "월정리해변", source: "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500496&menuId=DOM_000001719001000000" },
-  { region: "east", name: "김녕성세기해변", tags: ["2일차", "바다"], time: "30분", detour: "김녕팜랜드 근처", description: "김녕 일정 앞뒤로 들를 수 있는 해변입니다. 이동 피로를 줄이려면 해변은 한 곳만 고릅니다.", query: "김녕성세기해변", source: "https://www.visitjeju.net/pdf/Official%20Jeju%20Tourism%20Guidebook_kr.pdf" },
+  { region: "east", name: "김녕성세기해변", tags: ["2일차", "바다"], time: "30분", detour: "김녕팜랜드 근처", description: "김녕 일정 앞뒤로 들를 수 있는 해변입니다. 이동 피로를 줄이려면 해변은 한 곳만 고릅니다.", query: "김녕성세기해변", source: "https://www.visitjeju.net/kr/search?q=%EA%B9%80%EB%85%95%EC%84%B1%EC%84%B8%EA%B8%B0%ED%95%B4%EB%B3%80&searchtype=2" },
   { region: "east", name: "섭섭이네", tags: ["구좌", "로컬 식당"], time: "60분", detour: "송당리 1379-13", description: "송당에 있는 로컬 식당입니다. 비밀의숲을 방문하는 날 식사 장소로 잡을 수 있습니다.", query: "제주 제주시 구좌읍 송당리 1379-13 섭섭이네" },
   { region: "east", name: "비밀의숲", tags: ["구좌", "삼나무 숲길"], time: "60분", detour: "송당리 2173", description: "곧게 뻗은 삼나무 사이로 걷는 숲길입니다. 비가 강하거나 바람이 센 날에는 들어가지 않습니다.", query: "제주 제주시 구좌읍 송당리 2173 비밀의숲" },
   { region: "east", name: "차한모금", tags: ["구좌", "숲속 카페"], time: "60분", detour: "평대리 3193-1", description: "빙수와 차를 파는 숲속 카페입니다. 비자림이나 평대리 일정 사이에 한 시간 정도 잡습니다.", query: "제주 제주시 구좌읍 평대리 3193-1 차한모금" },
@@ -106,10 +106,10 @@ const recommendations = [
 
 const rainItinerary = {
   1: {
-    note: "비 오는 도착일에는 관광을 넣지 않았어요. 렌터카를 받은 뒤 간식 포장 여부만 판단하고 삼달리 숙소로 이동합니다.",
+    note: "도착하는 날 비오면 관광은 안할거야. 렌트카 받고 비 많이 안오면 빵만 포장하구 바로 삼달리 가자.",
     items: [
       { time: "15:50", name: "제주공항 도착", category: "도착", description: "수하물을 찾고 렌터카 셔틀 승차장으로 이동해요.", meta: ["우산 바로 꺼내기", "수하물 확인"], query: "제주국제공항" },
-      { time: "16:20", name: "렌터카 인수", category: "고정 일정", description: "차량 상태를 촬영하고 와이퍼와 타이어 상태를 확인해요.", meta: ["약 30분 예상", "빗길 운전 준비"], query: "제주공항 렌터카하우스" },
+      { time: "16:20", name: "렌터카 인수", category: "고정 일정", description: "차 사진찍고 와이퍼랑 타이어도 한번 보자.", meta: ["약 30분 예상", "빗길 운전 준비"], query: "제주공항 렌터카하우스" },
       { time: "16:50", name: "아베베 베이커리 제주점", category: "선택 간식", description: "비와 교통이 심하지 않을 때만 포장해요. 대기가 길면 바로 숙소로 출발합니다.", meta: ["포장만", "17시 20분 출발 제한"], query: "아베베베이커리 제주" },
       { time: "17:25", name: "삼달리로 이동", category: "빗길 이동", description: "침수 알림과 도로 통제를 확인하며 숙소로 이동해요.", meta: ["70분에서 90분", "중간 관광 없음"], query: lodging.query, map: false },
       { time: "18:50", name: lodging.name, category: "체크인", description: "성산읍 삼달리 숙소에 체크인하고 젖은 옷과 신발을 말려요.", meta: ["2박 모두 같은 숙소", "삼달하동로32번길 2-1"], query: lodging.query },
@@ -117,7 +117,7 @@ const rainItinerary = {
     ]
   },
   2: {
-    note: "고정 숙소가 삼달리라서 조천과 성산 및 서귀포 동쪽 안에서만 움직이도록 줄였어요. 낙뢰나 호우가 이어지면 사려니숲길을 빼고 빛의 벙커부터 시작하세요.",
+    note: "숙소가 삼달리라 조천이랑 성산쪽만 돌거야. 천둥치거나 비 왕창오면 사려니숲길 빼고 빛의 벙커부터 가자.",
     items: [
       { time: "05:40", name: "강수 레이더 확인", category: "필수 판단", description: "교래 지역에 비와 낙뢰가 없을 때만 새벽 야외 코스를 시작해요.", meta: ["일출 약 05:57", "비가 오면 실내에서 대기"], query: "제주 날씨", map: false },
       { time: "06:20", name: "사려니숲길", category: "조건부 숲길", description: "비가 잦아들고 낙뢰와 강풍이 없을 때만 남조로 입구에서 40분 정도 짧게 걸어요.", meta: ["입장료 무료", "남조로 입구 검색", "호우 시 바로 취소"], query: "남조로 사려니숲길" },
@@ -130,7 +130,7 @@ const rainItinerary = {
     ]
   },
   3: {
-    note: "비행기가 오후 4시 이후일 때만 유동룡미술관과 바이닐 제주를 이용하세요. 돈사빠는 공항 반대 방향이라 이 2박 3일 동선에서는 장소 탭의 후보로만 남겼어요.",
+    note: "비행기가 오후 4시 뒤면 유동룡미술관이랑 바이닐 제주도 갈듯! 돈사빠는 공항 반대쪽이라 이번에는 갈만한 곳에만 넣어놨어.",
     items: [
       { time: "08:30", name: "체크아웃과 운항 확인", category: "준비", description: "삼달리 숙소에서 젖은 짐을 분리하고 항공편과 도로 상황을 먼저 확인해요.", meta: ["비닐봉투 준비", "비행 5시간 전 판단"], query: lodging.query },
       { time: "10:00", name: "유동룡미술관", category: "실내 전시", description: "화요일 오전에 예약 가능한 경우에만 방문해요.", meta: ["10시 개관", "사전 예약 확인", "약 80분"], query: "유동룡미술관" },
@@ -143,7 +143,7 @@ const rainItinerary = {
 const rainRecommendations = [
   { region: "east", name: "제동목장 입구", tags: ["비 온 다음날", "새벽"], time: "20분", detour: "입구 교래7길 218", description: "목장 소재지는 교래리 산16이지만 사진 지점은 입구 삼거리로 안내해요. GS25 교래퐁낭점 옆 공터나 삼다수 숲길 주차장을 이용하고 목장 차량의 통행을 막지 마세요.", query: "제주시 조천읍 교래7길 218", source: "https://www.visitjeju.or.kr/issue/news/weekly.htm?act=download&no=2&page=5&seq=56348" },
   { region: "east", name: "사려니숲길", tags: ["약한 비", "무료"], time: "60분", detour: "제동목장 근처", description: "공식 관광 영상에도 소개된 비 오는 제주 대표 숲길이에요. 남조로 입구로 가고 호우나 낙뢰가 있으면 취소하세요.", query: "남조로 사려니숲길", source: "https://www.youtube.com/watch?v=gux_pyEIcUY" },
-  { region: "south", name: "물영아리오름 습지", tags: ["약한 비", "람사르 습지"], time: "90분", detour: "남원읍", description: "습할 때 숲과 습지의 분위기가 좋지만 정상 계단이 가파릅니다. 호우와 강풍 및 낙뢰 때는 일정에서 빼세요.", query: "물영아리오름 습지", source: "https://rsis.ramsar.org/RISapp/files/28411793/documents/KR1648_mgt1605.pdf?language=es" },
+  { region: "south", name: "물영아리오름 습지", tags: ["약한 비", "람사르 습지"], time: "90분", detour: "남원읍", description: "습할 때 숲과 습지의 분위기가 좋지만 정상 계단이 가파릅니다. 호우와 강풍 및 낙뢰 때는 일정에서 빼세요.", query: "물영아리오름 습지", source: "https://rsis.ramsar.org/ris/1648" },
   { region: "south", name: "엉또폭포", tags: ["비 온 뒤", "조건부"], time: "30분", detour: "서귀포시 강정동", description: "강수량이 충분할 때만 폭포가 나타나는 조건부 장소예요. 현장 통제와 폭포 유무를 먼저 확인하세요.", query: "엉또폭포", source: "https://www.visitjeju.net/kr/search?q=%EC%97%89%EB%98%90%ED%8F%AD%ED%8F%AC&searchtype=2" },
   { region: "south", name: "친봉산장", tags: ["실내", "카페"], time: "70분", detour: "서귀포시 하신상로 417", description: "산장 형태의 실내 카페입니다. 동쪽에서 사계리로 이동하는 날 중간에 들를 수 있습니다.", query: "친봉산장 제주", source: "https://www.visitjeju.net/kr/detail/view?contentsid=CNTS_300000000012677" },
   { region: "west", name: "제주도립김창열미술관", tags: ["호우 대안", "실내"], time: "60분", detour: "한경면", description: "물방울 작품과 건축을 함께 보는 실내 대안이에요. 8월 17일은 대체공휴일이므로 특별 운영과 다음날 휴관 여부를 반드시 확인하세요.", query: "제주도립김창열미술관", source: "https://kimtschangyeul.jeju.go.kr/" },
@@ -338,17 +338,49 @@ const mapUrl = (query) => `https://map.naver.com/p/search/${encodeURIComponent(q
 
 function travelVoice(value) {
   return String(value)
-    .replaceAll("Plan B", "우리 일정")
-    .replaceAll("서영님 원안", "서영이가 처음 짠 일정")
-    .replaceAll("서영 원안", "서영이가 고른 일정")
-    .replaceAll("원안", "처음 계획")
+    .replaceAll("보입니다.", "보여.")
+    .replaceAll("방문하지 않습니다.", "가지는 말자.")
+    .replace(/([가-힣]+)입니다\./g, (_, noun) => {
+      const lastCode = noun.charCodeAt(noun.length - 1) - 0xac00;
+      const hasBatchim = lastCode >= 0 && lastCode % 28 !== 0;
+      return `${noun}${hasBatchim ? "이야" : "야"}.`;
+    })
+    .replaceAll("비 오는", "비오는")
+    .replaceAll(" 및 ", "이랑 ")
+    .replaceAll("할 것 같아", "할것 같아")
+    .replaceAll("저녁 장소로 검토할 수 있어.", "저녁으로 가도 될듯!")
+    .replaceAll("확인되지 않아", "아직 몰라서")
+    .replaceAll("확인되지 않은", "아직 모르는")
+    .replaceAll("판단하도록 구성했어.", "보고 정하면 돼.")
+    .replaceAll("확인 필요", "한번 봐야함")
+    .replaceAll("영업시간 확인", "영업시간 한번 보기")
+    .replaceAll("당일 영업 확인", "당일에 한번 보기")
+    .replaceAll("확인 후", "한번 보고")
+    .replaceAll("고릅니다.", "고르면 돼.")
+    .replaceAll("가파릅니다.", "가팔라.")
+    .replaceAll("들릅니다.", "들르자.")
+    .replaceAll("머무릅니다.", "머물자.")
+    .replaceAll("변경합니다.", "바꾸자.")
+    .replaceAll("판매합니다.", "팔아.")
+    .replaceAll("편합니다.", "편해.")
+    .replaceAll("포장합니다.", "포장하자.")
+    .replaceAll("출발합니다.", "출발하자.")
+    .replaceAll("잡습니다.", "잡자.")
+    .replaceAll("맞습니다.", "맞아.")
+    .replaceAll("않습니다.", "않아.")
+    .replaceAll("제외합니다.", "빼자.")
+    .replaceAll("방문합니다.", "가자.")
+    .replaceAll("이동합니다.", "이동하자.")
+    .replaceAll("권장합니다.", "이게 나을듯.")
+    .replaceAll("적합합니다.", "괜찮을듯.")
+    .replaceAll("위험합니다.", "위험해.")
     .replaceAll("해야 합니다.", "해야 해.")
     .replaceAll("할 수 있습니다.", "할 수 있어.")
     .replaceAll("수 있습니다.", "수 있어.")
     .replaceAll("확인해 주세요.", "확인해줘.")
     .replaceAll("방문하지 마세요.", "가지는 말자.")
     .replaceAll("접근하지 마세요.", "가까이 가지 말자.")
-    .replaceAll("확인하세요.", "확인하자.")
+    .replaceAll("확인하세요.", "한번 보자.")
     .replaceAll("선택하세요.", "하나만 고르자.")
     .replaceAll("제외하세요.", "빼자.")
     .replaceAll("이용하세요.", "이용하자.")
@@ -364,7 +396,6 @@ function travelVoice(value) {
     .replaceAll("주세요.", "줘.")
     .replaceAll("있습니다.", "있어.")
     .replaceAll("없습니다.", "없어.")
-    .replaceAll("입니다.", "이야.")
     .replaceAll("합니다.", "해.")
     .replaceAll("못했어요.", "못했어.")
     .replaceAll("표시했어요.", "표시했어.")
@@ -381,11 +412,11 @@ function travelVoice(value) {
     .replaceAll("예요.", "야.")
     .replaceAll("있어요.", "있어.")
     .replaceAll("없어요.", "없어.")
-    .replaceAll("해요.", "해.")
     .replaceAll("돌아와요.", "돌아와.")
     .replaceAll("어려워요.", "어려워.")
     .replaceAll("먹어요.", "먹어.")
-    .replaceAll("구경해요.", "구경해.")
+    .replaceAll("구경해요.", "구경하자.")
+    .replaceAll("보내요.", "보내자.")
     .replaceAll("커요.", "커.")
     .replaceAll("쉬어가요.", "쉬어가.")
     .replaceAll("미끄러워요.", "미끄러워.")
@@ -399,19 +430,20 @@ function travelVoice(value) {
     .replaceAll("내려요.", "내려.")
     .replaceAll("말려요.", "말려.")
     .replaceAll("마쳐요.", "마쳐.")
-    .replaceAll("포장해요.", "포장해.")
-    .replaceAll("출발해요.", "출발해.")
-    .replaceAll("이동해요.", "이동해.")
-    .replaceAll("확인해요.", "확인해.")
-    .replaceAll("방문해요.", "방문해.")
-    .replaceAll("선택해요.", "골라.")
-    .replaceAll("촬영해요.", "촬영해.")
-    .replaceAll("정리해요.", "정리해.")
+    .replaceAll("포장해요.", "포장하자.")
+    .replaceAll("출발해요.", "출발하자.")
+    .replaceAll("이동해요.", "이동하자.")
+    .replaceAll("확인해요.", "한번 보자.")
+    .replaceAll("방문해요.", "가자.")
+    .replaceAll("선택해요.", "고르자.")
+    .replaceAll("촬영해요.", "사진 찍자.")
+    .replaceAll("정리해요.", "정리하자.")
     .replaceAll("조심해요.", "조심해.")
     .replaceAll("안내해요.", "안내해.")
     .replaceAll("시작해요.", "시작해.")
     .replaceAll("마무리해요.", "마무리해.")
-    .replaceAll("갱신해요.", "새로 봐.");
+    .replaceAll("갱신해요.", "새로 봐.")
+    .replaceAll("해요.", "해.");
 }
 
 function travelCategory(value) {
@@ -711,7 +743,7 @@ function renderClusterView() {
 
 function renderTripMap() {
   document.querySelector("#mapDayChip").textContent = activeMapView === "route" ? `${activeDay}일차` : "전체 장소";
-  document.querySelector("#mapModeHint").textContent = activeMapView === "route" ? "숫자는 우리가 갈 순서야." : "가까운 곳끼리 옹기종기 모았어.";
+  document.querySelector("#mapModeHint").textContent = activeMapView === "route" ? "숫자는 우리가 갈 순서야." : "근처에 있는 곳끼리 모아놨어.";
   document.querySelector("#mapPlayButton").hidden = activeMapView !== "route";
   if (activeAppTab !== "map") return;
   if (activeMapView === "route") renderRouteView();
@@ -756,16 +788,16 @@ function setPlanMode(mode) {
   document.querySelector("#heroStatusText").textContent = activePlanVersion === "a" ? "서영이 픽" : rainActive ? "비 주륵주륵" : "해 짱짱";
   document.querySelector("#planTitle").textContent = activePlanVersion === "a" ? "서영이가 짠 제주" : rainActive ? "비 주륵주륵 제주" : "해 짱짱 제주";
   document.querySelector("#planDescription").textContent = activePlanVersion === "a"
-    ? "서영이가 처음 짠 순서 그대로야. 시간이 안 맞는 곳은 노랗게 표시했어."
+    ? "서영이가 처음 짠거 그대로야. 시간 안 맞는건 노랗게 해놨어."
     : rainActive
-      ? "삼달리 집을 기준으로 빗길 운전을 줄였어. 비가 세면 실내로 쏙 들어가자."
-      : "도착 시간과 삼달리 집을 넣어서 진짜 갈 수 있게 짰어.";
+      ? "삼달리 집 기준으로 짰어. 비 많이오면 실내로 가자."
+      : "도착 시간 맞춰서 다시 짰어. 이대로 가면 될듯!!";
   document.querySelector("#weatherSummary").textContent = rainActive ? "비 주륵주륵" : "해 짱짱 제주";
-  document.querySelector("#weatherDetail").textContent = rainActive ? "비바람 세면 실내로 쏙" : "덥고 습하니까 물 꼭 챙기자";
+  document.querySelector("#weatherDetail").textContent = rainActive ? "비바람 세면 실내 갈듯" : "덥고 습하니까 물 꼭 챙기자";
   document.querySelector("#focusSummary").textContent = "삼달리 우리 집";
-  document.querySelector("#focusDetail").textContent = activePlanVersion === "a" ? "시간 안 맞는 곳은 노랗게" : rainActive ? "동쪽 실내로 쏙쏙" : "동쪽 위주로 빙글빙글";
-  document.querySelector("#recommendationTitle").textContent = rainActive ? "비 와도 여기 찜!" : "여기도 찜!";
-  document.querySelector("#recommendationDescription").textContent = rainActive ? "비가 멈추면 야외로 살짝. 왕창 오면 실내로 쏙 들어가자." : "근처에 있으면 슬쩍 끼워 넣자. 머무는 시간도 같이 적어뒀어.";
+  document.querySelector("#focusDetail").textContent = activePlanVersion === "a" ? "시간 안 맞는건 노랗게" : rainActive ? "동쪽 실내 위주로 갈듯" : "동쪽 위주로 돌자";
+  document.querySelector("#recommendationTitle").textContent = rainActive ? "비와도 갈만함!" : "여기도 갈만함!";
+  document.querySelector("#recommendationDescription").textContent = rainActive ? "비 멈추면 밖에도 가고 많이오면 실내 가자." : "근처 지나가면 한번 가보자. 얼마나 걸리는지도 적어놨어.";
   const dayDescriptions = activePlanVersion === "a"
     ? ["공항에서 삼달리까지", "서영이가 처음 찜한 곳", "아침 먹고 공항으로"]
     : rainActive
