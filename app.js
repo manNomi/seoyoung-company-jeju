@@ -336,11 +336,93 @@ const regionAnchors = {
 
 const mapUrl = (query) => `https://map.naver.com/p/search/${encodeURIComponent(query)}`;
 
+function travelVoice(value) {
+  return String(value)
+    .replaceAll("Plan B", "우리 일정")
+    .replaceAll("서영님 원안", "서영이가 처음 짠 일정")
+    .replaceAll("서영 원안", "서영이가 고른 일정")
+    .replaceAll("원안", "처음 계획")
+    .replaceAll("해야 합니다.", "해야 해.")
+    .replaceAll("할 수 있습니다.", "할 수 있어.")
+    .replaceAll("수 있습니다.", "수 있어.")
+    .replaceAll("확인해 주세요.", "확인해줘.")
+    .replaceAll("방문하지 마세요.", "가지는 말자.")
+    .replaceAll("접근하지 마세요.", "가까이 가지 말자.")
+    .replaceAll("확인하세요.", "확인하자.")
+    .replaceAll("선택하세요.", "하나만 고르자.")
+    .replaceAll("제외하세요.", "빼자.")
+    .replaceAll("이용하세요.", "이용하자.")
+    .replaceAll("취소하세요.", "취소하자.")
+    .replaceAll("피하세요.", "피하자.")
+    .replaceAll("참고하세요.", "참고하자.")
+    .replaceAll("이동하세요.", "이동하자.")
+    .replaceAll("시작하세요.", "시작하자.")
+    .replaceAll("새로고침하세요.", "새로 보자.")
+    .replaceAll("바꾸세요.", "바꾸자.")
+    .replaceAll("빼세요.", "빼자.")
+    .replaceAll("마세요.", "말자.")
+    .replaceAll("주세요.", "줘.")
+    .replaceAll("있습니다.", "있어.")
+    .replaceAll("없습니다.", "없어.")
+    .replaceAll("입니다.", "이야.")
+    .replaceAll("합니다.", "해.")
+    .replaceAll("못했어요.", "못했어.")
+    .replaceAll("표시했어요.", "표시했어.")
+    .replaceAll("줄였어요.", "줄였어.")
+    .replaceAll("잡았어요.", "잡았어.")
+    .replaceAll("옮겼어요.", "옮겼어.")
+    .replaceAll("연결했어요.", "연결했어.")
+    .replaceAll("않았어요.", "않았어.")
+    .replaceAll("넣었어요.", "넣었어.")
+    .replaceAll("남겼어요.", "남겼어.")
+    .replaceAll("구성했어요.", "구성했어.")
+    .replaceAll("바꿨어요.", "바꿨어.")
+    .replaceAll("이에요.", "이야.")
+    .replaceAll("예요.", "야.")
+    .replaceAll("있어요.", "있어.")
+    .replaceAll("없어요.", "없어.")
+    .replaceAll("해요.", "해.")
+    .replaceAll("돌아와요.", "돌아와.")
+    .replaceAll("어려워요.", "어려워.")
+    .replaceAll("먹어요.", "먹어.")
+    .replaceAll("구경해요.", "구경해.")
+    .replaceAll("커요.", "커.")
+    .replaceAll("쉬어가요.", "쉬어가.")
+    .replaceAll("미끄러워요.", "미끄러워.")
+    .replaceAll("머물러요.", "머물러.")
+    .replaceAll("높아요.", "높아.")
+    .replaceAll("안전해요.", "안전해.")
+    .replaceAll("잡아요.", "잡아.")
+    .replaceAll("바꿔요.", "바꿔.")
+    .replaceAll("들러요.", "들러.")
+    .replaceAll("걸어요.", "걸어.")
+    .replaceAll("내려요.", "내려.")
+    .replaceAll("말려요.", "말려.")
+    .replaceAll("마쳐요.", "마쳐.")
+    .replaceAll("포장해요.", "포장해.")
+    .replaceAll("출발해요.", "출발해.")
+    .replaceAll("이동해요.", "이동해.")
+    .replaceAll("확인해요.", "확인해.")
+    .replaceAll("방문해요.", "방문해.")
+    .replaceAll("선택해요.", "골라.")
+    .replaceAll("촬영해요.", "촬영해.")
+    .replaceAll("정리해요.", "정리해.")
+    .replaceAll("조심해요.", "조심해.")
+    .replaceAll("안내해요.", "안내해.")
+    .replaceAll("시작해요.", "시작해.")
+    .replaceAll("마무리해요.", "마무리해.")
+    .replaceAll("갱신해요.", "새로 봐.");
+}
+
+function travelCategory(value) {
+  return travelVoice(value).replaceAll("처음 계획", "서영픽").replaceAll("고정 일정", "꼭 할 것");
+}
+
 function renderTimeline() {
   const plan = getActivePlan();
   const day = plan[activeDay];
   const dayLabels = activePlanVersion === "a"
-    ? ["공항에서 삼달리까지", "서영 원안 전체 코스", "아침 선택 후 공항"]
+    ? ["공항에서 삼달리까지", "서영이가 처음 찜한 곳", "아침 먹고 공항으로"]
     : isRainPlan()
       ? ["공항에서 삼달리까지", "조천과 성산 실내 코스", "삼달리에서 공항까지"]
       : ["제주시에서 삼달리까지", "동쪽 해안과 삼달리", "삼달리에서 공항까지"];
@@ -358,9 +440,9 @@ function renderTimeline() {
         <span class="timeline-dot" aria-hidden="true"></span>
         <div class="place-card ${isDone ? "completed" : ""} ${item.alert ? "needs-attention" : ""}">
           <div>
-            <div class="place-topline"><span class="category">${item.category}</span><h3>${item.name}</h3></div>
-            <p>${item.description}</p>
-            <div class="place-meta">${item.meta.map(value => `<span>${value}</span>`).join("")}</div>
+            <div class="place-topline"><span class="category">${travelCategory(item.category)}</span><h3>${item.name}</h3></div>
+            <p>${travelVoice(item.description)}</p>
+            <div class="place-meta">${item.meta.map(value => `<span>${travelVoice(value)}</span>`).join("")}</div>
           </div>
           <div class="place-actions">
             ${item.link === false ? '<span class="map-link disabled">상호 확인</span>' : `<a class="map-link" href="${mapUrl(item.query)}" target="_blank" rel="noreferrer">지도 열기</a>`}
@@ -368,7 +450,7 @@ function renderTimeline() {
           </div>
         </div>
       </article>`;
-  }).join("") + `<div class="timeline-note">${day.note}</div>`;
+  }).join("") + `<div class="timeline-note">${travelVoice(day.note)}</div>`;
 
   timeline.querySelectorAll(".check-button").forEach(button => {
     button.addEventListener("click", () => {
@@ -420,7 +502,7 @@ function escapeHtml(value) {
 function ensureTrekMap() {
   if (trekMap) return true;
   if (!window.L) {
-    document.querySelector("#jejuMap").innerHTML = '<p class="map-load-error">이서영 컴퍼니 지도를 불러오지 못했어요. 페이지를 다시 열어 주세요.</p>';
+    document.querySelector("#jejuMap").innerHTML = '<p class="map-load-error">지도가 잠깐 숨었어. 페이지를 다시 열어줘.</p>';
     return false;
   }
   trekMap = L.map("jejuMap", {
@@ -508,10 +590,10 @@ function renderRouteView() {
 function renderRouteInsight(day, activeIndex) {
   const activeItem = day.items[activeIndex];
   document.querySelector("#mapInsightPanel").innerHTML = `
-    <div class="map-panel-topline"><span>${activePlanVersion === "a" ? "A안 경로" : isRainPlan() ? "B안 비 오는 날" : "B안 경로"}</span><b>${day.items.length}곳</b></div>
+    <div class="map-panel-topline"><span>${activePlanVersion === "a" ? "서영이 픽" : isRainPlan() ? "비 주륵주륵" : "해 짱짱"}</span><b>${day.items.length}곳</b></div>
     <div class="active-stop-card">
       <span class="active-stop-number">${String(activeIndex + 1).padStart(2, "0")}</span>
-      <div><small>${activeItem.time} / ${activeItem.category}</small><h3>${activeItem.name}</h3><p>${activeItem.description}</p><a class="active-stop-map-link" href="${mapUrl(activeItem.query)}" target="_blank" rel="noreferrer">네이버 지도에서 길찾기 ↗</a></div>
+      <div><small>${activeItem.time} / ${travelCategory(activeItem.category)}</small><h3>${activeItem.name}</h3><p>${travelVoice(activeItem.description)}</p><a class="active-stop-map-link" href="${mapUrl(activeItem.query)}" target="_blank" rel="noreferrer">네이버 지도에서 길찾기 ↗</a></div>
     </div>
     <ol class="map-stop-list">
       ${day.items.map((item, index) => `<li class="${index === activeIndex ? "active" : ""}" data-panel-stop="${index}"><button type="button"><span>${index + 1}</span><div><strong>${item.name}</strong><small>${item.time}</small></div></button></li>`).join("")}
@@ -522,7 +604,7 @@ function renderRouteInsight(day, activeIndex) {
 function selectMapStop(index, { fromAnimation = false, pan = true } = {}) {
   if (!fromAnimation) {
     cancelAnimationFrame(routeAnimationFrame);
-    document.querySelector("#mapPlayButton").innerHTML = "<span>↻</span> 다시 재생";
+    document.querySelector("#mapPlayButton").innerHTML = "<span>↻</span> 다시 가볼까";
   }
   const day = getMappableDay();
   routeMarkers.forEach(entry => {
@@ -548,7 +630,7 @@ function startRouteAnimation() {
   const startedAt = performance.now();
   let lastStop = -1;
   const playButton = document.querySelector("#mapPlayButton");
-  playButton.innerHTML = "<span>■</span> 이동 중";
+  playButton.innerHTML = "<span>■</span> 가는 중";
   const move = now => {
     const progress = Math.min((now - startedAt) / duration, 1);
     let remaining = totalLength * progress;
@@ -567,7 +649,7 @@ function startRouteAnimation() {
       selectMapStop(stopIndex, { fromAnimation: true, pan: false });
     }
     if (progress < 1) routeAnimationFrame = requestAnimationFrame(move);
-    else playButton.innerHTML = "<span>↻</span> 다시 재생";
+    else playButton.innerHTML = "<span>↻</span> 다시 가볼까";
   };
   routeAnimationFrame = requestAnimationFrame(move);
 }
@@ -578,14 +660,14 @@ function renderClusterInsight(source, selectedItems = []) {
     panel.innerHTML = `
       <div class="map-panel-topline"><span>선택한 지역</span><b>${selectedItems.length}곳</b></div>
       <h3 class="cluster-panel-title">이 근처 ${selectedItems.length}곳</h3>
-      <p class="cluster-panel-copy">후보 마커는 권역을 비교하기 위한 위치예요. 이름을 눌러 네이버 지도에서 정확한 위치와 길찾기를 확인하세요.</p>
+      <p class="cluster-panel-copy">마커 위치는 대략적인 권역이야. 이름을 누르고 네이버 지도에서 정확한 위치를 보자.</p>
       <div class="cluster-place-list">${selectedItems.map((item, index) => `<a href="${mapUrl(item.query)}" target="_blank" rel="noreferrer"><span>${String(index + 1).padStart(2, "0")}</span><strong>${item.name}</strong><b>↗</b></a>`).join("")}</div>`;
     return;
   }
   panel.innerHTML = `
-    <div class="map-panel-topline"><span>권역별 장소</span><b>${source.length}곳</b></div>
-    <h3 class="cluster-panel-title">가까운 장소 묶음</h3>
-    <p class="cluster-panel-copy">원의 숫자는 근처에 모인 장소 수입니다. 장소를 고른 뒤 네이버 지도에서 정확한 위치를 확인하세요.</p>
+    <div class="map-panel-topline"><span>콕콕 모아보기</span><b>${source.length}곳</b></div>
+    <h3 class="cluster-panel-title">가까운 곳끼리 모였어</h3>
+    <p class="cluster-panel-copy">원의 숫자는 근처에 모인 장소 수야. 하나 고르고 네이버 지도에서 정확한 위치를 보자.</p>
     <div class="region-counts">${Object.entries({ east: "동쪽", west: "서쪽", south: "서귀포", airport: "공항 근처" }).map(([region, label]) => `<div><span>${label}</span><strong>${source.filter(item => item.region === region).length}</strong></div>`).join("")}</div>`;
 }
 
@@ -616,7 +698,7 @@ function renderClusterView() {
     const marker = L.marker([lat, lng], { icon: clusterPlaceIcon(item), title: item.name, riseOnHover: true, keyboard: true });
     marker._trekItem = item;
     marker.bindTooltip(item.name, { direction: "top", offset: [0, -18], className: "map-tooltip", opacity: 1 });
-    marker.bindPopup(`<div class="trek-map-popup-card"><small>${escapeHtml(item.tags.join(" / "))}</small><strong>${escapeHtml(item.name)}</strong><p>${escapeHtml(item.description)}</p><a href="${mapUrl(item.query)}" target="_blank" rel="noreferrer">네이버 지도에서 보기 ↗</a></div>`, { className: "trek-map-popup", maxWidth: 260 });
+    marker.bindPopup(`<div class="trek-map-popup-card"><small>${escapeHtml(item.tags.join(" / "))}</small><strong>${escapeHtml(item.name)}</strong><p>${escapeHtml(travelVoice(item.description))}</p><a href="${mapUrl(item.query)}" target="_blank" rel="noreferrer">네이버 지도에서 보기 ↗</a></div>`, { className: "trek-map-popup", maxWidth: 260 });
     marker.on("click", () => renderClusterInsight(source, [item]));
     trekClusterLayer.addLayer(marker);
   });
@@ -629,7 +711,7 @@ function renderClusterView() {
 
 function renderTripMap() {
   document.querySelector("#mapDayChip").textContent = activeMapView === "route" ? `${activeDay}일차` : "전체 장소";
-  document.querySelector("#mapModeHint").textContent = activeMapView === "route" ? "번호는 방문 순서입니다." : "가까운 장소끼리 묶어서 표시합니다.";
+  document.querySelector("#mapModeHint").textContent = activeMapView === "route" ? "숫자는 우리가 갈 순서야." : "가까운 곳끼리 옹기종기 모았어.";
   document.querySelector("#mapPlayButton").hidden = activeMapView !== "route";
   if (activeAppTab !== "map") return;
   if (activeMapView === "route") renderRouteView();
@@ -671,21 +753,21 @@ function setPlanMode(mode) {
     button.classList.toggle("active", isActive);
     button.setAttribute("aria-pressed", String(isActive));
   });
-  document.querySelector("#heroStatusText").textContent = activePlanVersion === "a" ? "서영 원안" : rainActive ? "비 오는 날" : "실제 동선";
-  document.querySelector("#planTitle").textContent = activePlanVersion === "a" ? "A안, 서영 원안" : rainActive ? "B안, 비 오는 날" : "B안, 실제 동선";
+  document.querySelector("#heroStatusText").textContent = activePlanVersion === "a" ? "서영이 픽" : rainActive ? "비 주륵주륵" : "해 짱짱";
+  document.querySelector("#planTitle").textContent = activePlanVersion === "a" ? "서영이가 짠 제주" : rainActive ? "비 주륵주륵 제주" : "해 짱짱 제주";
   document.querySelector("#planDescription").textContent = activePlanVersion === "a"
-    ? "서영님 PDF의 순서를 옮기고 현재 도착 시간과 충돌하는 곳은 따로 표시했어요."
+    ? "서영이가 처음 짠 순서 그대로야. 시간이 안 맞는 곳은 노랗게 표시했어."
     : rainActive
-      ? "삼달리 숙소를 기준으로 빗길 장거리 이동을 줄인 3일 일정이에요."
-      : "삼달리 숙소를 기준으로 실제 운전과 머무는 시간을 고려한 3일 일정이에요.";
-  document.querySelector("#weatherSummary").textContent = rainActive ? "비의 강도 확인" : "한여름 제주";
-  document.querySelector("#weatherDetail").textContent = rainActive ? "호우와 강풍이면 실내로 전환" : "덥고 습하며 소나기 가능";
-  document.querySelector("#focusSummary").textContent = "삼달리 고정 숙소";
-  document.querySelector("#focusDetail").textContent = activePlanVersion === "a" ? "서영 원안과 시간 충돌 확인" : rainActive ? "동쪽 실내 코스 중심" : "동쪽 왕복 동선 중심";
-  document.querySelector("#recommendationTitle").textContent = rainActive ? "비 오는 날 갈 곳" : "갈 만한 곳";
-  document.querySelector("#recommendationDescription").textContent = rainActive ? "야외 장소는 비가 그친 뒤에만 방문하고 호우에는 실내 장소를 선택하세요." : "권역과 예상 체류 시간을 보고 일정에 추가할 수 있습니다.";
+      ? "삼달리 집을 기준으로 빗길 운전을 줄였어. 비가 세면 실내로 쏙 들어가자."
+      : "도착 시간과 삼달리 집을 넣어서 진짜 갈 수 있게 짰어.";
+  document.querySelector("#weatherSummary").textContent = rainActive ? "비 주륵주륵" : "해 짱짱 제주";
+  document.querySelector("#weatherDetail").textContent = rainActive ? "비바람 세면 실내로 쏙" : "덥고 습하니까 물 꼭 챙기자";
+  document.querySelector("#focusSummary").textContent = "삼달리 우리 집";
+  document.querySelector("#focusDetail").textContent = activePlanVersion === "a" ? "시간 안 맞는 곳은 노랗게" : rainActive ? "동쪽 실내로 쏙쏙" : "동쪽 위주로 빙글빙글";
+  document.querySelector("#recommendationTitle").textContent = rainActive ? "비 와도 여기 찜!" : "여기도 찜!";
+  document.querySelector("#recommendationDescription").textContent = rainActive ? "비가 멈추면 야외로 살짝. 왕창 오면 실내로 쏙 들어가자." : "근처에 있으면 슬쩍 끼워 넣자. 머무는 시간도 같이 적어뒀어.";
   const dayDescriptions = activePlanVersion === "a"
-    ? ["공항에서 삼달리까지", "서영 원안 전체 코스", "아침 선택 후 공항"]
+    ? ["공항에서 삼달리까지", "서영이가 처음 찜한 곳", "아침 먹고 공항으로"]
     : rainActive
       ? ["공항에서 삼달리까지", "조천과 성산 실내 코스", "삼달리에서 공항까지"]
       : ["제주시에서 삼달리까지", "동쪽 해안과 삼달리", "삼달리에서 공항까지"];
@@ -694,11 +776,11 @@ function setPlanMode(mode) {
   document.querySelectorAll(".day-tab-count").forEach((element, index) => { element.textContent = `${activePlan[index + 1].items.length}곳`; });
   const quickLinks = document.querySelector("#quickLinks");
   quickLinks.innerHTML = rainActive ? `
-    <div class="side-card-title"><span>바로가기</span></div>
+    <div class="side-card-title"><span>비 올 때 급하면 여기</span></div>
     <a href="${mapUrl("남조로 사려니숲길")}" target="_blank" rel="noreferrer"><div><strong>사려니숲길</strong><small>남조로 입구</small></div><b>↗</b></a>
     <a href="${mapUrl("제주 카페 야원")}" target="_blank" rel="noreferrer"><div><strong>야원</strong><small>11시 오픈 확인</small></div><b>↗</b></a>
     <a href="${mapUrl(lodging.query)}" target="_blank" rel="noreferrer"><div><strong>삼달리 숙소</strong><small>2박 고정</small></div><b>↗</b></a>` : `
-    <div class="side-card-title"><span>바로가기</span></div>
+    <div class="side-card-title"><span>급할 때 여기</span></div>
     <a href="${mapUrl("제주국제공항")}" target="_blank" rel="noreferrer"><div><strong>제주공항</strong><small>지도에서 보기</small></div><b>↗</b></a>
     <a href="${mapUrl("안친오름")}" target="_blank" rel="noreferrer"><div><strong>안친오름</strong><small>입장 여부 확인</small></div><b>↗</b></a>
     <a href="${mapUrl(lodging.query)}" target="_blank" rel="noreferrer"><div><strong>삼달리 숙소</strong><small>2박 고정</small></div><b>↗</b></a>`;
@@ -771,7 +853,7 @@ function renderRecommendations(filter = activeRecommendationFilter) {
     <article class="recommendation-card" data-number="${String(index + 1).padStart(2, "0")}">
       <div class="recommendation-tags">${item.tags.map(tag => `<span>${tag}</span>`).join("")}</div>
       <h3>${item.name}</h3>
-      <p>${item.description}</p>
+      <p>${travelVoice(item.description)}</p>
       <div class="recommendation-footer">
         <span>${item.detour} / ${item.time}</span>
         <div>
@@ -781,11 +863,11 @@ function renderRecommendations(filter = activeRecommendationFilter) {
       </div>
     </article>`).join("");
   const remaining = Math.max(0, cards.length - visibleCards.length);
-  document.querySelector("#recommendationCount").textContent = `전체 ${cards.length}곳, 현재 ${visibleCards.length}곳 표시`;
+  document.querySelector("#recommendationCount").textContent = `찜한 곳 ${cards.length}개 중에 ${visibleCards.length}개 보는 중`;
   const moreButton = document.querySelector("#recommendationMoreButton");
   document.querySelector(".recommendation-more").hidden = cards.length <= 9;
   moreButton.hidden = cards.length <= 9;
-  moreButton.textContent = remaining > 0 ? `${remaining}곳 더 보기` : "간단히 보기";
+  moreButton.textContent = remaining > 0 ? `${remaining}곳 더 볼래` : "조금만 볼래";
 }
 
 document.querySelectorAll(".filter-button").forEach(button => {

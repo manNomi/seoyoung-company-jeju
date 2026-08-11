@@ -56,7 +56,7 @@ test("동시 조회 결과는 입력 순서를 유지하고 개별 실패를 격
 
 test("TMAP 시각 문자열을 여행 중 읽기 쉬운 형식으로 바꾼다", () => {
   assert.equal(formatCrowdTime("20260811152730"), "15:27 기준");
-  assert.equal(formatCrowdTime(""), "조회 시각 없음");
+  assert.equal(formatCrowdTime(""), "아직 안 봤어");
 });
 
 test("장소 이름의 제주 표기와 공백을 제거해 비교한다", () => {

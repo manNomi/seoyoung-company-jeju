@@ -206,14 +206,14 @@ function crowdClusterIcon(cluster) {
   const size = children.length >= 10 ? 52 : 46;
   return L.divIcon({
     className: "crowd-cluster-shell",
-    html: `<div class="crowd-cluster ${meta.className}" style="width:${size}px;height:${size}px"><strong>${children.length}</strong><span>${available.length ? "places" : "조회 전"}</span></div>`,
+    html: `<div class="crowd-cluster ${meta.className}" style="width:${size}px;height:${size}px"><strong>${children.length}</strong><span>${available.length ? "곳" : "아직"}</span></div>`,
     iconSize: [size, size],
     iconAnchor: [size / 2, size / 2]
   });
 }
 
 function formatCrowdTime(value) {
-  if (!value || value.length < 12) return "조회 시각 없음";
+  if (!value || value.length < 12) return "아직 안 봤어";
   return `${value.slice(8, 10)}:${value.slice(10, 12)} 기준`;
 }
 
@@ -234,7 +234,7 @@ function renderCrowdMap() {
     const meta = crowdLevelMeta[item.level || 0];
     const detail = item.available
       ? `${item.peoplePer100.toFixed(1)}명 / 100㎡ · ${formatCrowdTime(item.datetime)}`
-      : "이 장소는 아직 실시간 데이터가 없어요.";
+      : "여기는 아직 실시간 데이터가 없어.";
     const marker = L.marker([item.lat, item.lng], { icon: crowdMarkerIcon(item), title: `${item.name} ${meta.label}`, keyboard: true });
     marker._crowdPlace = item;
     marker.bindPopup(`<div class="crowd-popup"><small>${meta.label}</small><strong>${escapeHtml(item.name)}</strong><p>${detail}</p><a href="${mapUrl(item.name)}" target="_blank" rel="noreferrer">네이버 지도에서 보기 ↗</a></div>`, { className: "trek-map-popup", maxWidth: 240 });
@@ -253,7 +253,7 @@ function renderCrowdRanking() {
     .sort((a, b) => (b.level || 0) - (a.level || 0) || (b.congestion || 0) - (a.congestion || 0));
   crowdDom("#crowdRankingList").innerHTML = source.map((item, index) => {
     const meta = crowdLevelMeta[item.level || 0];
-    const density = item.available ? `${item.peoplePer100.toFixed(1)}명 / 100㎡` : "데이터 없음";
+    const density = item.available ? `${item.peoplePer100.toFixed(1)}명 / 100㎡` : "아직 몰라";
     return `<li><button type="button" data-crowd-place="${item.id}"><span class="crowd-rank">${String(index + 1).padStart(2, "0")}</span><div><strong>${escapeHtml(item.name)}</strong><small>${density}</small></div><em class="${meta.className}">${meta.label}</em></button></li>`;
   }).join("");
   crowdDom("#crowdRankingList").querySelectorAll("[data-crowd-place]").forEach(button => {
@@ -270,10 +270,10 @@ function renderCrowdSummary(updatedAt = 0) {
   const available = crowdResults.filter(item => item.available);
   const quietest = [...available].sort((a, b) => a.congestion - b.congestion)[0];
   const busiest = [...available].sort((a, b) => b.congestion - a.congestion)[0];
-  crowdDom("#crowdQuietest").textContent = quietest?.name || "데이터 연결 전";
-  crowdDom("#crowdQuietestDetail").textContent = quietest ? `${crowdLevelMeta[quietest.level].label} · ${quietest.peoplePer100.toFixed(1)}명 / 100㎡` : "연결 후 표시됩니다";
-  crowdDom("#crowdBusiest").textContent = busiest?.name || "데이터 연결 전";
-  crowdDom("#crowdBusiestDetail").textContent = busiest ? `${crowdLevelMeta[busiest.level].label} · ${busiest.peoplePer100.toFixed(1)}명 / 100㎡` : "연결 후 표시됩니다";
+  crowdDom("#crowdQuietest").textContent = quietest?.name || "아직 연결 전";
+  crowdDom("#crowdQuietestDetail").textContent = quietest ? `${crowdLevelMeta[quietest.level].label} · ${quietest.peoplePer100.toFixed(1)}명 / 100㎡` : "연결하면 알려줄게";
+  crowdDom("#crowdBusiest").textContent = busiest?.name || "아직 연결 전";
+  crowdDom("#crowdBusiestDetail").textContent = busiest ? `${crowdLevelMeta[busiest.level].label} · ${busiest.peoplePer100.toFixed(1)}명 / 100㎡` : "연결하면 알려줄게";
   crowdDom("#crowdCoverage").textContent = `${available.length} / ${crowdPlaces.length}`;
   crowdDom("#crowdUpdated").textContent = updatedAt ? new Date(updatedAt).toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" }) : "아직 없음";
 }
@@ -298,10 +298,10 @@ function updateRefreshAvailability(updatedAt) {
   const refreshesLeft = Math.max(0, crowdMonthlyRefreshLimit - usage.refreshes);
   button.disabled = remaining > 0 || refreshesLeft === 0;
   button.innerHTML = remaining > 0
-    ? `<span>✓</span> ${Math.ceil(remaining / 3600000)}시간 뒤 갱신`
+    ? `<span>✓</span> ${Math.ceil(remaining / 3600000)}시간 뒤에 다시 보자`
     : refreshesLeft
-      ? `<span>↻</span> 새로고침 · 이번 달 ${refreshesLeft}회`
-      : "<span>✓</span> 이번 달 무료 조회 완료";
+      ? `<span>↻</span> 다시 보기 · 이번 달 ${refreshesLeft}번 남음`
+      : "<span>✓</span> 이번 달은 여기까지";
 }
 
 async function loadCrowdData({ force = false } = {}) {
@@ -309,7 +309,7 @@ async function loadCrowdData({ force = false } = {}) {
   const appKey = getCrowdAppKey();
   if (!appKey) {
     crowdDom("#crowdConnectPanel").hidden = false;
-    setCrowdStatus("idle", "연결 전");
+    setCrowdStatus("idle", "아직 연결 전");
     renderCrowdAll();
     return;
   }
@@ -317,15 +317,15 @@ async function loadCrowdData({ force = false } = {}) {
   if (cached && !force) {
     crowdResults = cached.results;
     crowdDom("#crowdConnectPanel").hidden = true;
-    setCrowdStatus(cached.stale ? "warning" : "live", cached.stale ? "최근 조회" : "실시간 연결");
-    crowdDom("#crowdRankingCaption").textContent = cached.stale ? "이전에 조회한 결과입니다. 필요할 때 새로고침하세요." : "혼잡도가 높은 순서입니다. 장소를 누르면 지도에서 위치를 확인할 수 있습니다.";
+    setCrowdStatus(cached.stale ? "warning" : "live", cached.stale ? "아까 본 결과" : "지금 연결 중");
+    crowdDom("#crowdRankingCaption").textContent = cached.stale ? "아까 본 결과야. 궁금할 때 다시 보자." : "북적이는 순서야. 장소를 누르면 지도에서 바로 볼 수 있어.";
     renderCrowdAll(cached.updatedAt);
     updateRefreshAvailability(cached.updatedAt);
     return;
   }
   const usage = readCrowdUsage();
   if (usage.refreshes >= crowdMonthlyRefreshLimit) {
-    setCrowdStatus("warning", "무료 한도 보존");
+    setCrowdStatus("warning", "무료 조회 아끼는 중");
     crowdDom("#crowdConnectPanel").hidden = true;
     if (cached) {
       crowdResults = cached.results;
@@ -337,36 +337,36 @@ async function loadCrowdData({ force = false } = {}) {
   crowdLoading = true;
   const button = crowdDom("#crowdRefreshButton");
   button.disabled = true;
-  button.innerHTML = `<span class="spin">↻</span> 최대 ${crowdPlacesPerRefresh}곳 조회 중`;
-  setCrowdStatus("loading", "불러오는 중");
+  button.innerHTML = `<span class="spin">↻</span> ${crowdPlacesPerRefresh}곳 살펴보는 중`;
+  setCrowdStatus("loading", "살펴보는 중");
   crowdDom("#crowdConnectPanel").hidden = true;
   try {
     const resolvedPlaces = await resolveSupportedPlaces(appKey);
     const livePlaces = resolvedPlaces.filter(place => place.supported).slice(0, crowdPlacesPerRefresh);
-    if (!livePlaces.length) throw new Error("TMAP 지원 장소를 찾지 못했어요.");
+    if (!livePlaces.length) throw new Error("TMAP에서 볼 수 있는 장소를 못 찾았어.");
     saveCrowdUsage(usage.refreshes + 1);
     const liveResults = await mapWithConcurrency(livePlaces, crowdPlacesPerRefresh, place => fetchPlaceCrowd(place, appKey));
     const liveById = new Map(liveResults.map(place => [place.id, place]));
     const results = resolvedPlaces.map(place => liveById.get(place.id) || { ...place, available: false, level: 0 });
     const authFailure = results.find(item => item.status === 401 || item.status === 403);
-    if (authFailure) throw Object.assign(new Error("AppKey 인증에 실패했어요."), { authFailure: true });
+    if (authFailure) throw Object.assign(new Error("AppKey가 맞지 않는 것 같아."), { authFailure: true });
     const requestFailure = results.find(item => item.status === 429 || item.status >= 500);
     const allRequestsFailed = results.every(item => item.error);
-    if (requestFailure || allRequestsFailed) throw new Error(requestFailure?.status === 429 ? "일일 호출 한도를 확인해 주세요." : "TMAP API 요청에 실패했어요.");
+    if (requestFailure || allRequestsFailed) throw new Error(requestFailure?.status === 429 ? "오늘 무료 조회를 다 썼는지 확인해보자." : "TMAP이 잠깐 대답을 안 해.");
     crowdResults = results;
     const updatedAt = Date.now();
     localStorage.setItem(crowdCacheStorage, JSON.stringify({ updatedAt, results }));
     const count = results.filter(item => item.available).length;
-    setCrowdStatus(count ? "live" : "warning", count ? "실시간 연결" : "지원 장소 없음");
-    crowdDom("#crowdRankingCaption").textContent = count ? "혼잡도가 높은 순서입니다. 장소를 누르면 지도에서 위치를 확인할 수 있습니다." : "TMAP에서 혼잡도를 제공하는 장소를 찾지 못했습니다.";
+    setCrowdStatus(count ? "live" : "warning", count ? "지금 연결 중" : "볼 수 있는 곳 없음");
+    crowdDom("#crowdRankingCaption").textContent = count ? "북적이는 순서야. 장소를 누르면 지도에서 바로 볼 수 있어." : "TMAP에서 혼잡도를 보여주는 곳을 못 찾았어.";
     renderCrowdAll(updatedAt);
     updateRefreshAvailability(updatedAt);
   } catch (error) {
-    setCrowdStatus("error", "연결 오류");
+    setCrowdStatus("error", "연결이 삐끗했어");
     crowdDom("#crowdConnectPanel").hidden = false;
-    crowdDom("#crowdConnectPanel p").textContent = error.authFailure ? "AppKey 인증에 실패했어요. 키와 TMAP PUZZLE 상품 사용 설정을 확인해 주세요." : "TMAP 데이터를 불러오지 못했어요. 네트워크와 API 사용 설정을 확인한 뒤 다시 연결해 주세요.";
+    crowdDom("#crowdConnectPanel p").textContent = error.authFailure ? "AppKey가 맞는지랑 TMAP PUZZLE 사용 설정을 확인해보자." : "TMAP 데이터를 못 불러왔어. 인터넷이랑 API 설정을 보고 다시 연결해보자.";
     button.disabled = false;
-    button.innerHTML = "<span>↻</span> 다시 시도";
+    button.innerHTML = "<span>↻</span> 다시 해볼래";
   } finally {
     crowdLoading = false;
   }
@@ -378,7 +378,7 @@ function initializeCrowdControls() {
     const input = crowdDom("#crowdKeyInput");
     const value = input.value.trim();
     if (value.length < 10) {
-      input.setCustomValidity("올바른 TMAP AppKey를 입력해 주세요.");
+      input.setCustomValidity("TMAP AppKey를 한 번 더 확인해줘.");
       input.reportValidity();
       return;
     }

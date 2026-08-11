@@ -13,13 +13,13 @@
   <body>
     <div class="trek-page" id="top">
       <header class="topbar">
-        <a class="back-link" href="#plan" aria-label="일정으로">← <span>일정으로</span></a>
+        <a class="back-link" href="#plan" aria-label="일정으로">← <span>우리 일정</span></a>
         <a class="trek-logo company-logo" href="#plan" aria-label="일정으로">이서영 컴퍼니</a>
         <span class="divider">/</span>
         <strong class="trip-name">Jeju 2026</strong>
         <div class="top-actions">
           <button class="icon-button" id="themeButton" type="button" aria-label="화면 테마 바꾸기">어둡게</button>
-          <span class="profile">우리의 제주</span>
+          <span class="profile">우리 둘의 제주</span>
         </div>
       </header>
 
@@ -27,7 +27,7 @@
         <a class="active" id="planTab" href="#plan" data-tab-target="plan" role="tab" aria-controls="planPanel" aria-selected="true"><b>일정</b></a>
         <a id="mapTab" href="#route-map" data-tab-target="map" role="tab" aria-controls="route-map" aria-selected="false"><b>지도</b></a>
         <a id="crowdTab" href="#crowd-map" data-tab-target="crowd" role="tab" aria-controls="crowd-map" aria-selected="false"><b>혼잡도</b></a>
-        <a id="placesTab" href="#nearby" data-tab-target="places" role="tab" aria-controls="nearby" aria-selected="false"><b>갈 만한 곳</b></a>
+        <a id="placesTab" href="#nearby" data-tab-target="places" role="tab" aria-controls="nearby" aria-selected="false"><b>찜한 곳</b></a>
       </nav>
 
       <main class="page-shell">
@@ -38,7 +38,7 @@
             <div class="hero-scrim"></div>
             <div class="hero-content">
               <div class="hero-topline">
-                <span class="status-pill"><i></i> <span id="heroStatusText">여행 전</span></span>
+                <span class="status-pill"><i></i> <span id="heroStatusText">해 짱짱</span></span>
                 <a class="round-action" href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EB%8F%84" target="_blank" rel="noreferrer" aria-label="제주도 지도 열기">지도</a>
               </div>
               <div class="hero-title-block">
@@ -49,21 +49,21 @@
           </div>
           <div class="trip-pass">
             <div class="pass-cell">
-              <small>여행 인원</small>
+              <small>누구랑</small>
               <div class="avatar-row"><span>우</span><span>리</span></div>
               <strong>우리 둘</strong>
             </div>
             <div class="pass-cell pass-dates">
-              <small>여행 날짜</small>
+              <small>언제</small>
               <div><strong>16 <span>8월</span></strong><b>→</b><strong>18 <span>8월</span></strong></div>
             </div>
             <div class="pass-cell">
-              <small>제주 도착</small>
+              <small>제주에 딱</small>
               <strong>15:50, 렌터카 인수</strong>
               <span class="pass-caption">제주국제공항</span>
             </div>
             <div class="pass-cell">
-              <small>숙소</small>
+              <small>우리 집</small>
               <strong>성산읍 삼달리</strong>
               <span class="pass-caption">2박 같은 숙소</span>
             </div>
@@ -74,42 +74,42 @@
           <section class="main-column" id="plan">
             <div class="section-heading">
               <div>
-                <h2 id="planTitle">여행 일정</h2>
-                <p id="planDescription">서영 원안과 실제 이동 시간을 반영한 일정을 날짜별로 비교합니다.</p>
+                <h2 id="planTitle">해 짱짱 제주</h2>
+                <p id="planDescription">도착 시간과 삼달리 숙소를 넣어서 진짜 갈 수 있게 짰어.</p>
               </div>
               <div class="progress-card" aria-live="polite">
-                <div><span>일정 완료</span><strong id="progressText">0 / 0 완료</strong></div>
+                <div><span>우리 어디까지 갔지?</span><strong id="progressText">0 / 0 완료</strong></div>
                 <div class="progress-track"><i id="progressBar"></i></div>
               </div>
             </div>
 
-            <div class="plan-version-switch" aria-label="계획안 선택">
+            <div class="plan-version-switch" aria-label="우리 여행 계획 선택">
               <button class="plan-version-button" type="button" data-plan-version="a" aria-pressed="false">
-                <small>A</small><strong>서영 원안</strong><span>PDF에 적힌 일정</span>
+                <small>서</small><strong>서영이 픽</strong><span>처음 짜둔 일정</span>
               </button>
               <button class="plan-version-button active" type="button" data-plan-version="b" aria-pressed="true">
-                <small>B</small><strong>실제 동선</strong><span>도착 시간과 숙소 반영</span>
+                <small>우</small><strong>우리끼리 픽</strong><span>도착 시간과 숙소까지 쏙</span>
               </button>
             </div>
 
             <section class="trip-facts" aria-label="확정된 여행 정보">
-              <div><small>도착</small><strong>15:50 제주 도착</strong><span>렌터카 출발은 약 16:30</span></div>
-              <div><small>숙박</small><strong>삼달리에서 2박</strong><span>매일 같은 숙소로 복귀</span></div>
-              <a href="https://map.naver.com/p/search/제주특별자치도%20서귀포시%20성산읍%20삼달하동로32번길%202-1" target="_blank" rel="noreferrer"><small>주소</small><strong>삼달하동로32번길 2-1</strong><span>숙소 지도 열기 ↗</span></a>
+              <div><small>도착</small><strong>15:50 제주 도착</strong><span>16:30쯤 차 타고 출발</span></div>
+              <div><small>쿨쿨</small><strong>삼달리에서 2박</strong><span>매일 같은 숙소로 돌아와</span></div>
+              <a href="https://map.naver.com/p/search/제주특별자치도%20서귀포시%20성산읍%20삼달하동로32번길%202-1" target="_blank" rel="noreferrer"><small>우리 집 주소</small><strong>삼달하동로32번길 2-1</strong><span>숙소 지도 열기 ↗</span></a>
             </section>
 
             <div class="plan-mode-bar" data-plan-b-control aria-label="일정 종류 선택">
               <div class="plan-mode-switch">
-                <button class="plan-mode-button active" type="button" data-plan-mode="sunny">기본 일정</button>
-                <button class="plan-mode-button" type="button" data-plan-mode="rain">비 오는 날</button>
+                <button class="plan-mode-button active" type="button" data-plan-mode="sunny">해 짱짱</button>
+                <button class="plan-mode-button" type="button" data-plan-mode="rain">비 주륵주륵</button>
               </div>
-              <p>비가 오면 같은 날짜의 대체 일정으로 바뀝니다.</p>
+              <p>날씨 보고 톡 누르면 일정이 싹 바뀌어.</p>
             </div>
 
             <section class="rain-rule-card" data-plan-b-control aria-label="비의 강도별 일정 선택 기준">
-              <div><span class="rain-level mist">그침</span><p><strong>비가 그친 새벽</strong><small>제동목장과 사려니숲길</small></p></div>
-              <div><span class="rain-level drizzle">약한 비</span><p><strong>우산으로 이동 가능</strong><small>물영아리와 엉또폭포</small></p></div>
-              <div><span class="rain-level heavy">호우</span><p><strong>강풍까지 불 때</strong><small>미술관과 실내 전시로 교체</small></p></div>
+              <div><span class="rain-level mist">비 멈춤</span><p><strong>새벽 공기 냠냠</strong><small>제동목장과 사려니숲길</small></p></div>
+              <div><span class="rain-level drizzle">보슬보슬</span><p><strong>우산 쓰고 살짝</strong><small>물영아리와 엉또폭포</small></p></div>
+              <div><span class="rain-level heavy">왕창 옴</span><p><strong>밖은 다음에</strong><small>미술관과 실내 전시로 바꾸자</small></p></div>
             </section>
 
             <div class="day-tabs" role="tablist" aria-label="날짜 선택">
@@ -129,16 +129,16 @@
 
           <aside class="side-column">
             <section class="side-card summary-card">
-              <div class="side-card-title"><span>여행 기준</span></div>
+              <div class="side-card-title"><span>우리 여행 한 줄 요약</span></div>
               <div class="summary-list">
-                <div><p><small>날씨</small><strong id="weatherSummary">한여름 제주</strong><em id="weatherDetail">덥고 습하며 소나기 가능</em></p></div>
-                <div><p><small>이동</small><strong>렌터카</strong><em>빗길에는 이동 시간을 추가</em></p></div>
-                <div><p><small>동선</small><strong id="focusSummary">제주 동쪽</strong><em id="focusDetail">바다와 숲 중심 일정</em></p></div>
+                <div><p><small>하늘</small><strong id="weatherSummary">해 짱짱 제주</strong><em id="weatherDetail">덥고 습하니까 물 꼭 챙기자</em></p></div>
+                <div><p><small>붕붕</small><strong>렌터카</strong><em>빗길에는 천천히 가자</em></p></div>
+                <div><p><small>우리 동선</small><strong id="focusSummary">제주 동쪽</strong><em id="focusDetail">바다랑 숲 위주로</em></p></div>
               </div>
             </section>
 
             <section class="side-card quick-card" id="quickLinks">
-              <div class="side-card-title"><span>바로가기</span></div>
+              <div class="side-card-title"><span>급할 때 여기</span></div>
               <a href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD" target="_blank" rel="noreferrer"><div><strong>제주공항</strong><small>지도에서 보기</small></div><b>↗</b></a>
               <a href="https://map.naver.com/p/search/%EC%95%88%EC%B9%9C%EC%98%A4%EB%A6%84" target="_blank" rel="noreferrer"><div><strong>안친오름</strong><small>입장 여부 확인</small></div><b>↗</b></a>
               <a href="https://map.naver.com/p/search/%EC%A4%91%EB%AC%B8%ED%9A%8C%EC%96%B4%EC%8B%9C%EC%9E%A5" target="_blank" rel="noreferrer"><div><strong>중문회어시장</strong><small>포장 가능 시간 확인</small></div><b>↗</b></a>
@@ -146,7 +146,7 @@
 
             <section class="side-card source-card">
               <span class="source-icon">i</span>
-              <div><strong>여행 전 확인</strong><p>영업시간과 사유지 출입 여부는 방문 당일 지도에서 다시 확인해 주세요.</p></div>
+              <div><strong>가기 전에 잠깐</strong><p>영업시간이랑 사유지 출입은 그날 지도에서 한 번 더 보자.</p></div>
             </section>
           </aside>
           </div>
@@ -155,24 +155,24 @@
         <section class="route-map-section app-tab-panel" id="route-map" data-tab-panel="map" role="tabpanel" aria-labelledby="mapTab" hidden>
           <div class="section-heading map-section-heading">
             <div>
-              <h2 id="routeMapTitle">날짜별 이동 경로</h2>
-              <p>날짜와 계획을 고르면 방문 순서가 지도에 표시됩니다.</p>
+              <h2 id="routeMapTitle">오늘 어디부터 가지?</h2>
+              <p>날짜랑 날씨를 고르면 가는 순서가 지도에 쪼르륵 나와.</p>
             </div>
             <div class="map-view-switch" aria-label="지도 보기 방식 선택">
-              <button class="map-view-button active" type="button" data-map-view="route" aria-pressed="true">일정 경로</button>
-              <button class="map-view-button" type="button" data-map-view="clusters" aria-pressed="false">장소 모아보기</button>
+              <button class="map-view-button active" type="button" data-map-view="route" aria-pressed="true">우리 동선</button>
+              <button class="map-view-button" type="button" data-map-view="clusters" aria-pressed="false">콕콕 모아보기</button>
             </div>
           </div>
 
           <div class="map-context-bar" aria-label="지도 일정 선택">
             <div class="map-context-controls">
               <div class="map-version-switch" aria-label="지도 계획안 선택">
-                <button class="map-version-button" type="button" data-plan-version="a" aria-pressed="false">A</button>
-                <button class="map-version-button active" type="button" data-plan-version="b" aria-pressed="true">B</button>
+                <button class="map-version-button" type="button" data-plan-version="a" aria-pressed="false">서영픽</button>
+                <button class="map-version-button active" type="button" data-plan-version="b" aria-pressed="true">우리픽</button>
               </div>
               <div class="map-plan-switch" data-plan-b-control aria-label="날씨별 지도 선택">
-                <button class="map-plan-button active" type="button" data-plan-mode="sunny" aria-pressed="true">기본</button>
-                <button class="map-plan-button" type="button" data-plan-mode="rain" aria-pressed="false">비 오는 날</button>
+                <button class="map-plan-button active" type="button" data-plan-mode="sunny" aria-pressed="true">해 짱짱</button>
+                <button class="map-plan-button" type="button" data-plan-mode="rain" aria-pressed="false">비 주륵주륵</button>
               </div>
             </div>
             <div class="map-day-switch" role="tablist" aria-label="지도 날짜 선택">
@@ -186,8 +186,8 @@
             <div class="map-canvas-wrap">
               <div class="map-toolbar">
                 <span class="map-day-chip" id="mapDayChip">1일차</span>
-                <p id="mapModeHint">마커를 누르면 장소 정보와 길찾기가 열립니다.</p>
-                <button class="map-play-button" id="mapPlayButton" type="button"><span>▶</span> 경로 재생</button>
+                <p id="mapModeHint">숫자를 누르면 장소랑 길찾기가 나와.</p>
+                <button class="map-play-button" id="mapPlayButton" type="button"><span>▶</span> 출발해볼까</button>
               </div>
               <div class="jeju-map" id="jejuMap" role="application" aria-label="제주 여행 일정 지도"></div>
               <div class="map-scale"><span></span> 제주도</div>
@@ -199,15 +199,15 @@
         <section class="crowd-section app-tab-panel" id="crowd-map" data-tab-panel="crowd" role="tabpanel" aria-labelledby="crowdTab" hidden>
           <div class="section-heading crowd-heading">
             <div>
-              <h2>장소 혼잡도</h2>
-              <p>TMAP에서 제공하는 현재 혼잡도를 확인합니다.</p>
+              <h2>지금 북적북적할까?</h2>
+              <p>TMAP으로 지금 덜 붐비는 곳을 찾아보자.</p>
             </div>
             <div class="crowd-live-status" id="crowdLiveStatus"><i></i><span>연결 전</span></div>
           </div>
 
           <div class="crowd-summary-grid" aria-live="polite">
-            <article><small>가장 여유</small><strong id="crowdQuietest">데이터 연결 전</strong><span id="crowdQuietestDetail">연결 후 표시됩니다</span></article>
-            <article><small>가장 혼잡</small><strong id="crowdBusiest">데이터 연결 전</strong><span id="crowdBusiestDetail">연결 후 표시됩니다</span></article>
+            <article><small>널널해</small><strong id="crowdQuietest">아직 연결 전</strong><span id="crowdQuietestDetail">연결하면 알려줄게</span></article>
+            <article><small>북적북적</small><strong id="crowdBusiest">아직 연결 전</strong><span id="crowdBusiestDetail">연결하면 알려줄게</span></article>
             <article><small>조회 장소</small><strong id="crowdCoverage">0 / 18</strong><span>실시간 조회 완료</span></article>
             <article><small>마지막 갱신</small><strong id="crowdUpdated">아직 없음</strong><span>직접 갱신할 때만 호출</span></article>
           </div>
@@ -220,7 +220,7 @@
               <button type="button" data-crowd-region="west">서쪽</button>
               <button type="button" data-crowd-region="jeju">제주시</button>
             </div>
-            <button class="crowd-refresh-button" id="crowdRefreshButton" type="button"><span>↻</span> 지금 새로고침</button>
+            <button class="crowd-refresh-button" id="crowdRefreshButton" type="button"><span>↻</span> 지금 다시 볼래</button>
           </div>
 
           <div class="crowd-map-card">
@@ -230,7 +230,7 @@
               </div>
               <div class="crowd-map" id="crowdMap" role="application" aria-label="제주 실시간 혼잡도 지도"></div>
               <section class="crowd-connect-panel" id="crowdConnectPanel" aria-labelledby="crowdConnectTitle">
-                <div><h3 id="crowdConnectTitle">TMAP 연결</h3><p>AppKey는 현재 기기에만 저장됩니다. 연결하면 지도에 혼잡도가 표시됩니다.</p></div>
+                <div><h3 id="crowdConnectTitle">TMAP이랑 연결할까?</h3><p>AppKey는 지금 쓰는 기기에만 저장해. 연결하면 지도에 혼잡도가 나와.</p></div>
                 <form id="crowdKeyForm">
                   <label for="crowdKeyInput">TMAP AppKey</label>
                   <div><input id="crowdKeyInput" type="password" autocomplete="off" placeholder="AppKey 입력" /><button type="submit">연결하기</button></div>
@@ -239,17 +239,17 @@
               </section>
             </div>
             <aside class="crowd-ranking-panel">
-              <div class="crowd-ranking-head"><div><h3>혼잡도 순서</h3></div><button id="crowdKeySettings" type="button">API 설정</button></div>
-              <p class="crowd-ranking-caption" id="crowdRankingCaption">회색 마커는 조회 전 장소예요. API를 연결하면 실시간 순위로 바뀝니다.</p>
+              <div class="crowd-ranking-head"><div><h3>어디가 제일 북적해?</h3></div><button id="crowdKeySettings" type="button">연결 설정</button></div>
+              <p class="crowd-ranking-caption" id="crowdRankingCaption">회색 마커는 아직 안 본 곳이야. 연결하면 북적이는 순서로 바뀌어.</p>
               <ol class="crowd-ranking-list" id="crowdRankingList"></ol>
-              <div class="crowd-api-note"><i>i</i><p><strong>무료 한도를 아껴 써요</strong><span>월 10건 한도에 맞춰 한 번에 최대 3곳만 조회하고 이번 달 3회까지 갱신해요. 통신 데이터 기반 추정치라 실제 현장과 차이가 날 수 있습니다.</span><a href="https://openapi.sk.com/products/detail?linkMenuSeq=302" target="_blank" rel="noreferrer">SK Open API 공식 문서 ↗</a></p></div>
+              <div class="crowd-api-note"><i>i</i><p><strong>무료 조회는 아껴 쓰자</strong><span>한 번에 최대 3곳만 보고 이번 달에는 3번까지 새로 볼 수 있어. 실제 현장은 조금 다를 수도 있어.</span><a href="https://openapi.sk.com/products/detail?linkMenuSeq=302" target="_blank" rel="noreferrer">SK Open API 공식 문서 ↗</a></p></div>
             </aside>
           </div>
         </section>
 
         <section class="recommendations app-tab-panel" id="nearby" data-tab-panel="places" role="tabpanel" aria-labelledby="placesTab" hidden>
           <div class="section-heading compact-heading">
-            <div><h2 id="recommendationTitle">갈 만한 곳</h2><p id="recommendationDescription">권역과 예상 체류 시간을 보고 일정에 추가할 수 있습니다.</p></div>
+            <div><h2 id="recommendationTitle">여기도 찜!</h2><p id="recommendationDescription">근처에 있으면 슬쩍 끼워 넣자. 머무는 시간도 같이 적어뒀어.</p></div>
             <div class="filter-buttons" aria-label="추천 장소 필터">
               <button class="filter-button active" type="button" data-filter="all">전체</button>
               <button class="filter-button" type="button" data-filter="east">동쪽</button>
@@ -260,14 +260,14 @@
           </div>
           <div class="recommendation-grid" id="recommendationGrid"></div>
           <div class="recommendation-more">
-            <p id="recommendationCount">장소 목록을 불러오는 중입니다.</p>
-            <button id="recommendationMoreButton" type="button">더 보기</button>
+            <p id="recommendationCount">찜한 곳 꺼내는 중이야.</p>
+            <button id="recommendationMoreButton" type="button">더 볼래</button>
           </div>
         </section>
 
       </main>
 
-      <footer><span>이서영 컴퍼니</span><p>2026 제주 여행 일정, 표지 사진 출처 Visit Jeju</p><a href="#top">맨 위로 ↑</a></footer>
+      <footer><span>이서영 컴퍼니</span><p>우리 둘의 2026 제주 여행, 표지 사진 출처 Visit Jeju</p><a href="#top">위로 슝 ↑</a></footer>
     </div>
     <script src="./vendor/leaflet/leaflet.js"></script>
     <script src="./vendor/leaflet-markercluster/leaflet.markercluster.js"></script>
