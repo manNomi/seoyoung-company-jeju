@@ -58,9 +58,9 @@
               <div><strong>16 <span>8월</span></strong><b>→</b><strong>18 <span>8월</span></strong></div>
             </div>
             <div class="pass-cell">
-              <small>제주에 딱</small>
-              <strong>15:50, 렌터카 인수</strong>
-              <span class="pass-caption">제주국제공항</span>
+              <small>렌터카 예약</small>
+              <strong>15:40부터</strong>
+              <span class="pass-caption">15:50 도착 후 인수</span>
             </div>
             <div class="pass-cell">
               <small>우리 집</small>
@@ -93,7 +93,7 @@
             </div>
 
             <section class="trip-facts" aria-label="확정된 여행 정보">
-              <div><small>도착</small><strong>15:50 제주 도착</strong><span>16:30쯤 차 타고 출발</span></div>
+              <div><small>도착</small><strong>15:50 제주 도착</strong><span>렌터카는 15:40부터 예약</span></div>
               <div><small>숙소</small><strong>삼달리에서 2박</strong><span>매일 여기로 돌아오면 돼</span></div>
               <a href="https://map.naver.com/p/search/제주특별자치도%20서귀포시%20성산읍%20삼달하동로32번길%202-1" target="_blank" rel="noreferrer"><small>우리 집 주소</small><strong>삼달하동로32번길 2-1</strong><span>숙소 지도 열기 ↗</span></a>
             </section>
@@ -268,8 +268,22 @@
           <div class="recommendation-grid" id="recommendationGrid"></div>
           <div class="recommendation-more">
             <p id="recommendationCount">찜한 곳 꺼내는 중이야.</p>
-            <button id="recommendationMoreButton" type="button">더 볼래</button>
+            <div><button id="recommendationMoreButton" type="button">더 볼래</button><a class="all-places-link" id="openAllPlaces" href="#all-places">전부 보는 페이지 →</a></div>
           </div>
+        </section>
+
+        <section class="all-places-page app-tab-panel" id="all-places" data-tab-panel="allPlaces" role="tabpanel" hidden>
+          <header class="all-places-header">
+            <a id="backToPlaces" href="#nearby">← 찜한 곳으로</a>
+            <div><span id="allPlacesTotal">전체 장소</span><h2>가볼만한 곳 전부</h2><p>카페랑 맛집이랑 명소 다 모아놨어. 이름 검색하면 바로 나와!</p></div>
+          </header>
+          <div class="all-places-controls">
+            <label class="all-places-search"><span>장소 검색</span><input id="allPlacesSearch" type="search" placeholder="이름으로 찾아보기" autocomplete="off" /></label>
+            <label><span>지역</span><select id="allPlacesRegion"><option value="all">제주 전체</option><option value="east">동쪽</option><option value="south">서귀포</option><option value="west">서쪽</option><option value="airport">공항 근처</option></select></label>
+            <label><span>종류</span><select id="allPlacesKind"><option value="all">다 보기</option><option value="cafe">카페</option><option value="food">맛집</option><option value="spot">명소</option></select></label>
+          </div>
+          <p class="all-places-result" id="allPlacesResult"></p>
+          <div class="all-places-groups" id="allPlacesGroups"></div>
         </section>
 
       </main>
@@ -278,7 +292,7 @@
     </div>
     <script src="./vendor/leaflet/leaflet.js"></script>
     <script src="./vendor/leaflet-markercluster/leaflet.markercluster.js"></script>
-    <script src="./app.js?v=20260811-places2"></script>
-    <script src="./crowd.js?v=20260811-places2"></script>
+    <script src="./app.js?v=20260811-allplaces"></script>
+    <script src="./crowd.js?v=20260811-allplaces"></script>
   </body>
 </html>

@@ -7,7 +7,7 @@ const planAItinerary = {
   1: {
     note: "서영이가 처음 적어둔건 15시 15분 도착 기준이야. 실제로는 15시 50분 도착이구 시간 안 맞는건 노랗게 해놨어.",
     items: [
-      { time: "처음 15:15", name: "제주공항 도착", category: "서영픽", description: "처음에는 15시 15분 도착으로 잡았어. 실제로는 15시 50분 도착이구 렌트카 받고 16시 30분쯤 출발할듯!", meta: ["실제 도착 15:50", "약 35분 차이"], query: "제주국제공항", alert: true },
+      { time: "처음 15:15", name: "제주공항 도착", category: "서영픽", description: "처음에는 15시 15분 도착으로 잡았어. 실제로는 15시 50분 도착이구 렌트카 예약은 15시 40분부터야. 짐 찾고 받으면 16시 20분쯤 될듯!", meta: ["실제 도착 15:50", "렌터카 예약 15:40부터"], query: "제주국제공항", alert: true },
       { time: "+15분", name: "아베베 베이커리 제주점", category: "서영픽 간식", description: "동문시장 근처에서 빵 포장하는 첫 코스야.", meta: ["이동 15분", "주차랑 대기 생각하기"], query: "아베베베이커리 제주" },
       { time: "+28분", name: "우동 카덴", category: "서영픽 식사", description: "17시가 마지막 주문이라 실제 도착 시간에는 못갈듯ㅜㅜ", meta: ["17시 마지막 주문", "우리끼리 픽에서는 뺐어"], query: "우동 카덴 제주", alert: true },
       { time: "+6분", name: "제동목장 입구", category: "서영픽 풍경", description: "목장 코스야. 목장차 지나가는 길은 막지 말고 짧게 보고 가자.", meta: ["이동 6분", "목장 안에는 들어가지 말기"], query: "제주시 조천읍 교래7길 218" },
@@ -51,10 +51,10 @@ const planAItinerary = {
 
 const itinerary = {
   1: {
-    note: "첫날은 15시 50분 도착이구 렌트카 받으면 16시 30분쯤 될듯! 우동 카덴이랑 목장은 시간 안 맞아서 빼고 일단 숙소랑 저녁부터 가자.",
+    note: "첫날은 15시 50분 도착이구 렌트카 예약은 15시 40분부터야. 짐 찾고 받으면 16시 20분쯤 될듯! 우동 카덴이랑 목장은 시간 안 맞아서 빼고 일단 숙소랑 저녁부터 가자.",
     items: [
       { time: "15:50", name: "제주공항 도착", category: "도착", description: "수하물을 찾고 예약한 렌터카 셔틀 승차장으로 이동해요.", meta: ["항공편 도착", "수하물 확인"], query: "제주국제공항" },
-      { time: "16:20", name: "렌터카 인수", category: "고정 일정", description: "예약 시간에 맞춰 차 받고 외관이랑 기름 얼마나 있는지 사진 찍자.", meta: ["약 30분 예상", "출발 전 사진 찍기"], query: "제주공항 렌터카하우스" },
+      { time: "16:20", name: "렌터카 인수", category: "고정 일정", description: "예약은 15시 40분부터야. 공항 도착해서 짐 찾고 차 받으면 외관이랑 기름 얼마나 있는지 사진 찍자.", meta: ["예약 15:40부터", "출발 전 사진 찍기"], query: "제주공항 렌터카하우스" },
       { time: "16:50", name: "아베베 베이커리 제주점", category: "선택 간식", description: "대기와 주차가 길지 않을 때만 빵을 포장해요. 17시 20분이 넘으면 바로 숙소 방향으로 출발해요.", meta: ["포장만", "30분 제한"], query: "아베베베이커리 제주" },
       { time: "17:25", name: "삼달리로 이동", category: "이동", description: "해가 지기 전에 동쪽 숙소로 이동해요. 교통 상황에 따라 약 70분에서 90분을 잡아요.", meta: ["장거리 첫 운전", "중간 관광 없음"], query: lodging.query, map: false },
       { time: "18:50", name: lodging.name, category: "체크인", description: "성산읍 삼달리 숙소에 체크인하고 짐을 내려요.", meta: ["2박 고정", "삼달하동로32번길 2-1"], query: lodging.query },
@@ -109,7 +109,7 @@ const rainItinerary = {
     note: "도착하는 날 비오면 관광은 안할거야. 렌트카 받고 비 많이 안오면 빵만 포장하구 바로 삼달리 가자.",
     items: [
       { time: "15:50", name: "제주공항 도착", category: "도착", description: "수하물을 찾고 렌터카 셔틀 승차장으로 이동해요.", meta: ["우산 바로 꺼내기", "수하물 확인"], query: "제주국제공항" },
-      { time: "16:20", name: "렌터카 인수", category: "고정 일정", description: "차 사진찍고 와이퍼랑 타이어도 한번 보자.", meta: ["약 30분 예상", "빗길 운전 준비"], query: "제주공항 렌터카하우스" },
+      { time: "16:20", name: "렌터카 인수", category: "고정 일정", description: "예약은 15시 40분부터야. 차 사진찍고 와이퍼랑 타이어도 한번 보자.", meta: ["예약 15:40부터", "빗길 운전 준비"], query: "제주공항 렌터카하우스" },
       { time: "16:50", name: "아베베 베이커리 제주점", category: "선택 간식", description: "비와 교통이 심하지 않을 때만 포장해요. 대기가 길면 바로 숙소로 출발합니다.", meta: ["포장만", "17시 20분 출발 제한"], query: "아베베베이커리 제주" },
       { time: "17:25", name: "삼달리로 이동", category: "빗길 이동", description: "침수 알림과 도로 통제를 확인하며 숙소로 이동해요.", meta: ["70분에서 90분", "중간 관광 없음"], query: lodging.query, map: false },
       { time: "18:50", name: lodging.name, category: "체크인", description: "성산읍 삼달리 숙소에 체크인하고 젖은 옷과 신발을 말려요.", meta: ["2박 모두 같은 숙소", "삼달하동로32번길 2-1"], query: lodging.query },
@@ -295,8 +295,12 @@ function inferPlaceKind(item) {
 
 function getRecommendationSource() {
   const primary = isRainPlan() ? rainRecommendations : recommendations;
+  return uniqueRecommendations([...primary, ...additionalRecommendations]);
+}
+
+function uniqueRecommendations(items) {
   const seen = new Set();
-  return [...primary, ...additionalRecommendations]
+  return items
     .map(item => ({ ...item, kind: inferPlaceKind(item) }))
     .filter(item => {
       const identity = recommendationIdentity(item.name);
@@ -304,6 +308,10 @@ function getRecommendationSource() {
       seen.add(identity);
       return true;
     });
+}
+
+function getAllRecommendationSource() {
+  return uniqueRecommendations([...recommendations, ...rainRecommendations, ...additionalRecommendations]);
 }
 
 const timeline = document.querySelector("#timeline");
@@ -336,7 +344,8 @@ const appTabHashes = {
   plan: "#plan",
   map: "#route-map",
   crowd: "#crowd-map",
-  places: "#nearby"
+  places: "#nearby",
+  allPlaces: "#all-places"
 };
 
 function tabNameFromHash(hash = window.location.hash) {
@@ -354,7 +363,7 @@ function setActiveAppTab(tabName, options = {}) {
     panel.classList.toggle("active", isActive);
   });
   document.querySelectorAll("[data-tab-target]").forEach(tab => {
-    const isActive = tab.dataset.tabTarget === tabName;
+    const isActive = tab.dataset.tabTarget === tabName || (tabName === "allPlaces" && tab.dataset.tabTarget === "places");
     tab.classList.toggle("active", isActive);
     tab.setAttribute("aria-selected", String(isActive));
     tab.tabIndex = isActive ? 0 : -1;
@@ -374,6 +383,7 @@ function setActiveAppTab(tabName, options = {}) {
   if (tabName === "crowd") {
     window.setTimeout(() => window.showCrowdMap?.(), 30);
   }
+  if (tabName === "allPlaces") renderAllPlaces();
 }
 
 function initializeAppTabs() {
@@ -398,6 +408,14 @@ function initializeAppTabs() {
     if (Object.values(appTabHashes).includes(window.location.hash)) {
       setActiveAppTab(tabNameFromHash(), { scroll: false });
     }
+  });
+  document.querySelector("#openAllPlaces")?.addEventListener("click", event => {
+    event.preventDefault();
+    setActiveAppTab("allPlaces", { updateHash: true });
+  });
+  document.querySelector("#backToPlaces")?.addEventListener("click", event => {
+    event.preventDefault();
+    setActiveAppTab("places", { updateHash: true });
   });
 }
 
@@ -1031,6 +1049,40 @@ function renderRecommendations(filter = activeRecommendationFilter) {
   moreButton.hidden = cards.length <= 9;
   moreButton.textContent = remaining > 0 ? `${remaining}곳 더 볼래` : "조금만 볼래";
 }
+
+const allPlacesRegionLabels = { east: "동쪽", south: "서귀포", west: "서쪽", airport: "공항 근처" };
+
+function renderAllPlaces() {
+  const searchInput = document.querySelector("#allPlacesSearch");
+  const regionFilter = document.querySelector("#allPlacesRegion");
+  const kindFilter = document.querySelector("#allPlacesKind");
+  if (!searchInput || !regionFilter || !kindFilter) return;
+  const keyword = searchInput.value.trim().toLowerCase();
+  const source = getAllRecommendationSource();
+  const filtered = source.filter(item => {
+    const matchesSearch = !keyword || `${item.name} ${item.tags.join(" ")} ${item.detour}`.toLowerCase().includes(keyword);
+    const matchesRegion = regionFilter.value === "all" || item.region === regionFilter.value;
+    const matchesKind = kindFilter.value === "all" || item.kind === kindFilter.value;
+    return matchesSearch && matchesRegion && matchesKind;
+  });
+  document.querySelector("#allPlacesTotal").textContent = `전체 ${source.length}곳`;
+  document.querySelector("#allPlacesResult").textContent = keyword || regionFilter.value !== "all" || kindFilter.value !== "all"
+    ? `${filtered.length}곳 찾았어`
+    : `카페 ${source.filter(item => item.kind === "cafe").length} · 맛집 ${source.filter(item => item.kind === "food").length} · 명소 ${source.filter(item => item.kind === "spot").length}`;
+  document.querySelector("#allPlacesGroups").innerHTML = Object.entries(allPlacesRegionLabels).map(([region, label]) => {
+    const items = filtered.filter(item => item.region === region);
+    if (!items.length) return "";
+    return `<section class="all-place-group"><header><h3>${label}</h3><span>${items.length}곳</span></header><div class="all-place-list">${items.map(item => {
+      const kindLabel = placeKindMeta[item.kind].label;
+      return `<a class="all-place-row kind-${item.kind}" href="${mapUrl(item.query)}" target="_blank" rel="noreferrer"><span>${kindLabel}</span><div><strong>${item.name}</strong><small>${travelVoice(item.description)}</small></div><b>↗</b></a>`;
+    }).join("")}</div></section>`;
+  }).join("") || `<div class="all-places-empty"><strong>검색 결과가 없어</strong><p>이름을 조금만 짧게 써봐!</p></div>`;
+}
+
+document.querySelectorAll("#allPlacesSearch, #allPlacesRegion, #allPlacesKind").forEach(control => {
+  control.addEventListener("input", renderAllPlaces);
+  control.addEventListener("change", renderAllPlaces);
+});
 
 document.querySelectorAll(".filter-button").forEach(button => {
   button.addEventListener("click", () => {
