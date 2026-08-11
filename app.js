@@ -148,6 +148,7 @@ const rainItinerary = {
 
 const rainRecommendations = [
   { region: "airport", name: "Jeju Archive Store", tags: ["8월 기간 한정", "완전 실내"], time: "50분", detour: "탑동로2길 7", description: "7월 31일부터 8월 31일까지 열리는 스투시 공식 아카이브 스토어예요. 제주 익스클루시브 빈티지와 매일 바뀌는 라인업을 볼 수 있고 운영시간은 11시 30분부터 19시 30분이에요.", query: "제주특별자치도 제주시 탑동로2길 7", source: "https://kr.stussy.com/blogs/news/jeju-archive-store" },
+  { region: "east", name: "스타벅스 더제주송당파크R점", tags: ["호우 대안", "대형 실내 카페"], time: "70분", detour: "비자림로 1189", description: "제주동화마을 안에 있는 큰 리저브 매장이야. 비가 많이 오면 야원 대신 실내에서 쉬기 좋고 제주 전용 푸드랑 매장 전용 상품도 볼 수 있어. 강풍이나 호우에는 야외 정원은 빼자.", query: "스타벅스 더제주송당파크R점", source: "https://map.naver.com/p/entry/place/1259129302" },
   { region: "east", name: "절물자연휴양림", tags: ["약한 비", "삼나무 숲"], time: "70분", detour: "명림로 584", description: "완만한 데크를 따라 삼나무 숲을 걷기 좋아. 안개랑 가벼운 비에는 예쁘지만 호우와 낙뢰랑 강풍이 있으면 바로 취소하자.", query: "제주 제주시 명림로 584 절물자연휴양림", source: "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500570" },
   { region: "east", name: "천미천", tags: ["비 그친 뒤", "범람 주의"], time: "30분", detour: "송당리 2657", description: "비가 그친 뒤 물이 흐를 때 풍경이 예쁜 하천이지만 태풍 때 범람 피해가 있었어. 비가 오는 중에는 가지 말고 비가 멈춘 뒤에도 수위랑 출입 상태를 먼저 보자.", query: "제주 제주시 구좌읍 송당리 2657 천미천", source: "https://www.jejunews.com/news/articleView.html?idxno=2184312" },
   { region: "east", name: "비자림", tags: ["약한 비", "비자나무 숲"], time: "80분", detour: "비자숲길 55", description: "숲이 가벼운 비를 어느 정도 막아주고 젖은 비자나무 색이 예뻐. 호우와 강풍에는 입장 통제를 확인하고 취소하자.", query: "제주 제주시 구좌읍 비자숲길 55 비자림", source: "https://www.visitjeju.net/kr/themtour/view?contentsid=CNTS_300000000013335&menuId=DOM_000002000000000221" },
@@ -438,6 +439,7 @@ const exactPlaceCoordinates = {
   "렌터카 주유": [126.501, 33.498],
   "렌터카 반납": [126.499, 33.503],
   "Jeju Archive Store": [126.523, 33.518],
+  "스타벅스 더제주송당파크R점": [126.755, 33.44],
   "절물자연휴양림": [126.629, 33.438],
   "천미천": [126.752, 33.447],
   "비자림": [126.811, 33.491],
