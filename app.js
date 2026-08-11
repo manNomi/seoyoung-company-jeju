@@ -148,6 +148,11 @@ const rainItinerary = {
 
 const rainRecommendations = [
   { region: "airport", name: "Jeju Archive Store", tags: ["8월 기간 한정", "완전 실내"], time: "50분", detour: "탑동로2길 7", description: "7월 31일부터 8월 31일까지 열리는 스투시 공식 아카이브 스토어예요. 제주 익스클루시브 빈티지와 매일 바뀌는 라인업을 볼 수 있고 운영시간은 11시 30분부터 19시 30분이에요.", query: "제주특별자치도 제주시 탑동로2길 7", source: "https://kr.stussy.com/blogs/news/jeju-archive-store" },
+  { region: "east", name: "절물자연휴양림", tags: ["약한 비", "삼나무 숲"], time: "70분", detour: "명림로 584", description: "완만한 데크를 따라 삼나무 숲을 걷기 좋아. 안개랑 가벼운 비에는 예쁘지만 호우와 낙뢰랑 강풍이 있으면 바로 취소하자.", query: "제주 제주시 명림로 584 절물자연휴양림", source: "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500570" },
+  { region: "east", name: "천미천", tags: ["비 그친 뒤", "범람 주의"], time: "30분", detour: "송당리 2657", description: "비가 그친 뒤 물이 흐를 때 풍경이 예쁜 하천이지만 태풍 때 범람 피해가 있었어. 비가 오는 중에는 가지 말고 비가 멈춘 뒤에도 수위랑 출입 상태를 먼저 보자.", query: "제주 제주시 구좌읍 송당리 2657 천미천", source: "https://www.jejunews.com/news/articleView.html?idxno=2184312" },
+  { region: "east", name: "비자림", tags: ["약한 비", "비자나무 숲"], time: "80분", detour: "비자숲길 55", description: "숲이 가벼운 비를 어느 정도 막아주고 젖은 비자나무 색이 예뻐. 호우와 강풍에는 입장 통제를 확인하고 취소하자.", query: "제주 제주시 구좌읍 비자숲길 55 비자림", source: "https://www.visitjeju.net/kr/themtour/view?contentsid=CNTS_300000000013335&menuId=DOM_000002000000000221" },
+  { region: "west", name: "산양큰엉곶", tags: ["약한 비", "유료 숲길"], time: "90분", detour: "연명로 179", description: "비에 젖은 곶자왈 숲이 예쁜 곳이야. 야외 비중이 커서 보슬비까지만 가고 호우와 낙뢰랑 강풍이면 빼자. 입장 마감도 당일 확인해야 돼.", query: "제주 제주시 한경면 연명로 179 산양큰엉곶" },
+  { region: "south", name: "토끼나무숲", tags: ["약한 비", "운영 확인"], time: "60분", detour: "녹산로 180-21", description: "표선 녹산로 쪽 숲 후보야. 운영 주체랑 최신 영업시간을 확인하기 어려워서 방문 전에 지도나 전화로 영업 여부를 꼭 확인하자. 호우에는 가지 말자.", query: "제주 서귀포시 표선면 녹산로 180-21 토끼나무숲" },
   { region: "east", name: "제동목장 입구", tags: ["비 온 다음날", "새벽"], time: "20분", detour: "입구 교래7길 218", description: "목장 소재지는 교래리 산16이지만 사진 지점은 입구 삼거리로 안내해요. GS25 교래퐁낭점 옆 공터나 삼다수 숲길 주차장을 이용하고 목장 차량의 통행을 막지 마세요.", query: "제주시 조천읍 교래7길 218", source: "https://www.visitjeju.or.kr/issue/news/weekly.htm?act=download&no=2&page=5&seq=56348" },
   { region: "east", name: "사려니숲길", tags: ["약한 비", "무료"], time: "60분", detour: "제동목장 근처", description: "공식 관광 영상에도 소개된 비 오는 제주 대표 숲길이에요. 남조로 입구로 가고 호우나 낙뢰가 있으면 취소하세요.", query: "남조로 사려니숲길", source: "https://www.youtube.com/watch?v=gux_pyEIcUY" },
   { region: "south", name: "물영아리오름 습지", tags: ["약한 비", "람사르 습지"], time: "90분", detour: "남원읍", description: "습할 때 숲과 습지의 분위기가 좋지만 정상 계단이 가파릅니다. 호우와 강풍 및 낙뢰 때는 일정에서 빼세요.", query: "물영아리오름 습지", source: "https://rsis.ramsar.org/ris/1648" },
@@ -433,6 +438,11 @@ const exactPlaceCoordinates = {
   "렌터카 주유": [126.501, 33.498],
   "렌터카 반납": [126.499, 33.503],
   "Jeju Archive Store": [126.523, 33.518],
+  "절물자연휴양림": [126.629, 33.438],
+  "천미천": [126.752, 33.447],
+  "비자림": [126.811, 33.491],
+  "산양큰엉곶": [126.299, 33.305],
+  "토끼나무숲": [126.78, 33.402],
   "아베베 베이커리 제주점": [126.527, 33.514],
   "우동 카덴": [126.666, 33.435],
   "제동목장 입구": [126.692, 33.429],
