@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./vendor/leaflet/leaflet.css" />
     <link rel="stylesheet" href="./vendor/leaflet-markercluster/MarkerCluster.css" />
     <link rel="stylesheet" href="./vendor/leaflet-markercluster/MarkerCluster.Default.css" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=20260811-places2" />
   </head>
   <body>
     <div class="trek-page" id="top">
@@ -187,6 +187,7 @@
               <div class="map-toolbar">
                 <span class="map-day-chip" id="mapDayChip">1일차</span>
                 <p id="mapModeHint">숫자를 누르면 장소랑 길찾기가 나와.</p>
+                <div class="place-kind-legend" id="placeKindLegend" hidden><span class="kind-cafe">카페</span><span class="kind-food">맛집</span><span class="kind-spot">명소</span></div>
                 <button class="map-play-button" id="mapPlayButton" type="button"><span>▶</span> 출발하자</button>
               </div>
               <div class="jeju-map" id="jejuMap" role="application" aria-label="제주 여행 일정 지도"></div>
@@ -258,6 +259,12 @@
               <button class="filter-button" type="button" data-filter="airport">공항 근처</button>
             </div>
           </div>
+          <div class="place-type-filters" aria-label="장소 종류 필터">
+            <button class="place-type-button active" type="button" data-place-type="all">다 보기</button>
+            <button class="place-type-button kind-cafe" type="button" data-place-type="cafe">카페</button>
+            <button class="place-type-button kind-food" type="button" data-place-type="food">맛집</button>
+            <button class="place-type-button kind-spot" type="button" data-place-type="spot">명소</button>
+          </div>
           <div class="recommendation-grid" id="recommendationGrid"></div>
           <div class="recommendation-more">
             <p id="recommendationCount">찜한 곳 꺼내는 중이야.</p>
@@ -271,7 +278,7 @@
     </div>
     <script src="./vendor/leaflet/leaflet.js"></script>
     <script src="./vendor/leaflet-markercluster/leaflet.markercluster.js"></script>
-    <script src="./app.js"></script>
-    <script src="./crowd.js"></script>
+    <script src="./app.js?v=20260811-places2"></script>
+    <script src="./crowd.js?v=20260811-places2"></script>
   </body>
 </html>

@@ -1216,3 +1216,68 @@ footer { padding-right: max(48px, calc((100% - 1800px) / 2)); padding-left: max(
   .recommendation-grid { grid-template-columns: 1fr; }
   .recommendation-card { min-height: 0; }
 }
+
+.place-type-filters {
+  display: flex;
+  gap: 8px;
+  margin: -4px 0 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.place-type-filters::-webkit-scrollbar { display: none; }
+.place-type-button {
+  min-height: 36px;
+  padding: 7px 14px;
+  color: var(--ink-2);
+  background: var(--surface);
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.place-type-button.active { color: #fff; background: #111827; border-color: #111827; }
+.place-type-button.kind-food.active { color: #dcfce7; background: #166534; border-color: #166534; }
+.place-type-button.kind-spot.active { color: #f3e8ff; background: #6b21a8; border-color: #6b21a8; }
+.recommendation-card.kind-cafe .recommendation-tags span:first-child { color: #fff; background: #334155; }
+.recommendation-card.kind-food .recommendation-tags span:first-child { color: #dcfce7; background: #166534; }
+.recommendation-card.kind-spot .recommendation-tags span:first-child { color: #f3e8ff; background: #6b21a8; }
+.cluster-place-marker.kind-cafe { color: #fff; background: #334155; }
+.cluster-place-marker.kind-food { color: #dcfce7; background: #166534; }
+.cluster-place-marker.kind-spot { color: #f3e8ff; background: #6b21a8; }
+.place-kind-legend {
+  display: flex;
+  gap: 5px;
+  margin-left: auto;
+}
+.place-kind-legend[hidden] { display: none; }
+.place-kind-legend span {
+  padding: 6px 9px;
+  color: #fff;
+  background: #334155;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.place-kind-legend .kind-food { color: #dcfce7; background: #166534; }
+.place-kind-legend .kind-spot { color: #f3e8ff; background: #6b21a8; }
+.cluster-place-list a { grid-template-columns: 44px minmax(0, 1fr) auto; }
+.cluster-place-list span,
+.cluster-place-list span.kind-cafe,
+.cluster-place-list span.kind-food,
+.cluster-place-list span.kind-spot {
+  width: 40px;
+  color: #fff;
+  background: #334155;
+}
+.cluster-place-list span.kind-food { color: #dcfce7; background: #166534; }
+.cluster-place-list span.kind-spot { color: #f3e8ff; background: #6b21a8; }
+
+@media (max-width: 720px) {
+  .place-type-filters { margin-top: -6px; margin-bottom: 16px; }
+  .place-type-button { min-height: 34px; padding: 6px 12px; font-size: 11px; }
+  .place-kind-legend { margin-left: 0; }
+  .place-kind-legend span { padding: 5px 7px; font-size: 9px; }
+}

@@ -184,6 +184,128 @@ const rainRecommendations = [
   { region: "west", name: "돈사빠", tags: ["코스 포함", "흑돼지"], time: "90분", detour: "대정읍 중산간서로 2405", description: "유동룡미술관과 바이닐 제주 다음에 이어지는 저녁 식사 장소예요. 영업시간과 휴무를 확인하세요.", query: "돈사빠 제주" },
 ];
 
+const placeKindMeta = {
+  cafe: { label: "카페", time: "약 60분" },
+  food: { label: "맛집", time: "약 70분" },
+  spot: { label: "명소", time: "약 60분" }
+};
+
+const additionalPlaceGroups = [
+  {
+    region: "east", route: "제주시에서 동쪽", kind: "cafe",
+    names: "하토말차,홉히,키에키,커피템플,무우수커피로스터스,링로드,애재,야원,카멜커피,차한모금,먀,레이오버"
+  },
+  {
+    region: "east", route: "제주시에서 동쪽", kind: "food",
+    names: "잘도식당,풍어회센타,영미식당,성춘,고기장,늘봄흑돼지,도두해녀의집,우진해장국,태풍쌀국수,제주미담,라스또르따스,조천수산,돈방석,저팔계깡통연탄구이,로티,선흘곶,각지불,도우보이,백구옥,김녕오라이,말젯문,명진전복,소금바치순이네,으뜨미"
+  },
+  {
+    region: "east", route: "제주시에서 동쪽", kind: "spot",
+    names: "샛도리물,이호해수욕장,삼양해수욕장,신흥해수욕장,함덕해수욕장,돌문화공원,사려니숲길,제주동화마을,청굴물,김녕해수욕장,만장굴,세화해수욕장"
+  },
+  {
+    region: "south", route: "동쪽에서 서귀포", kind: "cafe",
+    names: "카페쿠리,월간레코드,목화휴게소,프릳츠,오른,밭디,가시림,오늘은 녹차한잔,담소요,대한목장,라룬블루,세러데이아일랜드"
+  },
+  {
+    region: "south", route: "동쪽에서 서귀포", kind: "food",
+    names: "피갈회옥,제주길흑돼지참숯구이,맛나식당,섭지해녀의집,한라산아래첫마을,표선우동가게,만덕이네,계절식,랑이식당,미미파스타,백한철꽈배기,취향의섬,공천포식당"
+  },
+  {
+    region: "south", route: "동쪽에서 서귀포", kind: "spot",
+    names: "우도,성산일출봉,광치기해변,아쿠아플라넷,섭지코지,표선해수욕장,태웃개,큰엉해안경승지,쇠소깍,사라오름,이승악"
+  },
+  {
+    region: "south", route: "서귀포에서 서쪽", kind: "cafe",
+    names: "베케,너리,댄싱두루미,믈커피 스페셜티점,허니문하우스,테라로사 커피,바다다,위이,비밀역,원앤온리,메종노트르테르,패스브루,인무드,너흐,모아시,믈커피로스터스,나무북카페"
+  },
+  {
+    region: "south", route: "서귀포에서 서쪽", kind: "food",
+    names: "리볼버,퍼랭,석경초밥,오는정김밥,삼보식당,함쉐프키친,쌍둥이횟집,중문고등어쌈밥,중문수두리 보말칼국수,선채향,달팽이식당,번네식당,폭,오랑우탄면사무소,명호돗갈비,메릭빌,옥돔식당,미영이네,덕승식당,홍성방"
+  },
+  {
+    region: "west", route: "서귀포에서 서쪽", kind: "spot",
+    names: "중문색달해수욕장,대포주상절리,헬로키티아일랜드,오설록,용머리해안,사계해변,산방산,바다기찻길"
+  },
+  {
+    region: "west", route: "서쪽에서 애월", kind: "cafe",
+    names: "마마롱,제주당,슬로보트,커피냅로스터스,도토리 제주점,픽업카페 애월점,슬랩,ttr,잔물결,호텔샌드,리버브,베릴,로비,3인칭관찰자시점,프롬더아일랜드,카페데스틸"
+  },
+  {
+    region: "west", route: "서쪽에서 애월", kind: "food",
+    names: "저지면옥,금자매식당,한양동식당,대금식당,등대아구찜,바다술상,뽈살집,고기부엌,수선화식당,수우동,동경밥상,집밥 단소,크라운돼지,바다속고등어쌈밥,호탕,부산아지매집"
+  },
+  {
+    region: "west", route: "서쪽에서 애월", kind: "spot",
+    names: "신창풍차해안도로,금오름,성이시돌목장,새별오름,판포포구,금능해수욕장,협재해수욕장,한담해변"
+  }
+];
+
+const specialPlaceDescriptions = {
+  "제주동화마을": "매장이랑 조경 볼거 많고 지브리 전시도 하는 중이래. 스타벅스 리저브랑 코리코카페도 있어서 여기만 봐도 시간 꽤 쓸듯! 전시는 가기 전에 한번 보자.",
+  "피갈회옥": "넷플릭스 모태솔로지만에 나온 곳이라 저장해놨어. 그날 땡기면 가자.",
+  "제주길흑돼지참숯구이": "뷔랑 박서준이 다녀간 곳이라 저장해놨어. 영업하는지 보고 가자.",
+  "용머리해안": "바다 상태에 따라 못 들어갈 수도 있어. 당일에 064-760-6321로 관람되는지 꼭 물어보자.",
+  "바다기찻길": "서귀포시 대정읍 일과대수로27번길 38로 가면 돼. 물때표 보고 만조 전후에 갈듯!"
+};
+
+function additionalPlaceDescription(group, name) {
+  if (specialPlaceDescriptions[name]) return specialPlaceDescriptions[name];
+  if (group.kind === "cafe") return `${group.route}쪽 카페야. 근처 지나가면 쉬었다 갈듯!`;
+  if (group.kind === "food") return `${group.route}쪽에서 밥먹을 곳으로 저장해놨어. 그날 땡기면 가자.`;
+  return `${group.route}쪽에서 같이 볼만한 곳이야. 날씨 괜찮으면 가자.`;
+}
+
+const additionalRecommendations = additionalPlaceGroups.flatMap(group => group.names.split(",").map(rawName => {
+  const name = rawName.trim();
+  const kind = placeKindMeta[group.kind];
+  return {
+    region: group.region,
+    kind: group.kind,
+    name,
+    tags: [kind.label, group.route],
+    time: kind.time,
+    detour: group.route,
+    description: additionalPlaceDescription(group, name),
+    query: `제주 ${name}`
+  };
+}));
+
+const placeNameAliases = {
+  돌문화공원: "제주돌문화공원",
+  세화해수욕장: "세화해변",
+  이승악: "이승악오름",
+  오설록: "오설록티뮤지엄",
+  리버브: "리버브제주",
+  테라로사커피: "테라로사서귀포점"
+};
+
+function recommendationIdentity(name) {
+  const normalized = name.replace(/\s/g, "");
+  return placeNameAliases[normalized] || normalized;
+}
+
+function inferPlaceKind(item) {
+  if (item.kind) return item.kind;
+  const text = `${item.name} ${item.tags.join(" ")}`;
+  if (/카페|커피|디저트|베이커리|브런치|LP|차\b/.test(text)) return "cafe";
+  if (/식당|식사|맛집|해산물|흑돼지|저녁|국수|시장/.test(text)) return "food";
+  return "spot";
+}
+
+function getRecommendationSource() {
+  const primary = isRainPlan() ? rainRecommendations : recommendations;
+  const seen = new Set();
+  return [...primary, ...additionalRecommendations]
+    .map(item => ({ ...item, kind: inferPlaceKind(item) }))
+    .filter(item => {
+      const identity = recommendationIdentity(item.name);
+      if (seen.has(identity)) return false;
+      seen.add(identity);
+      return true;
+    });
+}
+
 const timeline = document.querySelector("#timeline");
 const progressText = document.querySelector("#progressText");
 const progressBar = document.querySelector("#progressBar");
@@ -206,6 +328,7 @@ let trekClusterLayer = null;
 let routeMarkers = [];
 let routeTravelerMarker = null;
 let activeRecommendationFilter = "all";
+let activeRecommendationType = "all";
 let recommendationLimit = 9;
 let activeAppTab = "plan";
 
@@ -571,7 +694,7 @@ function clusterPlaceIcon(item) {
   const label = escapeHtml(item.name.slice(0, 1));
   return L.divIcon({
     className: "trek-marker-wrapper",
-    html: `<div class="trek-place-marker cluster-place-marker"><span class="trek-place-glyph">${label}</span></div>`,
+    html: `<div class="trek-place-marker cluster-place-marker kind-${item.kind}"><span class="trek-place-glyph">${label}</span></div>`,
     iconSize: [36, 36],
     iconAnchor: [18, 18],
     popupAnchor: [0, -18]
@@ -693,7 +816,7 @@ function renderClusterInsight(source, selectedItems = []) {
       <div class="map-panel-topline"><span>선택한 지역</span><b>${selectedItems.length}곳</b></div>
       <h3 class="cluster-panel-title">이 근처 ${selectedItems.length}곳</h3>
       <p class="cluster-panel-copy">마커 위치는 대략적인 권역이야. 이름을 누르고 네이버 지도에서 정확한 위치를 보자.</p>
-      <div class="cluster-place-list">${selectedItems.map((item, index) => `<a href="${mapUrl(item.query)}" target="_blank" rel="noreferrer"><span>${String(index + 1).padStart(2, "0")}</span><strong>${item.name}</strong><b>↗</b></a>`).join("")}</div>`;
+      <div class="cluster-place-list">${selectedItems.map(item => `<a href="${mapUrl(item.query)}" target="_blank" rel="noreferrer"><span class="kind-${item.kind}">${placeKindMeta[item.kind].label}</span><strong>${item.name}</strong><b>↗</b></a>`).join("")}</div>`;
     return;
   }
   panel.innerHTML = `
@@ -706,7 +829,7 @@ function renderClusterInsight(source, selectedItems = []) {
 function renderClusterView() {
   if (!ensureTrekMap()) return;
   clearTrekMapLayers();
-  const source = isRainPlan() ? rainRecommendations : recommendations;
+  const source = getRecommendationSource();
   trekClusterLayer = L.markerClusterGroup({
     chunkedLoading: true,
     chunkInterval: 30,
@@ -745,6 +868,7 @@ function renderTripMap() {
   document.querySelector("#mapDayChip").textContent = activeMapView === "route" ? `${activeDay}일차` : "전체 장소";
   document.querySelector("#mapModeHint").textContent = activeMapView === "route" ? "숫자는 우리가 갈 순서야." : "근처에 있는 곳끼리 모아놨어.";
   document.querySelector("#mapPlayButton").hidden = activeMapView !== "route";
+  document.querySelector("#placeKindLegend").hidden = activeMapView !== "clusters";
   if (activeAppTab !== "map") return;
   if (activeMapView === "route") renderRouteView();
   else renderClusterView();
@@ -817,7 +941,9 @@ function setPlanMode(mode) {
     <a href="${mapUrl("안친오름")}" target="_blank" rel="noreferrer"><div><strong>안친오름</strong><small>입장 여부 확인</small></div><b>↗</b></a>
     <a href="${mapUrl(lodging.query)}" target="_blank" rel="noreferrer"><div><strong>삼달리 숙소</strong><small>2박 고정</small></div><b>↗</b></a>`;
   document.querySelectorAll(".filter-button").forEach((button, index) => button.classList.toggle("active", index === 0));
+  document.querySelectorAll(".place-type-button").forEach((button, index) => button.classList.toggle("active", index === 0));
   activeRecommendationFilter = "all";
+  activeRecommendationType = "all";
   recommendationLimit = 9;
   renderTimeline();
   renderRecommendations();
@@ -878,12 +1004,15 @@ document.querySelector("#mapPlayButton").addEventListener("click", startRouteAni
 
 function renderRecommendations(filter = activeRecommendationFilter) {
   activeRecommendationFilter = filter;
-  const source = isRainPlan() ? rainRecommendations : recommendations;
-  const cards = source.filter(item => filter === "all" || item.region === filter);
+  const source = getRecommendationSource();
+  const cards = source.filter(item => (filter === "all" || item.region === filter) && (activeRecommendationType === "all" || item.kind === activeRecommendationType));
   const visibleCards = cards.slice(0, recommendationLimit);
-  document.querySelector("#recommendationGrid").innerHTML = visibleCards.map((item, index) => `
-    <article class="recommendation-card" data-number="${String(index + 1).padStart(2, "0")}">
-      <div class="recommendation-tags">${item.tags.map(tag => `<span>${tag}</span>`).join("")}</div>
+  document.querySelector("#recommendationGrid").innerHTML = visibleCards.map((item, index) => {
+    const kindLabel = placeKindMeta[item.kind].label;
+    const tags = [kindLabel, ...item.tags.filter(tag => tag !== kindLabel)];
+    return `
+    <article class="recommendation-card kind-${item.kind}" data-number="${String(index + 1).padStart(2, "0")}">
+      <div class="recommendation-tags">${tags.map(tag => `<span>${tag}</span>`).join("")}</div>
       <h3>${item.name}</h3>
       <p>${travelVoice(item.description)}</p>
       <div class="recommendation-footer">
@@ -893,7 +1022,8 @@ function renderRecommendations(filter = activeRecommendationFilter) {
           <a href="${mapUrl(item.query)}" target="_blank" rel="noreferrer">지도</a>
         </div>
       </div>
-    </article>`).join("");
+    </article>`;
+  }).join("");
   const remaining = Math.max(0, cards.length - visibleCards.length);
   document.querySelector("#recommendationCount").textContent = `찜한 곳 ${cards.length}개 중에 ${visibleCards.length}개 보는 중`;
   const moreButton = document.querySelector("#recommendationMoreButton");
@@ -910,9 +1040,18 @@ document.querySelectorAll(".filter-button").forEach(button => {
   });
 });
 
+document.querySelectorAll(".place-type-button").forEach(button => {
+  button.addEventListener("click", () => {
+    activeRecommendationType = button.dataset.placeType;
+    document.querySelectorAll(".place-type-button").forEach(item => item.classList.toggle("active", item === button));
+    recommendationLimit = 9;
+    renderRecommendations();
+  });
+});
+
 document.querySelector("#recommendationMoreButton").addEventListener("click", () => {
-  const source = isRainPlan() ? rainRecommendations : recommendations;
-  const total = source.filter(item => activeRecommendationFilter === "all" || item.region === activeRecommendationFilter).length;
+  const source = getRecommendationSource();
+  const total = source.filter(item => (activeRecommendationFilter === "all" || item.region === activeRecommendationFilter) && (activeRecommendationType === "all" || item.kind === activeRecommendationType)).length;
   recommendationLimit = recommendationLimit < total ? total : 9;
   renderRecommendations();
 });
