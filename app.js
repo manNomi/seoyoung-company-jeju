@@ -348,13 +348,15 @@ const savedDay = Number(localStorage.getItem(dayKey));
 let activeDay = [1, 2, 3].includes(savedDay) ? savedDay : calendarDay;
 let activeMode = localStorage.getItem(modeKey) === "rain" ? "rain" : "sunny";
 let activePlanVersion = localStorage.getItem(planVersionKey) === "a" ? "a" : "b";
-let activeMapView = "route";
 let routeAnimationFrame = null;
 let trekMap = null;
 let trekMapLayers = null;
-let trekClusterLayer = null;
+let placesMap = null;
+let placesClusterLayer = null;
 let routeMarkers = [];
 let routeTravelerMarker = null;
+let activePlacesMapRegion = "all";
+let activePlacesMapKind = "all";
 let activeRecommendationFilter = "all";
 let activeRecommendationType = "all";
 let recommendationLimit = 9;
@@ -362,8 +364,8 @@ let activeAppTab = "plan";
 
 const appTabHashes = {
   plan: "#plan",
-  map: "#route-map",
-  crowd: "#crowd-map",
+  route: "#route-map",
+  map: "#places-map",
   places: "#nearby",
   allPlaces: "#all-places"
 };
@@ -394,14 +396,17 @@ function setActiveAppTab(tabName, options = {}) {
   }
   if (scroll) window.scrollTo({ top: 0, behavior: "smooth" });
 
-  if (tabName === "map") {
+  if (tabName === "route") {
     window.setTimeout(() => {
       renderTripMap();
       trekMap?.invalidateSize();
     }, 30);
   }
-  if (tabName === "crowd") {
-    window.setTimeout(() => window.showCrowdMap?.(), 30);
+  if (tabName === "map") {
+    window.setTimeout(() => {
+      renderPlacesMap();
+      placesMap?.invalidateSize();
+    }, 30);
   }
   if (tabName === "allPlaces") renderAllPlaces();
 }
@@ -743,6 +748,30 @@ function ensureTrekMap() {
   return true;
 }
 
+function ensurePlacesMap() {
+  if (placesMap) return true;
+  if (!window.L) {
+    document.querySelector("#placesMap").innerHTML = '<p class="map-load-error">지도가 잠깐 숨었어. 페이지를 다시 열어줘.</p>';
+    return false;
+  }
+  placesMap = L.map("placesMap", {
+    center: [33.38, 126.54],
+    zoom: 9,
+    zoomControl: false,
+    scrollWheelZoom: false
+  });
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+    maxZoom: 19,
+    keepBuffer: 8,
+    updateWhenZooming: false,
+    updateWhenIdle: true,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; CARTO'
+  }).addTo(placesMap);
+  L.control.zoom({ position: "bottomleft" }).addTo(placesMap);
+  setTimeout(() => placesMap.invalidateSize(), 0);
+  return true;
+}
+
 function routeMarkerIcon(item, index, selected = false) {
   const size = selected ? 44 : 36;
   return L.divIcon({
@@ -770,10 +799,6 @@ function clearTrekMapLayers() {
   routeAnimationFrame = null;
   routeMarkers = [];
   routeTravelerMarker = null;
-  if (trekClusterLayer && trekMap) {
-    trekMap.removeLayer(trekClusterLayer);
-    trekClusterLayer = null;
-  }
   trekMapLayers?.clearLayers();
 }
 
@@ -873,28 +898,50 @@ function startRouteAnimation() {
   routeAnimationFrame = requestAnimationFrame(move);
 }
 
-function renderClusterInsight(source, selectedItems = []) {
-  const panel = document.querySelector("#mapInsightPanel");
+function getPlacesMapSource() {
+  return getAllRecommendationSource().filter(item => {
+    const matchesRegion = activePlacesMapRegion === "all" || item.region === activePlacesMapRegion;
+    const matchesKind = activePlacesMapKind === "all" || item.kind === activePlacesMapKind;
+    return matchesRegion && matchesKind;
+  });
+}
+
+function renderPlacesMapInsight(source, selectedItems = []) {
+  const panel = document.querySelector("#placesMapInsightPanel");
+  if (!source.length) {
+    panel.innerHTML = `
+      <div class="map-panel-topline"><span>검색 결과</span><b>0곳</b></div>
+      <h3 class="cluster-panel-title">여기에는 저장한 곳이 없어</h3>
+      <p class="cluster-panel-copy">지역이나 종류를 다르게 골라봐.</p>`;
+    return;
+  }
   if (selectedItems.length) {
     panel.innerHTML = `
       <div class="map-panel-topline"><span>선택한 지역</span><b>${selectedItems.length}곳</b></div>
       <h3 class="cluster-panel-title">이 근처 ${selectedItems.length}곳</h3>
-      <p class="cluster-panel-copy">마커 위치는 대략적인 권역이야. 이름을 누르고 네이버 지도에서 정확한 위치를 보자.</p>
+      <p class="cluster-panel-copy">마커는 지역을 기준으로 모아둔 위치야. 장소를 누르면 네이버 지도에서 정확한 위치를 볼 수 있어.</p>
       <div class="cluster-place-list">${selectedItems.map(item => `<a href="${mapUrl(item.query)}" target="_blank" rel="noreferrer"><span class="kind-${item.kind}">${placeKindMeta[item.kind].label}</span><strong>${item.name}</strong><b>↗</b></a>`).join("")}</div>`;
     return;
   }
   panel.innerHTML = `
-    <div class="map-panel-topline"><span>콕콕 모아보기</span><b>${source.length}곳</b></div>
-    <h3 class="cluster-panel-title">가까운 곳끼리 모였어</h3>
-    <p class="cluster-panel-copy">원의 숫자는 근처에 모인 장소 수야. 하나 고르고 네이버 지도에서 정확한 위치를 보자.</p>
+    <div class="map-panel-topline"><span>저장한 장소</span><b>${source.length}곳</b></div>
+    <h3 class="cluster-panel-title">제주 곳곳에 모아뒀어</h3>
+    <p class="cluster-panel-copy">원을 누르면 근처 장소가 펼쳐져. 카페랑 맛집이랑 명소는 마커 색으로 구분했어.</p>
     <div class="region-counts">${Object.entries({ east: "동쪽", west: "서쪽", south: "서귀포", airport: "공항 근처" }).map(([region, label]) => `<div><span>${label}</span><strong>${source.filter(item => item.region === region).length}</strong></div>`).join("")}</div>`;
 }
 
-function renderClusterView() {
-  if (!ensureTrekMap()) return;
-  clearTrekMapLayers();
-  const source = getRecommendationSource();
-  trekClusterLayer = L.markerClusterGroup({
+function renderPlacesMap() {
+  if (activeAppTab !== "map" || !ensurePlacesMap()) return;
+  if (placesClusterLayer) placesMap.removeLayer(placesClusterLayer);
+  const source = getPlacesMapSource();
+  document.querySelector("#placesMapCount").textContent = `${source.length}곳`;
+  if (!source.length) {
+    placesClusterLayer = null;
+    placesMap.setView([33.38, 126.54], 9, { animate: true });
+    renderPlacesMapInsight(source);
+    return;
+  }
+  placesClusterLayer = L.markerClusterGroup({
     chunkedLoading: true,
     chunkInterval: 30,
     chunkDelay: 0,
@@ -911,31 +958,27 @@ function renderClusterView() {
     }
   });
   const latLngs = [];
-  source.forEach((item, index) => {
-    const [lng, lat] = getPlaceCoordinates(item, index);
+  source.forEach(item => {
+    const [lng, lat] = getPlaceCoordinates(item);
     latLngs.push([lat, lng]);
     const marker = L.marker([lat, lng], { icon: clusterPlaceIcon(item), title: item.name, riseOnHover: true, keyboard: true });
     marker._trekItem = item;
     marker.bindTooltip(item.name, { direction: "top", offset: [0, -18], className: "map-tooltip", opacity: 1 });
     marker.bindPopup(`<div class="trek-map-popup-card"><small>${escapeHtml(item.tags.join(" / "))}</small><strong>${escapeHtml(item.name)}</strong><p>${escapeHtml(travelVoice(item.description))}</p><a href="${mapUrl(item.query)}" target="_blank" rel="noreferrer">네이버 지도에서 보기 ↗</a></div>`, { className: "trek-map-popup", maxWidth: 260 });
-    marker.on("click", () => renderClusterInsight(source, [item]));
-    trekClusterLayer.addLayer(marker);
+    marker.on("click", () => renderPlacesMapInsight(source, [item]));
+    placesClusterLayer.addLayer(marker);
   });
-  trekClusterLayer.on("clusterclick", event => renderClusterInsight(source, event.layer.getAllChildMarkers().map(marker => marker._trekItem).filter(Boolean)));
-  trekMap.addLayer(trekClusterLayer);
+  placesClusterLayer.on("clusterclick", event => renderPlacesMapInsight(source, event.layer.getAllChildMarkers().map(marker => marker._trekItem).filter(Boolean)));
+  placesMap.addLayer(placesClusterLayer);
   const bounds = L.latLngBounds(latLngs);
-  if (bounds.isValid()) trekMap.fitBounds(bounds, { padding: [46, 46], maxZoom: 10, animate: true });
-  renderClusterInsight(source);
+  if (bounds.isValid()) placesMap.fitBounds(bounds, { padding: [46, 46], maxZoom: 10, animate: true });
+  renderPlacesMapInsight(source);
 }
 
 function renderTripMap() {
-  document.querySelector("#mapDayChip").textContent = activeMapView === "route" ? `${activeDay}일차` : "전체 장소";
-  document.querySelector("#mapModeHint").textContent = activeMapView === "route" ? "숫자는 우리가 갈 순서야." : "근처에 있는 곳끼리 모아놨어.";
-  document.querySelector("#mapPlayButton").hidden = activeMapView !== "route";
-  document.querySelector("#placeKindLegend").hidden = activeMapView !== "clusters";
-  if (activeAppTab !== "map") return;
-  if (activeMapView === "route") renderRouteView();
-  else renderClusterView();
+  document.querySelector("#mapDayChip").textContent = `${activeDay}일차`;
+  if (activeAppTab !== "route") return;
+  renderRouteView();
 }
 
 function updateProgress() {
@@ -1057,15 +1100,27 @@ document.querySelectorAll(".map-day-button").forEach(button => {
   button.addEventListener("click", () => setActiveDay(button.dataset.mapDay));
 });
 
-document.querySelectorAll(".map-view-button").forEach(button => {
+document.querySelectorAll("[data-map-region]").forEach(button => {
   button.addEventListener("click", () => {
-    activeMapView = button.dataset.mapView;
-    document.querySelectorAll(".map-view-button").forEach(item => {
+    activePlacesMapRegion = button.dataset.mapRegion;
+    document.querySelectorAll("[data-map-region]").forEach(item => {
       const isActive = item === button;
       item.classList.toggle("active", isActive);
       item.setAttribute("aria-pressed", String(isActive));
     });
-    renderTripMap();
+    renderPlacesMap();
+  });
+});
+
+document.querySelectorAll("[data-map-kind]").forEach(button => {
+  button.addEventListener("click", () => {
+    activePlacesMapKind = button.dataset.mapKind;
+    document.querySelectorAll("[data-map-kind]").forEach(item => {
+      const isActive = item === button;
+      item.classList.toggle("active", isActive);
+      item.setAttribute("aria-pressed", String(isActive));
+    });
+    renderPlacesMap();
   });
 });
 

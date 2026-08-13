@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./vendor/leaflet/leaflet.css" />
     <link rel="stylesheet" href="./vendor/leaflet-markercluster/MarkerCluster.css" />
     <link rel="stylesheet" href="./vendor/leaflet-markercluster/MarkerCluster.Default.css" />
-    <link rel="stylesheet" href="./styles.css?v=20260814-hangyodon-jeju" />
+    <link rel="stylesheet" href="./styles.css?v=20260814-map-split" />
   </head>
   <body>
     <div class="trek-page" id="top">
@@ -25,8 +25,8 @@
 
       <nav class="trip-nav" aria-label="여행 메뉴" role="tablist">
         <a class="active" id="planTab" href="#plan" data-tab-target="plan" role="tab" aria-controls="planPanel" aria-selected="true"><b>일정</b></a>
-        <a id="mapTab" href="#route-map" data-tab-target="map" role="tab" aria-controls="route-map" aria-selected="false"><b>지도</b></a>
-        <a id="crowdTab" href="#crowd-map" data-tab-target="crowd" role="tab" aria-controls="crowd-map" aria-selected="false"><b>혼잡도</b></a>
+        <a id="routeTab" href="#route-map" data-tab-target="route" role="tab" aria-controls="route-map" aria-selected="false"><b>동선</b></a>
+        <a id="mapTab" href="#places-map" data-tab-target="map" role="tab" aria-controls="places-map" aria-selected="false"><b>지도</b></a>
         <a id="placesTab" href="#nearby" data-tab-target="places" role="tab" aria-controls="nearby" aria-selected="false"><b>찜한 곳</b></a>
       </nav>
 
@@ -164,16 +164,12 @@
           </div>
         </div>
 
-        <section class="route-map-section app-tab-panel" id="route-map" data-tab-panel="map" role="tabpanel" aria-labelledby="mapTab" hidden>
+        <section class="route-map-section app-tab-panel" id="route-map" data-tab-panel="route" role="tabpanel" aria-labelledby="routeTab" hidden>
           <img class="section-mascot map-mascot" src="./assets/hangyodon/hero.png" alt="" />
           <div class="section-heading map-section-heading">
             <div>
               <h2 id="routeMapTitle">오늘 어디부터 가지?</h2>
               <p>날짜랑 날씨 고르면 가는 순서 다 나와.</p>
-            </div>
-            <div class="map-view-switch" aria-label="지도 보기 방식 선택">
-              <button class="map-view-button active" type="button" data-map-view="route" aria-pressed="true">우리 동선</button>
-              <button class="map-view-button" type="button" data-map-view="clusters" aria-pressed="false">갈만한 곳</button>
             </div>
           </div>
 
@@ -200,7 +196,6 @@
               <div class="map-toolbar">
                 <span class="map-day-chip" id="mapDayChip">1일차</span>
                 <p id="mapModeHint">숫자를 누르면 장소랑 길찾기가 나와.</p>
-                <div class="place-kind-legend" id="placeKindLegend" hidden><span class="kind-cafe">카페</span><span class="kind-food">맛집</span><span class="kind-spot">명소</span></div>
                 <button class="map-play-button" id="mapPlayButton" type="button"><span>▶</span> 출발하자</button>
               </div>
               <div class="jeju-map" id="jejuMap" role="application" aria-label="제주 여행 일정 지도"></div>
@@ -210,55 +205,48 @@
           </div>
         </section>
 
-        <section class="crowd-section app-tab-panel" id="crowd-map" data-tab-panel="crowd" role="tabpanel" aria-labelledby="crowdTab" hidden>
-          <img class="section-mascot crowd-mascot" src="./assets/hangyodon/sayuri.png" alt="" />
-          <div class="section-heading crowd-heading">
+        <section class="places-map-section app-tab-panel" id="places-map" data-tab-panel="map" role="tabpanel" aria-labelledby="mapTab" hidden>
+          <img class="section-mascot places-map-mascot" src="./assets/hangyodon/sayuri.png" alt="" />
+          <div class="section-heading map-section-heading">
             <div>
-              <h2>지금 사람 많으려나</h2>
-              <p>TMAP으로 덜 붐비는 곳 한번 찾아보자.</p>
+              <h2>저장해둔 곳 지도</h2>
+              <p>카페랑 맛집이랑 명소를 제주 지도에서 한눈에 보자.</p>
             </div>
-            <div class="crowd-live-status" id="crowdLiveStatus"><i></i><span>연결 전</span></div>
           </div>
 
-          <div class="crowd-summary-grid" aria-live="polite">
-            <article><small>여기는 널널</small><strong id="crowdQuietest">아직 연결 전</strong><span id="crowdQuietestDetail">연결하면 나와</span></article>
-            <article><small>여기는 사람 많음</small><strong id="crowdBusiest">아직 연결 전</strong><span id="crowdBusiestDetail">연결하면 나와</span></article>
-            <article><small>확인한 곳</small><strong id="crowdCoverage">0 / 18</strong><span>연결하면 바로 나옴</span></article>
-            <article><small>마지막으로 본 시간</small><strong id="crowdUpdated">아직 없음</strong><span>우리가 누를 때만 다시 봄</span></article>
-          </div>
-
-          <div class="crowd-toolbar">
-            <div class="crowd-region-filters" aria-label="혼잡도 지역 선택">
-              <button class="active" type="button" data-crowd-region="all">제주 전체</button>
-              <button type="button" data-crowd-region="east">동쪽</button>
-              <button type="button" data-crowd-region="south">서귀포</button>
-              <button type="button" data-crowd-region="west">서쪽</button>
-              <button type="button" data-crowd-region="jeju">제주시</button>
-            </div>
-            <button class="crowd-refresh-button" id="crowdRefreshButton" type="button"><span>↻</span> 지금 다시 볼래</button>
-          </div>
-
-          <div class="crowd-map-card">
-            <div class="crowd-map-wrap">
-              <div class="crowd-legend" aria-label="혼잡도 범례">
-                <span><i class="level-1"></i>여유</span><span><i class="level-2"></i>보통</span><span><i class="level-3"></i>혼잡</span><span><i class="level-4"></i>매우 혼잡</span>
+          <div class="map-place-filters" aria-label="저장한 장소 지도 필터">
+            <div class="map-place-filter-group">
+              <span>지역</span>
+              <div>
+                <button class="map-place-filter-button active" type="button" data-map-region="all" aria-pressed="true">제주 전체</button>
+                <button class="map-place-filter-button" type="button" data-map-region="east" aria-pressed="false">동쪽</button>
+                <button class="map-place-filter-button" type="button" data-map-region="south" aria-pressed="false">서귀포</button>
+                <button class="map-place-filter-button" type="button" data-map-region="west" aria-pressed="false">서쪽</button>
+                <button class="map-place-filter-button" type="button" data-map-region="airport" aria-pressed="false">공항 근처</button>
               </div>
-              <div class="crowd-map" id="crowdMap" role="application" aria-label="제주 실시간 혼잡도 지도"></div>
-              <section class="crowd-connect-panel" id="crowdConnectPanel" aria-labelledby="crowdConnectTitle">
-              <div><h3 id="crowdConnectTitle">TMAP 연결해보자</h3><p>AppKey는 지금 기기에만 저장돼. 연결하면 지도에 혼잡도 나옴!</p></div>
-                <form id="crowdKeyForm">
-                  <label for="crowdKeyInput">TMAP AppKey</label>
-                  <div><input id="crowdKeyInput" type="password" autocomplete="off" placeholder="AppKey 입력" /><button type="submit">연결하기</button></div>
-                </form>
-                <a href="https://openapi.sk.com/" target="_blank" rel="noreferrer">TMAP API 키 발급받기 ↗</a>
-              </section>
             </div>
-            <aside class="crowd-ranking-panel">
-              <div class="crowd-ranking-head"><div><h3>어디가 제일 사람 많지</h3></div><button id="crowdKeySettings" type="button">연결 설정</button></div>
-              <p class="crowd-ranking-caption" id="crowdRankingCaption">회색 마커는 아직 안 본 곳이야. 연결하면 북적이는 순서로 바뀌어.</p>
-              <ol class="crowd-ranking-list" id="crowdRankingList"></ol>
-              <div class="crowd-api-note"><i>i</i><p><strong>무료 조회는 아껴 쓰자</strong><span>한 번에 최대 3곳만 보고 이번 달에는 3번까지 새로 볼 수 있어. 실제 현장은 조금 다를 수도 있어.</span><a href="https://openapi.sk.com/products/detail?linkMenuSeq=302" target="_blank" rel="noreferrer">SK Open API 공식 문서 ↗</a></p></div>
-            </aside>
+            <div class="map-place-filter-group">
+              <span>종류</span>
+              <div>
+                <button class="map-place-filter-button active" type="button" data-map-kind="all" aria-pressed="true">다 보기</button>
+                <button class="map-place-filter-button" type="button" data-map-kind="cafe" aria-pressed="false">카페</button>
+                <button class="map-place-filter-button" type="button" data-map-kind="food" aria-pressed="false">맛집</button>
+                <button class="map-place-filter-button" type="button" data-map-kind="spot" aria-pressed="false">명소</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="route-map-card places-map-card">
+            <div class="map-canvas-wrap">
+              <div class="map-toolbar">
+                <span class="map-day-chip" id="placesMapCount">전체 장소</span>
+                <p>마커를 누르면 장소 이름이랑 지도 링크가 나와.</p>
+                <div class="place-kind-legend"><span class="kind-cafe">카페</span><span class="kind-food">맛집</span><span class="kind-spot">명소</span></div>
+              </div>
+              <div class="jeju-map" id="placesMap" role="application" aria-label="저장한 제주 장소 지도"></div>
+              <div class="map-scale"><span></span> 제주도</div>
+            </div>
+            <aside class="map-insight-panel" id="placesMapInsightPanel" aria-live="polite"></aside>
           </div>
         </section>
 
@@ -283,7 +271,7 @@
           <div class="recommendation-grid" id="recommendationGrid"></div>
           <div class="recommendation-more">
             <p id="recommendationCount">찜한 곳 꺼내는 중이야.</p>
-            <div><button id="recommendationMoreButton" type="button">더 볼래</button><a class="all-places-link" id="openAllPlaces" href="#all-places">전부 보는 페이지 →</a></div>
+            <div><button id="recommendationMoreButton" type="button">더 볼래</button><a class="all-places-link" href="#places-map">지도에서 보기 →</a><a class="all-places-link" id="openAllPlaces" href="#all-places">전부 보는 페이지 →</a></div>
           </div>
         </section>
 
@@ -308,7 +296,6 @@
     </div>
     <script src="./vendor/leaflet/leaflet.js"></script>
     <script src="./vendor/leaflet-markercluster/leaflet.markercluster.js"></script>
-    <script src="./app.js?v=20260814-memo-copy"></script>
-    <script src="./crowd.js?v=20260811-allplaces"></script>
+    <script src="./app.js?v=20260814-map-split"></script>
   </body>
 </html>
