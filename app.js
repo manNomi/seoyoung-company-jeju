@@ -642,6 +642,29 @@ function travelCategory(value) {
   return travelVoice(value).replaceAll("처음 계획", "서영픽").replaceAll("고정 일정", "꼭 할 것");
 }
 
+let mascotToastTimer;
+
+function reactHangyodon(reaction = "pop") {
+  const hero = document.querySelector(".hangyodon-hero");
+  const floater = document.querySelector("#hangyodonFloater");
+  [hero, floater].forEach(element => {
+    if (!element) return;
+    element.classList.remove("reaction-pop", "reaction-rain", "reaction-done");
+    void element.offsetWidth;
+    element.classList.add(`reaction-${reaction}`);
+  });
+}
+
+function showMascotToast(message) {
+  const toast = document.querySelector("#hangyodonToast");
+  const text = document.querySelector("#hangyodonToastText");
+  if (!toast || !text) return;
+  window.clearTimeout(mascotToastTimer);
+  text.textContent = message;
+  toast.classList.add("show");
+  mascotToastTimer = window.setTimeout(() => toast.classList.remove("show"), 2200);
+}
+
 function renderTimeline() {
   const plan = getActivePlan();
   const day = plan[activeDay];
@@ -670,7 +693,7 @@ function renderTimeline() {
           </div>
           <div class="place-actions">
             ${item.link === false ? '<span class="map-link disabled">상호 확인</span>' : `<a class="map-link" href="${mapUrl(item.query)}" target="_blank" rel="noreferrer">지도 열기</a>`}
-            <button class="check-button" type="button" data-item-id="${id}" aria-label="${item.name} 완료 표시">${isDone ? "✓" : ""}</button>
+            <button class="check-button" type="button" data-item-id="${id}" data-item-name="${escapeHtml(item.name)}" aria-label="${item.name} 완료 표시">${isDone ? "✓" : ""}</button>
           </div>
         </div>
       </article>`;
@@ -681,6 +704,12 @@ function renderTimeline() {
       const id = button.dataset.itemId;
       completed[id] = !completed[id];
       localStorage.setItem(stateKey, JSON.stringify(completed));
+      if (completed[id]) {
+        reactHangyodon("done");
+        showMascotToast(`${button.dataset.itemName} 체크 완료!`);
+      } else {
+        showMascotToast(`${button.dataset.itemName} 체크 취소함`);
+      }
       renderTimeline();
       updateProgress();
     });
@@ -1022,6 +1051,7 @@ function setPlanMode(mode) {
     : rainActive
       ? "비오면 실내로 변경!"
       : "서영아 제주 가보자!!";
+  reactHangyodon(rainActive ? "rain" : "pop");
   document.querySelector("#planTitle").textContent = activePlanVersion === "a" ? "서영이가 짠 제주" : rainActive ? "비 주륵주륵 제주" : "비오는 날 픽";
   document.querySelector("#planDescription").textContent = activePlanVersion === "a"
     ? "서영이가 처음 짠거 그대로야. 시간 안 맞는건 노랗게 해놨어."
@@ -1226,6 +1256,28 @@ themeButton.addEventListener("click", () => {
   const isDark = document.documentElement.classList.toggle("dark");
   themeButton.textContent = isDark ? "밝게" : "어둡게";
   localStorage.setItem(themeKey, isDark ? "dark" : "light");
+  reactHangyodon("pop");
+});
+
+const hangyodonFloater = document.querySelector("#hangyodonFloater");
+const hangyodonFloaterBubble = document.querySelector("#hangyodonFloaterBubble");
+const mascotTips = [
+  "일정 체크하면 여기서 알려줌!",
+  "지도 탭에서 3일치 동선 보기!",
+  "비오면 비 주륵주륵 누르기!"
+];
+let mascotTipIndex = 0;
+
+hangyodonFloater?.addEventListener("click", () => {
+  mascotTipIndex = (mascotTipIndex + 1) % mascotTips.length;
+  hangyodonFloaterBubble.textContent = mascotTips[mascotTipIndex];
+  hangyodonFloater.classList.toggle("bubble-open", true);
+  hangyodonFloater.setAttribute("aria-expanded", "true");
+  reactHangyodon("pop");
+  window.setTimeout(() => {
+    hangyodonFloater.classList.remove("bubble-open");
+    hangyodonFloater.setAttribute("aria-expanded", "false");
+  }, 2600);
 });
 
 initializeAppTabs();

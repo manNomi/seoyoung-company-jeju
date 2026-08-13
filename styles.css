@@ -1220,38 +1220,46 @@ footer { padding-right: max(48px, calc((100% - 1800px) / 2)); padding-left: max(
 }
 
 :root {
-  --jeju-sea: #35adc0;
-  --jeju-sea-deep: #157588;
-  --jeju-coral: #ef7463;
-  --jeju-orange: #f3a13b;
-  --jeju-cream: #fff7df;
-  --jeju-stone: #302b29;
-  --jeju-green: #47775b;
-  --bg: #f7f4e9;
-  --bg-soft: #fff7df;
-  --surface-2: #fbf8ef;
-  --accent: #1a8294;
-  --line: #e4ddcf;
-  --line-2: #d8cfbf;
+  --hangyodon-blue: #68cbd4;
+  --hangyodon-blue-soft: #d9f3f4;
+  --hangyodon-blue-deep: #176c79;
+  --sayuri-coral: #ef8e86;
+  --sayuri-coral-soft: #ffe2dc;
+  --hangyodon-cream: #fff9e9;
+  --hangyodon-ink: #263d40;
+  --jeju-sea: var(--hangyodon-blue);
+  --jeju-sea-deep: var(--hangyodon-blue-deep);
+  --jeju-coral: var(--sayuri-coral);
+  --jeju-orange: #efad49;
+  --jeju-cream: var(--hangyodon-cream);
+  --jeju-stone: var(--hangyodon-ink);
+  --jeju-green: #4f7b65;
+  --bg: #f7f3e7;
+  --bg-soft: var(--hangyodon-cream);
+  --surface: #fffdf6;
+  --surface-2: #f7f0df;
+  --accent: var(--hangyodon-blue-deep);
+  --line: #d9ddd3;
+  --line-2: #c9d5cf;
 }
 
 html.dark {
-  --bg: #172329;
-  --bg-soft: #1c2c31;
-  --surface: #223238;
-  --surface-2: #293b41;
+  --bg: #14272b;
+  --bg-soft: #183136;
+  --surface: #203b40;
+  --surface-2: #29494f;
   --ink: #fff9e9;
   --ink-2: #ddd4c4;
   --ink-3: #a9b8b8;
   --line: #374b51;
   --line-2: #496068;
-  --accent: #72ccda;
+  --accent: #83d9df;
   --accent-text: #14262b;
 }
 
 body {
   background-color: var(--bg);
-  background-image: radial-gradient(circle at 10% 18%, rgba(53, 173, 192, .08) 0 110px, transparent 111px), radial-gradient(circle at 90% 78%, rgba(239, 116, 99, .07) 0 140px, transparent 141px);
+  background-image: radial-gradient(circle at 10% 18%, rgba(104, 203, 212, .12) 0 110px, transparent 111px), radial-gradient(circle at 90% 78%, rgba(239, 142, 134, .1) 0 140px, transparent 141px);
 }
 
 h1, h2, h3, .company-logo, .trip-nav b, .plan-mode-button, .day-tab > span {
@@ -1275,7 +1283,7 @@ h1, h2, h3, .company-logo, .trip-nav b, .plan-mode-button, .day-tab > span {
 .hero-title-block p { font-size: 13px; letter-spacing: .02em; }
 .hero-title-block p::before { width: 18px; height: 3px; background: var(--jeju-orange); border-radius: 99px; }
 
-.hangyodon-hero { position: absolute !important; right: 2.5%; bottom: 3%; z-index: 3; width: min(34%, 430px) !important; height: auto !important; object-fit: contain !important; filter: drop-shadow(0 18px 16px rgba(25, 43, 38, .2)); transform: rotate(2deg) !important; }
+.trip-hero > .hangyodon-hero { position: absolute !important; right: 2.5%; bottom: 3%; z-index: 3; width: min(34%, 430px) !important; height: auto !important; object-fit: contain !important; filter: drop-shadow(0 18px 16px rgba(25, 43, 38, .2)); transform: rotate(2deg); }
 .hangyodon-bubble { position: absolute; top: 88px; right: 4%; z-index: 5; max-width: 190px; margin: 0; padding: 12px 17px; color: var(--jeju-stone); background: #fffdf6; border: 2px solid var(--jeju-stone); border-radius: 22px 22px 6px 22px; font-family: "Jeju Jua", sans-serif; font-size: 17px; line-height: 1.2; transform: rotate(3deg); }
 .hangyodon-bubble::after { position: absolute; right: 12px; bottom: -12px; width: 17px; height: 17px; background: #fffdf6; border-right: 2px solid var(--jeju-stone); border-bottom: 2px solid var(--jeju-stone); content: ""; transform: rotate(45deg); }
 
@@ -1346,7 +1354,7 @@ footer > span img { width: 32px; height: 32px; object-fit: contain; }
   .jeju-postcards { margin-right: 0; margin-left: 0; }
   .postcard img { height: 150px; }
   .hangyodon-card { display: grid; grid-template-columns: 150px 1fr; align-items: center; }
-  .hangyodon-card img { height: 150px; border-right: 2px solid var(--jeju-stone); }
+  .hangyodon-card img { height: 150px; }
   .hangyodon-card div { border-top: 0; }
 }
 
@@ -1362,7 +1370,7 @@ footer > span img { width: 32px; height: 32px; object-fit: contain; }
   .hangyodon-bubble { top: 73px; right: 13px; max-width: 128px; padding: 9px 12px; border-width: 2px; border-radius: 16px 16px 5px 16px; font-size: 14px; }
   .hangyodon-bubble::after { right: 10px; bottom: -9px; width: 12px; height: 12px; border-width: 0 2px 2px 0; }
   .trip-pass { border: 2px solid var(--jeju-stone); }
-  .jeju-postcards { display: flex; gap: 13px; margin: 26px -18px 54px; padding: 0 18px 18px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .jeju-postcards { display: flex; gap: 13px; margin: 26px -16px 54px; padding: 0 16px 18px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .jeju-postcards::-webkit-scrollbar { display: none; }
   .postcard { width: 73vw; flex: 0 0 auto; scroll-snap-align: center; }
   .postcard img { height: 190px; }
@@ -1381,4 +1389,171 @@ footer > span img { width: 32px; height: 32px; object-fit: contain; }
 
 @media (prefers-reduced-motion: reduce) {
   .hangyodon-floater { animation: none; }
+}
+
+/* 한교동 컬러 테마와 여행 메이트 인터랙션 */
+::selection { color: var(--hangyodon-ink); background: var(--sayuri-coral-soft); }
+html { scrollbar-color: var(--hangyodon-blue) var(--hangyodon-cream); }
+body::-webkit-scrollbar { width: 11px; }
+body::-webkit-scrollbar-track { background: var(--hangyodon-cream); }
+body::-webkit-scrollbar-thumb { background: var(--hangyodon-blue); border: 3px solid var(--hangyodon-cream); border-radius: 99px; }
+
+:where(a, button, input, select):focus-visible {
+  outline: 3px solid var(--sayuri-coral);
+  outline-offset: 3px;
+}
+
+.topbar,
+.trip-nav { border-color: rgba(23, 108, 121, .16); background: rgba(255, 249, 233, .96); }
+.dark .topbar,
+.dark .trip-nav { background: rgba(32, 59, 64, .96); }
+.icon-button { color: var(--hangyodon-blue-deep); background: var(--hangyodon-blue-soft); border-color: transparent; }
+.dark .icon-button { color: #dffbfc; background: #31565c; }
+
+.trip-nav a { border-radius: 12px; }
+.trip-nav a:hover { color: var(--hangyodon-blue-deep); background: var(--hangyodon-blue-soft); }
+.trip-nav a.active { color: #fffdf6; background: var(--hangyodon-blue-deep); box-shadow: 0 8px 18px -12px rgba(23, 108, 121, .8); }
+
+.trek-page.rain-mode {
+  --accent: #297f8c;
+  --bg-soft: #eaf7f5;
+}
+.dark .trek-page.rain-mode { --bg-soft: #1d393d; }
+
+.trip-pass,
+.trip-facts,
+.plan-version-switch,
+.plan-mode-bar,
+.rain-rule-card,
+.day-tabs,
+.timeline,
+.side-card,
+.recommendation-card,
+.all-places-controls { border-color: rgba(38, 61, 64, .22); }
+
+.trip-facts { overflow: hidden; background: linear-gradient(110deg, var(--hangyodon-blue-soft), var(--hangyodon-cream) 58%, var(--sayuri-coral-soft)); }
+.dark .trip-facts { background: linear-gradient(110deg, #244a50, #203b40 58%, #543e3d); }
+.plan-version-button:hover,
+.day-tab:hover,
+.filter-button:hover,
+.place-type-button:hover { background: var(--hangyodon-blue-soft); }
+.dark .plan-version-button:hover,
+.dark .day-tab:hover,
+.dark .filter-button:hover,
+.dark .place-type-button:hover { background: #31565c; }
+
+.plan-version-button.active,
+.map-version-button.active { color: #fffdf6; background: var(--hangyodon-blue-deep); }
+.plan-mode-button.active,
+.map-plan-button.active { color: var(--hangyodon-ink); background: var(--sayuri-coral); }
+.category { color: #285b52; background: #d9f1e6; }
+.needs-attention .category { color: #79443f; background: var(--sayuri-coral-soft); }
+.timeline-note { color: var(--hangyodon-ink); background: var(--hangyodon-blue-soft); }
+.dark .timeline-note { color: #e8fbfc; background: #294e54; }
+
+.check-button { position: relative; overflow: visible; transition: color .18s ease, background-color .18s ease, transform .18s cubic-bezier(.16, 1, .3, 1); }
+.check-button:hover { background: var(--sayuri-coral-soft); transform: translateY(-2px); }
+.completed .check-button { color: var(--hangyodon-ink); background: var(--sayuri-coral); }
+.completed .place-card { text-decoration-color: var(--sayuri-coral); }
+
+.hangyodon-hero.reaction-pop { animation: hangyodon-hero-pop .62s cubic-bezier(.16, 1, .3, 1); }
+.hangyodon-hero.reaction-rain { animation: hangyodon-rain-shake .58s cubic-bezier(.16, 1, .3, 1); }
+.hangyodon-hero.reaction-done { animation: hangyodon-done .72s cubic-bezier(.16, 1, .3, 1); }
+
+.hangyodon-floater {
+  display: block;
+  height: auto;
+  padding: 0;
+  appearance: none;
+  cursor: pointer;
+  pointer-events: auto;
+  background: transparent;
+  border: 0;
+}
+.hangyodon-floater img { display: block; width: 100%; height: auto; }
+.hangyodon-floater:hover img { transform: translateY(-4px) rotate(-2deg); }
+.hangyodon-floater:focus-visible { border-radius: 18px; }
+.hangyodon-floater.reaction-pop img { animation: hangyodon-floater-pop .58s cubic-bezier(.16, 1, .3, 1); }
+.hangyodon-floater.reaction-rain img { animation: hangyodon-rain-shake .58s cubic-bezier(.16, 1, .3, 1); }
+.hangyodon-floater.reaction-done img { animation: hangyodon-done .72s cubic-bezier(.16, 1, .3, 1); }
+.hangyodon-floater > span {
+  position: absolute;
+  right: 74%;
+  bottom: 73%;
+  width: max-content;
+  max-width: min(230px, 68vw);
+  padding: 10px 13px;
+  color: var(--hangyodon-ink);
+  background: #fffdf6;
+  border: 2px solid var(--hangyodon-ink);
+  border-radius: 16px 16px 4px 16px;
+  box-shadow: 0 12px 22px -16px rgba(38, 61, 64, .65);
+  font-family: "Jeju Jua", sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(8px, 8px) scale(.92);
+  transform-origin: right bottom;
+  transition: opacity .18s ease, transform .34s cubic-bezier(.16, 1, .3, 1);
+}
+.hangyodon-floater.bubble-open > span { opacity: 1; transform: translate(0, 0) scale(1); }
+
+.hangyodon-toast {
+  position: fixed;
+  right: 28px;
+  bottom: 132px;
+  z-index: 70;
+  display: flex;
+  width: min(310px, calc(100vw - 36px));
+  align-items: center;
+  gap: 11px;
+  padding: 11px 15px 11px 10px;
+  color: var(--hangyodon-ink);
+  background: #fffdf6;
+  border: 2px solid var(--hangyodon-ink);
+  border-radius: 16px 16px 5px 16px;
+  box-shadow: 0 18px 36px -22px rgba(38, 61, 64, .72);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px) scale(.96);
+  transition: opacity .18s ease, transform .36s cubic-bezier(.16, 1, .3, 1);
+}
+.hangyodon-toast.show { opacity: 1; transform: translateY(0) scale(1); }
+.hangyodon-toast img { width: 42px; height: 42px; flex: 0 0 auto; object-fit: contain; }
+.hangyodon-toast p { margin: 0; font-family: "Jeju Jua", sans-serif; font-size: 15px; line-height: 1.3; }
+
+@keyframes hangyodon-hero-pop {
+  0% { transform: rotate(2deg) scale(1); }
+  45% { transform: rotate(-3deg) scale(1.08); }
+  100% { transform: rotate(2deg) scale(1); }
+}
+@keyframes hangyodon-floater-pop {
+  0% { transform: translateY(0) rotate(0); }
+  45% { transform: translateY(-12px) rotate(-5deg); }
+  100% { transform: translateY(0) rotate(0); }
+}
+@keyframes hangyodon-rain-shake {
+  0%, 100% { filter: drop-shadow(0 12px 10px rgba(38, 61, 64, .18)); }
+  28% { transform: translateX(-5px) rotate(-3deg); }
+  58% { transform: translateX(5px) rotate(4deg); }
+}
+@keyframes hangyodon-done {
+  0%, 100% { transform: scale(1) rotate(0); }
+  38% { transform: translateY(-13px) scale(1.08) rotate(-5deg); }
+  68% { transform: translateY(-4px) scale(1.03) rotate(4deg); }
+}
+
+@media (max-width: 720px) {
+  .hangyodon-floater { bottom: calc(82px + env(safe-area-inset-bottom)); width: 74px; }
+  .hangyodon-floater > span { right: 68%; bottom: 76%; font-size: 13px; }
+  .hangyodon-toast { right: 12px; bottom: calc(154px + env(safe-area-inset-bottom)); }
+  .trip-nav a.active { box-shadow: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hangyodon-hero,
+  .hangyodon-floater,
+  .hangyodon-floater img,
+  .hangyodon-toast { animation: none !important; transition-duration: .01ms !important; }
 }
