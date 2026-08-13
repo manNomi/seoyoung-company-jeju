@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="./vendor/leaflet/leaflet.css" />
     <link rel="stylesheet" href="./vendor/leaflet-markercluster/MarkerCluster.css" />
     <link rel="stylesheet" href="./vendor/leaflet-markercluster/MarkerCluster.Default.css" />
-    <link rel="stylesheet" href="./styles.css?v=20260811-places2" />
+    <link rel="stylesheet" href="./styles.css?v=20260814-hangyodon-jeju" />
   </head>
   <body>
     <div class="trek-page" id="top">
       <header class="topbar">
         <a class="back-link" href="#plan" aria-label="일정으로">← <span>우리 일정</span></a>
-        <a class="trek-logo company-logo" href="#plan" aria-label="일정으로">이서영 컴퍼니</a>
+        <a class="trek-logo company-logo" href="#plan" aria-label="일정으로"><img src="./assets/hangyodon/sayuri.png" alt="" />이서영 컴퍼니</a>
         <span class="divider">/</span>
         <strong class="trip-name">Jeju 2026</strong>
         <div class="top-actions">
@@ -36,38 +36,46 @@
           <div class="trip-hero">
             <img src="./jeju-cover.webp" alt="제주 안친오름의 푸른 초원" />
             <div class="hero-scrim"></div>
+            <img class="hangyodon-hero" src="./assets/hangyodon/hero.png" alt="한교동과 사유리" />
+            <p class="hangyodon-bubble">서영아 제주 가보자!!</p>
             <div class="hero-content">
               <div class="hero-topline">
                 <span class="status-pill"><i></i> <span id="heroStatusText">해 짱짱</span></span>
                 <a class="round-action" href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EB%8F%84" target="_blank" rel="noreferrer" aria-label="제주도 지도 열기">지도</a>
               </div>
               <div class="hero-title-block">
-                <p>2박 3일</p>
-                <h1 id="trip-title">Jeju 2026</h1>
+                <p>8월 16일 출발</p>
+                <h1 id="trip-title">우리 제주 간다!</h1>
               </div>
             </div>
           </div>
           <div class="trip-pass">
             <div class="pass-cell">
-              <small>누구랑</small>
+              <small>둘이서</small>
               <div class="avatar-row"><span>우</span><span>리</span></div>
               <strong>우리 둘</strong>
             </div>
             <div class="pass-cell pass-dates">
-              <small>언제</small>
+              <small>가는 날</small>
               <div><strong>16 <span>8월</span></strong><b>→</b><strong>18 <span>8월</span></strong></div>
             </div>
             <div class="pass-cell">
-              <small>렌터카</small>
+              <small>차는</small>
               <strong>15:40 인수</strong>
               <span class="pass-caption">18일 11:50 반납</span>
             </div>
             <div class="pass-cell">
-              <small>우리 집</small>
+              <small>잘 곳</small>
               <strong>성산읍 삼달리</strong>
               <span class="pass-caption">2박 같은 숙소</span>
             </div>
           </div>
+          </section>
+
+          <section class="jeju-postcards" aria-label="제주 여행 풍경">
+            <figure class="postcard postcard-forest"><img src="./assets/jeju/saryeoni.webp" alt="나무가 빽빽한 사려니숲길" /><figcaption><strong>비오면 숲부터</strong><span>젖은 초록은 못참지</span></figcaption></figure>
+            <figure class="postcard postcard-coast"><img src="./assets/jeju/coast.webp" alt="제주 돌담 사이로 보이는 바다" /><figcaption><strong>바다도 봐야지</strong><span>돌담 사이로 파랑파랑</span></figcaption></figure>
+            <figure class="postcard postcard-tangerine"><img src="./assets/jeju/tangerine.webp" alt="제주 돌담과 감귤나무" /><figcaption><strong>이게 제주지</strong><span>귤이랑 돌담 왕창</span></figcaption></figure>
           </section>
 
           <div class="content-grid">
@@ -128,6 +136,10 @@
           </section>
 
           <aside class="side-column">
+            <section class="hangyodon-card">
+              <img src="./assets/hangyodon/float-1.png" alt="한교동과 사유리 그림" />
+              <div><strong>한교동도 같이 감</strong><p>일정 빡세지면 얘 핑계대고 카페 가자 ㅋㅋ</p></div>
+            </section>
             <section class="side-card summary-card">
               <div class="side-card-title"><span>이번 여행은</span></div>
               <div class="summary-list">
@@ -153,6 +165,7 @@
         </div>
 
         <section class="route-map-section app-tab-panel" id="route-map" data-tab-panel="map" role="tabpanel" aria-labelledby="mapTab" hidden>
+          <img class="section-mascot map-mascot" src="./assets/hangyodon/hero.png" alt="" />
           <div class="section-heading map-section-heading">
             <div>
               <h2 id="routeMapTitle">오늘 어디부터 가지?</h2>
@@ -198,6 +211,7 @@
         </section>
 
         <section class="crowd-section app-tab-panel" id="crowd-map" data-tab-panel="crowd" role="tabpanel" aria-labelledby="crowdTab" hidden>
+          <img class="section-mascot crowd-mascot" src="./assets/hangyodon/sayuri.png" alt="" />
           <div class="section-heading crowd-heading">
             <div>
               <h2>지금 사람 많으려나</h2>
@@ -209,8 +223,8 @@
           <div class="crowd-summary-grid" aria-live="polite">
             <article><small>여기는 널널</small><strong id="crowdQuietest">아직 연결 전</strong><span id="crowdQuietestDetail">연결하면 나와</span></article>
             <article><small>여기는 사람 많음</small><strong id="crowdBusiest">아직 연결 전</strong><span id="crowdBusiestDetail">연결하면 나와</span></article>
-            <article><small>조회 장소</small><strong id="crowdCoverage">0 / 18</strong><span>실시간 조회 완료</span></article>
-            <article><small>마지막 갱신</small><strong id="crowdUpdated">아직 없음</strong><span>직접 갱신할 때만 호출</span></article>
+            <article><small>확인한 곳</small><strong id="crowdCoverage">0 / 18</strong><span>연결하면 바로 나옴</span></article>
+            <article><small>마지막으로 본 시간</small><strong id="crowdUpdated">아직 없음</strong><span>우리가 누를 때만 다시 봄</span></article>
           </div>
 
           <div class="crowd-toolbar">
@@ -249,8 +263,9 @@
         </section>
 
         <section class="recommendations app-tab-panel" id="nearby" data-tab-panel="places" role="tabpanel" aria-labelledby="placesTab" hidden>
+          <img class="places-poster" src="./assets/hangyodon/float-2.png" alt="한교동과 사유리 포스터" />
           <div class="section-heading compact-heading">
-            <div><h2 id="recommendationTitle">여기도 갈만함!</h2><p id="recommendationDescription">근처 지나가면 한번 가보자. 얼마나 걸리는지도 적어놨어.</p></div>
+            <div><h2 id="recommendationTitle">여기도 가고싶음!</h2><p id="recommendationDescription">일단 왕창 저장해놨어. 근처 지나가면 그때 하나 고르자!</p></div>
             <div class="filter-buttons" aria-label="추천 장소 필터">
               <button class="filter-button active" type="button" data-filter="all">전체</button>
               <button class="filter-button" type="button" data-filter="east">동쪽</button>
@@ -275,7 +290,7 @@
         <section class="all-places-page app-tab-panel" id="all-places" data-tab-panel="allPlaces" role="tabpanel" hidden>
           <header class="all-places-header">
             <a id="backToPlaces" href="#nearby">← 찜한 곳으로</a>
-            <div><span id="allPlacesTotal">전체 장소</span><h2>가볼만한 곳 전부</h2><p>카페랑 맛집이랑 명소 다 모아놨어. 이름 검색하면 바로 나와!</p></div>
+            <div><span id="allPlacesTotal">전체 장소</span><h2>내가 저장한거 전부</h2><p>카페랑 맛집이랑 명소 다 있음. 이름만 치면 바로 나와!</p></div>
           </header>
           <div class="all-places-controls">
             <label class="all-places-search"><span>장소 검색</span><input id="allPlacesSearch" type="search" placeholder="이름으로 찾아보기" autocomplete="off" /></label>
@@ -288,11 +303,12 @@
 
       </main>
 
-      <footer><span>이서영 컴퍼니</span><p>만욱이랑 서영이 2026 제주여행, 표지 사진 출처 Visit Jeju</p><a href="#top">위로 가자 ↑</a></footer>
+      <img class="hangyodon-floater" src="./assets/hangyodon/hero.png" alt="" />
+      <footer><span><img src="./assets/hangyodon/sayuri.png" alt="" />이서영 컴퍼니</span><p>만욱이랑 서영이 제주여행임!! 사진은 Visit Jeju랑 한국관광공사랑 제주 공식 블로그에서 가져왔어.</p><a href="#top">다시 위로 ↑</a></footer>
     </div>
     <script src="./vendor/leaflet/leaflet.js"></script>
     <script src="./vendor/leaflet-markercluster/leaflet.markercluster.js"></script>
-    <script src="./app.js?v=20260811-indoor-nine"></script>
+    <script src="./app.js?v=20260814-manwook-copy"></script>
     <script src="./crowd.js?v=20260811-allplaces"></script>
   </body>
 </html>

@@ -1347,3 +1347,176 @@ footer { padding-right: max(48px, calc((100% - 1800px) / 2)); padding-left: max(
   .all-place-row { grid-template-columns: 44px minmax(0, 1fr) auto; padding: 14px 0; }
   .all-place-row strong { font-size: 14px; }
 }
+
+/* 제주 수첩에 한교동 스티커 왕창 붙인 버전 */
+@font-face {
+  font-family: "Jeju Jua";
+  src: url("./assets/fonts/jua.ttf") format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+:root {
+  --jeju-sea: #35adc0;
+  --jeju-sea-deep: #157588;
+  --jeju-coral: #ef7463;
+  --jeju-orange: #f3a13b;
+  --jeju-cream: #fff7df;
+  --jeju-stone: #302b29;
+  --jeju-green: #47775b;
+  --bg: #f7f4e9;
+  --bg-soft: #fff7df;
+  --surface-2: #fbf8ef;
+  --accent: #1a8294;
+  --line: #e4ddcf;
+  --line-2: #d8cfbf;
+}
+
+html.dark {
+  --bg: #172329;
+  --bg-soft: #1c2c31;
+  --surface: #223238;
+  --surface-2: #293b41;
+  --ink: #fff9e9;
+  --ink-2: #ddd4c4;
+  --ink-3: #a9b8b8;
+  --line: #374b51;
+  --line-2: #496068;
+  --accent: #72ccda;
+  --accent-text: #14262b;
+}
+
+body {
+  background-color: var(--bg);
+  background-image: radial-gradient(circle at 10% 18%, rgba(53, 173, 192, .08) 0 110px, transparent 111px), radial-gradient(circle at 90% 78%, rgba(239, 116, 99, .07) 0 140px, transparent 141px);
+}
+
+h1, h2, h3, .company-logo, .trip-nav b, .plan-mode-button, .day-tab > span {
+  font-family: "Jeju Jua", Pretendard, "Apple SD Gothic Neo", sans-serif;
+  font-weight: 400;
+}
+
+.company-logo { gap: 7px; color: var(--jeju-sea-deep); font-size: 17px; }
+.company-logo img { width: 28px; height: 28px; object-fit: contain; }
+.dark .company-logo { color: #8ad9e5; }
+
+.trip-nav a.active { color: #fff; background: var(--jeju-sea-deep); }
+.dark .trip-nav a.active { color: #14262b; background: #8ad9e5; }
+
+.trip-hero { border-radius: 20px 20px 56px 20px; background: #75bf85; }
+.trip-hero > img:first-child { filter: saturate(.9) contrast(.96); }
+.hero-scrim { z-index: 1; background: linear-gradient(90deg, rgba(19, 43, 38, .58), rgba(19, 43, 38, .12) 62%, rgba(19, 43, 38, .2)); }
+.hero-content { z-index: 4; }
+.hero-title-block { max-width: 64%; }
+.hero-title-block h1 { max-width: 780px; font-size: clamp(58px, 7.3vw, 104px); line-height: .92; letter-spacing: -.035em; text-wrap: balance; }
+.hero-title-block p { font-size: 13px; letter-spacing: .02em; }
+.hero-title-block p::before { width: 18px; height: 3px; background: var(--jeju-orange); border-radius: 99px; }
+
+.hangyodon-hero { position: absolute !important; right: 2.5%; bottom: 3%; z-index: 3; width: min(34%, 430px) !important; height: auto !important; object-fit: contain !important; filter: drop-shadow(0 18px 16px rgba(25, 43, 38, .2)); transform: rotate(2deg) !important; }
+.hangyodon-bubble { position: absolute; top: 88px; right: 4%; z-index: 5; max-width: 190px; margin: 0; padding: 12px 17px; color: var(--jeju-stone); background: #fffdf6; border: 2px solid var(--jeju-stone); border-radius: 22px 22px 6px 22px; font-family: "Jeju Jua", sans-serif; font-size: 17px; line-height: 1.2; transform: rotate(3deg); }
+.hangyodon-bubble::after { position: absolute; right: 12px; bottom: -12px; width: 17px; height: 17px; background: #fffdf6; border-right: 2px solid var(--jeju-stone); border-bottom: 2px solid var(--jeju-stone); content: ""; transform: rotate(45deg); }
+
+.trip-pass { border: 2px solid rgba(255, 255, 255, .92); border-radius: 14px 14px 30px 14px; box-shadow: 0 14px 30px -22px rgba(48, 43, 41, .45); }
+.pass-cell small { color: var(--jeju-sea-deep); }
+.dark .pass-cell small { color: #8ad9e5; }
+.avatar-row span:first-child { background: var(--jeju-coral); }
+.avatar-row span:last-child { background: var(--jeju-sea-deep); }
+
+.jeju-postcards { display: grid; grid-template-columns: 1.05fr 1fr .8fr; gap: 18px; margin: 34px 14px 70px; align-items: center; }
+.postcard { position: relative; min-width: 0; margin: 0; padding: 9px 9px 13px; overflow: hidden; background: #fffdf6; border-radius: 12px; box-shadow: 0 12px 30px -22px rgba(48, 43, 41, .65); }
+.postcard::before { position: absolute; top: -5px; left: 50%; z-index: 2; width: 58px; height: 18px; background: rgba(255, 239, 174, .82); content: ""; transform: translateX(-50%) rotate(-2deg); }
+.postcard img { width: 100%; height: 180px; object-fit: cover; border-radius: 7px; }
+.postcard figcaption { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 10px 5px 0; }
+.postcard strong { color: var(--jeju-stone); font-family: "Jeju Jua", sans-serif; font-size: 18px; font-weight: 400; }
+.postcard span { color: #786f65; font-size: 11px; }
+.postcard-forest { transform: rotate(-1.3deg); }
+.postcard-coast { transform: translateY(12px) rotate(1.1deg); }
+.postcard-tangerine { transform: rotate(-.7deg); }
+
+.content-grid { margin-top: 0; }
+.section-heading h2 { color: var(--jeju-stone); letter-spacing: -.025em; }
+.dark .section-heading h2 { color: var(--ink); }
+.section-heading > div:first-child > p:last-child { color: var(--ink-2); font-size: 14px; }
+
+.plan-version-switch { overflow: hidden; border: 2px solid var(--jeju-stone); border-radius: 14px; }
+.plan-version-button.active { color: #fff; background: var(--jeju-sea-deep); }
+.plan-version-button.active small { color: var(--jeju-sea-deep); }
+.plan-mode-bar { border: 2px solid var(--jeju-stone); }
+.plan-mode-button.active { color: #fff; background: var(--jeju-coral); }
+.day-tabs { border: 2px solid var(--jeju-stone); }
+.day-tab.active { box-shadow: inset 0 -4px var(--jeju-coral); }
+.day-tab.active > span { color: #fff; background: var(--jeju-sea-deep); border-color: var(--jeju-sea-deep); }
+.timeline { border: 2px solid var(--jeju-stone); border-radius: 14px; }
+.timeline-dot { border-color: var(--jeju-coral); }
+.category { color: #215d42; background: #dff2e5; }
+.map-link { color: var(--jeju-sea-deep); background: #e6f5f7; border-color: #badde2; }
+.check-button { border-color: var(--jeju-coral); }
+.completed .check-button { color: #fff; background: var(--jeju-coral); border-color: var(--jeju-coral); }
+
+.hangyodon-card { overflow: hidden; color: #213d43; background: #bfe9ee; border: 2px solid var(--jeju-stone); border-radius: 14px 14px 34px 14px; }
+.hangyodon-card img { display: block; width: 100%; max-height: 215px; object-fit: cover; object-position: center 71%; }
+.hangyodon-card div { padding: 15px 17px 18px; border-top: 2px solid var(--jeju-stone); }
+.hangyodon-card strong { display: block; font-family: "Jeju Jua", sans-serif; font-size: 21px; font-weight: 400; }
+.hangyodon-card p { margin: 4px 0 0; font-size: 12px; line-height: 1.6; }
+.dark .hangyodon-card { color: #163238; background: #8fd3dd; }
+
+.route-map-section, .crowd-section, .recommendations, .all-places-page { position: relative; }
+.section-mascot { position: absolute; z-index: 2; width: 92px; height: 92px; object-fit: contain; pointer-events: none; }
+.map-mascot { top: -18px; right: 14px; width: 160px; height: auto; transform: rotate(4deg); }
+.crowd-mascot { top: -12px; right: 24px; transform: rotate(-8deg); }
+.places-poster { position: absolute; right: 0; bottom: 20px; z-index: 0; width: 190px; opacity: .1; pointer-events: none; transform: rotate(2deg); }
+.recommendations > *:not(.places-poster) { position: relative; z-index: 1; }
+
+.map-view-button.active, .map-plan-button.active, .map-version-button.active, .filter-button.active, .place-type-button.active { color: #fff; background: var(--jeju-sea-deep); border-color: var(--jeju-sea-deep); }
+.map-play-button, .crowd-refresh-button { color: #fff; background: var(--jeju-coral); border-color: var(--jeju-coral); }
+.recommendation-card h3, .all-place-group > header h3 { font-family: "Jeju Jua", sans-serif; font-weight: 400; }
+.all-places-header span { color: #fff; background: var(--jeju-coral); }
+
+.hangyodon-floater { position: fixed; right: 18px; bottom: 18px; z-index: 35; width: 105px; height: auto; pointer-events: none; filter: drop-shadow(0 12px 10px rgba(48, 43, 41, .18)); animation: hangyodon-peek 3.8s ease-in-out infinite; }
+@keyframes hangyodon-peek { 0%, 100% { transform: translateY(5px) rotate(1deg); } 50% { transform: translateY(-5px) rotate(-1deg); } }
+
+footer { color: #50666a; background: #d9f0f2; border-top: 2px solid var(--jeju-stone); }
+footer > span { display: inline-flex; align-items: center; gap: 8px; color: var(--jeju-stone); font-family: "Jeju Jua", sans-serif; font-weight: 400; }
+footer > span img { width: 32px; height: 32px; object-fit: contain; }
+
+@media (max-width: 980px) {
+  .jeju-postcards { margin-right: 0; margin-left: 0; }
+  .postcard img { height: 150px; }
+  .hangyodon-card { display: grid; grid-template-columns: 150px 1fr; align-items: center; }
+  .hangyodon-card img { height: 150px; border-right: 2px solid var(--jeju-stone); }
+  .hangyodon-card div { border-top: 0; }
+}
+
+@media (max-width: 720px) {
+  body { background-image: radial-gradient(circle at 8% 22%, rgba(53, 173, 192, .08) 0 80px, transparent 81px); }
+  .company-logo { font-size: 16px; }
+  .company-logo img { width: 27px; height: 27px; }
+  .trip-hero { height: 390px; border-radius: 16px 16px 42px 16px; }
+  .hero-content { padding: 20px; }
+  .hero-title-block { max-width: 72%; margin-bottom: 18px; }
+  .hero-title-block h1 { font-size: clamp(42px, 12vw, 54px); line-height: .94; word-break: keep-all; }
+  .hangyodon-hero { right: -7% !important; bottom: 5% !important; width: 58% !important; }
+  .hangyodon-bubble { top: 73px; right: 13px; max-width: 128px; padding: 9px 12px; border-width: 2px; border-radius: 16px 16px 5px 16px; font-size: 14px; }
+  .hangyodon-bubble::after { right: 10px; bottom: -9px; width: 12px; height: 12px; border-width: 0 2px 2px 0; }
+  .trip-pass { border: 2px solid var(--jeju-stone); }
+  .jeju-postcards { display: flex; gap: 13px; margin: 26px -18px 54px; padding: 0 18px 18px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .jeju-postcards::-webkit-scrollbar { display: none; }
+  .postcard { width: 73vw; flex: 0 0 auto; scroll-snap-align: center; }
+  .postcard img { height: 190px; }
+  .postcard-coast { transform: rotate(1deg); }
+  .postcard figcaption { align-items: flex-start; flex-direction: column; gap: 1px; }
+  .postcard strong { font-size: 20px; }
+  .hangyodon-card { display: grid; grid-template-columns: 112px 1fr; margin-bottom: 18px; }
+  .hangyodon-card img { height: 130px; }
+  .hangyodon-card strong { font-size: 18px; }
+  .map-mascot { top: 4px; right: -14px; width: 105px; }
+  .crowd-mascot { top: 8px; right: 5px; width: 62px; height: 62px; }
+  .places-poster { width: 120px; }
+  .hangyodon-floater { right: 8px; bottom: calc(70px + env(safe-area-inset-bottom)); width: 70px; }
+  footer { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hangyodon-floater { animation: none; }
+}

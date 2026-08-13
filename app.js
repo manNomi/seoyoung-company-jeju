@@ -957,6 +957,11 @@ function setPlanMode(mode) {
     button.setAttribute("aria-pressed", String(isActive));
   });
   document.querySelector("#heroStatusText").textContent = activePlanVersion === "a" ? "서영이 픽" : rainActive ? "비 주륵주륵" : "해 짱짱";
+  document.querySelector(".hangyodon-bubble").textContent = activePlanVersion === "a"
+    ? "서영이가 짠대로 가보자!"
+    : rainActive
+      ? "비오면 실내 가자 ㅋㅋ"
+      : "서영아 제주 가보자!!";
   document.querySelector("#planTitle").textContent = activePlanVersion === "a" ? "서영이가 짠 제주" : rainActive ? "비 주륵주륵 제주" : "해 짱짱 제주";
   document.querySelector("#planDescription").textContent = activePlanVersion === "a"
     ? "서영이가 처음 짠거 그대로야. 시간 안 맞는건 노랗게 해놨어."
@@ -1072,7 +1077,7 @@ function renderRecommendations(filter = activeRecommendationFilter) {
     </article>`;
   }).join("");
   const remaining = Math.max(0, cards.length - visibleCards.length);
-  document.querySelector("#recommendationCount").textContent = `찜한 곳 ${cards.length}개 중에 ${visibleCards.length}개 보는 중`;
+  document.querySelector("#recommendationCount").textContent = `찜한 곳 ${cards.length}개 중 ${visibleCards.length}개 꺼내봄`;
   const moreButton = document.querySelector("#recommendationMoreButton");
   document.querySelector(".recommendation-more").hidden = cards.length <= 9;
   moreButton.hidden = cards.length <= 9;
@@ -1097,7 +1102,7 @@ function renderAllPlaces() {
   document.querySelector("#allPlacesTotal").textContent = `전체 ${source.length}곳`;
   document.querySelector("#allPlacesResult").textContent = keyword || regionFilter.value !== "all" || kindFilter.value !== "all"
     ? `${filtered.length}곳 찾았어`
-    : `카페 ${source.filter(item => item.kind === "cafe").length} · 맛집 ${source.filter(item => item.kind === "food").length} · 명소 ${source.filter(item => item.kind === "spot").length}`;
+    : `카페 ${source.filter(item => item.kind === "cafe").length} / 맛집 ${source.filter(item => item.kind === "food").length} / 명소 ${source.filter(item => item.kind === "spot").length}`;
   document.querySelector("#allPlacesGroups").innerHTML = Object.entries(allPlacesRegionLabels).map(([region, label]) => {
     const items = filtered.filter(item => item.region === region);
     if (!items.length) return "";
