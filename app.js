@@ -7,29 +7,29 @@ const planAItinerary = {
   1: {
     note: "15시 15분 제주 도착. 렌트카는 15시 40분부터 인수하고 뒤 일정은 대기시간보고 결정하기!",
     items: [
-      { time: "15:15", name: "제주공항 도착", category: "서영픽", description: "제주에는 15시 15분 도착이야. 짐 찾고 15시 40분부터 렌트카 받으면 돼!", meta: ["제주 도착 15:15", "렌터카 인수 15:40부터"], query: "제주국제공항" },
-      { time: "+15분", name: "아베베 베이커리 제주점", category: "서영픽 간식", description: "동문시장 근처에서 빵 포장하는 첫 코스야.", meta: ["이동 15분", "주차랑 대기 생각하기"], query: "아베베베이커리 제주" },
-      { time: "+28분", name: "우동 카덴", category: "서영픽 식사", description: "17시가 마지막 주문이라 차 받고 바로 가도 좀 빠듯할듯ㅜㅜ", meta: ["17시 마지막 주문", "대기 길면 바로 빼기"], query: "우동 카덴 제주", alert: true },
-      { time: "+6분", name: "제동목장 입구", category: "서영픽 풍경", description: "목장차 지나가는 길은 막지 말고 입구에서 짧게 보기!", meta: ["이동 6분", "목장 안에는 들어가지 말기"], query: "제주시 조천읍 교래7길 218" },
-      { time: "+21분", name: "안친오름", category: "서영픽 자연", description: "사유지 들어가도 되는지랑 일몰 시간은 한번 보고 가야할듯.", meta: ["입장료 1인 5,000원", "해 남았을 때만"], query: "안친오름 제주", alert: true },
-      { time: "+20분", name: "픽업커피 행원점", category: "서영픽 카페", description: "18시까지라 실제 도착 시간에는 못갈것 같아.", meta: ["18시까지", "시간 안 맞음"], query: "픽업커피 행원점 제주", alert: true },
-      { time: "+39분", name: lodging.name, category: "서영픽 숙소", description: "중간에 숙소 들르는 일정이야. 우리가 묵는 주소로 연결해놨어.", meta: ["2박 같은 숙소", "삼달하동로32번길 2-1"], query: lodging.query },
-      { time: "+10분", name: "고래휴게소 표선점", category: "서영픽 저녁", description: "표선쪽에서 저녁 먹는 곳이야.", meta: ["차 타고 이동", "당일 영업 한번 보기"], query: "고래휴게소 표선점" },
-      { time: "+10분", name: "책게일주", category: "서영픽 후보", description: "서영이가 적어둔 이름 그대로 옮겼는데 정확한 장소는 못찾았어.", meta: ["덕산리 469", "상호 한번 더 보기"], query: "책게일주 제주 덕산리 469", map: false, link: false, alert: true },
-      { time: "+12분", name: "사부작", category: "서영픽 예약", description: "예약제 식당이라 시간하고 영업일 맞는지 먼저 확인하기!", meta: ["예약 가능", "서영이 픽"], query: "사부작 제주 표선" },
-      { time: "+11분", name: lodging.name, category: "서영픽 끝", description: "삼달리 숙소로 돌아와서 첫날 마무리하기!", meta: ["2박 모두 같은 숙소", "늦으면 체크인 연락하기"], query: lodging.query }
+      { time: "15:15", name: "제주공항 도착", category: "노랑양말 픽", description: "제주에는 15시 15분 도착이야. 짐 찾고 15시 40분부터 렌트카 받으면 돼!", meta: ["제주 도착 15:15", "렌터카 인수 15:40부터"], query: "제주국제공항" },
+      { time: "+15분", name: "아베베 베이커리 제주점", category: "노랑양말 픽 간식", description: "동문시장 근처에서 빵 포장하는 첫 코스야.", meta: ["이동 15분", "주차랑 대기 생각하기"], query: "아베베베이커리 제주" },
+      { time: "+28분", name: "우동 카덴", category: "노랑양말 픽 식사", description: "17시가 마지막 주문이라 차 받고 바로 가도 좀 빠듯할듯ㅜㅜ", meta: ["17시 마지막 주문", "대기 길면 바로 빼기"], query: "우동 카덴 제주", alert: true },
+      { time: "+6분", name: "제동목장 입구", category: "노랑양말 픽 풍경", description: "목장차 지나가는 길은 막지 말고 입구에서 짧게 보기!", meta: ["이동 6분", "목장 안에는 들어가지 말기"], query: "제주시 조천읍 교래7길 218" },
+      { time: "+21분", name: "안친오름", category: "노랑양말 픽 자연", description: "사유지 들어가도 되는지랑 일몰 시간은 한번 보고 가야할듯.", meta: ["입장료 1인 5,000원", "해 남았을 때만"], query: "안친오름 제주", alert: true },
+      { time: "+20분", name: "픽업커피 행원점", category: "노랑양말 픽 카페", description: "18시까지라 실제 도착 시간에는 못갈것 같아.", meta: ["18시까지", "시간 안 맞음"], query: "픽업커피 행원점 제주", alert: true },
+      { time: "+39분", name: lodging.name, category: "노랑양말 픽 숙소", description: "중간에 숙소 들르는 일정이야. 우리가 묵는 주소로 연결해놨어.", meta: ["2박 같은 숙소", "삼달하동로32번길 2-1"], query: lodging.query },
+      { time: "+10분", name: "고래휴게소 표선점", category: "노랑양말 픽 저녁", description: "표선쪽에서 저녁 먹는 곳이야.", meta: ["차 타고 이동", "당일 영업 한번 보기"], query: "고래휴게소 표선점" },
+      { time: "+10분", name: "책게일주", category: "노랑양말 픽 후보", description: "노랑양말이 적어둔 이름 그대로 옮겼는데 정확한 장소는 못찾았어.", meta: ["덕산리 469", "상호 한번 더 보기"], query: "책게일주 제주 덕산리 469", map: false, link: false, alert: true },
+      { time: "+12분", name: "사부작", category: "노랑양말 픽 예약", description: "예약제 식당이라 시간하고 영업일 맞는지 먼저 확인하기!", meta: ["예약 가능", "노랑양말 픽"], query: "사부작 제주 표선" },
+      { time: "+11분", name: lodging.name, category: "노랑양말 픽 끝", description: "삼달리 숙소로 돌아와서 첫날 마무리하기!", meta: ["2박 모두 같은 숙소", "늦으면 체크인 연락하기"], query: lodging.query }
     ]
   },
   2: {
-    note: "서영이가 처음 짠건 동쪽이랑 중문이랑 서귀포를 하루에 다 도는 일정이야. 전부 가면 숙소 엄청 늦게 들어갈듯ㅜㅜ 김녕팜랜드 뒤에 동쪽에 더 있을지 중문 갈지 하나만 고르자.",
+    note: "노랑양말이 처음 짠건 동쪽이랑 중문이랑 서귀포를 하루에 다 도는 일정이야. 전부 가면 숙소 엄청 늦게 들어갈듯ㅜㅜ 김녕팜랜드 뒤에 동쪽에 더 있을지 중문 갈지 하나만 고르자.",
     items: [
-      { time: "10:00", name: "국수마을", category: "아침", description: "서영이가 골라둔 둘째날 첫 밥이야.", meta: ["10시 오픈", "주차 30분 무료"], query: "국수마을 제주" },
+      { time: "10:00", name: "국수마을", category: "아침", description: "노랑양말이 골라둔 둘째날 첫 밥이야.", meta: ["10시 오픈", "주차 30분 무료"], query: "국수마을 제주" },
       { time: "11:00", name: "여름문구사", category: "소품", description: "세화 작은 문구점에서 제주 기념품 구경하기!", meta: ["주차 공간 확인", "당일 영업 확인"], query: "여름문구사 제주" },
-      { time: "11:45", name: "픽업커피 행원점", category: "카페", description: "행원 바다 보면서 잠깐 쉬자.", meta: ["서영이 픽", "영업시간 한번 보기"], query: "픽업커피 행원점 제주" },
+      { time: "11:45", name: "픽업커피 행원점", category: "카페", description: "행원 바다 보면서 잠깐 쉬자.", meta: ["노랑양말 픽", "영업시간 한번 보기"], query: "픽업커피 행원점 제주" },
       { time: "12:30", name: "코난해변", category: "바다", description: "바람 많이 안불면 바다 30분만 보고 이동하기!", meta: ["해안 산책 30분", "강풍 시 생략"], query: "코난해변 제주" },
       { time: "13:20", name: "카페 모알보알", category: "카페", description: "구좌 바다 보면서 50분 정도 쉬기!", meta: ["주차 가능 표기", "체류 50분 이내"], query: "카페 모알보알 제주" },
       { time: "14:40", name: "김녕팜랜드", category: "체험", description: "동물 먹이주기 체험하기. 늦으면 못할 수도 있으니까 마감시간 먼저 확인!", meta: ["1인 10,000원", "체험 마감 한번 보기"], query: "김녕팜랜드" },
-      { time: "16:15", name: "대현목장", category: "목장", description: "들어가도 되는지 보고 잠깐 들르자.", meta: ["서영이 픽", "사유지인지 한번 보기"], query: "대현목장 제주" },
+      { time: "16:15", name: "대현목장", category: "목장", description: "들어가도 되는지 보고 잠깐 들르자.", meta: ["노랑양말 픽", "사유지인지 한번 보기"], query: "대현목장 제주" },
       { time: "17:00", name: "봉주르마담", category: "베이커리", description: "인기 빵은 일찍 품절될 수 있으니까 남은 메뉴 먼저 확인하기!", meta: ["품절 가능", "당일 영업 확인"], query: "봉주르마담 제주" },
       { time: "18:30", name: "갈치미향", category: "저녁", description: "중문에서 먹는 갈치 저녁.", meta: ["19시까지 표기", "마지막 주문 확인"], query: "갈치미향 제주" },
       { time: "19:40", name: "풀베개", category: "카페", description: "비오는 창밖 보기 좋은 카페인데 이 시간에는 늦을것 같아.", meta: ["19시까지", "시간 안 맞을듯"], query: "풀베개 제주", alert: true },
@@ -639,7 +639,7 @@ function travelVoice(value) {
 }
 
 function travelCategory(value) {
-  return travelVoice(value).replaceAll("처음 계획", "서영픽").replaceAll("고정 일정", "꼭 할 것");
+  return travelVoice(value).replaceAll("처음 계획", "노랑양말 픽").replaceAll("고정 일정", "꼭 할 것");
 }
 
 let mascotToastTimer;
@@ -669,7 +669,7 @@ function renderTimeline() {
   const plan = getActivePlan();
   const day = plan[activeDay];
   const dayLabels = activePlanVersion === "a"
-    ? ["공항에서 삼달리까지", "서영이가 처음 찜한 곳", "아침 먹고 공항으로"]
+    ? ["공항에서 삼달리까지", "노랑양말이 처음 찜한 곳", "아침 먹고 공항으로"]
     : isRainPlan()
       ? ["공항에서 삼달리까지", "조천과 성산 실내 코스", "삼달리에서 공항까지"]
       : ["제주시에서 삼달리까지", "동쪽 해안과 삼달리", "삼달리에서 공항까지"];
@@ -751,6 +751,46 @@ function getMappableDay() {
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, character => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" })[character]);
 }
+
+const fallbackPlaceImages = {
+  cafe: "./assets/jeju/tangerine.webp",
+  food: "./assets/jeju/coast.webp",
+  spot: "./assets/jeju/saryeoni.webp"
+};
+
+function getPlacePreview(item) {
+  const naver = window.NAVER_PLACE_DATA?.[item.name] || {};
+  return {
+    image: naver.image || fallbackPlaceImages[item.kind] || "./jeju-cover.webp",
+    imageFallback: fallbackPlaceImages[item.kind] || "./jeju-cover.webp",
+    imageAlt: naver.image ? `${item.name} 네이버 대표 이미지` : `${item.name} 제주 대체 이미지`,
+    isNaverImage: Boolean(naver.image),
+    description: naver.summary || travelVoice(item.description),
+    url: naver.url || mapUrl(item.query)
+  };
+}
+
+function placePreviewCard(item) {
+  const preview = getPlacePreview(item);
+  const kindLabel = placeKindMeta[item.kind].label;
+  return `<article class="place-preview-card kind-${item.kind}">
+    <img src="${escapeHtml(preview.image)}" data-fallback-src="${escapeHtml(preview.imageFallback)}" alt="${escapeHtml(preview.imageAlt)}" loading="lazy" />
+    <div>
+      <span>${kindLabel}${preview.isNaverImage ? " · 네이버 대표 사진" : " · 대체 사진"}</span>
+      <strong>${escapeHtml(item.name)}</strong>
+      <p>${escapeHtml(preview.description)}</p>
+      <a href="${escapeHtml(preview.url)}" target="_blank" rel="noreferrer">네이버 지도에서 보기 <b>↗</b></a>
+    </div>
+  </article>`;
+}
+
+document.addEventListener("error", event => {
+  const image = event.target.closest?.("img[data-fallback-src]");
+  if (!image || image.dataset.fallbackApplied === "true") return;
+  image.dataset.fallbackApplied = "true";
+  image.src = image.dataset.fallbackSrc;
+  image.alt = image.alt.replace("네이버 대표 이미지", "제주 대체 이미지");
+}, true);
 
 function ensureTrekMap() {
   if (trekMap) return true;
@@ -863,7 +903,7 @@ function renderRouteView() {
 function renderRouteInsight(day, activeIndex) {
   const activeItem = day.items[activeIndex];
   document.querySelector("#mapInsightPanel").innerHTML = `
-    <div class="map-panel-topline"><span>${activePlanVersion === "a" ? "서영이 픽" : isRainPlan() ? "비 주륵주륵" : "해 짱짱"}</span><b>${day.items.length}곳</b></div>
+    <div class="map-panel-topline"><span>${activePlanVersion === "a" ? "노랑양말 픽" : isRainPlan() ? "비 주륵주륵" : "해 짱짱"}</span><b>${day.items.length}곳</b></div>
     <div class="active-stop-card">
       <span class="active-stop-number">${String(activeIndex + 1).padStart(2, "0")}</span>
       <div><small>${activeItem.time} / ${travelCategory(activeItem.category)}</small><h3>${activeItem.name}</h3><p>${travelVoice(activeItem.description)}</p><a class="active-stop-map-link" href="${mapUrl(activeItem.query)}" target="_blank" rel="noreferrer">네이버 지도에서 길찾기 ↗</a></div>
@@ -948,8 +988,8 @@ function renderPlacesMapInsight(source, selectedItems = []) {
     panel.innerHTML = `
       <div class="map-panel-topline"><span>선택한 지역</span><b>${selectedItems.length}곳</b></div>
       <h3 class="cluster-panel-title">이 근처 ${selectedItems.length}곳</h3>
-      <p class="cluster-panel-copy">마커는 지역을 기준으로 모아둔 위치야. 장소를 누르면 네이버 지도에서 정확한 위치를 볼 수 있어.</p>
-      <div class="cluster-place-list">${selectedItems.map(item => `<a href="${mapUrl(item.query)}" target="_blank" rel="noreferrer"><span class="kind-${item.kind}">${placeKindMeta[item.kind].label}</span><strong>${item.name}</strong><b>↗</b></a>`).join("")}</div>`;
+      <p class="cluster-panel-copy">사진이랑 설명 확인하고 네이버 지도로 바로 열면 돼.</p>
+      <div class="place-preview-list">${selectedItems.slice(0, 12).map(placePreviewCard).join("")}</div>`;
     return;
   }
   panel.innerHTML = `
@@ -988,12 +1028,13 @@ function renderPlacesMap() {
   });
   const latLngs = [];
   source.forEach(item => {
+    const preview = getPlacePreview(item);
     const [lng, lat] = getPlaceCoordinates(item);
     latLngs.push([lat, lng]);
     const marker = L.marker([lat, lng], { icon: clusterPlaceIcon(item), title: item.name, riseOnHover: true, keyboard: true });
     marker._trekItem = item;
     marker.bindTooltip(item.name, { direction: "top", offset: [0, -18], className: "map-tooltip", opacity: 1 });
-    marker.bindPopup(`<div class="trek-map-popup-card"><small>${escapeHtml(item.tags.join(" / "))}</small><strong>${escapeHtml(item.name)}</strong><p>${escapeHtml(travelVoice(item.description))}</p><a href="${mapUrl(item.query)}" target="_blank" rel="noreferrer">네이버 지도에서 보기 ↗</a></div>`, { className: "trek-map-popup", maxWidth: 260 });
+    marker.bindPopup(`<div class="trek-map-popup-card place-popup-card"><img src="${escapeHtml(preview.image)}" data-fallback-src="${escapeHtml(preview.imageFallback)}" alt="${escapeHtml(preview.imageAlt)}" /><small>${escapeHtml(item.tags.join(" / "))}</small><strong>${escapeHtml(item.name)}</strong><p>${escapeHtml(preview.description)}</p><a href="${escapeHtml(preview.url)}" target="_blank" rel="noreferrer">네이버 지도에서 보기 ↗</a></div>`, { className: "trek-map-popup", maxWidth: 280 });
     marker.on("click", () => renderPlacesMapInsight(source, [item]));
     placesClusterLayer.addLayer(marker);
   });
@@ -1045,16 +1086,16 @@ function setPlanMode(mode) {
     button.classList.toggle("active", isActive);
     button.setAttribute("aria-pressed", String(isActive));
   });
-  document.querySelector("#heroStatusText").textContent = activePlanVersion === "a" ? "서영이 픽" : rainActive ? "비 주륵주륵" : "해 짱짱";
+  document.querySelector("#heroStatusText").textContent = activePlanVersion === "a" ? "노랑양말 픽" : rainActive ? "비 주륵주륵" : "해 짱짱";
   document.querySelector(".hangyodon-bubble").textContent = activePlanVersion === "a"
-    ? "서영이가 짠대로 가보자!"
+    ? "제주 워크숍을 가보자"
     : rainActive
       ? "비오면 실내로 변경!"
-      : "서영아 제주 가보자!!";
+      : "제주 워크숍을 가보자!";
   reactHangyodon(rainActive ? "rain" : "pop");
-  document.querySelector("#planTitle").textContent = activePlanVersion === "a" ? "서영이가 짠 제주" : rainActive ? "비 주륵주륵 제주" : "비오는 날 픽";
+  document.querySelector("#planTitle").textContent = activePlanVersion === "a" ? "노랑양말이 짠 제주" : rainActive ? "비 주륵주륵 제주" : "비오는 날 픽";
   document.querySelector("#planDescription").textContent = activePlanVersion === "a"
-    ? "서영이가 처음 짠거 그대로야. 시간 안 맞는건 노랗게 해놨어."
+    ? "노랑양말이 처음 짠거 그대로야. 시간 안 맞는건 노랗게 해놨어."
     : rainActive
       ? "삼달리 숙소 기준으로 정리한 비오는 날 일정!"
       : "도착 시간이랑 숙소 기준으로 다시 정리한 일정!";
@@ -1065,7 +1106,7 @@ function setPlanMode(mode) {
   document.querySelector("#recommendationTitle").textContent = rainActive ? "비와도 갈만함!" : "여기도 갈만함!";
   document.querySelector("#recommendationDescription").textContent = rainActive ? "비 멈추면 야외 추가하고 많이오면 실내로 변경!" : "근처 지나갈 때 하나씩 보기. 걸리는 시간도 적어둠!";
   const dayDescriptions = activePlanVersion === "a"
-    ? ["공항에서 삼달리까지", "서영이가 처음 찜한 곳", "아침 먹고 공항으로"]
+    ? ["공항에서 삼달리까지", "노랑양말이 처음 찜한 곳", "아침 먹고 공항으로"]
     : rainActive
       ? ["공항에서 삼달리까지", "조천과 성산 실내 코스", "삼달리에서 공항까지"]
       : ["제주시에서 삼달리까지", "동쪽 해안과 삼달리", "삼달리에서 공항까지"];
@@ -1164,16 +1205,18 @@ function renderRecommendations(filter = activeRecommendationFilter) {
   document.querySelector("#recommendationGrid").innerHTML = visibleCards.map((item, index) => {
     const kindLabel = placeKindMeta[item.kind].label;
     const tags = [kindLabel, ...item.tags.filter(tag => tag !== kindLabel)];
+    const preview = getPlacePreview(item);
     return `
     <article class="recommendation-card kind-${item.kind}" data-number="${String(index + 1).padStart(2, "0")}">
+      <img class="recommendation-image" src="${escapeHtml(preview.image)}" data-fallback-src="${escapeHtml(preview.imageFallback)}" alt="${escapeHtml(preview.imageAlt)}" loading="lazy" />
       <div class="recommendation-tags">${tags.map(tag => `<span>${tag}</span>`).join("")}</div>
       <h3>${item.name}</h3>
-      <p>${travelVoice(item.description)}</p>
+      <p>${escapeHtml(preview.description)}</p>
       <div class="recommendation-footer">
         <span>${item.detour} / ${item.time}</span>
         <div>
           <a href="${item.source || mapUrl(item.query)}" target="_blank" rel="noreferrer" aria-label="${item.name} 여행 정보">정보</a>
-          <a href="${mapUrl(item.query)}" target="_blank" rel="noreferrer">지도</a>
+          <a href="${escapeHtml(preview.url)}" target="_blank" rel="noreferrer">네이버 지도</a>
         </div>
       </div>
     </article>`;
@@ -1210,7 +1253,8 @@ function renderAllPlaces() {
     if (!items.length) return "";
     return `<section class="all-place-group"><header><h3>${label}</h3><span>${items.length}곳</span></header><div class="all-place-list">${items.map(item => {
       const kindLabel = placeKindMeta[item.kind].label;
-      return `<a class="all-place-row kind-${item.kind}" href="${mapUrl(item.query)}" target="_blank" rel="noreferrer"><span>${kindLabel}</span><div><strong>${item.name}</strong><small>${travelVoice(item.description)}</small></div><b>↗</b></a>`;
+      const preview = getPlacePreview(item);
+      return `<a class="all-place-row kind-${item.kind}" href="${escapeHtml(preview.url)}" target="_blank" rel="noreferrer"><img src="${escapeHtml(preview.image)}" data-fallback-src="${escapeHtml(preview.imageFallback)}" alt="" loading="lazy" /><span>${kindLabel}</span><div><strong>${item.name}</strong><small>${escapeHtml(preview.description)}</small></div><b>네이버 ↗</b></a>`;
     }).join("")}</div></section>`;
   }).join("") || `<div class="all-places-empty"><strong>검색 결과가 없어</strong><p>이름을 조금만 짧게 써봐!</p></div>`;
 }

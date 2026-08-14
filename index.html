@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f8fafc" />
-    <title>Jeju 2026 | 이서영 컴퍼니</title>
+    <title>Jeju 2026 | 노랑양말 컴퍼니</title>
     <link rel="stylesheet" href="./vendor/leaflet/leaflet.css" />
     <link rel="stylesheet" href="./vendor/leaflet-markercluster/MarkerCluster.css" />
     <link rel="stylesheet" href="./vendor/leaflet-markercluster/MarkerCluster.Default.css" />
@@ -14,7 +14,7 @@
     <div class="trek-page" id="top">
       <header class="topbar">
         <a class="back-link" href="#plan" aria-label="일정으로">← <span>우리 일정</span></a>
-        <a class="trek-logo company-logo" href="#plan" aria-label="일정으로"><img src="./assets/hangyodon/sayuri.png" alt="" />이서영 컴퍼니</a>
+        <a class="trek-logo company-logo" href="#plan" aria-label="일정으로"><img src="./assets/hangyodon/sayuri.png" alt="" />노랑양말 컴퍼니</a>
         <span class="divider">/</span>
         <strong class="trip-name">Jeju 2026</strong>
         <div class="top-actions">
@@ -37,7 +37,7 @@
             <img src="./jeju-cover.webp" alt="제주 안친오름의 푸른 초원" />
             <div class="hero-scrim"></div>
             <img class="hangyodon-hero" src="./assets/hangyodon/hero.png" alt="한교동과 사유리" />
-            <p class="hangyodon-bubble">서영아 제주 가보자!!</p>
+            <p class="hangyodon-bubble">제주 워크숍을 가보자!</p>
             <div class="hero-content">
               <div class="hero-topline">
                 <span class="status-pill"><i></i> <span id="heroStatusText">해 짱짱</span></span>
@@ -93,7 +93,7 @@
 
             <div class="plan-version-switch" aria-label="우리 여행 계획 선택">
               <button class="plan-version-button" type="button" data-plan-version="a" aria-pressed="false">
-                <small>서</small><strong>서영이 픽</strong><span>처음 짜둔 일정</span>
+                <small>노</small><strong>노랑양말 픽</strong><span>처음 짜둔 일정</span>
               </button>
               <button class="plan-version-button active" type="button" data-plan-version="b" aria-pressed="true">
                 <small>비</small><strong>비오는 날 픽</strong><span>도착 시간이랑 숙소까지 반영</span>
@@ -176,7 +176,7 @@
           <div class="map-context-bar" aria-label="지도 일정 선택">
             <div class="map-context-controls">
               <div class="map-version-switch" aria-label="지도 일정 선택">
-                <button class="map-version-button" type="button" data-plan-version="a" aria-pressed="false">서영픽</button>
+                <button class="map-version-button" type="button" data-plan-version="a" aria-pressed="false">노랑양말</button>
                 <button class="map-version-button active" type="button" data-plan-version="b" aria-pressed="true">비오는 날 픽</button>
               </div>
               <div class="map-plan-switch" data-plan-b-control aria-label="날씨별 지도 선택">
@@ -240,7 +240,7 @@
             <div class="map-canvas-wrap">
               <div class="map-toolbar">
                 <span class="map-day-chip" id="placesMapCount">전체 장소</span>
-                <p>마커를 누르면 장소 이름이랑 지도 링크가 나와.</p>
+                <p>마커를 누르면 사진이랑 간단 설명이랑 네이버 지도 링크가 나와.</p>
                 <div class="place-kind-legend"><span class="kind-cafe">카페</span><span class="kind-food">맛집</span><span class="kind-spot">명소</span></div>
               </div>
               <div class="jeju-map" id="placesMap" role="application" aria-label="저장한 제주 장소 지도"></div>
@@ -299,10 +299,11 @@
         <img src="./assets/hangyodon/sayuri.png" alt="" />
         <p id="hangyodonToastText"></p>
       </div>
-      <footer><span><img src="./assets/hangyodon/sayuri.png" alt="" />이서영 컴퍼니</span><p>만욱이랑 서영이 제주여행임!! 사진은 Visit Jeju랑 한국관광공사랑 제주 공식 블로그에서 가져왔어.</p><a href="#top">다시 위로 ↑</a></footer>
+      <footer><span><img src="./assets/hangyodon/sayuri.png" alt="" />노랑양말 컴퍼니</span><p>만욱이랑 노랑양말 제주 워크숍임!! 사진은 Visit Jeju랑 한국관광공사랑 제주 공식 블로그에서 가져왔어.</p><a href="#top">다시 위로 ↑</a></footer>
     </div>
     <script src="./vendor/leaflet/leaflet.js"></script>
     <script src="./vendor/leaflet-markercluster/leaflet.markercluster.js"></script>
-    <script src="./app.js?v=20260814-hangyodon-interaction"></script>
+    <script src="./naver-places.js?v=20260814-naver-place-crawl"></script>
+    <script src="./app.js?v=20260814-naver-place-preview"></script>
   </body>
 </html>
