@@ -1358,21 +1358,6 @@ document.querySelector("#recommendationMoreButton").addEventListener("click", ()
   renderRecommendations();
 });
 
-const themeButton = document.querySelector("#themeButton");
-const themeKey = "jeju-trip-theme-v1";
-const savedTheme = localStorage.getItem(themeKey);
-if (savedTheme === "dark") {
-  document.documentElement.classList.add("dark");
-  themeButton.textContent = "밝게";
-}
-
-themeButton.addEventListener("click", () => {
-  const isDark = document.documentElement.classList.toggle("dark");
-  themeButton.textContent = isDark ? "밝게" : "어둡게";
-  localStorage.setItem(themeKey, isDark ? "dark" : "light");
-  reactHangyodon("pop");
-});
-
 const hangyodonFloater = document.querySelector("#hangyodonFloater");
 const hangyodonFloaterBubble = document.querySelector("#hangyodonFloaterBubble");
 const mascotTips = [
