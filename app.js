@@ -395,6 +395,8 @@ function setActiveAppTab(tabName, options = {}) {
   const { updateHash = false, scroll = true } = options;
   if (!appTabHashes[tabName]) return;
 
+  if (tabName !== "map") setPlacesMapExpanded(false);
+
   activeAppTab = tabName;
   document.querySelectorAll("[data-tab-panel]").forEach(panel => {
     const isActive = panel.dataset.tabPanel === tabName;
@@ -426,6 +428,24 @@ function setActiveAppTab(tabName, options = {}) {
     }, 30);
   }
   if (tabName === "allPlaces") renderAllPlaces();
+}
+
+function setPlacesMapExpanded(expanded) {
+  const section = document.querySelector("#places-map");
+  const button = document.querySelector("#placesMapExpandButton");
+  if (!section || !button) return;
+
+  const isExpanded = Boolean(expanded);
+  section.classList.toggle("map-expanded", isExpanded);
+  document.body.classList.toggle("places-map-open", isExpanded);
+  button.setAttribute("aria-expanded", String(isExpanded));
+  button.querySelector("span").textContent = isExpanded ? "지도 닫기" : "지도 크게 보기";
+  button.classList.toggle("active", isExpanded);
+
+  window.setTimeout(() => {
+    placesMap?.invalidateSize({ animate: false });
+    if (isExpanded) renderPlacesMap();
+  }, 80);
 }
 
 function initializeAppTabs() {
@@ -1263,6 +1283,17 @@ document.querySelectorAll("[data-map-kind]").forEach(button => {
     });
     renderPlacesMap();
   });
+});
+
+document.querySelector("#placesMapExpandButton")?.addEventListener("click", event => {
+  setPlacesMapExpanded(event.currentTarget.getAttribute("aria-expanded") !== "true");
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && document.body.classList.contains("places-map-open")) {
+    setPlacesMapExpanded(false);
+    document.querySelector("#placesMapExpandButton")?.focus();
+  }
 });
 
 document.querySelector("#mapPlayButton").addEventListener("click", startRouteAnimation);

@@ -1668,3 +1668,71 @@ body::-webkit-scrollbar-thumb { background: var(--hangyodon-blue); border: 3px s
 
 .map-place-filter-button[data-map-kind]:not([data-map-kind="all"]).active::before,
 .place-type-button[data-place-type]:not([data-place-type="all"]).active::before { background: #fff; }
+
+/* 저장 장소 지도 전체 화면 */
+.map-expand-button {
+  display: inline-flex;
+  min-height: 44px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  color: var(--jeju-sea-deep);
+  background: var(--surface);
+  border: 1px solid rgba(23, 108, 121, .28);
+  border-radius: 12px;
+  box-shadow: 0 8px 22px -18px rgba(23, 63, 71, .7);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.map-expand-button svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.map-expand-button:hover { background: var(--hangyodon-blue-soft); }
+.map-expand-button:focus-visible { outline: 3px solid rgba(23, 108, 121, .25); outline-offset: 3px; }
+.map-expand-button.active { color: #fff; background: var(--jeju-sea-deep); border-color: var(--jeju-sea-deep); }
+
+body.places-map-open { overflow: hidden; }
+
+.places-map-section.map-expanded {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: grid !important;
+  width: 100%;
+  height: 100dvh;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  gap: 12px;
+  margin: 0;
+  padding: max(18px, env(safe-area-inset-top)) max(18px, env(safe-area-inset-right)) max(18px, env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left));
+  overflow: hidden;
+  background: var(--bg);
+  animation: none;
+}
+
+.places-map-section.map-expanded .places-map-mascot { display: none; }
+.places-map-section.map-expanded .section-heading { align-items: center; flex-direction: row; gap: 16px; margin: 0; }
+.places-map-section.map-expanded .section-heading h2 { font-size: clamp(22px, 2.6vw, 32px); }
+.places-map-section.map-expanded .section-heading p { margin-top: 3px; }
+.places-map-section.map-expanded .map-place-filters { margin: 0; }
+.places-map-section.map-expanded .route-map-card { height: 100%; min-height: 0; grid-template-columns: minmax(0, 1fr); border-radius: 18px; }
+.places-map-section.map-expanded .map-canvas-wrap { min-height: 0; }
+.places-map-section.map-expanded .map-insight-panel { display: none; }
+
+@media (max-width: 720px) {
+  .map-section-heading .map-expand-button { width: 100%; }
+  .places-map-section.map-expanded { gap: 8px; padding: max(10px, env(safe-area-inset-top)) 10px max(10px, env(safe-area-inset-bottom)); }
+  .places-map-section.map-expanded .section-heading { flex-direction: row; gap: 8px; }
+  .places-map-section.map-expanded .section-heading > div { min-width: 0; }
+  .places-map-section.map-expanded .section-heading h2 { overflow: hidden; font-size: 19px; text-overflow: ellipsis; white-space: nowrap; }
+  .places-map-section.map-expanded .section-heading p { display: none; }
+  .places-map-section.map-expanded .map-expand-button { width: auto; min-height: 40px; padding: 8px 11px; }
+  .places-map-section.map-expanded .map-place-filters { grid-template-columns: 1fr; gap: 6px; }
+  .places-map-section.map-expanded .map-place-filter-group { align-items: center; flex-direction: row; gap: 5px; padding: 6px; }
+  .places-map-section.map-expanded .map-place-filter-group > span { padding-left: 4px; }
+  .places-map-section.map-expanded .route-map-card { border-radius: 14px; }
+  .places-map-section.map-expanded .map-canvas-wrap { min-height: 0; }
+  .places-map-section.map-expanded .jeju-map { inset: 50px 6px 6px; }
+  .places-map-section.map-expanded .jeju-map .leaflet-control-zoom { display: block; }
+}

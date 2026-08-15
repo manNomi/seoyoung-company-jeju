@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./vendor/leaflet/leaflet.css" />
     <link rel="stylesheet" href="./vendor/leaflet-markercluster/MarkerCluster.css" />
     <link rel="stylesheet" href="./vendor/leaflet-markercluster/MarkerCluster.Default.css" />
-    <link rel="stylesheet" href="./styles.css?v=20260815-light-only" />
+    <link rel="stylesheet" href="./styles.css?v=20260815-full-map" />
   </head>
   <body>
     <div class="trek-page" id="top">
@@ -226,6 +226,10 @@
               <h2>저장해둔 곳 지도</h2>
               <p>카페랑 맛집이랑 명소를 제주 지도에서 한눈에 보자.</p>
             </div>
+            <button class="map-expand-button" id="placesMapExpandButton" type="button" aria-expanded="false" aria-controls="placesMap">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5" /></svg>
+              <span>지도 크게 보기</span>
+            </button>
           </div>
 
           <div class="map-place-filters" aria-label="저장한 장소 지도 필터">
@@ -318,6 +322,6 @@
     <script src="./vendor/leaflet/leaflet.js"></script>
     <script src="./vendor/leaflet-markercluster/leaflet.markercluster.js"></script>
     <script src="./naver-places.js?v=20260814-naver-place-crawl"></script>
-    <script src="./app.js?v=20260815-light-only"></script>
+    <script src="./app.js?v=20260815-full-map"></script>
   </body>
 </html>
