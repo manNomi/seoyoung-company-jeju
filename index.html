@@ -34,7 +34,15 @@
         <div class="app-tab-panel active" id="planPanel" data-tab-panel="plan" role="tabpanel" aria-labelledby="planTab">
           <section class="hero-stack" aria-labelledby="trip-title">
           <div class="trip-hero">
-            <img src="./jeju-cover.webp" alt="제주 안친오름의 푸른 초원" />
+            <img
+              src="./jeju-cover.webp?v=20260815-jeju-coast"
+              srcset="./jeju-cover-1440.webp?v=20260815-jeju-coast 1440w, ./jeju-cover.webp?v=20260815-jeju-coast 2880w"
+              sizes="(max-width: 720px) calc(100vw - 32px), min(1440px, calc(100vw - 64px))"
+              width="2880"
+              height="1920"
+              fetchpriority="high"
+              alt="제주 바다와 초록빛 화산 해안 절벽"
+            />
             <div class="hero-scrim"></div>
             <img class="hangyodon-hero" src="./assets/hangyodon/hero.png" alt="한교동과 사유리" />
             <p class="hangyodon-bubble">제주 워크숍을 가보자!</p>
