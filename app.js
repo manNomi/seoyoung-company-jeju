@@ -7,29 +7,29 @@ const planAItinerary = {
   1: {
     note: "15시 15분 제주 도착. 렌트카는 15시 40분부터 인수하고 뒤 일정은 대기시간보고 결정하기!",
     items: [
-      { time: "15:15", name: "제주공항 도착", category: "노랑양말 픽", description: "제주에는 15시 15분 도착이야. 짐 찾고 15시 40분부터 렌트카 받으면 돼!", meta: ["제주 도착 15:15", "렌터카 인수 15:40부터"], query: "제주국제공항" },
-      { time: "16:10", name: "아베베 베이커리 제주점", category: "노랑양말 픽 간식", description: "동문시장 근처에서 빵 포장하는 첫 코스야.", meta: ["이동 15분", "주차랑 대기 생각하기"], query: "아베베베이커리 제주" },
-      { time: "16:50", name: "우동 카덴", category: "노랑양말 픽 식사", description: "17시가 마지막 주문이라 차 받고 바로 가도 좀 빠듯할듯ㅜㅜ", meta: ["17시 마지막 주문", "대기 길면 바로 빼기"], query: "우동 카덴 제주", alert: true },
-      { time: "17:30", name: "제동목장 입구", category: "노랑양말 픽 풍경", description: "목장차 지나가는 길은 막지 말고 입구에서 짧게 보기!", meta: ["이동 6분", "목장 안에는 들어가지 말기"], query: "제주시 조천읍 교래7길 218" },
-      { time: "18:10", name: "안친오름", category: "노랑양말 픽 자연", description: "사유지 들어가도 되는지랑 일몰 시간은 한번 보고 가야할듯.", meta: ["입장료 1인 5,000원", "해 남았을 때만"], query: "안친오름 제주", alert: true },
-      { time: "18:50", name: "픽업커피 행원점", category: "노랑양말 픽 카페", description: "18시까지라 실제 도착 시간에는 못갈것 같아.", meta: ["18시까지", "시간 안 맞음"], query: "픽업커피 행원점 제주", alert: true },
-      { time: "19:50", name: lodging.name, category: "노랑양말 픽 숙소", description: "중간에 숙소 들르는 일정이야. 우리가 묵는 주소로 연결해놨어.", meta: ["2박 같은 숙소", "삼달하동로32번길 2-1"], query: lodging.query },
-      { time: "20:20", name: "고래휴게소 표선점", category: "노랑양말 픽 저녁", description: "표선쪽에서 저녁 먹는 곳이야.", meta: ["차 타고 이동", "당일 영업 한번 보기"], query: "고래휴게소 표선점" },
-      { time: "21:10", name: "책게일주", category: "노랑양말 픽 후보", description: "노랑양말이 적어둔 이름 그대로 옮겼는데 정확한 장소는 못찾았어.", meta: ["덕산리 469", "상호 한번 더 보기"], query: "책게일주 제주 덕산리 469", map: false, link: false, alert: true },
-      { time: "21:40", name: "사부작", category: "노랑양말 픽 예약", description: "예약제 식당이라 시간하고 영업일 맞는지 먼저 확인하기!", meta: ["예약 가능", "노랑양말 픽"], query: "사부작 제주 표선" },
-      { time: "22:20", name: lodging.name, category: "노랑양말 픽 끝", description: "삼달리 숙소로 돌아와서 첫날 마무리하기!", meta: ["2박 모두 같은 숙소", "늦으면 체크인 연락하기"], query: lodging.query }
+      { time: "15:15", name: "제주공항 도착", category: "SY 컴퍼니 픽", description: "제주에는 15시 15분 도착이야. 짐 찾고 15시 40분부터 렌트카 받으면 돼!", meta: ["제주 도착 15:15", "렌터카 인수 15:40부터"], query: "제주국제공항" },
+      { time: "16:10", name: "아베베 베이커리 제주점", category: "SY 컴퍼니 픽 간식", description: "동문시장 근처에서 빵 포장하는 첫 코스야.", meta: ["이동 15분", "주차랑 대기 생각하기"], query: "아베베베이커리 제주" },
+      { time: "16:50", name: "우동 카덴", category: "SY 컴퍼니 픽 식사", description: "17시가 마지막 주문이라 차 받고 바로 가도 좀 빠듯할듯ㅜㅜ", meta: ["17시 마지막 주문", "대기 길면 바로 빼기"], query: "우동 카덴 제주", alert: true },
+      { time: "17:30", name: "제동목장 입구", category: "SY 컴퍼니 픽 풍경", description: "목장차 지나가는 길은 막지 말고 입구에서 짧게 보기!", meta: ["이동 6분", "목장 안에는 들어가지 말기"], query: "제주시 조천읍 교래7길 218" },
+      { time: "18:10", name: "안친오름", category: "SY 컴퍼니 픽 자연", description: "사유지 들어가도 되는지랑 일몰 시간은 한번 보고 가야할듯.", meta: ["입장료 1인 5,000원", "해 남았을 때만"], query: "안친오름 제주", alert: true },
+      { time: "18:50", name: "픽업커피 행원점", category: "SY 컴퍼니 픽 카페", description: "18시까지라 실제 도착 시간에는 못갈것 같아.", meta: ["18시까지", "시간 안 맞음"], query: "픽업커피 행원점 제주", alert: true },
+      { time: "19:50", name: lodging.name, category: "SY 컴퍼니 픽 숙소", description: "중간에 숙소 들르는 일정이야. 우리가 묵는 주소로 연결해놨어.", meta: ["2박 같은 숙소", "삼달하동로32번길 2-1"], query: lodging.query },
+      { time: "20:20", name: "고래휴게소 표선점", category: "SY 컴퍼니 픽 저녁", description: "표선쪽에서 저녁 먹는 곳이야.", meta: ["차 타고 이동", "당일 영업 한번 보기"], query: "고래휴게소 표선점" },
+      { time: "21:10", name: "책게일주", category: "SY 컴퍼니 픽 후보", description: "SY 컴퍼니가 적어둔 이름 그대로 옮겼는데 정확한 장소는 못찾았어.", meta: ["덕산리 469", "상호 한번 더 보기"], query: "책게일주 제주 덕산리 469", map: false, link: false, alert: true },
+      { time: "21:40", name: "사부작", category: "SY 컴퍼니 픽 예약", description: "예약제 식당이라 시간하고 영업일 맞는지 먼저 확인하기!", meta: ["예약 가능", "SY 컴퍼니 픽"], query: "사부작 제주 표선" },
+      { time: "22:20", name: lodging.name, category: "SY 컴퍼니 픽 끝", description: "삼달리 숙소로 돌아와서 첫날 마무리하기!", meta: ["2박 모두 같은 숙소", "늦으면 체크인 연락하기"], query: lodging.query }
     ]
   },
   2: {
-    note: "노랑양말이 처음 짠건 동쪽이랑 중문이랑 서귀포를 하루에 다 도는 일정이야. 전부 가면 숙소 엄청 늦게 들어갈듯ㅜㅜ 김녕팜랜드 뒤에 동쪽에 더 있을지 중문 갈지 하나만 고르자.",
+    note: "SY 컴퍼니가 처음 짠건 동쪽이랑 중문이랑 서귀포를 하루에 다 도는 일정이야. 전부 가면 숙소 엄청 늦게 들어갈듯ㅜㅜ 김녕팜랜드 뒤에 동쪽에 더 있을지 중문 갈지 하나만 고르자.",
     items: [
-      { time: "10:00", name: "국수마을", category: "아침", description: "노랑양말이 골라둔 둘째날 첫 밥이야.", meta: ["10시 오픈", "주차 30분 무료"], query: "국수마을 제주" },
+      { time: "10:00", name: "국수마을", category: "아침", description: "SY 컴퍼니가 골라둔 둘째날 첫 밥이야.", meta: ["10시 오픈", "주차 30분 무료"], query: "국수마을 제주" },
       { time: "11:00", name: "여름문구사", category: "소품", description: "세화 작은 문구점에서 제주 기념품 구경하기!", meta: ["주차 공간 확인", "당일 영업 확인"], query: "여름문구사 제주" },
-      { time: "11:45", name: "픽업커피 행원점", category: "카페", description: "행원 바다 보면서 잠깐 쉬자.", meta: ["노랑양말 픽", "영업시간 한번 보기"], query: "픽업커피 행원점 제주" },
+      { time: "11:45", name: "픽업커피 행원점", category: "카페", description: "행원 바다 보면서 잠깐 쉬자.", meta: ["SY 컴퍼니 픽", "영업시간 한번 보기"], query: "픽업커피 행원점 제주" },
       { time: "12:30", name: "코난해변", category: "바다", description: "바람 많이 안불면 바다 30분만 보고 이동하기!", meta: ["해안 산책 30분", "강풍 시 생략"], query: "코난해변 제주" },
       { time: "13:20", name: "카페 모알보알", category: "카페", description: "구좌 바다 보면서 50분 정도 쉬기!", meta: ["주차 가능 표기", "체류 50분 이내"], query: "카페 모알보알 제주" },
       { time: "14:40", name: "김녕팜랜드", category: "체험", description: "동물 먹이주기 체험하기. 늦으면 못할 수도 있으니까 마감시간 먼저 확인!", meta: ["1인 10,000원", "체험 마감 한번 보기"], query: "김녕팜랜드" },
-      { time: "16:15", name: "대현목장", category: "목장", description: "들어가도 되는지 보고 잠깐 들르자.", meta: ["노랑양말 픽", "사유지인지 한번 보기"], query: "대현목장 제주" },
+      { time: "16:15", name: "대현목장", category: "목장", description: "들어가도 되는지 보고 잠깐 들르자.", meta: ["SY 컴퍼니 픽", "사유지인지 한번 보기"], query: "대현목장 제주" },
       { time: "17:00", name: "봉주르마담", category: "베이커리", description: "인기 빵은 일찍 품절될 수 있으니까 남은 메뉴 먼저 확인하기!", meta: ["품절 가능", "당일 영업 확인"], query: "봉주르마담 제주" },
       { time: "18:30", name: "순천미향", category: "저녁", description: "중문에서 먹는 갈치 저녁.", meta: ["19시까지 표기", "마지막 주문 확인"], query: "순천미향 제주" },
       { time: "19:40", name: "풀베개", category: "카페", description: "비오는 창밖 보기 좋은 카페인데 이 시간에는 늦을것 같아.", meta: ["19시까지", "시간 안 맞을듯"], query: "풀베개 제주", alert: true },
@@ -680,7 +680,7 @@ function travelVoice(value) {
 }
 
 function travelCategory(value) {
-  return travelVoice(value).replaceAll("처음 계획", "노랑양말 픽").replaceAll("고정 일정", "꼭 할 것");
+  return travelVoice(value).replaceAll("처음 계획", "SY 컴퍼니 픽").replaceAll("고정 일정", "꼭 할 것");
 }
 
 let mascotToastTimer;
@@ -710,7 +710,7 @@ function renderTimeline() {
   const plan = getActivePlan();
   const day = plan[activeDay];
   const dayLabels = activePlanVersion === "a"
-    ? ["공항에서 삼달리까지", "노랑양말이 처음 찜한 곳", "아침 먹고 공항으로"]
+    ? ["공항에서 삼달리까지", "SY 컴퍼니가 처음 찜한 곳", "아침 먹고 공항으로"]
     : isRainPlan()
       ? ["공항에서 삼달리까지", activeRainCourse === "a" ? "삼달리와 성산 A 코스" : "성산 완전 실내 B 코스", "삼달리에서 공항까지"]
       : ["제주시에서 삼달리까지", "동쪽 해안과 삼달리", "삼달리에서 공항까지"];
@@ -977,7 +977,7 @@ function renderRouteView() {
 function renderRouteInsight(day, activeIndex) {
   const activeItem = day.items[activeIndex];
   document.querySelector("#mapInsightPanel").innerHTML = `
-    <div class="map-panel-topline"><span>${activePlanVersion === "a" ? "노랑양말 픽" : isRainPlan() ? "비 주륵주륵" : "해 짱짱"}</span><b>${day.items.length}곳</b></div>
+    <div class="map-panel-topline"><span>${activePlanVersion === "a" ? "SY 컴퍼니 픽" : isRainPlan() ? "비 주륵주륵" : "해 짱짱"}</span><b>${day.items.length}곳</b></div>
     <div class="active-stop-card">
       <span class="active-stop-number">${String(activeIndex + 1).padStart(2, "0")}</span>
       <div><small>${activeItem.time} / ${travelCategory(activeItem.category)}</small><h3>${activeItem.name}</h3><p>${travelVoice(activeItem.description)}</p><a class="active-stop-map-link" href="${mapUrl(activeItem.query)}" target="_blank" rel="noreferrer">네이버 지도에서 길찾기 ↗</a></div>
@@ -1173,7 +1173,7 @@ function setPlanMode(mode) {
     button.classList.toggle("active", isActive);
     button.setAttribute("aria-pressed", String(isActive));
   });
-  document.querySelector("#heroStatusText").textContent = activePlanVersion === "a" ? "노랑양말 픽" : rainActive ? "비 주륵주륵" : "해 짱짱";
+  document.querySelector("#heroStatusText").textContent = activePlanVersion === "a" ? "SY 컴퍼니 픽" : rainActive ? "비 주륵주륵" : "해 짱짱";
   document.querySelector(".hangyodon-bubble").textContent = activePlanVersion === "a"
     ? "제주 워크숍을 가보자"
     : rainActive
@@ -1181,7 +1181,7 @@ function setPlanMode(mode) {
       : "제주 워크숍을 가보자!";
   reactHangyodon(rainActive ? "rain" : "pop");
   document.querySelector("#planTitle").textContent = activePlanVersion === "a"
-    ? "노랑양말이 짠 제주"
+    ? "SY 컴퍼니가 짠 제주"
     : rainActive
       ? `비오는 날 ${activeRainCourse.toUpperCase()} 코스`
       : "비오는 날 픽";
@@ -1203,7 +1203,7 @@ function setPlanMode(mode) {
   document.querySelector("#recommendationTitle").textContent = rainActive ? "비와도 갈만함!" : "여기도 갈만함!";
   document.querySelector("#recommendationDescription").textContent = rainActive ? "비 멈추면 야외 추가하고 많이오면 실내로 변경!" : "근처 지나갈 때 하나씩 보기. 걸리는 시간도 적어둠!";
   const dayDescriptions = activePlanVersion === "a"
-    ? ["공항에서 삼달리까지", "노랑양말이 처음 찜한 곳", "아침 먹고 공항으로"]
+    ? ["공항에서 삼달리까지", "SY 컴퍼니가 처음 찜한 곳", "아침 먹고 공항으로"]
     : rainActive
       ? ["공항에서 삼달리까지", activeRainCourse === "a" ? "삼달리와 성산 A 코스" : "성산 완전 실내 B 코스", "삼달리에서 공항까지"]
       : ["제주시에서 삼달리까지", "동쪽 해안과 삼달리", "삼달리에서 공항까지"];
