@@ -101,6 +101,20 @@ const manwookItinerary = {
       { time: "보류", name: "픽업커피 행원점", category: "이번에는 보류", description: "영업시간이 맞지 않아서 첫날 동선에서는 빼두기.", meta: ["1일차 제외", "보류"], query: "픽업커피 행원점 제주", map: false, deferred: true },
       { time: "보류", name: "고래휴게소 표선점", category: "이번에는 보류", description: "사부작 예약을 우선해서 첫날 저녁 후보에서는 빼두기.", meta: ["1일차 제외", "보류"], query: "고래휴게소 표선점", map: false, deferred: true }
     ]
+  },
+  2: {
+    note: "만욱픽 동쪽 동선에 서영픽을 살짝 섞었어. 픽업커피와 모알보알만 자연스럽게 넣고 중문과 서귀포까지 넘어가는 서영픽은 숙소 복귀가 늦어져서 빼기!",
+    items: [
+      { time: "09:30", name: "여름문구사", category: "만욱픽 + 서영픽", description: "세화 작은 문구점에서 제주 기념품 구경하고 행원으로 이동하기!", meta: ["둘 다 고른 곳", "당일 영업 확인", "주차 공간 협소"], query: "여름문구사 제주" },
+      { time: "10:20", name: "픽업커피 행원점", category: "서영픽 카페", description: "첫날에는 시간이 안 맞았던 서영픽을 둘째 날 오전에 끼워 넣었어. 행원 바다 보면서 짧게 쉬기!", meta: ["서영픽 추가", "체류 40분", "당일 영업 확인"], query: "픽업커피 행원점 제주" },
+      { time: "11:10", name: "코난해변", category: "만욱픽 + 서영픽", description: "행원에서 가까운 바다만 30분 보고 모알보알로 이동하기!", meta: ["둘 다 고른 곳", "해안 산책 30분", "강풍이면 생략"], query: "코난해변 제주" },
+      { time: "12:00", name: "카페 모알보알", category: "서영픽 카페", description: "서영픽 카페에서 구좌 바다 보면서 쉬기. 점심 전이라 한 시간 넘기지 말자!", meta: ["서영픽 추가", "10:00부터 19:00", "체류 50분"], query: "카페 모알보알 제주" },
+      { time: "13:10", name: "동쪽 점심 식사", category: "만욱픽 점심", description: "김녕이나 구좌에서 지금 위치랑 가까운 식당 고르기!", meta: ["주차 가능한 식당", "대기 짧은 곳 우선"], query: "제주 김녕 맛집", map: false },
+      { time: "14:30", name: "김갈 팜랜드", category: "만욱픽 + 서영픽", description: "둘 다 골라둔 팜랜드에서 동물 먹이주기 체험하기!", meta: ["둘 다 고른 곳", "체험 약 60분", "마감시간 확인"], query: "김갈 팜랜드" },
+      { time: "16:20", name: "친봉산장", category: "만욱픽 선택", description: "체력 남고 길이 안 막힐 때만 들르기. 피곤하면 바로 성산이나 표선으로 내려가자!", meta: ["선택 일정", "당일 영업 확인", "피곤하면 생략"], query: "친봉산장 제주" },
+      { time: "18:10", name: "성산이나 표선 저녁", category: "만욱픽 저녁", description: "숙소 방향으로 내려오면서 주차 편한 식당에서 저녁 먹기!", meta: ["숙소 방향 우선", "주차 가능한 식당"], query: "제주 성산 표선 맛집", map: false },
+      { time: "19:40", name: lodging.name, category: "고정 숙소", description: "첫날이랑 같은 삼달리 숙소로 돌아와서 다음 날 체크아웃 준비하기!", meta: ["2박 모두 같은 숙소", "다음 날 짐 정리"], query: lodging.query }
+    ]
   }
 };
 
@@ -756,7 +770,7 @@ function renderTimeline() {
     : activePlanVersion === "c"
       ? activeMode === "rain"
         ? ["비 오는 날 동쪽에서 서쪽까지", "월요일 서쪽 두 곳", "삼달리에서 공항까지"]
-        : ["만욱픽 첫날 확정 동선", "동쪽 해안과 삼달리", "삼달리에서 공항까지"]
+        : ["만욱픽 첫날 확정 동선", "만욱픽에 서영픽 섞기", "삼달리에서 공항까지"]
     : isRainPlan()
       ? ["공항에서 삼달리까지", activeRainCourse === "a" ? "삼달리와 성산 A 코스" : "성산 완전 실내 B 코스", "삼달리에서 공항까지"]
       : ["제주시에서 삼달리까지", "동쪽 해안과 삼달리", "삼달리에서 공항까지"];
@@ -1232,7 +1246,7 @@ function setPlanMode(mode) {
   document.querySelector(".hangyodon-bubble").textContent = activePlanVersion === "a"
     ? "제주 워크숍을 가보자"
     : manwookActive
-      ? rainActive ? "비 오는 날 동서 이동!" : "첫날은 여섯 곳만!"
+      ? rainActive ? "비 오는 날 동서 이동!" : "서영픽도 살짝 섞기!"
     : rainActive
       ? "비오면 실내로 변경!"
       : "제주 워크숍을 가보자!";
@@ -1247,19 +1261,19 @@ function setPlanMode(mode) {
   document.querySelector("#planDescription").textContent = activePlanVersion === "a"
     ? ""
     : manwookActive
-      ? rainActive ? "첫날 동쪽 다섯 곳, 다음 날 서쪽 두 곳으로 정리한 일정!" : "첫날 가능한 여섯 곳만 순서대로 정리한 일정!"
+      ? rainActive ? "첫날 동쪽 다섯 곳, 다음 날 서쪽 두 곳으로 정리한 일정!" : "만욱픽 현실 동선에 서영픽을 자연스럽게 섞은 일정!"
     : rainActive
       ? activeRainCourse === "a"
         ? "보슬비면 두모악부터 오른까지 여유롭게!"
         : "비가 왕창 오면 아쿠아플라넷과 빛의 벙커만!"
       : "도착 시간이랑 숙소 기준으로 다시 정리한 일정!";
   document.querySelector("#weatherSummary").textContent = manwookActive ? rainActive ? "만욱픽 비 오는 날" : "만욱픽 첫날" : rainActive ? "비 주륵주륵" : "해 짱짱 제주";
-  document.querySelector("#weatherDetail").textContent = manwookActive ? rainActive ? "동쪽에서 서쪽까지 장거리" : "여섯 곳만 가기" : rainActive ? "비바람 세면 실내로 변경" : "덥고 습하니까 물 꼭 챙기기";
+  document.querySelector("#weatherDetail").textContent = manwookActive ? rainActive ? "동쪽에서 서쪽까지 장거리" : "현실 동선 + 서영픽" : rainActive ? "비바람 세면 실내로 변경" : "덥고 습하니까 물 꼭 챙기기";
   document.querySelector("#focusSummary").textContent = manwookActive ? rainActive ? "비 오는 날 일정" : "첫날 확정 동선" : "삼달리 우리 집";
   document.querySelector("#focusDetail").textContent = activePlanVersion === "a"
     ? "시간 안 맞는건 노랗게"
     : manwookActive
-      ? rainActive ? "첫날 5곳, 다음 날 2곳" : "사부작 19시 기준"
+      ? rainActive ? "첫날 5곳, 다음 날 2곳" : "사부작 19시 + 동쪽 혼합"
     : rainActive
       ? activeRainCourse === "a" ? "동쪽 실내 네 곳" : "완전 실내 두 곳"
       : "동쪽 위주로 이동";
@@ -1270,7 +1284,7 @@ function setPlanMode(mode) {
     : manwookActive
       ? rainActive
         ? ["비 오는 날 동쪽에서 서쪽까지", "월요일 서쪽 두 곳", "삼달리에서 공항까지"]
-        : ["만욱픽 첫날 확정 동선", "동쪽 해안과 삼달리", "삼달리에서 공항까지"]
+        : ["만욱픽 첫날 확정 동선", "만욱픽에 서영픽 섞기", "삼달리에서 공항까지"]
     : rainActive
       ? ["공항에서 삼달리까지", activeRainCourse === "a" ? "삼달리와 성산 A 코스" : "성산 완전 실내 B 코스", "삼달리에서 공항까지"]
       : ["제주시에서 삼달리까지", "동쪽 해안과 삼달리", "삼달리에서 공항까지"];
