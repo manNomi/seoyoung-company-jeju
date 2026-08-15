@@ -8,16 +8,16 @@ const planAItinerary = {
     note: "15시 15분 제주 도착. 렌트카는 15시 40분부터 인수하고 뒤 일정은 대기시간보고 결정하기!",
     items: [
       { time: "15:15", name: "제주공항 도착", category: "노랑양말 픽", description: "제주에는 15시 15분 도착이야. 짐 찾고 15시 40분부터 렌트카 받으면 돼!", meta: ["제주 도착 15:15", "렌터카 인수 15:40부터"], query: "제주국제공항" },
-      { time: "+15분", name: "아베베 베이커리 제주점", category: "노랑양말 픽 간식", description: "동문시장 근처에서 빵 포장하는 첫 코스야.", meta: ["이동 15분", "주차랑 대기 생각하기"], query: "아베베베이커리 제주" },
-      { time: "+28분", name: "우동 카덴", category: "노랑양말 픽 식사", description: "17시가 마지막 주문이라 차 받고 바로 가도 좀 빠듯할듯ㅜㅜ", meta: ["17시 마지막 주문", "대기 길면 바로 빼기"], query: "우동 카덴 제주", alert: true },
-      { time: "+6분", name: "제동목장 입구", category: "노랑양말 픽 풍경", description: "목장차 지나가는 길은 막지 말고 입구에서 짧게 보기!", meta: ["이동 6분", "목장 안에는 들어가지 말기"], query: "제주시 조천읍 교래7길 218" },
-      { time: "+21분", name: "안친오름", category: "노랑양말 픽 자연", description: "사유지 들어가도 되는지랑 일몰 시간은 한번 보고 가야할듯.", meta: ["입장료 1인 5,000원", "해 남았을 때만"], query: "안친오름 제주", alert: true },
-      { time: "+20분", name: "픽업커피 행원점", category: "노랑양말 픽 카페", description: "18시까지라 실제 도착 시간에는 못갈것 같아.", meta: ["18시까지", "시간 안 맞음"], query: "픽업커피 행원점 제주", alert: true },
-      { time: "+39분", name: lodging.name, category: "노랑양말 픽 숙소", description: "중간에 숙소 들르는 일정이야. 우리가 묵는 주소로 연결해놨어.", meta: ["2박 같은 숙소", "삼달하동로32번길 2-1"], query: lodging.query },
-      { time: "+10분", name: "고래휴게소 표선점", category: "노랑양말 픽 저녁", description: "표선쪽에서 저녁 먹는 곳이야.", meta: ["차 타고 이동", "당일 영업 한번 보기"], query: "고래휴게소 표선점" },
-      { time: "+10분", name: "책게일주", category: "노랑양말 픽 후보", description: "노랑양말이 적어둔 이름 그대로 옮겼는데 정확한 장소는 못찾았어.", meta: ["덕산리 469", "상호 한번 더 보기"], query: "책게일주 제주 덕산리 469", map: false, link: false, alert: true },
-      { time: "+12분", name: "사부작", category: "노랑양말 픽 예약", description: "예약제 식당이라 시간하고 영업일 맞는지 먼저 확인하기!", meta: ["예약 가능", "노랑양말 픽"], query: "사부작 제주 표선" },
-      { time: "+11분", name: lodging.name, category: "노랑양말 픽 끝", description: "삼달리 숙소로 돌아와서 첫날 마무리하기!", meta: ["2박 모두 같은 숙소", "늦으면 체크인 연락하기"], query: lodging.query }
+      { time: "16:10", name: "아베베 베이커리 제주점", category: "노랑양말 픽 간식", description: "동문시장 근처에서 빵 포장하는 첫 코스야.", meta: ["이동 15분", "주차랑 대기 생각하기"], query: "아베베베이커리 제주" },
+      { time: "16:50", name: "우동 카덴", category: "노랑양말 픽 식사", description: "17시가 마지막 주문이라 차 받고 바로 가도 좀 빠듯할듯ㅜㅜ", meta: ["17시 마지막 주문", "대기 길면 바로 빼기"], query: "우동 카덴 제주", alert: true },
+      { time: "17:30", name: "제동목장 입구", category: "노랑양말 픽 풍경", description: "목장차 지나가는 길은 막지 말고 입구에서 짧게 보기!", meta: ["이동 6분", "목장 안에는 들어가지 말기"], query: "제주시 조천읍 교래7길 218" },
+      { time: "18:10", name: "안친오름", category: "노랑양말 픽 자연", description: "사유지 들어가도 되는지랑 일몰 시간은 한번 보고 가야할듯.", meta: ["입장료 1인 5,000원", "해 남았을 때만"], query: "안친오름 제주", alert: true },
+      { time: "18:50", name: "픽업커피 행원점", category: "노랑양말 픽 카페", description: "18시까지라 실제 도착 시간에는 못갈것 같아.", meta: ["18시까지", "시간 안 맞음"], query: "픽업커피 행원점 제주", alert: true },
+      { time: "19:50", name: lodging.name, category: "노랑양말 픽 숙소", description: "중간에 숙소 들르는 일정이야. 우리가 묵는 주소로 연결해놨어.", meta: ["2박 같은 숙소", "삼달하동로32번길 2-1"], query: lodging.query },
+      { time: "20:20", name: "고래휴게소 표선점", category: "노랑양말 픽 저녁", description: "표선쪽에서 저녁 먹는 곳이야.", meta: ["차 타고 이동", "당일 영업 한번 보기"], query: "고래휴게소 표선점" },
+      { time: "21:10", name: "책게일주", category: "노랑양말 픽 후보", description: "노랑양말이 적어둔 이름 그대로 옮겼는데 정확한 장소는 못찾았어.", meta: ["덕산리 469", "상호 한번 더 보기"], query: "책게일주 제주 덕산리 469", map: false, link: false, alert: true },
+      { time: "21:40", name: "사부작", category: "노랑양말 픽 예약", description: "예약제 식당이라 시간하고 영업일 맞는지 먼저 확인하기!", meta: ["예약 가능", "노랑양말 픽"], query: "사부작 제주 표선" },
+      { time: "22:20", name: lodging.name, category: "노랑양말 픽 끝", description: "삼달리 숙소로 돌아와서 첫날 마무리하기!", meta: ["2박 모두 같은 숙소", "늦으면 체크인 연락하기"], query: lodging.query }
     ]
   },
   2: {
@@ -31,7 +31,7 @@ const planAItinerary = {
       { time: "14:40", name: "김녕팜랜드", category: "체험", description: "동물 먹이주기 체험하기. 늦으면 못할 수도 있으니까 마감시간 먼저 확인!", meta: ["1인 10,000원", "체험 마감 한번 보기"], query: "김녕팜랜드" },
       { time: "16:15", name: "대현목장", category: "목장", description: "들어가도 되는지 보고 잠깐 들르자.", meta: ["노랑양말 픽", "사유지인지 한번 보기"], query: "대현목장 제주" },
       { time: "17:00", name: "봉주르마담", category: "베이커리", description: "인기 빵은 일찍 품절될 수 있으니까 남은 메뉴 먼저 확인하기!", meta: ["품절 가능", "당일 영업 확인"], query: "봉주르마담 제주" },
-      { time: "18:30", name: "갈치미향", category: "저녁", description: "중문에서 먹는 갈치 저녁.", meta: ["19시까지 표기", "마지막 주문 확인"], query: "갈치미향 제주" },
+      { time: "18:30", name: "순천미향", category: "저녁", description: "중문에서 먹는 갈치 저녁.", meta: ["19시까지 표기", "마지막 주문 확인"], query: "순천미향 제주" },
       { time: "19:40", name: "풀베개", category: "카페", description: "비오는 창밖 보기 좋은 카페인데 이 시간에는 늦을것 같아.", meta: ["19시까지", "시간 안 맞을듯"], query: "풀베개 제주", alert: true },
       { time: "20:30", name: "중문회어시장", category: "포장", description: "숙소에서 먹을 회 포장하기!", meta: ["포장 시간 확인", "숙소까지 장거리"], query: "중문회어시장" },
       { time: "21:20", name: "할머니떡집", category: "간식", description: "서귀포 올레시장 안에 있는 떡집.", meta: ["재고 확인", "시장 운영 확인"], query: "서귀포 올레시장 할머니떡집" },
@@ -206,8 +206,8 @@ const rainRecommendations = [
 
 const placeKindMeta = {
   cafe: { label: "카페", time: "약 60분" },
-  food: { label: "맛집", time: "약 70분" },
-  spot: { label: "명소", time: "약 60분" }
+  food: { label: "식당", time: "약 70분" },
+  spot: { label: "가볼 만한 곳", time: "약 60분" }
 };
 
 const additionalPlaceGroups = [
@@ -474,7 +474,7 @@ const exactPlaceCoordinates = {
   "슬로보트": [126.4145, 33.4821],
   "인디안 썸머 애월": [126.3215, 33.4605],
   "봉주르마담": [126.532, 33.251],
-  "갈치미향": [126.407, 33.251],
+  "순천미향": [126.407, 33.251],
   "중문회어시장": [126.413, 33.252],
   "할머니떡집": [126.564, 33.25],
   "숙소": [126.41, 33.245],
@@ -841,11 +841,34 @@ function ensurePlacesMap() {
   return true;
 }
 
+const mapMarkerMeta = {
+  cafe: { label: "카페", icon: "./assets/icons/map-cafe.svg" },
+  food: { label: "식당", icon: "./assets/icons/map-food.svg" },
+  spot: { label: "가볼 만한 곳", icon: "./assets/icons/map-spot.svg" },
+  stay: { label: "숙소", icon: "./assets/icons/map-stay.svg" },
+  transport: { label: "이동", icon: "./assets/icons/map-transport.svg" }
+};
+
+function getRouteMarkerKind(item) {
+  const identity = `${item.name} ${item.category}`;
+  if (/공항|렌트|렌터카|셔틀|반납/.test(identity)) return "transport";
+  if (/숙소|체크인|체크아웃/.test(identity)) return "stay";
+  if (/카페|커피|디저트|베이커리|브런치|빵|간식/.test(identity)) return "cafe";
+  if (/아침|점심|저녁|식사|식당|국수|우동|갈치|흑돼지|고기|김밥|해장국|회|전복/.test(identity)) return "food";
+  return "spot";
+}
+
+function markerSymbol(kind) {
+  const marker = mapMarkerMeta[kind] || mapMarkerMeta.spot;
+  return `<img class="trek-place-symbol" src="${marker.icon}" alt="" aria-hidden="true" />`;
+}
+
 function routeMarkerIcon(item, index, selected = false) {
-  const size = selected ? 44 : 36;
+  const kind = getRouteMarkerKind(item);
+  const size = selected ? 48 : 40;
   return L.divIcon({
     className: "trek-marker-wrapper",
-    html: `<div class="trek-place-marker ${selected ? "selected" : ""}" style="width:${size}px;height:${size}px"><span class="trek-place-glyph">${index + 1}</span></div>`,
+    html: `<div class="trek-place-marker route-place-marker kind-${kind} ${selected ? "selected" : ""}" style="width:${size}px;height:${size}px">${markerSymbol(kind)}<span class="trek-order-badge">${index + 1}</span></div>`,
     iconSize: [size, size],
     iconAnchor: [size / 2, size / 2],
     popupAnchor: [0, -(size / 2)]
@@ -853,13 +876,12 @@ function routeMarkerIcon(item, index, selected = false) {
 }
 
 function clusterPlaceIcon(item) {
-  const label = escapeHtml(item.name.slice(0, 1));
   return L.divIcon({
     className: "trek-marker-wrapper",
-    html: `<div class="trek-place-marker cluster-place-marker kind-${item.kind}"><span class="trek-place-glyph">${label}</span></div>`,
-    iconSize: [36, 36],
-    iconAnchor: [18, 18],
-    popupAnchor: [0, -18]
+    html: `<div class="trek-place-marker cluster-place-marker kind-${item.kind}">${markerSymbol(item.kind)}</div>`,
+    iconSize: [40, 40],
+    iconAnchor: [20, 20],
+    popupAnchor: [0, -20]
   });
 }
 
@@ -995,7 +1017,7 @@ function renderPlacesMapInsight(source, selectedItems = []) {
   panel.innerHTML = `
     <div class="map-panel-topline"><span>저장한 장소</span><b>${source.length}곳</b></div>
     <h3 class="cluster-panel-title">제주 곳곳에 모아뒀어</h3>
-    <p class="cluster-panel-copy">원을 누르면 근처 장소가 펼쳐져. 카페랑 맛집이랑 명소는 마커 색으로 구분했어.</p>
+    <p class="cluster-panel-copy">SVG 아이콘을 누르면 근처 장소가 펼쳐져. 카페랑 식당이랑 가볼 만한 곳을 모양이랑 색으로 나눠놨어.</p>
     <div class="region-counts">${Object.entries({ east: "동쪽", west: "서쪽", south: "서귀포", airport: "공항 근처" }).map(([region, label]) => `<div><span>${label}</span><strong>${source.filter(item => item.region === region).length}</strong></div>`).join("")}</div>`;
 }
 
@@ -1023,7 +1045,7 @@ function renderPlacesMap() {
     iconCreateFunction: cluster => {
       const count = cluster.getChildCount();
       const size = count < 10 ? 36 : count < 50 ? 42 : 48;
-      return L.divIcon({ html: `<div class="marker-cluster-custom" style="width:${size}px;height:${size}px"><span>${count}</span></div>`, className: "marker-cluster-wrapper", iconSize: L.point(size, size) });
+      return L.divIcon({ html: `<div class="marker-cluster-custom" style="width:${size}px;height:${size}px"><img src="./assets/icons/map-cluster.svg" alt="" aria-hidden="true" /><span>${count}</span></div>`, className: "marker-cluster-wrapper", iconSize: L.point(size, size) });
     }
   });
   const latLngs = [];
@@ -1095,7 +1117,7 @@ function setPlanMode(mode) {
   reactHangyodon(rainActive ? "rain" : "pop");
   document.querySelector("#planTitle").textContent = activePlanVersion === "a" ? "노랑양말이 짠 제주" : rainActive ? "비 주륵주륵 제주" : "비오는 날 픽";
   document.querySelector("#planDescription").textContent = activePlanVersion === "a"
-    ? "노랑양말이 처음 짠거 그대로야. 시간 안 맞는건 노랗게 해놨어."
+    ? ""
     : rainActive
       ? "삼달리 숙소 기준으로 정리한 비오는 날 일정!"
       : "도착 시간이랑 숙소 기준으로 다시 정리한 일정!";

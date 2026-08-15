@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./vendor/leaflet/leaflet.css" />
     <link rel="stylesheet" href="./vendor/leaflet-markercluster/MarkerCluster.css" />
     <link rel="stylesheet" href="./vendor/leaflet-markercluster/MarkerCluster.Default.css" />
-    <link rel="stylesheet" href="./styles.css?v=20260814-hangyodon-theme" />
+    <link rel="stylesheet" href="./styles.css?v=20260815-filter-icon-colors" />
   </head>
   <body>
     <div class="trek-page" id="top">
@@ -86,7 +86,7 @@
                 <p id="planDescription">도착 시간이랑 숙소 기준으로 다시 정리한 일정!</p>
               </div>
               <div class="progress-card" aria-live="polite">
-                <div><span>우리 어디까지 했더라</span><strong id="progressText">0 / 0 완료</strong></div>
+                <div><strong id="progressText">0 / 0 완료</strong></div>
                 <div class="progress-track"><i id="progressBar"></i></div>
               </div>
             </div>
@@ -229,9 +229,9 @@
               <span>종류</span>
               <div>
                 <button class="map-place-filter-button active" type="button" data-map-kind="all" aria-pressed="true">다 보기</button>
-                <button class="map-place-filter-button" type="button" data-map-kind="cafe" aria-pressed="false">카페</button>
-                <button class="map-place-filter-button" type="button" data-map-kind="food" aria-pressed="false">맛집</button>
-                <button class="map-place-filter-button" type="button" data-map-kind="spot" aria-pressed="false">명소</button>
+                <button class="map-place-filter-button" type="button" data-map-kind="cafe" aria-pressed="false"><img src="./assets/icons/map-cafe.svg" alt="" />카페</button>
+                <button class="map-place-filter-button" type="button" data-map-kind="food" aria-pressed="false"><img src="./assets/icons/map-food.svg" alt="" />식당</button>
+                <button class="map-place-filter-button" type="button" data-map-kind="spot" aria-pressed="false"><img src="./assets/icons/map-spot.svg" alt="" />가볼 만한 곳</button>
               </div>
             </div>
           </div>
@@ -241,7 +241,7 @@
               <div class="map-toolbar">
                 <span class="map-day-chip" id="placesMapCount">전체 장소</span>
                 <p>마커를 누르면 사진이랑 간단 설명이랑 네이버 지도 링크가 나와.</p>
-                <div class="place-kind-legend"><span class="kind-cafe">카페</span><span class="kind-food">맛집</span><span class="kind-spot">명소</span></div>
+                <div class="place-kind-legend"><span class="kind-cafe"><img src="./assets/icons/map-cafe.svg" alt="" />카페</span><span class="kind-food"><img src="./assets/icons/map-food.svg" alt="" />식당</span><span class="kind-spot"><img src="./assets/icons/map-spot.svg" alt="" />가볼 만한 곳</span></div>
               </div>
               <div class="jeju-map" id="placesMap" role="application" aria-label="저장한 제주 장소 지도"></div>
               <div class="map-scale"><span></span> 제주도</div>
@@ -264,9 +264,9 @@
           </div>
           <div class="place-type-filters" aria-label="장소 종류 필터">
             <button class="place-type-button active" type="button" data-place-type="all">다 보기</button>
-            <button class="place-type-button kind-cafe" type="button" data-place-type="cafe">카페</button>
-            <button class="place-type-button kind-food" type="button" data-place-type="food">맛집</button>
-            <button class="place-type-button kind-spot" type="button" data-place-type="spot">명소</button>
+            <button class="place-type-button kind-cafe" type="button" data-place-type="cafe"><img src="./assets/icons/map-cafe.svg" alt="" />카페</button>
+            <button class="place-type-button kind-food" type="button" data-place-type="food"><img src="./assets/icons/map-food.svg" alt="" />식당</button>
+            <button class="place-type-button kind-spot" type="button" data-place-type="spot"><img src="./assets/icons/map-spot.svg" alt="" />가볼 만한 곳</button>
           </div>
           <div class="recommendation-grid" id="recommendationGrid"></div>
           <div class="recommendation-more">
@@ -304,6 +304,6 @@
     <script src="./vendor/leaflet/leaflet.js"></script>
     <script src="./vendor/leaflet-markercluster/leaflet.markercluster.js"></script>
     <script src="./naver-places.js?v=20260814-naver-place-crawl"></script>
-    <script src="./app.js?v=20260814-naver-place-preview"></script>
+    <script src="./app.js?v=20260815-exact-times"></script>
   </body>
 </html>
