@@ -1700,40 +1700,57 @@ body.places-map-open { overflow: hidden; }
   position: fixed;
   inset: 0;
   z-index: 5000;
-  display: grid !important;
+  display: block !important;
   width: 100%;
   height: 100dvh;
-  grid-template-rows: auto auto minmax(0, 1fr);
-  gap: 12px;
   margin: 0;
-  padding: max(18px, env(safe-area-inset-top)) max(18px, env(safe-area-inset-right)) max(18px, env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left));
+  padding: 0;
   overflow: hidden;
   background: var(--bg);
   animation: none;
 }
 
 .places-map-section.map-expanded .places-map-mascot { display: none; }
-.places-map-section.map-expanded .section-heading { align-items: center; flex-direction: row; gap: 16px; margin: 0; }
-.places-map-section.map-expanded .section-heading h2 { font-size: clamp(22px, 2.6vw, 32px); }
-.places-map-section.map-expanded .section-heading p { margin-top: 3px; }
-.places-map-section.map-expanded .map-place-filters { margin: 0; }
-.places-map-section.map-expanded .route-map-card { height: 100%; min-height: 0; grid-template-columns: minmax(0, 1fr); border-radius: 18px; }
-.places-map-section.map-expanded .map-canvas-wrap { min-height: 0; }
+.places-map-section.map-expanded .section-heading {
+  position: absolute;
+  top: max(14px, env(safe-area-inset-top));
+  right: max(14px, env(safe-area-inset-right));
+  z-index: 30;
+  margin: 0;
+  pointer-events: none;
+}
+.places-map-section.map-expanded .section-heading > div { display: none; }
+.places-map-section.map-expanded .map-expand-button { min-height: 48px; pointer-events: auto; }
+.places-map-section.map-expanded .map-place-filters {
+  position: absolute;
+  top: max(14px, env(safe-area-inset-top));
+  right: 154px;
+  left: max(14px, env(safe-area-inset-left));
+  z-index: 25;
+  margin: 0;
+}
+.places-map-section.map-expanded .map-place-filter-group {
+  background: rgba(255, 255, 255, .92);
+  border-color: rgba(23, 63, 71, .16);
+  box-shadow: 0 10px 28px -18px rgba(23, 63, 71, .65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.places-map-section.map-expanded .route-map-card { position: absolute; inset: 0; height: 100%; min-height: 0; grid-template-columns: minmax(0, 1fr); border: 0; border-radius: 0; }
+.places-map-section.map-expanded .map-canvas-wrap { position: absolute; inset: 0; min-height: 0; }
+.places-map-section.map-expanded .jeju-map { inset: 0; border-radius: 0; }
+.places-map-section.map-expanded .map-toolbar,
+.places-map-section.map-expanded .map-scale { display: none; }
 .places-map-section.map-expanded .map-insight-panel { display: none; }
+.places-map-section.map-expanded .jeju-map .leaflet-top.leaflet-left { top: 68px; }
 
 @media (max-width: 720px) {
   .map-section-heading .map-expand-button { width: 100%; }
-  .places-map-section.map-expanded { gap: 8px; padding: max(10px, env(safe-area-inset-top)) 10px max(10px, env(safe-area-inset-bottom)); }
-  .places-map-section.map-expanded .section-heading { flex-direction: row; gap: 8px; }
-  .places-map-section.map-expanded .section-heading > div { min-width: 0; }
-  .places-map-section.map-expanded .section-heading h2 { overflow: hidden; font-size: 19px; text-overflow: ellipsis; white-space: nowrap; }
-  .places-map-section.map-expanded .section-heading p { display: none; }
+  .places-map-section.map-expanded .section-heading { top: max(10px, env(safe-area-inset-top)); right: 10px; }
   .places-map-section.map-expanded .map-expand-button { width: auto; min-height: 40px; padding: 8px 11px; }
-  .places-map-section.map-expanded .map-place-filters { grid-template-columns: 1fr; gap: 6px; }
+  .places-map-section.map-expanded .map-place-filters { top: max(58px, calc(env(safe-area-inset-top) + 52px)); right: 10px; left: 10px; grid-template-columns: 1fr; gap: 6px; }
   .places-map-section.map-expanded .map-place-filter-group { align-items: center; flex-direction: row; gap: 5px; padding: 6px; }
   .places-map-section.map-expanded .map-place-filter-group > span { padding-left: 4px; }
-  .places-map-section.map-expanded .route-map-card { border-radius: 14px; }
-  .places-map-section.map-expanded .map-canvas-wrap { min-height: 0; }
-  .places-map-section.map-expanded .jeju-map { inset: 50px 6px 6px; }
   .places-map-section.map-expanded .jeju-map .leaflet-control-zoom { display: block; }
+  .places-map-section.map-expanded .jeju-map .leaflet-top.leaflet-left { top: 166px; }
 }

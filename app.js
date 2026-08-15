@@ -10,8 +10,8 @@ const planAItinerary = {
       { time: "15:15", name: "제주공항 도착", category: "SY 컴퍼니 픽", description: "제주에는 15시 15분 도착이야. 짐 찾고 15시 40분부터 렌트카 받으면 돼!", meta: ["제주 도착 15:15", "렌터카 인수 15:40부터"], query: "제주국제공항" },
       { time: "16:10", name: "아베베 베이커리 제주점", category: "SY 컴퍼니 픽 간식", description: "동문시장 근처에서 빵 포장하는 첫 코스야.", meta: ["이동 15분", "주차랑 대기 생각하기"], query: "아베베베이커리 제주" },
       { time: "16:50", name: "우동 카덴", category: "SY 컴퍼니 픽 식사", description: "17시가 마지막 주문이라 차 받고 바로 가도 좀 빠듯할듯ㅜㅜ", meta: ["17시 마지막 주문", "대기 길면 바로 빼기"], query: "우동 카덴 제주", alert: true },
-      { time: "17:30", name: "제동목장 입구", category: "SY 컴퍼니 픽 풍경", description: "목장차 지나가는 길은 막지 말고 입구에서 짧게 보기!", meta: ["이동 6분", "목장 안에는 들어가지 말기"], query: "제주시 조천읍 교래7길 218" },
-      { time: "18:10", name: "안친오름", category: "SY 컴퍼니 픽 자연", description: "사유지 들어가도 되는지랑 일몰 시간은 한번 보고 가야할듯.", meta: ["입장료 1인 5,000원", "해 남았을 때만"], query: "안친오름 제주", alert: true },
+      { time: "17:30", name: "제동목장 입구", category: "SY 컴퍼니 픽 풍경", description: "제주시 조천읍 남조로 1751을 찍고 가기. 삼다수 숲길 주차장을 이용하면 제동목장 입구까지 걸어서 5분 거리야!", meta: ["삼다수 숲길 주차장 이용", "입구까지 도보 5분"], query: "제주시 조천읍 남조로 1751" },
+      { time: "18:10", name: "안친오름", category: "SY 컴퍼니 픽 자연", description: "제주 제주시 구좌읍 송당리 880-1을 찍고 가기. 가다 보면 오른쪽에 논밭 샛길이 나오는데 그 길로 들어가면 주차장이 있어!", meta: ["송당리 880-1 찍기", "오른쪽 논밭 샛길 진입", "입장료 1인 5,000원"], query: "제주 제주시 구좌읍 송당리 880-1", alert: true },
       { time: "18:50", name: "픽업커피 행원점", category: "SY 컴퍼니 픽 카페", description: "18시까지라 실제 도착 시간에는 못갈것 같아.", meta: ["18시까지", "시간 안 맞음"], query: "픽업커피 행원점 제주", alert: true },
       { time: "19:50", name: lodging.name, category: "SY 컴퍼니 픽 숙소", description: "중간에 숙소 들르는 일정이야. 우리가 묵는 주소로 연결해놨어.", meta: ["2박 같은 숙소", "삼달하동로32번길 2-1"], query: lodging.query },
       { time: "20:20", name: "고래휴게소 표선점", category: "SY 컴퍼니 픽 저녁", description: "표선쪽에서 저녁 먹는 곳이야.", meta: ["차 타고 이동", "당일 영업 한번 보기"], query: "고래휴게소 표선점" },
@@ -21,14 +21,14 @@ const planAItinerary = {
     ]
   },
   2: {
-    note: "SY 컴퍼니가 처음 짠건 동쪽이랑 중문이랑 서귀포를 하루에 다 도는 일정이야. 전부 가면 숙소 엄청 늦게 들어갈듯ㅜㅜ 김녕팜랜드 뒤에 동쪽에 더 있을지 중문 갈지 하나만 고르자.",
+    note: "SY 컴퍼니가 처음 짠건 동쪽이랑 중문이랑 서귀포를 하루에 다 도는 일정이야. 전부 가면 숙소 엄청 늦게 들어갈듯ㅜㅜ 김갈 팜랜드 뒤에 동쪽에 더 있을지 중문 갈지 하나만 고르자.",
     items: [
       { time: "10:00", name: "국수마을", category: "아침", description: "SY 컴퍼니가 골라둔 둘째날 첫 밥이야.", meta: ["10시 오픈", "주차 30분 무료"], query: "국수마을 제주" },
       { time: "11:00", name: "여름문구사", category: "소품", description: "세화 작은 문구점에서 제주 기념품 구경하기!", meta: ["주차 공간 확인", "당일 영업 확인"], query: "여름문구사 제주" },
       { time: "11:45", name: "픽업커피 행원점", category: "카페", description: "행원 바다 보면서 잠깐 쉬자.", meta: ["SY 컴퍼니 픽", "영업시간 한번 보기"], query: "픽업커피 행원점 제주" },
       { time: "12:30", name: "코난해변", category: "바다", description: "바람 많이 안불면 바다 30분만 보고 이동하기!", meta: ["해안 산책 30분", "강풍 시 생략"], query: "코난해변 제주" },
       { time: "13:20", name: "카페 모알보알", category: "카페", description: "구좌 바다 보면서 50분 정도 쉬기!", meta: ["주차 가능 표기", "체류 50분 이내"], query: "카페 모알보알 제주" },
-      { time: "14:40", name: "김녕팜랜드", category: "체험", description: "동물 먹이주기 체험하기. 늦으면 못할 수도 있으니까 마감시간 먼저 확인!", meta: ["1인 10,000원", "체험 마감 한번 보기"], query: "김녕팜랜드" },
+      { time: "14:40", name: "김갈 팜랜드", category: "체험", description: "동물 먹이주기 체험하기. 늦으면 못할 수도 있으니까 마감시간 먼저 확인!", meta: ["1인 10,000원", "체험 마감 한번 보기"], query: "김갈 팜랜드" },
       { time: "16:15", name: "대현목장", category: "목장", description: "들어가도 되는지 보고 잠깐 들르자.", meta: ["SY 컴퍼니 픽", "사유지인지 한번 보기"], query: "대현목장 제주" },
       { time: "17:00", name: "봉주르마담", category: "베이커리", description: "인기 빵은 일찍 품절될 수 있으니까 남은 메뉴 먼저 확인하기!", meta: ["품절 가능", "당일 영업 확인"], query: "봉주르마담 제주" },
       { time: "18:30", name: "순천미향", category: "저녁", description: "중문에서 먹는 갈치 저녁.", meta: ["19시까지 표기", "마지막 주문 확인"], query: "순천미향 제주" },
@@ -52,14 +52,14 @@ const planAItinerary = {
 
 const itinerary = {
   1: {
-    note: "15시 15분 제주 도착. 렌트카 받고 16시쯤 출발하기! 우동 카덴이랑 목장은 빠듯해서 빼고 숙소랑 저녁 먼저 챙기기.",
+    note: "15시 15분 제주 도착. 렌트카 받고 숙소에 체크인한 뒤 19시 사부작 예약에 맞춰 이동하기! 사부작은 시간 변경 없이 고정.",
     items: [
       { time: "15:15", name: "제주공항 도착", category: "도착", description: "수하물 찾고 예약한 렌터카 셔틀 승차장으로 바로 이동하기!", meta: ["항공편 도착", "수하물 확인"], query: "제주국제공항" },
       { time: "15:40", name: "렌터카 인수", category: "고정 일정", description: "예약 시간부터 차 받고 외관이랑 기름 얼마나 있는지 사진 찍자.", meta: ["인수 15:40부터", "출발 전 사진 찍기"], query: "제주공항 렌터카하우스" },
-      { time: "16:10", name: "아베베 베이커리 제주점", category: "선택 간식", description: "대기랑 주차 안길면 빵만 포장하기. 16시 40분 넘으면 바로 숙소로 출발!", meta: ["포장만", "30분 제한"], query: "아베베베이커리 제주" },
+      { time: "16:10", name: "아베베 베이커리 제주점", category: "선택 간식", description: "동문시장 12번 게이트 유료주차장에 주차하고 빵만 포장하기. 16시 40분 넘으면 바로 숙소로 출발!", meta: ["12번 게이트 유료주차장", "30분 제한"], query: "아베베베이커리 제주" },
       { time: "16:45", name: "삼달리로 이동", category: "이동", description: "해 지기 전에 동쪽 숙소로 이동하기. 교통 상황보고 70분에서 90분 잡기!", meta: ["장거리 첫 운전", "중간 관광 없음"], query: lodging.query, map: false },
       { time: "18:10", name: lodging.name, category: "체크인", description: "성산읍 삼달리 숙소 체크인하고 짐부터 내리기!", meta: ["2박 고정", "삼달하동로32번길 2-1"], query: lodging.query },
-      { time: "18:50", name: "성산 저녁 식사", category: "저녁", description: "멀리 가지 말고 성산이나 표선에서 주차 편한 식당 고르기!", meta: ["숙소 근처 우선", "첫날 무리 금지"], query: "제주 삼달리 맛집", map: false }
+      { time: "19:00", name: "사부작", category: "고정 예약", description: "19시에 예약한 저녁 식사야. 숙소 체크인 뒤 늦지 않게 출발하기!", meta: ["19:00 예약 확정", "시간 변경 금지"], query: "사부작 제주 표선" }
     ]
   },
   2: {
@@ -67,7 +67,7 @@ const itinerary = {
     items: [
       { time: "09:30", name: "여름문구사", category: "소품", description: "세화 작은 문구점에서 제주 기념품 구경하기!", meta: ["영업 여부 확인", "주차 공간 협소"], query: "여름문구사 제주" },
       { time: "10:30", name: "코난해변", category: "바다", description: "바람 많이 안불면 구좌 바다에서 30분만 쉬기!", meta: ["해안 한 곳만 선택", "갓길 주차 주의"], query: "코난해변 제주" },
-      { time: "11:30", name: "김녕팜랜드", category: "체험", description: "동물 먹이주기 체험하고 점심 먹으러 이동하기!", meta: ["운영시간 확인", "체험 약 60분"], query: "김녕팜랜드" },
+      { time: "11:30", name: "김갈 팜랜드", category: "체험", description: "동물 먹이주기 체험하고 점심 먹으러 이동하기!", meta: ["운영시간 확인", "체험 약 60분"], query: "김갈 팜랜드" },
       { time: "13:00", name: "동쪽 점심 식사", category: "식사", description: "김녕이나 구좌에서 지금 위치랑 가까운 식당 고르기!", meta: ["주차 가능한 식당", "현 위치에서 선택"], query: "제주 김녕 맛집", map: false },
       { time: "15:20", name: "친봉산장", category: "선택 카페", description: "체력 남고 길 안막힐 때만 가기. 피곤하면 성산 카페로 변경!", meta: ["선택 일정", "당일 영업 확인"], query: "친봉산장 제주" },
       { time: "17:40", name: "성산 저녁 식사", category: "저녁", description: "숙소 가까운 성산이나 표선에서 저녁먹기!", meta: ["숙소 근처 우선", "주차 가능한 식당"], query: "제주 삼달리 맛집", map: false },
@@ -92,7 +92,7 @@ const recommendations = [
   { region: "east", name: "세화해변", tags: ["2일차", "바다"], time: "20분", detour: "여름문구사 근처", description: "여름문구사에서 가까운 작은 해변입니다. 오래 머물기보다 짧게 걷거나 사진을 찍을 때 맞습니다.", query: "세화해변", source: "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500361&menuId=DOM_000001718002000000" },
   { region: "east", name: "별방진", tags: ["2일차", "짧은 산책"], time: "20분", detour: "세화에서 약 10분", description: "낮은 성곽 위에서 바다와 마을이 함께 보입니다. 동쪽 해안을 이동하다 20분 정도 들를 수 있습니다.", query: "별방진 제주", source: "https://www.visitjeju.net/kr/search?q=%EC%84%B1%EA%B3%BD&searchtype=2" },
   { region: "east", name: "월정리해변", tags: ["2일차", "카페와 바다"], time: "30분", detour: "코난해변 동선", description: "김녕과 세화 사이에서 카페에 들러 쉬기 편합니다. 코난해변과 가까우므로 둘 중 한 곳만 고릅니다.", query: "월정리해변", source: "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500496&menuId=DOM_000001719001000000" },
-  { region: "east", name: "김녕성세기해변", tags: ["2일차", "바다"], time: "30분", detour: "김녕팜랜드 근처", description: "김녕 일정 앞뒤로 들를 수 있는 해변입니다. 이동 피로를 줄이려면 해변은 한 곳만 고릅니다.", query: "김녕성세기해변", source: "https://www.visitjeju.net/kr/search?q=%EA%B9%80%EB%85%95%EC%84%B1%EC%84%B8%EA%B8%B0%ED%95%B4%EB%B3%80&searchtype=2" },
+  { region: "east", name: "김녕성세기해변", tags: ["2일차", "바다"], time: "30분", detour: "김갈 팜랜드 근처", description: "김녕 일정 앞뒤로 들를 수 있는 해변입니다. 이동 피로를 줄이려면 해변은 한 곳만 고릅니다.", query: "김녕성세기해변", source: "https://www.visitjeju.net/kr/search?q=%EA%B9%80%EB%85%95%EC%84%B1%EC%84%B8%EA%B8%B0%ED%95%B4%EB%B3%80&searchtype=2" },
   { region: "east", name: "섭섭이네", tags: ["구좌", "로컬 식당"], time: "60분", detour: "송당리 1379-13", description: "송당에 있는 로컬 식당입니다. 비밀의숲을 방문하는 날 식사 장소로 잡을 수 있습니다.", query: "제주 제주시 구좌읍 송당리 1379-13 섭섭이네" },
   { region: "east", name: "비밀의숲", tags: ["구좌", "삼나무 숲길"], time: "60분", detour: "송당리 2173", description: "곧게 뻗은 삼나무 사이로 걷는 숲길입니다. 비가 강하거나 바람이 센 날에는 들어가지 않습니다.", query: "제주 제주시 구좌읍 송당리 2173 비밀의숲" },
   { region: "east", name: "차한모금", tags: ["구좌", "숲속 카페"], time: "60분", detour: "평대리 3193-1", description: "빙수와 차를 파는 숲속 카페입니다. 비자림이나 평대리 일정 사이에 한 시간 정도 잡습니다.", query: "제주 제주시 구좌읍 평대리 3193-1 차한모금" },
@@ -108,14 +108,14 @@ const recommendations = [
 
 const rainItineraryA = {
   1: {
-    note: "첫날은 공항 근처 팝업만 짧게 보고 삼달리 숙소로 바로 이동하기. 비가 세거나 차가 늦게 나오면 팝업도 빼자!",
+    note: "첫날은 19시 사부작 예약이 고정이야. 비가 세거나 차가 늦게 나오면 공항 근처 팝업을 빼고 숙소와 사부작으로 바로 이동하기!",
     items: [
       { time: "15:15", name: "제주공항 도착", category: "도착", description: "수하물 찾고 렌터카 셔틀 승차장으로 바로 이동하기!", meta: ["우산 바로 꺼내기", "수하물 확인"], query: "제주국제공항" },
       { time: "15:40", name: "렌터카 인수", category: "고정 일정", description: "차 사진찍고 와이퍼랑 타이어까지 확인하기!", meta: ["인수 15:40부터", "빗길 운전 준비"], query: "제주공항 렌터카하우스" },
       { time: "16:20", name: "Jeju Archive Store", category: "선택 팝업", description: "비가 많이 안오고 주차가 괜찮을 때만 40분 구경하기!", meta: ["8월 31일까지", "11:30부터 19:30", "늦으면 바로 패스"], query: "제주특별자치도 제주시 탑동로2길 7" },
       { time: "17:10", name: "삼달리로 이동", category: "빗길 이동", description: "도로 통제 확인하고 숙소로 바로 이동하기. 중간 관광은 넣지 말자!", meta: ["70분에서 90분", "중간 관광 없음"], query: lodging.query, map: false },
       { time: "18:30", name: lodging.name, category: "체크인", description: "숙소 체크인하고 젖은 옷이랑 신발부터 말리기!", meta: ["2박 모두 같은 숙소", "삼달하동로32번길 2-1"], query: lodging.query },
-      { time: "19:00", name: "성산이나 온평리 저녁", category: "저녁", description: "숙소에서 멀리 가지 말고 주차 편한 식당에서 따뜻한거 먹기!", meta: ["숙소 근처 우선", "당일 영업 확인"], query: "제주 삼달리 맛집", map: false }
+      { time: "19:00", name: "사부작", category: "고정 예약", description: "비가 와도 19시 예약에 맞춰 가는 저녁 식사야. 도로 상황을 보고 일찍 출발하기!", meta: ["19:00 예약 확정", "시간 변경 금지"], query: "사부작 제주 표선" }
     ]
   },
   2: {
@@ -176,7 +176,7 @@ const rainRecommendations = [
   { region: "east", name: "비자림", tags: ["약한 비", "비자나무 숲"], time: "80분", detour: "비자숲길 55", description: "숲이 가벼운 비를 어느 정도 막아주고 젖은 비자나무 색이 예뻐. 호우와 강풍에는 입장 통제를 확인하고 취소하자.", query: "제주 제주시 구좌읍 비자숲길 55 비자림", source: "https://www.visitjeju.net/kr/themtour/view?contentsid=CNTS_300000000013335&menuId=DOM_000002000000000221" },
   { region: "west", name: "산양큰엉곶", tags: ["약한 비", "유료 숲길"], time: "90분", detour: "연명로 179", description: "비에 젖은 곶자왈 숲이 예쁜 곳이야. 야외 비중이 커서 보슬비까지만 가고 호우와 낙뢰랑 강풍이면 빼자. 입장 마감도 당일 확인해야 돼.", query: "제주 제주시 한경면 연명로 179 산양큰엉곶" },
   { region: "south", name: "토끼나무숲", tags: ["약한 비", "운영 확인"], time: "60분", detour: "녹산로 180-21", description: "표선 녹산로 쪽 숲 후보야. 운영 주체랑 최신 영업시간을 확인하기 어려워서 방문 전에 지도나 전화로 영업 여부를 꼭 확인하자. 호우에는 가지 말자.", query: "제주 서귀포시 표선면 녹산로 180-21 토끼나무숲" },
-  { region: "east", name: "제동목장 입구", tags: ["비 온 다음날", "새벽"], time: "20분", detour: "입구 교래7길 218", description: "목장 소재지는 교래리 산16이지만 사진 지점은 입구 삼거리로 안내해요. GS25 교래퐁낭점 옆 공터나 삼다수 숲길 주차장을 이용하고 목장 차량의 통행을 막지 마세요.", query: "제주시 조천읍 교래7길 218", source: "https://www.visitjeju.or.kr/issue/news/weekly.htm?act=download&no=2&page=5&seq=56348" },
+  { region: "east", name: "제동목장 입구", tags: ["비 온 다음날", "새벽"], time: "20분", detour: "남조로 1751", description: "길찾기는 제주시 조천읍 남조로 1751을 찍고 가세요. 삼다수 숲길 주차장을 이용하면 제동목장 입구까지 걸어서 5분 거리입니다.", query: "제주시 조천읍 남조로 1751", source: "https://www.visitjeju.or.kr/issue/news/weekly.htm?act=download&no=2&page=5&seq=56348" },
   { region: "east", name: "사려니숲길", tags: ["약한 비", "무료"], time: "60분", detour: "제동목장 근처", description: "공식 관광 영상에도 소개된 비 오는 제주 대표 숲길이에요. 남조로 입구로 가고 호우나 낙뢰가 있으면 취소하세요.", query: "남조로 사려니숲길", source: "https://www.youtube.com/watch?v=gux_pyEIcUY" },
   { region: "south", name: "물영아리오름 습지", tags: ["약한 비", "람사르 습지"], time: "90분", detour: "남원읍", description: "습할 때 숲과 습지의 분위기가 좋지만 정상 계단이 가파릅니다. 호우와 강풍 및 낙뢰 때는 일정에서 빼세요.", query: "물영아리오름 습지", source: "https://rsis.ramsar.org/ris/1648" },
   { region: "south", name: "엉또폭포", tags: ["비 온 뒤", "조건부"], time: "30분", detour: "서귀포시 강정동", description: "강수량이 충분할 때만 폭포가 나타나는 조건부 장소예요. 현장 통제와 폭포 유무를 먼저 확인하세요.", query: "엉또폭포", source: "https://www.visitjeju.net/kr/search?q=%EC%97%89%EB%98%90%ED%8F%AD%ED%8F%AC&searchtype=2" },
@@ -498,14 +498,14 @@ const exactPlaceCoordinates = {
   "아베베 베이커리 제주점": [126.527, 33.514],
   "우동 카덴": [126.666, 33.435],
   "제동목장 입구": [126.692, 33.429],
-  "안친오름": [126.729, 33.407],
+  "안친오름": [126.78664, 33.477615],
   "숙소로 이동": [126.668, 33.331],
   "고래휴게소 표선점": [126.831, 33.326],
   "국수마을": [126.569, 33.252],
   "여름문구사": [126.859, 33.523],
   "동쪽 카페": [126.823, 33.543],
   "코난해변": [126.801, 33.558],
-  "김녕팜랜드": [126.754, 33.539],
+  "김갈 팜랜드": [126.754, 33.539],
   "대현목장": [126.69, 33.43],
   "친봉산장": [126.5963, 33.291],
   "아르떼뮤지엄 제주": [126.3441, 33.4059],
@@ -1218,7 +1218,7 @@ function setPlanMode(mode) {
     <a href="${mapUrl(lodging.query)}" target="_blank" rel="noreferrer"><div><strong>삼달리 숙소</strong><small>2박 고정</small></div><b>↗</b></a>` : `
     <div class="side-card-title"><span>급할 때 여기</span></div>
     <a href="${mapUrl("제주국제공항")}" target="_blank" rel="noreferrer"><div><strong>제주공항</strong><small>지도에서 보기</small></div><b>↗</b></a>
-    <a href="${mapUrl("안친오름")}" target="_blank" rel="noreferrer"><div><strong>안친오름</strong><small>입장 여부 확인</small></div><b>↗</b></a>
+    <a href="${mapUrl("제주 제주시 구좌읍 송당리 880-1")}" target="_blank" rel="noreferrer"><div><strong>안친오름</strong><small>송당리 880-1 찍기</small></div><b>↗</b></a>
     <a href="${mapUrl(lodging.query)}" target="_blank" rel="noreferrer"><div><strong>삼달리 숙소</strong><small>2박 고정</small></div><b>↗</b></a>`;
   document.querySelectorAll(".filter-button").forEach((button, index) => button.classList.toggle("active", index === 0));
   document.querySelectorAll(".place-type-button").forEach((button, index) => button.classList.toggle("active", index === 0));
