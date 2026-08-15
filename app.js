@@ -307,6 +307,7 @@ const additionalRecommendations = additionalPlaceGroups.flatMap(group => group.n
 }));
 
 const placeNameAliases = {
+  아쿠아플라넷: "아쿠아플라넷제주",
   돌문화공원: "제주돌문화공원",
   세화해수욕장: "세화해변",
   이승악: "이승악오름",
@@ -774,6 +775,12 @@ function getActivePlan() {
   return activeMode === "rain" ? rainItineraries[activeRainCourse] : itinerary;
 }
 
+function getActiveItineraryIdentities() {
+  return new Set(Object.values(getActivePlan()).flatMap(day => day.items)
+    .filter(item => item.map !== false)
+    .map(item => recommendationIdentity(item.name)));
+}
+
 function isRainPlan() {
   return activePlanVersion === "b" && activeMode === "rain";
 }
@@ -904,22 +911,26 @@ function markerSymbol(kind) {
   return `<img class="trek-place-symbol" src="${marker.icon}" alt="" aria-hidden="true" />`;
 }
 
+function itineraryStar(planned = true) {
+  return planned ? '<span class="trek-itinerary-star" aria-hidden="true">★</span>' : "";
+}
+
 function routeMarkerIcon(item, index, selected = false) {
   const kind = getRouteMarkerKind(item);
   const size = selected ? 48 : 40;
   return L.divIcon({
     className: "trek-marker-wrapper",
-    html: `<div class="trek-place-marker route-place-marker kind-${kind} ${selected ? "selected" : ""}" style="width:${size}px;height:${size}px">${markerSymbol(kind)}<span class="trek-order-badge">${index + 1}</span></div>`,
+    html: `<div class="trek-place-marker route-place-marker kind-${kind} ${selected ? "selected" : ""}" style="width:${size}px;height:${size}px">${markerSymbol(kind)}${itineraryStar()}<span class="trek-order-badge">${index + 1}</span></div>`,
     iconSize: [size, size],
     iconAnchor: [size / 2, size / 2],
     popupAnchor: [0, -(size / 2)]
   });
 }
 
-function clusterPlaceIcon(item) {
+function clusterPlaceIcon(item, planned = false) {
   return L.divIcon({
     className: "trek-marker-wrapper",
-    html: `<div class="trek-place-marker cluster-place-marker kind-${item.kind}">${markerSymbol(item.kind)}</div>`,
+    html: `<div class="trek-place-marker cluster-place-marker kind-${item.kind}">${markerSymbol(item.kind)}${itineraryStar(planned)}</div>`,
     iconSize: [40, 40],
     iconAnchor: [20, 20],
     popupAnchor: [0, -20]
@@ -1058,7 +1069,7 @@ function renderPlacesMapInsight(source, selectedItems = []) {
   panel.innerHTML = `
     <div class="map-panel-topline"><span>저장한 장소</span><b>${source.length}곳</b></div>
     <h3 class="cluster-panel-title">제주 곳곳에 모아뒀어</h3>
-    <p class="cluster-panel-copy">SVG 아이콘을 누르면 근처 장소가 펼쳐져. 카페랑 식당이랑 가볼 만한 곳을 모양이랑 색으로 나눠놨어.</p>
+    <p class="cluster-panel-copy">SVG 아이콘을 누르면 근처 장소가 펼쳐져. 오른쪽 위 별은 현재 일정에 넣은 곳이야.</p>
     <div class="region-counts">${Object.entries({ east: "동쪽", west: "서쪽", south: "서귀포", airport: "공항 근처" }).map(([region, label]) => `<div><span>${label}</span><strong>${source.filter(item => item.region === region).length}</strong></div>`).join("")}</div>`;
 }
 
@@ -1066,6 +1077,7 @@ function renderPlacesMap() {
   if (activeAppTab !== "map" || !ensurePlacesMap()) return;
   if (placesClusterLayer) placesMap.removeLayer(placesClusterLayer);
   const source = getPlacesMapSource();
+  const itineraryIdentities = getActiveItineraryIdentities();
   document.querySelector("#placesMapCount").textContent = `${source.length}곳`;
   if (!source.length) {
     placesClusterLayer = null;
@@ -1086,16 +1098,19 @@ function renderPlacesMap() {
     iconCreateFunction: cluster => {
       const count = cluster.getChildCount();
       const size = count < 10 ? 36 : count < 50 ? 42 : 48;
-      return L.divIcon({ html: `<div class="marker-cluster-custom" style="width:${size}px;height:${size}px"><img src="./assets/icons/map-cluster.svg" alt="" aria-hidden="true" /><span>${count}</span></div>`, className: "marker-cluster-wrapper", iconSize: L.point(size, size) });
+      const hasPlannedPlace = cluster.getAllChildMarkers().some(marker => marker._trekIsPlanned);
+      return L.divIcon({ html: `<div class="marker-cluster-custom" style="width:${size}px;height:${size}px"><img src="./assets/icons/map-cluster.svg" alt="" aria-hidden="true" /><span>${count}</span>${itineraryStar(hasPlannedPlace)}</div>`, className: "marker-cluster-wrapper", iconSize: L.point(size, size) });
     }
   });
   const latLngs = [];
   source.forEach(item => {
     const preview = getPlacePreview(item);
     const [lng, lat] = getPlaceCoordinates(item);
+    const isPlanned = itineraryIdentities.has(recommendationIdentity(item.name));
     latLngs.push([lat, lng]);
-    const marker = L.marker([lat, lng], { icon: clusterPlaceIcon(item), title: item.name, riseOnHover: true, keyboard: true });
+    const marker = L.marker([lat, lng], { icon: clusterPlaceIcon(item, isPlanned), title: item.name, riseOnHover: true, keyboard: true });
     marker._trekItem = item;
+    marker._trekIsPlanned = isPlanned;
     marker.bindTooltip(item.name, { direction: "top", offset: [0, -18], className: "map-tooltip", opacity: 1 });
     marker.bindPopup(`<div class="trek-map-popup-card place-popup-card"><img src="${escapeHtml(preview.image)}" data-fallback-src="${escapeHtml(preview.imageFallback)}" alt="${escapeHtml(preview.imageAlt)}" /><small>${escapeHtml(item.tags.join(" / "))}</small><strong>${escapeHtml(item.name)}</strong><p>${escapeHtml(preview.description)}</p><a href="${escapeHtml(preview.url)}" target="_blank" rel="noreferrer">네이버 지도에서 보기 ↗</a></div>`, { className: "trek-map-popup", maxWidth: 280 });
     marker.on("click", () => renderPlacesMapInsight(source, [item]));
@@ -1214,6 +1229,7 @@ function setPlanMode(mode) {
   renderRecommendations();
   updateProgress();
   renderTripMap();
+  if (activeAppTab === "map") renderPlacesMap();
 }
 
 document.querySelectorAll(".plan-mode-button").forEach(button => {
