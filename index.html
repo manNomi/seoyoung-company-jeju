@@ -102,8 +102,11 @@
               <button class="plan-version-button" type="button" data-plan-version="a" aria-pressed="false">
                 <small>SY</small><strong>SY 컴퍼니 픽</strong><span>처음 짜둔 일정</span>
               </button>
-              <button class="plan-version-button active" type="button" data-plan-version="b" aria-pressed="true">
+              <button class="plan-version-button" type="button" data-plan-version="b" aria-pressed="false">
                 <small>비</small><strong>비오는 날 픽</strong><span>도착 시간이랑 숙소까지 반영</span>
+              </button>
+              <button class="plan-version-button active" type="button" data-plan-version="c" aria-pressed="true">
+                <small>만</small><strong>만욱픽</strong><span>첫날 가능한 곳만</span>
               </button>
             </div>
 
@@ -113,7 +116,7 @@
               <a href="https://map.naver.com/p/search/제주특별자치도%20서귀포시%20성산읍%20삼달하동로32번길%202-1" target="_blank" rel="noreferrer"><small>우리 집 주소</small><strong>삼달하동로32번길 2-1</strong><span>숙소 지도 열기 ↗</span></a>
             </section>
 
-            <div class="plan-mode-bar" data-plan-b-control aria-label="일정 종류 선택">
+            <div class="plan-mode-bar" data-weather-control aria-label="일정 종류 선택">
               <div class="plan-mode-switch">
                 <button class="plan-mode-button active" type="button" data-plan-mode="sunny">해 짱짱</button>
                 <button class="plan-mode-button" type="button" data-plan-mode="rain">비 주륵주륵</button>
@@ -187,9 +190,10 @@
             <div class="map-context-controls">
               <div class="map-version-switch" aria-label="지도 일정 선택">
                 <button class="map-version-button" type="button" data-plan-version="a" aria-pressed="false">SY 컴퍼니</button>
-                <button class="map-version-button active" type="button" data-plan-version="b" aria-pressed="true">비오는 날 픽</button>
+                <button class="map-version-button" type="button" data-plan-version="b" aria-pressed="false">비오는 날 픽</button>
+                <button class="map-version-button active" type="button" data-plan-version="c" aria-pressed="true">만욱픽</button>
               </div>
-              <div class="map-plan-switch" data-plan-b-control aria-label="날씨별 지도 선택">
+              <div class="map-plan-switch" data-weather-control aria-label="날씨별 지도 선택">
                 <button class="map-plan-button active" type="button" data-plan-mode="sunny" aria-pressed="true">해 짱짱</button>
                 <button class="map-plan-button" type="button" data-plan-mode="rain" aria-pressed="false">비 주륵주륵</button>
               </div>
@@ -322,6 +326,6 @@
     <script src="./vendor/leaflet/leaflet.js"></script>
     <script src="./vendor/leaflet-markercluster/leaflet.markercluster.js"></script>
     <script src="./naver-places.js?v=20260814-naver-place-crawl"></script>
-    <script src="./app.js?v=20260816-kimgal-farmland"></script>
+    <script src="./app.js?v=20260816-manwook-pick"></script>
   </body>
 </html>

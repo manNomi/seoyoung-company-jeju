@@ -86,6 +86,45 @@ const itinerary = {
   }
 };
 
+const manwookItinerary = {
+  ...itinerary,
+  1: {
+    note: "15시 15분 제주 도착, 15시 40분 렌터카 인수 뒤 우동 카덴으로 바로 출발하기! 19시 사부작은 고정이고 빨간 카드는 이번 첫날에 가지 않는 보류 장소야.",
+    items: [
+      { time: "16:50", name: "우동 카덴", category: "만욱픽 첫 끼", description: "렌터카를 받자마자 바로 이동하기. 17시 마지막 주문이라 늦으면 다음 장소로 바로 넘어가야 해!", meta: ["17시 마지막 주문", "차 받자마자 출발"], query: "우동 카덴 제주", alert: true },
+      { time: "17:30", name: "제동목장 입구", category: "만욱픽 풍경", description: "제주시 조천읍 남조로 1751을 찍고 가기. 삼다수 숲길 주차장을 이용하면 입구까지 걸어서 5분 거리야!", meta: ["삼다수 숲길 주차장", "입구까지 도보 5분"], query: "제주시 조천읍 남조로 1751" },
+      { time: "18:10", name: "안친오름", category: "만욱픽 자연", description: "제주 제주시 구좌읍 송당리 880-1을 찍고 가기. 오른쪽 논밭 샛길로 들어가면 주차장이 있어!", meta: ["송당리 880-1 찍기", "오른쪽 논밭 샛길 진입", "입장료 1인 5,000원"], query: "제주 제주시 구좌읍 송당리 880-1", alert: true },
+      { time: "19:00", name: "사부작", category: "고정 예약", description: "19시에 예약한 저녁 식사야. 안친오름에서 늦지 않게 출발하기!", meta: ["19:00 예약 확정", "시간 변경 금지"], query: "사부작 제주 표선" },
+      { time: "20:30", name: "책계일주", category: "만욱픽 북카페", description: "사부작에서 저녁 먹고 표선 북카페로 이동하기. 늦어도 21시 전에는 주문하기!", meta: ["21시 마지막 주문", "토산중앙로49번길 41"], query: "제주 서귀포시 표선면 토산중앙로49번길 41 책계일주" },
+      { time: "21:40", name: lodging.name, category: "만욱픽 끝", description: "책계일주에서 나와 삼달리 숙소로 돌아가서 첫날 마무리하기!", meta: ["2박 같은 숙소", "삼달하동로32번길 2-1"], query: lodging.query },
+      { time: "보류", name: "아베베 베이커리 제주점", category: "이번에는 보류", description: "첫날 동선에서 제외하고 다음에 갈 곳으로 남겨두기.", meta: ["1일차 제외", "보류"], query: "아베베베이커리 제주", map: false, deferred: true },
+      { time: "보류", name: "픽업커피 행원점", category: "이번에는 보류", description: "영업시간이 맞지 않아서 첫날 동선에서는 빼두기.", meta: ["1일차 제외", "보류"], query: "픽업커피 행원점 제주", map: false, deferred: true },
+      { time: "보류", name: "고래휴게소 표선점", category: "이번에는 보류", description: "사부작 예약을 우선해서 첫날 저녁 후보에서는 빼두기.", meta: ["1일차 제외", "보류"], query: "고래휴게소 표선점", map: false, deferred: true }
+    ]
+  }
+};
+
+const manwookRainItinerary = {
+  ...itinerary,
+  1: {
+    note: "비 오는 날 첫날은 동쪽에서 시작해 서쪽으로 넘어가는 장거리 일정이야. 사려니숲길은 약한 비일 때만 가고 호우나 낙뢰가 있으면 바로 빼기!",
+    items: [
+      { time: "09:30", name: "사려니숲길", category: "비 오는 날 숲", description: "남조로 쪽 입구로 가서 한 시간 정도만 걷기. 비가 세거나 낙뢰 예보가 있으면 가지 말기!", meta: ["약한 비일 때만", "호우·낙뢰면 취소"], query: "남조로 사려니숲길", alert: true },
+      { time: "11:00", name: "야원", category: "정원 카페", description: "사려니숲길에서 나와 조천 옹기 정원 카페에서 쉬기. 비가 세면 실내 위주로 보기!", meta: ["11시 오픈", "목요일 휴무"], query: "제주 제주시 조천읍 번영로 1218 야원" },
+      { time: "12:20", name: "올데이모즈", category: "녹차밭 카페", description: "야원 다음으로 이동해서 늦은 아침 겸 카페 시간 보내기. 16시 전에 서쪽으로 출발하기!", meta: ["08:00부터 16:00", "월요일 휴무"], query: "제주 제주시 조천읍 대흘북길 26 올데이모즈" },
+      { time: "15:40", name: "서툰가족", category: "방문 전 확인", description: "서쪽으로 이동해서 외관을 볼 수 있는지 먼저 확인하기. 독채 숙소라 예약자 외 방문은 운영자에게 물어봐야 해!", meta: ["사계중앙로 41-15", "독채 숙소", "방문 가능 여부 확인"], query: "제주 서귀포시 안덕면 사계중앙로 41-15 서툰가족", alert: true },
+      { time: "17:00", name: "돈사빠", category: "비 오는 날 저녁", description: "서툰가족에서 이동해서 흑돼지 저녁 먹기. 식사 뒤 삼달리 숙소까지 장거리 운전하기!", meta: ["15:00부터 23:00", "목요일 휴무", "숙소까지 장거리"], query: "제주 서귀포시 대정읍 중산간서로 2405 돈사빠" }
+    ]
+  },
+  2: {
+    note: "다음 날은 서쪽 두 곳을 묶었어. 유동룡미술관은 8월 17일 월요일 정기 휴관이라 특별 운영 공지가 없으면 바이닐 제주만 가기!",
+    items: [
+      { time: "10:00", name: "유동룡미술관", category: "월요일 휴관", description: "8월 17일은 월요일 정기 휴관이야. 특별 운영 공지가 확인될 때만 가고 아니면 바로 바이닐 제주로 이동하기!", meta: ["월요일 휴관", "특별 운영 공지 확인", "사전 예약 우선"], query: "제주 제주시 한림읍 용금로 906-10 유동룡미술관", alert: true },
+      { time: "10:30", name: "바이닐 제주", category: "실내 LP 카페", description: "유동룡미술관이 쉬면 이곳부터 시작해서 LP 들으며 비 오는 바다 보기!", meta: ["10:00부터 22:00", "21시 마지막 주문", "연중무휴"], query: "제주 제주시 한림읍 한림로 470 바이닐 제주" }
+    ]
+  }
+};
+
 const recommendations = [
   { region: "east", name: "산굼부리", tags: ["1일차", "숲과 오름"], time: "약 50분", detour: "우동 카덴 근처", description: "큰 오르막 없이 분화구 풍경을 볼 수 있습니다. 첫날 시간이 1시간 정도 남을 때 들릅니다.", query: "산굼부리", source: "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500283&menuId=DOM_000001703010008000" },
   { region: "east", name: "제주돌문화공원", tags: ["1일차", "비 오는 날"], time: "1시간 이상", detour: "교래 동선", description: "제주의 돌과 설문대할망 이야기를 다루는 공원입니다. 야외 구간이 넓고 월요일 휴관 여부를 확인해야 합니다.", query: "제주돌문화공원", source: "https://www.visitjeju.net/kr/search?q=%EB%8F%8C%EB%AC%B8%ED%99%94%EA%B3%B5%EC%9B%90&searchtype=2" },
@@ -355,7 +394,7 @@ const progressText = document.querySelector("#progressText");
 const progressBar = document.querySelector("#progressBar");
 const stateKey = "jeju-trip-completed-v1";
 const modeKey = "jeju-trip-mode-v1";
-const planVersionKey = "jeju-trip-plan-version-v1";
+const planVersionKey = "jeju-trip-plan-version-v2";
 const rainCourseKey = "jeju-trip-rain-course-v1";
 const dayKey = "jeju-trip-active-day-v1";
 let completed = JSON.parse(localStorage.getItem(stateKey) || "{}");
@@ -364,7 +403,8 @@ const calendarDay = today.getFullYear() === 2026 && today.getMonth() === 7 && to
 const savedDay = Number(localStorage.getItem(dayKey));
 let activeDay = [1, 2, 3].includes(savedDay) ? savedDay : calendarDay;
 let activeMode = localStorage.getItem(modeKey) === "rain" ? "rain" : "sunny";
-let activePlanVersion = localStorage.getItem(planVersionKey) === "a" ? "a" : "b";
+const savedPlanVersion = localStorage.getItem(planVersionKey);
+let activePlanVersion = ["a", "b", "c"].includes(savedPlanVersion) ? savedPlanVersion : "c";
 let activeRainCourse = localStorage.getItem(rainCourseKey) === "b" ? "b" : "a";
 let routeAnimationFrame = null;
 let trekMap = null;
@@ -499,6 +539,7 @@ const exactPlaceCoordinates = {
   "우동 카덴": [126.666, 33.435],
   "제동목장 입구": [126.692, 33.429],
   "안친오름": [126.78664, 33.477615],
+  "책계일주": [126.7762537, 33.3078165],
   "숙소로 이동": [126.668, 33.331],
   "고래휴게소 표선점": [126.831, 33.326],
   "국수마을": [126.569, 33.252],
@@ -527,6 +568,7 @@ const exactPlaceCoordinates = {
   "올데이모즈": [126.664, 33.486],
   "아침 식사": [126.663, 33.466],
   "야원": [126.664, 33.454],
+  "서툰가족": [126.298075, 33.228205],
   "서쪽으로 이동": [126.47, 33.39],
   "유동룡미술관": [126.274, 33.34],
   "바이닐 제주": [126.256, 33.407],
@@ -711,30 +753,38 @@ function renderTimeline() {
   const day = plan[activeDay];
   const dayLabels = activePlanVersion === "a"
     ? ["공항에서 삼달리까지", "SY 컴퍼니가 처음 찜한 곳", "아침 먹고 공항으로"]
+    : activePlanVersion === "c"
+      ? activeMode === "rain"
+        ? ["비 오는 날 동쪽에서 서쪽까지", "월요일 서쪽 두 곳", "삼달리에서 공항까지"]
+        : ["만욱픽 첫날 확정 동선", "동쪽 해안과 삼달리", "삼달리에서 공항까지"]
     : isRainPlan()
       ? ["공항에서 삼달리까지", activeRainCourse === "a" ? "삼달리와 성산 A 코스" : "성산 완전 실내 B 코스", "삼달리에서 공항까지"]
       : ["제주시에서 삼달리까지", "동쪽 해안과 삼달리", "삼달리에서 공항까지"];
+  const activeItemCount = day.items.filter(item => !item.deferred).length;
+  const deferredItemCount = day.items.length - activeItemCount;
+  const dayCountLabel = deferredItemCount ? `${activeItemCount}곳 + 보류 ${deferredItemCount}` : `${activeItemCount}곳`;
   timeline.innerHTML = `
     <header class="timeline-day-header">
       <span>${activeDay}일차</span>
       <div><small>8월 ${15 + activeDay}일</small><strong>${dayLabels[activeDay - 1]}</strong></div>
-      <em>${day.items.length}곳</em>
+      <em>${dayCountLabel}</em>
     </header>` + day.items.map((item, index) => {
     const id = getProgressKey(activeDay, index);
     const isDone = Boolean(completed[id]);
     return `
-      <article class="timeline-item">
+      <article class="timeline-item ${item.deferred ? "deferred" : ""}">
         <time class="time">${item.time}</time>
         <span class="timeline-dot" aria-hidden="true"></span>
-        <div class="place-card ${isDone ? "completed" : ""} ${item.alert ? "needs-attention" : ""}">
+        <div class="place-card ${isDone ? "completed" : ""} ${item.alert ? "needs-attention" : ""} ${item.deferred ? "deferred" : ""}">
           <div>
             <div class="place-topline"><span class="category">${travelCategory(item.category)}</span><h3>${item.name}</h3></div>
             <p>${travelVoice(item.description)}</p>
             <div class="place-meta">${item.meta.map(value => `<span>${travelVoice(value)}</span>`).join("")}</div>
           </div>
           <div class="place-actions">
-            ${item.link === false ? '<span class="map-link disabled">상호 확인</span>' : `<a class="map-link" href="${mapUrl(item.query)}" target="_blank" rel="noreferrer">지도 열기</a>`}
-            <button class="check-button" type="button" data-item-id="${id}" data-item-name="${escapeHtml(item.name)}" aria-label="${item.name} 완료 표시">${isDone ? "✓" : ""}</button>
+            ${item.deferred
+              ? '<span class="deferred-badge">보류</span>'
+              : `${item.link === false ? '<span class="map-link disabled">상호 확인</span>' : `<a class="map-link" href="${mapUrl(item.query)}" target="_blank" rel="noreferrer">지도 열기</a>`}<button class="check-button" type="button" data-item-id="${id}" data-item-name="${escapeHtml(item.name)}" aria-label="${item.name} 완료 표시">${isDone ? "✓" : ""}</button>`}
           </div>
         </div>
       </article>`;
@@ -772,6 +822,7 @@ function getPlaceCoordinates(item, index = 0) {
 
 function getActivePlan() {
   if (activePlanVersion === "a") return planAItinerary;
+  if (activePlanVersion === "c") return activeMode === "rain" ? manwookRainItinerary : manwookItinerary;
   return activeMode === "rain" ? rainItineraries[activeRainCourse] : itinerary;
 }
 
@@ -782,12 +833,13 @@ function getActiveItineraryIdentities() {
 }
 
 function isRainPlan() {
-  return activePlanVersion === "b" && activeMode === "rain";
+  return ["b", "c"].includes(activePlanVersion) && activeMode === "rain";
 }
 
 function getProgressKey(day, index) {
   if (activePlanVersion === "a") return `plan-a-${day}-${index}`;
-  if (activeMode === "rain") return activeRainCourse === "b" && day === 2 ? `rain-b-${day}-${index}` : `rain-${day}-${index}`;
+  if (activePlanVersion === "c") return `plan-c-${activeMode}-${day}-${index}`;
+  if (activePlanVersion === "b" && activeMode === "rain") return activeRainCourse === "b" && day === 2 ? `rain-b-${day}-${index}` : `rain-${day}-${index}`;
   return `${day}-${index}`;
 }
 
@@ -977,7 +1029,7 @@ function renderRouteView() {
 function renderRouteInsight(day, activeIndex) {
   const activeItem = day.items[activeIndex];
   document.querySelector("#mapInsightPanel").innerHTML = `
-    <div class="map-panel-topline"><span>${activePlanVersion === "a" ? "SY 컴퍼니 픽" : isRainPlan() ? "비 주륵주륵" : "해 짱짱"}</span><b>${day.items.length}곳</b></div>
+    <div class="map-panel-topline"><span>${activePlanVersion === "a" ? "SY 컴퍼니 픽" : activePlanVersion === "c" ? isRainPlan() ? "만욱픽 비" : "만욱픽" : isRainPlan() ? "비 주륵주륵" : "해 짱짱"}</span><b>${day.items.length}곳</b></div>
     <div class="active-stop-card">
       <span class="active-stop-number">${String(activeIndex + 1).padStart(2, "0")}</span>
       <div><small>${activeItem.time} / ${travelCategory(activeItem.category)}</small><h3>${activeItem.name}</h3><p>${travelVoice(activeItem.description)}</p><a class="active-stop-map-link" href="${mapUrl(activeItem.query)}" target="_blank" rel="noreferrer">네이버 지도에서 길찾기 ↗</a></div>
@@ -1131,16 +1183,17 @@ function renderTripMap() {
 
 function updateProgress() {
   const plan = getActivePlan();
-  const total = Object.values(plan).reduce((sum, day) => sum + day.items.length, 0);
+  const total = Object.values(plan).reduce((sum, day) => sum + day.items.filter(item => !item.deferred).length, 0);
   const done = Object.entries(completed).filter(([key, value]) => {
     if (!value) return false;
     if (activePlanVersion === "a") return key.startsWith("plan-a-");
-    if (activeMode === "rain") {
+    if (activePlanVersion === "c") return key.startsWith(`plan-c-${activeMode}-`);
+    if (activePlanVersion === "b" && activeMode === "rain") {
       return activeRainCourse === "a"
         ? /^rain-[123]-/.test(key)
         : key.startsWith("rain-1-") || key.startsWith("rain-3-") || key.startsWith("rain-b-2-");
     }
-    return !key.startsWith("rain-") && !key.startsWith("plan-a-");
+    return !key.startsWith("rain-") && !key.startsWith("plan-a-") && !key.startsWith("plan-c-");
   }).length;
   progressText.textContent = `${done} / ${total} 완료`;
   progressBar.style.width = `${(done / total) * 100}%`;
@@ -1154,7 +1207,8 @@ function setPlanVersion(version) {
     button.classList.toggle("active", isActive);
     button.setAttribute("aria-pressed", String(isActive));
   });
-  document.querySelectorAll("[data-plan-b-control]").forEach(control => { control.hidden = version === "a"; });
+  document.querySelectorAll("[data-plan-b-control]").forEach(control => { control.hidden = version !== "b"; });
+  document.querySelectorAll("[data-weather-control]").forEach(control => { control.hidden = version === "a"; });
   setPlanMode(activeMode);
 }
 
@@ -1162,6 +1216,7 @@ function setPlanMode(mode) {
   activeMode = mode;
   localStorage.setItem(modeKey, mode);
   const rainActive = isRainPlan();
+  const manwookActive = activePlanVersion === "c";
   document.querySelector(".trek-page").classList.toggle("rain-mode", rainActive);
   document.querySelectorAll("[data-plan-mode]").forEach(button => {
     const isActive = button.dataset.planMode === mode;
@@ -1173,30 +1228,38 @@ function setPlanMode(mode) {
     button.classList.toggle("active", isActive);
     button.setAttribute("aria-pressed", String(isActive));
   });
-  document.querySelector("#heroStatusText").textContent = activePlanVersion === "a" ? "SY 컴퍼니 픽" : rainActive ? "비 주륵주륵" : "해 짱짱";
+  document.querySelector("#heroStatusText").textContent = activePlanVersion === "a" ? "SY 컴퍼니 픽" : manwookActive ? rainActive ? "만욱픽 비" : "만욱픽" : rainActive ? "비 주륵주륵" : "해 짱짱";
   document.querySelector(".hangyodon-bubble").textContent = activePlanVersion === "a"
     ? "제주 워크숍을 가보자"
+    : manwookActive
+      ? rainActive ? "비 오는 날 동서 이동!" : "첫날은 여섯 곳만!"
     : rainActive
       ? "비오면 실내로 변경!"
       : "제주 워크숍을 가보자!";
   reactHangyodon(rainActive ? "rain" : "pop");
   document.querySelector("#planTitle").textContent = activePlanVersion === "a"
     ? "SY 컴퍼니가 짠 제주"
+    : manwookActive
+      ? rainActive ? "만욱픽 비 오는 날" : "만욱픽 제주"
     : rainActive
       ? `비오는 날 ${activeRainCourse.toUpperCase()} 코스`
       : "비오는 날 픽";
   document.querySelector("#planDescription").textContent = activePlanVersion === "a"
     ? ""
+    : manwookActive
+      ? rainActive ? "첫날 동쪽 다섯 곳, 다음 날 서쪽 두 곳으로 정리한 일정!" : "첫날 가능한 여섯 곳만 순서대로 정리한 일정!"
     : rainActive
       ? activeRainCourse === "a"
         ? "보슬비면 두모악부터 오른까지 여유롭게!"
         : "비가 왕창 오면 아쿠아플라넷과 빛의 벙커만!"
       : "도착 시간이랑 숙소 기준으로 다시 정리한 일정!";
-  document.querySelector("#weatherSummary").textContent = rainActive ? "비 주륵주륵" : "해 짱짱 제주";
-  document.querySelector("#weatherDetail").textContent = rainActive ? "비바람 세면 실내로 변경" : "덥고 습하니까 물 꼭 챙기기";
-  document.querySelector("#focusSummary").textContent = "삼달리 우리 집";
+  document.querySelector("#weatherSummary").textContent = manwookActive ? rainActive ? "만욱픽 비 오는 날" : "만욱픽 첫날" : rainActive ? "비 주륵주륵" : "해 짱짱 제주";
+  document.querySelector("#weatherDetail").textContent = manwookActive ? rainActive ? "동쪽에서 서쪽까지 장거리" : "여섯 곳만 가기" : rainActive ? "비바람 세면 실내로 변경" : "덥고 습하니까 물 꼭 챙기기";
+  document.querySelector("#focusSummary").textContent = manwookActive ? rainActive ? "비 오는 날 일정" : "첫날 확정 동선" : "삼달리 우리 집";
   document.querySelector("#focusDetail").textContent = activePlanVersion === "a"
     ? "시간 안 맞는건 노랗게"
+    : manwookActive
+      ? rainActive ? "첫날 5곳, 다음 날 2곳" : "사부작 19시 기준"
     : rainActive
       ? activeRainCourse === "a" ? "동쪽 실내 네 곳" : "완전 실내 두 곳"
       : "동쪽 위주로 이동";
@@ -1204,14 +1267,27 @@ function setPlanMode(mode) {
   document.querySelector("#recommendationDescription").textContent = rainActive ? "비 멈추면 야외 추가하고 많이오면 실내로 변경!" : "근처 지나갈 때 하나씩 보기. 걸리는 시간도 적어둠!";
   const dayDescriptions = activePlanVersion === "a"
     ? ["공항에서 삼달리까지", "SY 컴퍼니가 처음 찜한 곳", "아침 먹고 공항으로"]
+    : manwookActive
+      ? rainActive
+        ? ["비 오는 날 동쪽에서 서쪽까지", "월요일 서쪽 두 곳", "삼달리에서 공항까지"]
+        : ["만욱픽 첫날 확정 동선", "동쪽 해안과 삼달리", "삼달리에서 공항까지"]
     : rainActive
       ? ["공항에서 삼달리까지", activeRainCourse === "a" ? "삼달리와 성산 A 코스" : "성산 완전 실내 B 코스", "삼달리에서 공항까지"]
       : ["제주시에서 삼달리까지", "동쪽 해안과 삼달리", "삼달리에서 공항까지"];
   document.querySelectorAll(".day-tab > div > small").forEach((element, index) => { element.textContent = dayDescriptions[index]; });
   const activePlan = getActivePlan();
-  document.querySelectorAll(".day-tab-count").forEach((element, index) => { element.textContent = `${activePlan[index + 1].items.length}곳`; });
+  document.querySelectorAll(".day-tab-count").forEach((element, index) => {
+    const items = activePlan[index + 1].items;
+    const activeCount = items.filter(item => !item.deferred).length;
+    const deferredCount = items.length - activeCount;
+    element.textContent = deferredCount ? `${activeCount}곳 + 보류 ${deferredCount}` : `${activeCount}곳`;
+  });
   const quickLinks = document.querySelector("#quickLinks");
-  quickLinks.innerHTML = rainActive ? `
+  quickLinks.innerHTML = rainActive && manwookActive ? `
+    <div class="side-card-title"><span>만욱픽 비 코스 바로 열기</span></div>
+    <a href="${mapUrl("남조로 사려니숲길")}" target="_blank" rel="noreferrer"><div><strong>사려니숲길</strong><small>약한 비일 때만</small></div><b>↗</b></a>
+    <a href="${mapUrl("제주 서귀포시 대정읍 중산간서로 2405 돈사빠")}" target="_blank" rel="noreferrer"><div><strong>돈사빠</strong><small>첫날 저녁</small></div><b>↗</b></a>
+    <a href="${mapUrl("제주 제주시 한림읍 한림로 470 바이닐 제주")}" target="_blank" rel="noreferrer"><div><strong>바이닐 제주</strong><small>다음 날 첫 코스</small></div><b>↗</b></a>` : rainActive ? `
     <div class="side-card-title"><span>${activeRainCourse.toUpperCase()} 코스 바로 열기</span></div>
     <a href="${mapUrl(activeRainCourse === "a" ? "김영갑갤러리 두모악" : "제주 아쿠아플라넷")}" target="_blank" rel="noreferrer"><div><strong>${activeRainCourse === "a" ? "김영갑갤러리 두모악" : "아쿠아플라넷 제주"}</strong><small>${activeRainCourse === "a" ? "첫 번째 장소" : "완전 실내"}</small></div><b>↗</b></a>
     <a href="${mapUrl("빛의 벙커 제주")}" target="_blank" rel="noreferrer"><div><strong>빛의 벙커</strong><small>${activeRainCourse === "a" ? "15시 회차" : "14시 10분 회차"}</small></div><b>↗</b></a>
