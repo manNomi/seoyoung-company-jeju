@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./vendor/leaflet/leaflet.css" />
     <link rel="stylesheet" href="./vendor/leaflet-markercluster/MarkerCluster.css" />
     <link rel="stylesheet" href="./vendor/leaflet-markercluster/MarkerCluster.Default.css" />
-    <link rel="stylesheet" href="./styles.css?v=20260815-filter-icon-colors" />
+    <link rel="stylesheet" href="./styles.css?v=20260815-rain-course-ab" />
   </head>
   <body>
     <div class="trek-page" id="top">
@@ -122,10 +122,13 @@
               <p>비오면 오른쪽거 누르면 됨!</p>
             </div>
 
-            <section class="rain-rule-card" data-plan-b-control aria-label="비의 강도별 일정 선택 기준">
-              <div><span class="rain-level mist">비 멈춤</span><p><strong>그럼 여기 가자</strong><small>제동목장과 사려니숲길</small></p></div>
-              <div><span class="rain-level drizzle">보슬보슬</span><p><strong>창가에 앉아있자</strong><small>야원에서 비 구경</small></p></div>
-              <div><span class="rain-level heavy">왕창 옴</span><p><strong>이정도면 실내 가자</strong><small>Archive Store와 빛의 벙커</small></p></div>
+            <section class="rain-rule-card" data-plan-b-control aria-label="비오는 날 A 코스와 B 코스 선택">
+              <button class="rain-course-button active" type="button" data-rain-course="a" aria-pressed="true">
+                <span class="rain-level drizzle">A 코스</span><p><strong>보슬비면 여유롭게</strong><small>두모악 → 아쿠아플라넷 → 빛의 벙커 → 오른</small></p>
+              </button>
+              <button class="rain-course-button" type="button" data-rain-course="b" aria-pressed="false">
+                <span class="rain-level heavy">B 코스</span><p><strong>비가 왕창 오면 실내만</strong><small>아쿠아플라넷 → 실내 점심 → 빛의 벙커 → 숙소</small></p>
+              </button>
             </section>
 
             <div class="day-tabs" role="tablist" aria-label="날짜 선택">
@@ -176,8 +179,8 @@
           <img class="section-mascot map-mascot" src="./assets/hangyodon/hero.png" alt="" />
           <div class="section-heading map-section-heading">
             <div>
-              <h2 id="routeMapTitle">오늘 어디부터 가지?</h2>
-              <p>날짜랑 날씨 고르면 가는 순서 다 나와.</p>
+              <h2 id="routeMapTitle">오늘 어디부터 가지 ? 고민할 필요 없습니다</h2>
+              <p>날짜랑 날씨를 골라보십쇼</p>
             </div>
           </div>
 
@@ -190,6 +193,10 @@
               <div class="map-plan-switch" data-plan-b-control aria-label="날씨별 지도 선택">
                 <button class="map-plan-button active" type="button" data-plan-mode="sunny" aria-pressed="true">해 짱짱</button>
                 <button class="map-plan-button" type="button" data-plan-mode="rain" aria-pressed="false">비 주륵주륵</button>
+              </div>
+              <div class="map-rain-course-switch" data-plan-b-control aria-label="비오는 날 지도 코스 선택">
+                <button class="map-rain-course-button active" type="button" data-rain-course="a" aria-pressed="true">A 코스</button>
+                <button class="map-rain-course-button" type="button" data-rain-course="b" aria-pressed="false">B 코스</button>
               </div>
             </div>
             <div class="map-day-switch" role="tablist" aria-label="지도 날짜 선택">
@@ -312,6 +319,6 @@
     <script src="./vendor/leaflet/leaflet.js"></script>
     <script src="./vendor/leaflet-markercluster/leaflet.markercluster.js"></script>
     <script src="./naver-places.js?v=20260814-naver-place-crawl"></script>
-    <script src="./app.js?v=20260815-exact-times"></script>
+    <script src="./app.js?v=20260815-rain-course-ab"></script>
   </body>
 </html>

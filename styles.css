@@ -123,9 +123,11 @@ button { color: inherit; font: inherit; }
 .plan-mode-button { display: inline-flex; align-items: center; gap: 7px; padding: 9px 13px; color: var(--ink-2); background: transparent; border: 0; border-radius: 10px; cursor: pointer; font-size: 10px; font-weight: 700; }
 .plan-mode-button span { font-size: 12px; }
 .plan-mode-button.active { color: var(--accent-text); background: var(--accent); box-shadow: var(--shadow-sm); }
-.rain-rule-card { display: none; grid-template-columns: repeat(3, 1fr); gap: 1px; overflow: hidden; margin-bottom: 13px; background: var(--line); border: 1px solid var(--line); border-radius: 15px; box-shadow: var(--shadow-xs); }
+.rain-rule-card { display: none; grid-template-columns: repeat(2, 1fr); gap: 1px; overflow: hidden; margin-bottom: 13px; background: var(--line); border: 1px solid var(--line); border-radius: 15px; box-shadow: var(--shadow-xs); }
 .rain-mode .rain-rule-card { display: grid; }
-.rain-rule-card > div { display: flex; align-items: center; gap: 10px; padding: 13px; background: var(--surface); }
+.rain-course-button { display: flex; min-width: 0; align-items: center; gap: 10px; padding: 13px; color: var(--ink); background: var(--surface); border: 0; cursor: pointer; text-align: left; }
+.rain-course-button:hover { background: var(--hangyodon-blue-soft); }
+.rain-course-button.active { background: var(--bg-soft); box-shadow: inset 0 -3px var(--accent); }
 .rain-level { display: grid; width: 29px; height: 29px; flex: 0 0 auto; place-items: center; border-radius: 9px; font-size: 8px; font-weight: 800; }
 .rain-level.mist { color: #4f7f91; background: #e4f1f5; }
 .rain-level.drizzle { color: #486f9c; background: #e7edf7; }
@@ -512,6 +514,10 @@ footer { padding-right: max(48px, calc((100% - 1800px) / 2)); padding-left: max(
   font-weight: 600;
 }
 .map-plan-button.active { color: var(--accent-text); background: var(--accent); }
+.map-rain-course-switch { display: none; gap: 3px; padding: 3px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 12px; }
+.rain-mode .map-rain-course-switch { display: flex; }
+.map-rain-course-button { min-height: 34px; padding: 0 10px; color: var(--ink-2); background: transparent; border: 0; border-radius: 9px; cursor: pointer; font-size: 10px; font-weight: 800; }
+.map-rain-course-button.active { color: var(--accent-text); background: var(--accent); }
 .map-day-switch { display: grid; grid-template-columns: repeat(3, minmax(92px, 1fr)); gap: 5px; }
 .map-day-button {
   display: grid;
@@ -736,6 +742,9 @@ footer { padding-right: max(48px, calc((100% - 1800px) / 2)); padding-left: max(
   .map-context-bar { align-items: stretch; flex-direction: column; margin-top: 14px; padding: 7px; }
   .map-plan-switch { display: grid; grid-template-columns: 1fr 1fr; }
   .map-plan-button { min-height: 42px; }
+  .map-rain-course-switch { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; }
+  .rain-mode .map-rain-course-switch { display: grid; }
+  .map-rain-course-button { min-height: 38px; }
   .map-day-switch { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .map-day-button { min-width: 0; min-height: 50px; grid-template-columns: auto auto; gap: 2px 4px; padding: 6px 4px; }
   .map-day-button span { grid-column: 1 / -1; }
@@ -978,7 +987,7 @@ footer { padding-right: max(48px, calc((100% - 1800px) / 2)); padding-left: max(
 .plan-mode-button { min-height: 38px; border-radius: 6px; font-size: 12px; }
 .plan-mode-button.active { box-shadow: none; }
 .rain-rule-card { border-radius: 8px; }
-.rain-rule-card > div { padding: 14px; }
+.rain-course-button { padding: 14px; }
 .rain-level { width: auto; min-width: 46px; padding: 0 7px; border-radius: 5px; font-size: 10px; }
 .rain-rule-card strong { font-size: 12px; }
 .rain-rule-card small { font-size: 11px; }
@@ -1067,7 +1076,7 @@ footer { padding-right: max(48px, calc((100% - 1800px) / 2)); padding-left: max(
   .plan-mode-switch { display: grid; grid-template-columns: 1fr 1fr; }
   .plan-mode-bar > p { margin: 2px 7px 5px; }
   .rain-rule-card { grid-template-columns: 1fr; }
-  .rain-rule-card > div + div { border-top: 1px solid var(--line); }
+  .rain-course-button + .rain-course-button { border-top: 1px solid var(--line); }
   .day-tabs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .day-tab { min-height: 72px; padding: 8px 4px; }
   .day-tab > span { padding: 5px; font-size: 10px; }

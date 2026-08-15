@@ -106,38 +106,36 @@ const recommendations = [
   { region: "airport", name: "도두봉", tags: ["3일차", "공항 근처"], time: "40분", detour: "공항에서 가까움", description: "비행 전 시간이 충분할 때만 방문합니다. 정상까지 약 15분이고 공항과 바다가 보입니다.", query: "도두봉", source: "https://www.visitjeju.net/kr/detail/view?contentsid=CNTS_200000000012346" }
 ];
 
-const rainItinerary = {
+const rainItineraryA = {
   1: {
-    note: "첫날 비오면 공항 근처 탑동부터 가기. Archive Store 먼저 보고 빵은 대기 없을 때만 포장하기!",
+    note: "첫날은 공항 근처 팝업만 짧게 보고 삼달리 숙소로 바로 이동하기. 비가 세거나 차가 늦게 나오면 팝업도 빼자!",
     items: [
       { time: "15:15", name: "제주공항 도착", category: "도착", description: "수하물 찾고 렌터카 셔틀 승차장으로 바로 이동하기!", meta: ["우산 바로 꺼내기", "수하물 확인"], query: "제주국제공항" },
       { time: "15:40", name: "렌터카 인수", category: "고정 일정", description: "차 사진찍고 와이퍼랑 타이어까지 확인하기!", meta: ["인수 15:40부터", "빗길 운전 준비"], query: "제주공항 렌터카하우스" },
-      { time: "16:15", name: "Jeju Archive Store", category: "기간 한정", description: "제주 익스클루시브 빈티지랑 매일 바뀌는 라인업 구경하기!", meta: ["8월 31일까지", "11:30부터 19:30", "탑동로2길 7"], query: "제주특별자치도 제주시 탑동로2길 7" },
-      { time: "17:15", name: "아베베 베이커리 제주점", category: "선택 간식", description: "대기 짧을 때만 빵 포장하기. 17시 40분되면 바로 숙소로 출발!", meta: ["포장만", "대기 길면 패스"], query: "아베베베이커리 제주" },
-      { time: "17:40", name: "삼달리로 이동", category: "빗길 이동", description: "침수 알림이랑 도로 통제 확인하고 숙소로 이동하기. 중간 관광은 빼기!", meta: ["70분에서 90분", "중간 관광 없음"], query: lodging.query, map: false },
-      { time: "19:10", name: lodging.name, category: "체크인", description: "숙소 체크인하고 젖은 옷이랑 신발부터 말리기!", meta: ["2박 모두 같은 숙소", "삼달하동로32번길 2-1"], query: lodging.query },
-      { time: "19:40", name: "성산 저녁 식사", category: "저녁", description: "늦게까지 하는 숙소 근처 식당에서 따뜻한거 먹기!", meta: ["영업시간 먼저 보기", "침수 구간 우회"], query: "제주 삼달리 늦게까지 맛집", map: false }
+      { time: "16:20", name: "Jeju Archive Store", category: "선택 팝업", description: "비가 많이 안오고 주차가 괜찮을 때만 40분 구경하기!", meta: ["8월 31일까지", "11:30부터 19:30", "늦으면 바로 패스"], query: "제주특별자치도 제주시 탑동로2길 7" },
+      { time: "17:10", name: "삼달리로 이동", category: "빗길 이동", description: "도로 통제 확인하고 숙소로 바로 이동하기. 중간 관광은 넣지 말자!", meta: ["70분에서 90분", "중간 관광 없음"], query: lodging.query, map: false },
+      { time: "18:30", name: lodging.name, category: "체크인", description: "숙소 체크인하고 젖은 옷이랑 신발부터 말리기!", meta: ["2박 모두 같은 숙소", "삼달하동로32번길 2-1"], query: lodging.query },
+      { time: "19:00", name: "성산이나 온평리 저녁", category: "저녁", description: "숙소에서 멀리 가지 말고 주차 편한 식당에서 따뜻한거 먹기!", meta: ["숙소 근처 우선", "당일 영업 확인"], query: "제주 삼달리 맛집", map: false }
     ]
   },
   2: {
-    note: "아침에 비 멈추면 제동목장이랑 사려니숲길 가기. 계속 비오거나 천둥치면 둘 다 빼고 야원이랑 빛의 벙커로 변경!",
+    note: "A 코스는 보슬비일 때 가는 동쪽 실내 코스야. 천둥이 치거나 비가 세지면 두모악과 오른을 빼고 B 코스로 바꾸자!",
     items: [
-      { time: "05:40", name: "강수 레이더 확인", category: "필수 판단", description: "교래에 비랑 낙뢰 없을 때만 새벽 야외 코스 시작하기!", meta: ["일출 약 05:57", "비가 오면 실내에서 대기"], query: "제주 날씨", map: false },
-      { time: "06:20", name: "제동목장 입구", category: "비 온 다음날", description: "비 완전히 멈췄을 때만 입구에서 20분 보기. 목장 차량 길은 절대 막지 않기!", meta: ["교래7길 218", "20분만", "비와 낙뢰면 취소"], query: "제주시 조천읍 교래7길 218" },
-      { time: "07:00", name: "사려니숲길", category: "조건부 숲길", description: "비 잦아들고 낙뢰랑 강풍 없을 때만 남조로 입구에서 40분 걷기!", meta: ["입장료 무료", "남조로 입구", "호우면 취소"], query: "남조로 사려니숲길" },
-      { time: "08:20", name: "조천 아침 식사", category: "식사", description: "따뜻한거 먹고 젖은 옷 정리하기. 야원 오픈 여부도 확인!", meta: ["주차 가능한 식당", "야원 오픈 확인"], query: "제주 조천 아침 맛집", map: false },
-      { time: "11:00", name: "야원", category: "정원 카페", description: "비 세게오면 실내 창가에만 있기. 젖은 돌길은 조심하기!", meta: ["11시 오픈 확인", "번영로 1218", "호우 시 짧게"], query: "제주 카페 야원" },
-      { time: "12:30", name: "조천이나 성산 점심", category: "식사", description: "빛의 벙커 가는길에 주차 편한 곳으로 결정하기!", meta: ["동선 안에서 고르기", "한 시간 안에"], query: "제주 조천 성산 점심 맛집", map: false },
-      { time: "14:00", name: "빛의 벙커", category: "실내 전시", description: "비 세져도 괜찮은 완전 실내 코스. 사진찍고 천천히 보기!", meta: ["온라인 예매 권장", "전시와 휴관 확인", "약 90분"], query: "빛의 벙커 제주" },
-      { time: "16:00", name: "서툰가족", category: "확인되면 가기", description: "정확한 위치랑 영업 여부 확인되면 들르기. 동선 밖이면 바로 빼기!", meta: ["확인 안되면 패스", "동선 밖이면 생략"], query: "서툰가족 제주", map: false, alert: true },
-      { time: "17:40", name: "성산 저녁 식사", category: "저녁", description: "숙소 가까운 성산이나 표선에서 따뜻한 저녁먹기!", meta: ["숙소 근처 우선", "침수 구간 우회"], query: "제주 삼달리 맛집", map: false },
-      { time: "19:00", name: lodging.name, category: "고정 숙소", description: "삼달리 숙소로 돌아와서 젖은 짐 정리하기!", meta: ["2박 모두 같은 숙소", "다음 날 체크아웃 준비"], query: lodging.query }
+      { time: "09:20", name: lodging.name, category: "A 코스 출발", description: "강수 레이더를 보고 비가 보슬보슬 내릴 때 출발하기!", meta: ["두모악부터 시작", "천둥이면 B 코스로"], query: lodging.query },
+      { time: "09:30", name: "김영갑갤러리 두모악", category: "사진 전시", description: "숙소 가까운 갤러리에서 비오는 제주 사진을 천천히 보기!", meta: ["수요일 휴관", "약 45분", "정원은 미끄럼 주의"], query: "김영갑갤러리 두모악" },
+      { time: "10:40", name: "아쿠아플라넷 제주", category: "실내 관람", description: "10시 50분 공연부터 보고 수족관까지 여유롭게 둘러보기!", meta: ["연중무휴", "약 2시간 20분", "공연 시간 재확인"], query: "제주 아쿠아플라넷" },
+      { time: "13:30", name: "성산 고성리 점심", category: "점심", description: "아쿠아플라넷에서 빛의 벙커로 가는 길에 주차 편한 식당 고르기!", meta: ["한 시간 안에", "대기 길면 푸드코트"], query: "제주 성산 고성리 맛집", map: false },
+      { time: "15:00", name: "빛의 벙커", category: "실내 전시", description: "반 고흐와 고갱 미디어아트를 15시 회차로 보기!", meta: ["약 50분", "온라인 예매 권장", "입장 시간 재확인"], query: "빛의 벙커 제주" },
+      { time: "16:10", name: "오른", category: "실내 카페", description: "창가에서 비오는 성산 바다 보면서 한 시간 쉬기!", meta: ["월요일 방문 가능", "당일 영업 확인", "약 70분"], query: "제주 오른" },
+      { time: "18:00", name: "성산이나 온평리 저녁", category: "저녁", description: "숙소 방향으로 내려오면서 주차 편한 식당에서 저녁 먹기!", meta: ["숙소 방향", "당일 영업 확인"], query: "제주 온평리 맛집", map: false },
+      { time: "19:30", name: lodging.name, category: "고정 숙소", description: "삼달리 숙소로 돌아와서 젖은 짐 정리하기!", meta: ["2박 모두 같은 숙소", "다음 날 체크아웃 준비"], query: lodging.query }
     ]
   },
   3: {
-    note: "렌트카 반납은 11시 50분. 서쪽은 빼고 8시 10분에 숙소에서 출발하기!",
+    note: "렌터카 반납은 11시 50분 고정이야. 비가 오면 아침 식사도 대기가 길 경우 바로 빼자!",
     items: [
-      { time: "08:00", name: "체크아웃과 운항 확인", category: "준비", description: "젖은 짐 나눠 담고 도로 통제 확인하기. 8시 10분 출발!", meta: ["비닐봉투 준비", "도로 통제 확인"], query: lodging.query },
+      { time: "08:10", name: "체크아웃과 운항 확인", category: "준비", description: "젖은 짐 나눠 담고 도로 통제 확인하기!", meta: ["비닐봉투 준비", "8시 20분 출발"], query: lodging.query },
+      { time: "08:20", name: "제주공항으로 이동", category: "빗길 이동", description: "중간 관광은 넣지 말고 공항 방향으로 바로 이동하기!", meta: ["70분에서 90분", "도로 통제 확인"], query: "제주국제공항", map: false },
       { time: "09:50", name: "공항 근처 아침 식사", category: "선택 아침", description: "비 많이오면 아침은 빼고 공항으로 바로 이동하기!", meta: ["호우면 바로 패스", "10:40 출발"], query: "제주공항 아침 맛집", map: false },
       { time: "11:00", name: "렌터카 주유", category: "꼭 할 것", description: "빗길 생각해서 조금 일찍 주유하고 계기판 사진 남기기!", meta: ["11:25까지 완료", "영수증 챙기기"], query: "제주공항 주유소" },
       { time: "11:50", name: "렌터카 반납", category: "고정 일정", description: "비가 와도 제주공항 렌터카 반납은 11시 50분 고정이야.", meta: ["시간 변경 금지", "젖은 짐 확인"], query: "제주공항 렌터카하우스" },
@@ -145,6 +143,23 @@ const rainItinerary = {
     ]
   }
 };
+
+const rainItineraryB = {
+  ...rainItineraryA,
+  2: {
+    note: "B 코스는 비가 왕창 오거나 천둥이 칠 때 가는 완전 실내 코스야. 도로 통제가 있으면 빛의 벙커도 빼고 숙소로 돌아가자!",
+    items: [
+      { time: "09:20", name: lodging.name, category: "B 코스 출발", description: "강수 레이더와 도로 통제를 확인하고 천천히 출발하기!", meta: ["호우 코스", "와이퍼와 타이어 확인"], query: lodging.query },
+      { time: "09:40", name: "아쿠아플라넷 제주", category: "완전 실내", description: "주차한 뒤 한 건물에서 공연과 수족관을 여유롭게 보기!", meta: ["연중무휴", "약 2시간 50분", "공연 시간 재확인"], query: "제주 아쿠아플라넷" },
+      { time: "12:40", name: "아쿠아플라넷 푸드코트", category: "실내 점심", description: "비를 다시 맞지 않도록 건물 안에서 바로 점심 먹기!", meta: ["이동 최소화", "대기 짧은 메뉴"], query: "제주 아쿠아플라넷", map: false },
+      { time: "14:10", name: "빛의 벙커", category: "완전 실내", description: "주차장에서 바로 이동해서 반 고흐와 고갱 전시 보기!", meta: ["약 50분", "온라인 예매 권장", "도로 통제면 생략"], query: "빛의 벙커 제주" },
+      { time: "15:30", name: "성산 저녁 포장", category: "선택 포장", description: "숙소에서 먹을 저녁이 필요할 때만 주차 편한 곳에서 포장하기!", meta: ["차에서 주문 확인", "비 세면 배달로 변경"], query: "제주 성산 포장 맛집", map: false },
+      { time: "16:30", name: lodging.name, category: "일찍 복귀", description: "더 돌아다니지 말고 삼달리 숙소에서 쉬기!", meta: ["젖은 짐 정리", "도로 통제 전 복귀"], query: lodging.query }
+    ]
+  }
+};
+
+const rainItineraries = { a: rainItineraryA, b: rainItineraryB };
 
 const rainRecommendations = [
   { region: "airport", name: "Jeju Archive Store", tags: ["8월 기간 한정", "완전 실내"], time: "50분", detour: "탑동로2길 7", description: "7월 31일부터 8월 31일까지 열리는 스투시 공식 아카이브 스토어예요. 제주 익스클루시브 빈티지와 매일 바뀌는 라인업을 볼 수 있고 운영시간은 11시 30분부터 19시 30분이에요.", query: "제주특별자치도 제주시 탑동로2길 7", source: "https://kr.stussy.com/blogs/news/jeju-archive-store" },
@@ -340,6 +355,7 @@ const progressBar = document.querySelector("#progressBar");
 const stateKey = "jeju-trip-completed-v1";
 const modeKey = "jeju-trip-mode-v1";
 const planVersionKey = "jeju-trip-plan-version-v1";
+const rainCourseKey = "jeju-trip-rain-course-v1";
 const dayKey = "jeju-trip-active-day-v1";
 let completed = JSON.parse(localStorage.getItem(stateKey) || "{}");
 const today = new Date();
@@ -348,6 +364,7 @@ const savedDay = Number(localStorage.getItem(dayKey));
 let activeDay = [1, 2, 3].includes(savedDay) ? savedDay : calendarDay;
 let activeMode = localStorage.getItem(modeKey) === "rain" ? "rain" : "sunny";
 let activePlanVersion = localStorage.getItem(planVersionKey) === "a" ? "a" : "b";
+let activeRainCourse = localStorage.getItem(rainCourseKey) === "b" ? "b" : "a";
 let routeAnimationFrame = null;
 let trekMap = null;
 let trekMapLayers = null;
@@ -495,7 +512,10 @@ const exactPlaceCoordinates = {
   "돈사빠": [126.278, 33.282],
   "체크아웃과 짐 정리": [126.31, 33.24],
   "삼달리 숙소": [126.858, 33.373],
+  "김영갑갤러리 두모악": [126.8542, 33.3721],
+  "아쿠아플라넷 제주": [126.9274, 33.4332],
   "빛의 벙커": [126.899, 33.439],
+  "오른": [126.9161, 33.472],
   "카페 모알보알": [126.827, 33.555],
   "픽업커피 행원점": [126.816, 33.558],
   "삼달리로 이동": [126.858, 33.373],
@@ -671,7 +691,7 @@ function renderTimeline() {
   const dayLabels = activePlanVersion === "a"
     ? ["공항에서 삼달리까지", "노랑양말이 처음 찜한 곳", "아침 먹고 공항으로"]
     : isRainPlan()
-      ? ["공항에서 삼달리까지", "조천과 성산 실내 코스", "삼달리에서 공항까지"]
+      ? ["공항에서 삼달리까지", activeRainCourse === "a" ? "삼달리와 성산 A 코스" : "성산 완전 실내 B 코스", "삼달리에서 공항까지"]
       : ["제주시에서 삼달리까지", "동쪽 해안과 삼달리", "삼달리에서 공항까지"];
   timeline.innerHTML = `
     <header class="timeline-day-header">
@@ -731,7 +751,7 @@ function getPlaceCoordinates(item, index = 0) {
 
 function getActivePlan() {
   if (activePlanVersion === "a") return planAItinerary;
-  return activeMode === "rain" ? rainItinerary : itinerary;
+  return activeMode === "rain" ? rainItineraries[activeRainCourse] : itinerary;
 }
 
 function isRainPlan() {
@@ -740,7 +760,8 @@ function isRainPlan() {
 
 function getProgressKey(day, index) {
   if (activePlanVersion === "a") return `plan-a-${day}-${index}`;
-  return activeMode === "rain" ? `rain-${day}-${index}` : `${day}-${index}`;
+  if (activeMode === "rain") return activeRainCourse === "b" && day === 2 ? `rain-b-${day}-${index}` : `rain-${day}-${index}`;
+  return `${day}-${index}`;
 }
 
 function getMappableDay() {
@@ -1079,7 +1100,11 @@ function updateProgress() {
   const done = Object.entries(completed).filter(([key, value]) => {
     if (!value) return false;
     if (activePlanVersion === "a") return key.startsWith("plan-a-");
-    if (activeMode === "rain") return key.startsWith("rain-");
+    if (activeMode === "rain") {
+      return activeRainCourse === "a"
+        ? /^rain-[123]-/.test(key)
+        : key.startsWith("rain-1-") || key.startsWith("rain-3-") || key.startsWith("rain-b-2-");
+    }
     return !key.startsWith("rain-") && !key.startsWith("plan-a-");
   }).length;
   progressText.textContent = `${done} / ${total} 완료`;
@@ -1108,6 +1133,11 @@ function setPlanMode(mode) {
     button.classList.toggle("active", isActive);
     button.setAttribute("aria-pressed", String(isActive));
   });
+  document.querySelectorAll("[data-rain-course]").forEach(button => {
+    const isActive = button.dataset.rainCourse === activeRainCourse;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
   document.querySelector("#heroStatusText").textContent = activePlanVersion === "a" ? "노랑양말 픽" : rainActive ? "비 주륵주륵" : "해 짱짱";
   document.querySelector(".hangyodon-bubble").textContent = activePlanVersion === "a"
     ? "제주 워크숍을 가보자"
@@ -1115,31 +1145,41 @@ function setPlanMode(mode) {
       ? "비오면 실내로 변경!"
       : "제주 워크숍을 가보자!";
   reactHangyodon(rainActive ? "rain" : "pop");
-  document.querySelector("#planTitle").textContent = activePlanVersion === "a" ? "노랑양말이 짠 제주" : rainActive ? "비 주륵주륵 제주" : "비오는 날 픽";
+  document.querySelector("#planTitle").textContent = activePlanVersion === "a"
+    ? "노랑양말이 짠 제주"
+    : rainActive
+      ? `비오는 날 ${activeRainCourse.toUpperCase()} 코스`
+      : "비오는 날 픽";
   document.querySelector("#planDescription").textContent = activePlanVersion === "a"
     ? ""
     : rainActive
-      ? "삼달리 숙소 기준으로 정리한 비오는 날 일정!"
+      ? activeRainCourse === "a"
+        ? "보슬비면 두모악부터 오른까지 여유롭게!"
+        : "비가 왕창 오면 아쿠아플라넷과 빛의 벙커만!"
       : "도착 시간이랑 숙소 기준으로 다시 정리한 일정!";
   document.querySelector("#weatherSummary").textContent = rainActive ? "비 주륵주륵" : "해 짱짱 제주";
   document.querySelector("#weatherDetail").textContent = rainActive ? "비바람 세면 실내로 변경" : "덥고 습하니까 물 꼭 챙기기";
   document.querySelector("#focusSummary").textContent = "삼달리 우리 집";
-  document.querySelector("#focusDetail").textContent = activePlanVersion === "a" ? "시간 안 맞는건 노랗게" : rainActive ? "동쪽 실내 위주" : "동쪽 위주로 이동";
+  document.querySelector("#focusDetail").textContent = activePlanVersion === "a"
+    ? "시간 안 맞는건 노랗게"
+    : rainActive
+      ? activeRainCourse === "a" ? "동쪽 실내 네 곳" : "완전 실내 두 곳"
+      : "동쪽 위주로 이동";
   document.querySelector("#recommendationTitle").textContent = rainActive ? "비와도 갈만함!" : "여기도 갈만함!";
   document.querySelector("#recommendationDescription").textContent = rainActive ? "비 멈추면 야외 추가하고 많이오면 실내로 변경!" : "근처 지나갈 때 하나씩 보기. 걸리는 시간도 적어둠!";
   const dayDescriptions = activePlanVersion === "a"
     ? ["공항에서 삼달리까지", "노랑양말이 처음 찜한 곳", "아침 먹고 공항으로"]
     : rainActive
-      ? ["공항에서 삼달리까지", "조천과 성산 실내 코스", "삼달리에서 공항까지"]
+      ? ["공항에서 삼달리까지", activeRainCourse === "a" ? "삼달리와 성산 A 코스" : "성산 완전 실내 B 코스", "삼달리에서 공항까지"]
       : ["제주시에서 삼달리까지", "동쪽 해안과 삼달리", "삼달리에서 공항까지"];
   document.querySelectorAll(".day-tab > div > small").forEach((element, index) => { element.textContent = dayDescriptions[index]; });
   const activePlan = getActivePlan();
   document.querySelectorAll(".day-tab-count").forEach((element, index) => { element.textContent = `${activePlan[index + 1].items.length}곳`; });
   const quickLinks = document.querySelector("#quickLinks");
   quickLinks.innerHTML = rainActive ? `
-    <div class="side-card-title"><span>비 올 때 급하면 여기</span></div>
-    <a href="${mapUrl("남조로 사려니숲길")}" target="_blank" rel="noreferrer"><div><strong>사려니숲길</strong><small>남조로 입구</small></div><b>↗</b></a>
-    <a href="${mapUrl("제주 카페 야원")}" target="_blank" rel="noreferrer"><div><strong>야원</strong><small>11시 오픈 확인</small></div><b>↗</b></a>
+    <div class="side-card-title"><span>${activeRainCourse.toUpperCase()} 코스 바로 열기</span></div>
+    <a href="${mapUrl(activeRainCourse === "a" ? "김영갑갤러리 두모악" : "제주 아쿠아플라넷")}" target="_blank" rel="noreferrer"><div><strong>${activeRainCourse === "a" ? "김영갑갤러리 두모악" : "아쿠아플라넷 제주"}</strong><small>${activeRainCourse === "a" ? "첫 번째 장소" : "완전 실내"}</small></div><b>↗</b></a>
+    <a href="${mapUrl("빛의 벙커 제주")}" target="_blank" rel="noreferrer"><div><strong>빛의 벙커</strong><small>${activeRainCourse === "a" ? "15시 회차" : "14시 10분 회차"}</small></div><b>↗</b></a>
     <a href="${mapUrl(lodging.query)}" target="_blank" rel="noreferrer"><div><strong>삼달리 숙소</strong><small>2박 고정</small></div><b>↗</b></a>` : `
     <div class="side-card-title"><span>급할 때 여기</span></div>
     <a href="${mapUrl("제주국제공항")}" target="_blank" rel="noreferrer"><div><strong>제주공항</strong><small>지도에서 보기</small></div><b>↗</b></a>
@@ -1162,6 +1202,14 @@ document.querySelectorAll(".plan-mode-button").forEach(button => {
 
 document.querySelectorAll(".map-plan-button").forEach(button => {
   button.addEventListener("click", () => setPlanMode(button.dataset.planMode));
+});
+
+document.querySelectorAll("[data-rain-course]").forEach(button => {
+  button.addEventListener("click", () => {
+    activeRainCourse = button.dataset.rainCourse === "b" ? "b" : "a";
+    localStorage.setItem(rainCourseKey, activeRainCourse);
+    setPlanMode("rain");
+  });
 });
 
 document.querySelectorAll("[data-plan-version]").forEach(button => {
